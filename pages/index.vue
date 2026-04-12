@@ -1,65 +1,109 @@
 <script setup lang="ts">
+import Column from 'primevue/column'
+import DataTable from 'primevue/datatable'
+import Tag from 'primevue/tag'
+import { computed } from 'vue'
+import DirectoryScanner from '~/components/DirectoryScanner.vue'
+import RunList from '~/components/RunList.vue'
+import { getWinRateByCharacter } from '~/data/analytics'
+import { useGameI18n } from '~/locales/lookup'
+import { useRunStore } from '~/stores/runStore'
+
 const { t } = useI18n()
+const store = useRunStore()
+const { characterName } = useGameI18n()
+
+const characterStats = computed(() => {
+  return getWinRateByCharacter(store.runs)
+})
+
+function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
+  if (rate >= 0.5)
+    return 'success'
+  if (rate >= 0.25)
+    return 'warn'
+  return 'danger'
+}
 </script>
 
 <template>
-  <div class="home-page">
-    <header class="header">
-      <h1>{{ t('ui.home.title') }}</h1>
-      <p>{{ t('ui.home.subtitle') }}</p>
-    </header>
-    <main class="content">
-      <div class="placeholder">
-        <p>{{ t('ui.home.placeholder') || 'Page under construction...' }}</p>
-      </div>
-    </main>
+  <div class="home">
+    <h1>{{ t('ui.app.title') }}</h1>
+
+    <DirectoryScanner />
+
+    <div v-if="store.runs.length > 0" class="stats-overview">
+      <span class="stat">{{ t('ui.home.total') }}: {{ store.runs.length }}</span>
+      <span class="stat win">{{ t('ui.home.wins') }}: {{ store.wins }}</span>
+      <span class="stat loss">{{ t('ui.home.losses') }}: {{ store.losses }}</span>
+      <span class="stat">{{ t('ui.home.winRate') }}: {{ (store.wins / store.runs.length * 100).toFixed(1) }}%</span>
+    </div>
+
+    <!-- Character Statistics -->
+    <div v-if="characterStats.length > 0" class="character-stats">
+      <h2>{{ t('ui.home.characterStats') }}</h2>
+      <DataTable :value="characterStats" sort-mode="single" removable-sort>
+        <Column :header="t('ui.home.character')">
+          <template #body="{ data }">
+            {{ characterName(data.character) }}
+          </template>
+        </Column>
+        <Column :header="t('ui.home.wins')" sortable>
+          <template #body="{ data }">
+            <Tag :value="String(data.wins)" severity="success" />
+          </template>
+        </Column>
+        <Column :header="t('ui.home.losses')" sortable>
+          <template #body="{ data }">
+            <Tag :value="String(data.losses)" severity="danger" />
+          </template>
+        </Column>
+        <Column :header="t('ui.home.total')" sortable />
+        <Column :header="t('ui.home.winRate')" sortable>
+          <template #body="{ data }">
+            <Tag :value="`${(data.winRate * 100).toFixed(1)}%`" :severity="getWinRateSeverity(data.winRate)" />
+          </template>
+        </Column>
+      </DataTable>
+    </div>
+
+    <RunList :summaries="store.summaries" />
   </div>
 </template>
 
 <style scoped>
-.home-page {
-  min-height: 100vh;
+.home {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: calc(60px + 2rem) 2rem 2rem;
+  background: rgba(10, 22, 40, 0.88);
+  backdrop-filter: blur(8px);
+  min-height: calc(100vh - 60px);
+}
+h1 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #f9a825;
+}
+.stats-overview {
   display: flex;
-  flex-direction: column;
-  background: #0a1628;
-}
-
-.header {
-  padding: 2rem;
-  text-align: center;
-  background: linear-gradient(135deg, #11223f 0%, #0a1628 100%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  color: #ffc107;
-}
-
-.header p {
-  margin: 0.5rem 0 0;
-  color: #8aa0b8;
-  font-size: 1.1rem;
-}
-
-.content {
-  flex: 1;
-  padding: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.placeholder {
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.04);
+  gap: 1.5rem;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+}
+.stat.win { color: #66bb6a; }
+.stat.loss { color: #ef5350; }
+
+.character-stats {
+  margin: 1.5rem 0;
 }
 
-.placeholder p {
-  color: #8aa0b8;
-  font-size: 1.2rem;
+.character-stats h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #e0e0e0;
 }
 </style>

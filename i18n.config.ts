@@ -1,10 +1,40 @@
+import gameDe from '~/locales/game/de.json'
+import gameEn from '~/locales/game/en.json'
+import gameEs from '~/locales/game/es.json'
+import gameFr from '~/locales/game/fr.json'
+import gameIt from '~/locales/game/it.json'
+import gameJa from '~/locales/game/ja.json'
+import gameKo from '~/locales/game/ko.json'
+import gamePl from '~/locales/game/pl.json'
+import gamePt from '~/locales/game/pt.json'
+import gameRu from '~/locales/game/ru.json'
+import gameTh from '~/locales/game/th.json'
+import gameTr from '~/locales/game/tr.json'
+import gameZh from '~/locales/game/zh.json'
+import uiEn from '~/locales/ui/en.json'
+import uiJa from '~/locales/ui/ja.json'
+import uiKo from '~/locales/ui/ko.json'
+import uiZh from '~/locales/ui/zh.json'
+
+const en = { ui: uiEn, game: gameEn }
+const zh = { ui: uiZh, game: gameZh }
+const ja = { ui: uiJa, game: gameJa }
+const ko = { ui: uiKo, game: gameKo }
+const de = { ui: uiEn, game: gameDe }
+const fr = { ui: uiEn, game: gameFr }
+const es = { ui: uiEn, game: gameEs }
+const it = { ui: uiEn, game: gameIt }
+const pl = { ui: uiEn, game: gamePl }
+const pt = { ui: uiEn, game: gamePt }
+const ru = { ui: uiEn, game: gameRu }
+const tr = { ui: uiEn, game: gameTr }
+const th = { ui: uiEn, game: gameTh }
+
 export default defineI18nConfig(() => ({
   legacy: false,
   locale: 'en',
+  fallbackLocale: 'en',
   messages: {
-    en: { ui: { home: { title: 'STS2 Analyzer', subtitle: 'Analyze your Slay the Spire 2 runs', placeholder: 'Page under construction...' } } },
-    zh: { ui: { home: { title: 'STS2 分析器', subtitle: '分析您的杀戮尖塔 2 跑图记录', placeholder: '页面建设中...' } } },
-    ja: { ui: { home: { title: 'STS2 アナライザー', subtitle: '杀戮の尖塔2のラン履歴を分析', placeholder: 'ページ構築中...' } } },
-    ko: { ui: { home: { title: 'STS2 분석기', subtitle: '杀戮尖塔2 런 기록 분석', placeholder: '페이지 구축 중...' } } }
+    en, zh, ja, ko, de, fr, es, it, pl, pt, ru, tr, th
   }
 }))

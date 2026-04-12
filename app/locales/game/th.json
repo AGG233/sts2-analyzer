@@ -1,0 +1,4762 @@
+{
+  "characters": {
+    "DEFECT": {
+      "title": "นักเวทแปรพักตร์"
+    },
+    "IRONCLAD": {
+      "title": "นักรบเกราะเหล็ก"
+    },
+    "LOCKED": {
+      "title": "???"
+    },
+    "RANDOM_CHARACTER": {
+      "description": "ออกเดินทางแบบสุ่มตัวละคร",
+      "title": "สุ่ม"
+    },
+    "SILENT": {
+      "title": "นักฆ่าแห่งความเงียบ"
+    }
+  },
+  "cards": {
+    "ABRASIVE": {
+      "description": "ได้รับ {DexterityPower:diff()} [gold]ความชำนาญ[/gold]\nได้รับ {ThornsPower:diff()} [gold]หนาม[/gold]",
+      "title": "เสียดสี"
+    },
+    "ACCELERANT": {
+      "description": "[gold]พิษ[/gold]ทำงานเพิ่มอีก {Accelerant:diff()} {Accelerant:plural:ครั้ง|ครั้ง}",
+      "title": "สารเร่งปฏิกิริยา"
+    },
+    "ACCURACY": {
+      "description": "[gold]มีดสั้น[/gold]สร้างความเสียหายเพิ่มขึ้น {AccuracyPower:diff()}",
+      "title": "ความแม่นยำ"
+    },
+    "ACROBATICS": {
+      "description": "จั่ว {Cards:diff()} การ์ด\nทิ้ง 1 การ์ด",
+      "title": "การแสดงผาดโผน"
+    },
+    "ADAPTIVE_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nทำสำเนาของการ์ดนี้แบบ 0{energyPrefix:energyIcons(1)} เพิ่มใน[gold]กองทิ้ง[/gold]",
+      "title": "จู่โจมประยุกต์"
+    },
+    "ADRENALINE": {
+      "description": "ได้รับ {Energy:energyIcons()}\nจั่ว 2 การ์ด",
+      "title": "อะดรีนาลีน"
+    },
+    "AFTERIMAGE": {
+      "description": "ทุกครั้งที่เล่นการ์ด ได้รับ {AfterimagePower:diff()} [gold]บล็อก[/gold]",
+      "title": "ภาพติดตาชั่วขณะ"
+    },
+    "AFTERLIFE": {
+      "description": "[gold]อัญเชิญ[/gold] {Summon:diff()}",
+      "title": "ชีวิตหลังความตาย"
+    },
+    "AGGRESSION": {
+      "description": "ตอนเริ่มต้นเทิร์น สุ่มนำการ์ดโจมตี 1 ใบจาก[gold]กองทิ้ง[/gold]ขึ้น[gold]มือ[/gold]และ[gold]พัฒนา[/gold]มัน",
+      "title": "ความก้าวร้าว"
+    },
+    "ALCHEMIZE": {
+      "description": "จัดหา 1 ขวดยาแบบสุ่ม",
+      "title": "ปรุงยา"
+    },
+    "ALIGNMENT": {
+      "description": "ได้รับ {Energy:energyIcons()}",
+      "title": "จัดเรียงตำแหน่ง"
+    },
+    "ALL_FOR_ONE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nนำการ์ด 0{energyPrefix:energyIcons(1)} ทั้งหมดจาก[gold]กองทิ้ง[/gold]ขึ้น[gold]มือ[/gold]",
+      "title": "รวมเป็นหนึ่ง"
+    },
+    "ANGER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่มสำเนาของการ์ดนี้ 1 ใบใส่[gold]กองทิ้ง[/gold]",
+      "title": "ความโกรธ"
+    },
+    "ANOINTED": {
+      "description": "นำการ์ด[gold]หายาก[/gold]ทั้งหมดจาก[gold]กองจั่ว[/gold]ขึ้น[gold]มือ[/gold]",
+      "title": "พิธีเจิม"
+    },
+    "ANTICIPATE": {
+      "description": "ได้รับ {DexterityPower:diff()} [gold]ความชำนาญ[/gold]ในเทิร์นนี้",
+      "title": "ประมาณการณ์"
+    },
+    "APOTHEOSIS": {
+      "description": "[gold]พัฒนา[/gold]การ์ดทั้งหมด",
+      "title": "สภาวะเทียมเทพ"
+    },
+    "APPARITION": {
+      "description": "ได้รับ {IntangiblePower:diff()} [gold]ไร้ตัวตน[/gold]",
+      "title": "กายวิญญาณ"
+    },
+    "ARMAMENTS": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\n[gold]พัฒนา[/gold] {IfUpgraded:show:การ์ดทั้งหมด|1 การ์ด}ใน[gold]มือ[/gold]",
+      "title": "ยุทโธปกรณ์"
+    },
+    "ARSENAL": {
+      "description": "ทุกครั้งที่เล่นการ์ดไร้สี ได้รับ {ArsenalPower:diff()} [gold]ความแข็งแรง[/gold]",
+      "title": "คลังสรรพาวุธ"
+    },
+    "ASCENDERS_BANE": {
+      "title": "คำสาปผู้บรรลุ"
+    },
+    "ASHEN_STRIKE": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ต่อการ์ดใน[gold]กองสลาย[/gold]",
+      "title": "จู่โจมเถ้าถ่าน"
+    },
+    "ASSASSINATE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]",
+      "title": "ลอบสังหาร"
+    },
+    "ASTRAL_PULSE": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "คลื่นดวงดาว"
+    },
+    "AUTOMATION": {
+      "description": "การจั่วการ์ดทุก 10 ใบ ได้รับ {Energy:energyIcons()}",
+      "title": "กลไกอัตโนมัติ"
+    },
+    "BACKFLIP": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nจั่ว 2 การ์ด",
+      "title": "ตีลังกากลับหลัง"
+    },
+    "BACKSTAB": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "ลอบแทงหลัง"
+    },
+    "BAD_LUCK": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ในมือ เสีย {HpLoss:diff()} HP",
+      "title": "โชคร้าย"
+    },
+    "BALL_LIGHTNING": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]ปลุกเสก[/gold] 1 [gold]สายฟ้า[/gold]",
+      "title": "บอลสายฟ้า"
+    },
+    "BANSHEES_CRY": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nค่าร่ายลดลง {Energy:energyIcons()} ต่อการ์ด[gold]กึ่งสลาย[/gold]ที่เล่นไปในการต่อสู้นี้",
+      "title": "เสียงร้องของแบนชี"
+    },
+    "BARRAGE": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ต่อลูกแก้วที่ถูก[gold]ปลุกเสก[/gold] {InCombat:\n(จำนวน {CalculatedHits:diff()} {CalculatedHits:plural:ครั้ง|ครั้ง})|}",
+      "title": "ระดมยิง"
+    },
+    "BARRICADE": {
+      "description": "[gold]บล็อก[/gold]จะไม่หายไปตอนเริ่มต้นเทิร์น",
+      "title": "ตรึงกำลัง"
+    },
+    "BASH": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]",
+      "title": "ทุบตี"
+    },
+    "BATTLE_TRANCE": {
+      "description": "จั่ว {Cards:diff()} การ์ด\nในเทิร์นนี้ คุณจะจั่วการ์ดไม่ได้อีก",
+      "title": "หลงใหลการศึก"
+    },
+    "BEACON_OF_HOPE": {
+      "description": "ทุกครั้งที่คุณได้รับ[gold]บล็อก[/gold]ในเทิร์นของคุณ ผู้เล่นคนอื่นจะได้รับ[gold]บล็อก[/gold]ครึ่งหนึ่งของจำนวนนั้น",
+      "title": "ดวงประทีปแห่งความหวัง"
+    },
+    "BEAM_CELL": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]",
+      "title": "ลำแสงเปิดแผล"
+    },
+    "BEAT_DOWN": {
+      "description": "เล่นการ์ดโจมตี {Cards:diff()} ใบแบบสุ่มจาก[gold]กองทิ้ง[/gold]",
+      "title": "รุมกระทืบ"
+    },
+    "BEAT_INTO_SHAPE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]หลอมสร้าง[/gold] {CalculatedForge:diff()}\n[gold]หลอมสร้าง[/gold]อีก {CalculationExtra:diff()} ต่อการโจมตีศัตรูในเทิร์นนี้ (ครั้งเว้นครั้ง)",
+      "title": "ตีขึ้นรูป"
+    },
+    "BECKON": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] เสีย {HpLoss} HP",
+      "title": "เรียกหา"
+    },
+    "BEGONE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเลือก 1 การ์ดใน[gold]มือ[/gold]เพื่อ[gold]แปรสภาพ[/gold]เป็น [gold]{IfUpgraded:show:อุกกาบาตลูกน้อง+|อุกกาบาตลูกน้อง}[/gold]",
+      "title": "หายไปซะ!"
+    },
+    "BELIEVE_IN_YOU": {
+      "description": "ผู้เล่นคนอื่น 1 คนได้รับ {Energy:energyIcons()}",
+      "title": "เชื่อในตัวคุณ"
+    },
+    "BIASED_COGNITION": {
+      "description": "ได้รับ {FocusPower:diff()} [gold]โฟกัส[/gold]\nตอนเริ่มต้นเทิร์น เสีย {BiasedCognitionPower:diff()} [gold]โฟกัส[/gold]",
+      "title": "อคติทางการรู้คิด"
+    },
+    "BIG_BANG": {
+      "description": "จั่ว {Cards:diff()} {Cards:plural:การ์ด|การ์ด}\nได้รับ {Energy:energyIcons()}\nได้รับ {Stars:starIcons()}\n[gold]หลอมสร้าง[/gold] {Forge:diff()}",
+      "title": "บิ๊กแบง"
+    },
+    "BLACK_HOLE": {
+      "description": "ทุกครั้งที่คุณจ่ายหรือได้รับ {singleStarIcon} สร้างความเสียหาย {BlackHolePower:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "หลุมดำ"
+    },
+    "BLADE_DANCE": {
+      "description": "เพิ่ม {Cards:diff()} [gold]{Cards:plural:มีดสั้น|มีดสั้น}[/gold]ใส่[gold]มือ[/gold]",
+      "title": "ระบำมีด"
+    },
+    "BLADE_OF_INK": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตีในเทิร์นนี้ ได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้",
+      "title": "มีดหมึก"
+    },
+    "BLIGHT_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง[gold]อายุขัย[/gold]ตามจำนวนความเสียหายที่ทำได้",
+      "title": "จู่โจมเหี่ยวเฉา"
+    },
+    "BLOODLETTING": {
+      "description": "เสีย {HpLoss:diff()} HP\nได้รับ {Energy:energyIcons()}",
+      "title": "กรีดเลือด"
+    },
+    "BLOOD_WALL": {
+      "description": "เสีย {HpLoss:diff()} HP\nได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "กำแพงโลหิต"
+    },
+    "BLUDGEON": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "กระบองยักษ์"
+    },
+    "BLUR": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nสามารถสะสม[gold]บล็อก[/gold]ไปยังเทิร์นต่อไปได้",
+      "title": "ภาพมัว"
+    },
+    "BODYGUARD": {
+      "description": "[gold]อัญเชิญ[/gold] {Summon:diff()}",
+      "title": "องค์รักษ์"
+    },
+    "BODY_SLAM": {
+      "description": "สร้างความเสียหายตาม[gold]บล็อก[/gold]ที่คุณมี{InCombat:\n(สร้างความเสียหาย {CalculatedDamage:diff()})|}",
+      "title": "พุ่งเข้าชน"
+    },
+    "BOLAS": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nตอนเริ่มต้นเทิร์น นำการ์ดนี้กลับขึ้น[gold]มือ[/gold]",
+      "title": "โบลา"
+    },
+    "BOMBARDMENT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nตอนเริ่มต้นเทิร์น เล่นจาก[gold]กองสลาย[/gold]",
+      "title": "ระเบิดทำลายล้าง"
+    },
+    "BONE_SHARDS": {
+      "description": "ถ้า[gold]Osty[/gold]มีชีวิตอยู่ เขาจะสร้างความเสียหาย {OstyDamage:diff()} ใส่ศัตรูทั้งหมด และคุณได้รับ {Block:diff()} [gold]บล็อก[/gold]\nจากนั้น[gold]Osty[/gold]จะตาย",
+      "title": "เศษกระดูก"
+    },
+    "BOOST_AWAY": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเพิ่ม[gold]ความมึนงง[/gold] 1 ใบเข้า[gold]กองทิ้ง[/gold]",
+      "title": "พุ่งหนี"
+    },
+    "BOOT_SEQUENCE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ลำดับเดินเครื่อง"
+    },
+    "BORROWED_TIME": {
+      "description": "สร้าง {DoomPower:diff()} [gold]อายุขัย[/gold]ใส่ตัวคุณ\nได้รับ {Energy:energyIcons()}",
+      "title": "กู้ยืมเวลา"
+    },
+    "BOUNCING_FLASK": {
+      "description": "สร้าง {PoisonPower:diff()} [gold]พิษ[/gold] ใส่ศัตรู 1 ตัวแบบสุ่ม จำนวน {Repeat:diff()} ครั้ง",
+      "title": "กระติกเด้งดึ๋ง"
+    },
+    "BRAND": {
+      "description": "เสีย {HpLoss:diff()} HP\n[gold]สลาย[/gold]การ์ด 1 ใบ\nได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]"
+    },
+    "BREAK": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "BREAKTHROUGH": {
+      "description": "เสีย {HpLoss:diff()} HP\nสร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "ฝ่าวงล้อม"
+    },
+    "BRIGHTEST_FLAME": {
+      "description": "ได้รับ {Energy:energyIcons()}\nจั่วการ์ด {Cards:diff()} ใบ\nเสีย {MaxHp:diff()} HP สูงสุด",
+      "title": "เพลิงที่โชติช่วงที่สุด"
+    },
+    "BUBBLE_BUBBLE": {
+      "description": "ถ้าศัตรูมี[gold]พิษ[/gold] สร้าง {PoisonPower:diff()} [gold]พิษ[/gold]",
+      "title": "บุ๋งบุ๋ง"
+    },
+    "BUFFER": {
+      "description": "ป้องกันการเสีย HP ของคุณในอีก {BufferPower:diff()} ครั้ง",
+      "title": "ม่านกันชน"
+    },
+    "BULK_UP": {
+      "description": "เสียช่องเก็บลูกแก้ว {OrbSlots:diff()} ช่อง\nได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]\nได้รับ {DexterityPower:diff()} [gold]ความชำนาญ[/gold]"
+    },
+    "BULLET_TIME": {
+      "description": "ในเทิร์นนี้คุณจะจั่วการ์ดไม่ได้อีก การ์ดใน[gold]มือ[/gold]ทั้งหมดเล่นฟรีจนจบเทิร์น",
+      "title": "วินาทีหลบกระสุน"
+    },
+    "BULLY": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวน[gold]จุดอ่อน[/gold]บนตัวศัตรู"
+    },
+    "BULWARK": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\n[gold]หลอมสร้าง[/gold] {Forge:diff()}"
+    },
+    "BUNDLE_OF_JOY": {
+      "description": "เพิ่มการ์ดไม่มีสี {Cards:diff()} ใบแบบสุ่มใส่[gold]มือ[/gold]"
+    },
+    "BURN": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] ได้รับความเสียหาย {Damage:diff()}",
+      "title": "เผาไหม้"
+    },
+    "BURNING_PACT": {
+      "description": "[gold]สลาย[/gold]การ์ด 1 ใบ\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "สัญญาเพลิง"
+    },
+    "BURST": {
+      "title": "ระเบิดพลัง"
+    },
+    "BURY": {
+      "description": "สร้างความเสียหาย {Damage:diff()}"
+    },
+    "BYRDONIS_EGG": {
+      "description": "สามารถนำไปฟักได้ที่[gold]จุดพัก[/gold]"
+    },
+    "BYRD_SWOOP": {
+      "description": "สร้างความเสียหาย {Damage:diff()}"
+    },
+    "CALAMITY": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตี เพิ่มการ์ดโจมตี 1 ใบแบบสุ่มใส่[gold]มือ[/gold]"
+    },
+    "CALCIFY": {
+      "description": "การโจมตีของ[gold]Osty[/gold]สร้างความเสียหายเพิ่ม {CalcifyPower:diff()}"
+    },
+    "CALCULATED_GAMBLE": {
+      "description": "ทิ้งการ์ดทั้ง[gold]มือ[/gold]\nแล้วจั่วการ์ดตามจำนวนนั้น",
+      "title": "เดิมพันตามสูตร"
+    },
+    "CALL_OF_THE_VOID": {
+      "description": "ตอนเริ่มต้นเทิร์น เพิ่มการ์ด {Cards:diff()} ใบแบบสุ่มใส่[gold]มือ[/gold] และมันมี[gold]กึ่งสลาย[/gold]"
+    },
+    "CALTROPS": {
+      "description": "ทุกครั้งที่คุณถูกโจมตี สร้างความเสียหาย {ThornsPower:diff()} กลับไป",
+      "title": "ขวากหนาม"
+    },
+    "CAPACITOR": {
+      "description": "ได้รับช่องเก็บลูกแก้ว {Repeat:diff()} ช่อง",
+      "title": "ตัวเก็บประจุ"
+    },
+    "CAPTURE_SPIRIT": {
+      "description": "ศัตรูเสีย {Damage:diff()} HP\nเพิ่ม[gold]วิญญาณ[/gold] {Cards:diff()} ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "CASCADE": {
+      "description": "เล่นการ์ดใบบนสุด X{IfUpgraded:show:+1} ใบของ[gold]กองจั่ว[/gold]"
+    },
+    "CATASTROPHE": {
+      "description": "เล่นการ์ด {Cards:diff()} ใบแบบสุ่มจาก[gold]กองจั่ว[/gold]"
+    },
+    "CELESTIAL_MIGHT": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน {Repeat:diff()} ครั้ง"
+    },
+    "CHAOS": {
+      "description": "[gold]ปลุกเสก[/gold]ลูกแก้ว {Repeat:diff()} ลูกแบบสุ่ม",
+      "title": "ความวุ่นวาย"
+    },
+    "CHARGE": {
+      "description": "เลือกการ์ด {Cards:diff()} ใบใน[gold]กองจั่ว[/gold]เพื่อ[gold]แปรสภาพ[/gold]เป็น[gold]{Cards:plural:{IfUpgraded:show:ลูกน้องจู่โจม+|ลูกน้องจู่โจม}[/gold]|{IfUpgraded:show:ลูกน้องจู่โจม+|ลูกน้องจู่โจม}[/gold]}",
+      "title": "ลุย!!"
+    },
+    "CHARGE_BATTERY": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nและเทิร์นถัดไป ได้รับ {Energy:energyIcons()}",
+      "title": "สะสมพลังงาน"
+    },
+    "CHILD_OF_THE_STARS": {
+      "description": "ทุกครั้งที่คุณจ่าย {singleStarIcon} ได้รับ {BlockForStars:diff()} [gold]บล็อก[/gold]ตามจำนวน {singleStarIcon} ที่จ่ายไป"
+    },
+    "CHILL": {
+      "description": "[gold]ปลุกเสก[/gold] 1 [gold]น้ำแข็ง[/gold] ตามจำนวนศัตรู",
+      "title": "เยือกแข็ง"
+    },
+    "CHRYSALIS": {
+      "description": "สับการ์ดทักษะ {Cards:diff()} ใบแบบสุ่มเข้า[gold]กองจั่ว[/gold] มันมีค่าร่าย 0 {energyPrefix:energyIcons(1)} ในการต่อสู้นี้",
+      "title": "ดักแด้"
+    },
+    "CINDER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]สลาย[/gold]การ์ดใบบนสุดของ[gold]กองจั่ว[/gold]"
+    },
+    "CLASH": {
+      "description": "จะใช้ได้ก็ต่อเมื่อทั้ง[gold]มือ[/gold]เป็นการ์ดโจมตี\nสร้างความเสียหาย {Damage:diff()}",
+      "title": "ประดาบ"
+    },
+    "CLAW": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่มพลังโจมตีให้การ์ดข่วนทั้งหมด {Increase:diff()} ในการต่อสู้นี้",
+      "title": "ข่วน"
+    },
+    "CLEANSE": {
+      "description": "[gold]อัญเชิญ[/gold] {Summon:diff()}\n[gold]สลาย[/gold]การ์ด 1 ใบใน[gold]กองจั่ว[/gold]",
+      "title": "ชำระล้าง"
+    },
+    "CLOAK_AND_DAGGER": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเพิ่ม[gold]มีดสั้น[/gold] {Cards:diff()} ใบใส่[gold]มือ[/gold]",
+      "title": "ผ้าคลุมซ่อนมีด"
+    },
+    "CLOAK_OF_STARS": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]"
+    },
+    "CLUMSY": {
+      "title": "ความซุ่มซ่าม"
+    },
+    "COLD_SNAP": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]ปลุกเสก[/gold] 1 [gold]น้ำแข็ง[/gold]",
+      "title": "ความเย็นเข้าแทรก"
+    },
+    "COLLISION_COURSE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่ม[gold]Debris[/gold] 1 ใบใส่[gold]มือ[/gold]"
+    },
+    "COLOSSUS": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nในเทิร์นนี้ คุณจะได้รับความเสียหายน้อยลง 50% จากศัตรูที่มี[gold]จุดอ่อน[/gold]"
+    },
+    "COMET": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "COMPACT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\n[gold]แปรสภาพ[/gold]การ์ดสถานะทั้งหมดใน[gold]มือ[/gold]เป็น[gold]{IfUpgraded:show:เชื้อเพลิง+|เชื้อเพลิง}[/gold]"
+    },
+    "COMPILE_DRIVER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ด 1 ใบตามจำนวนลูกแก้วที่ไม่ซ้ำธาตุ{InCombat:\n(จั่วการ์ด {CalculatedCards:diff()} ใบ)|}",
+      "title": "ประมวลพลัง"
+    },
+    "CONFLAGRATION": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()} ใส่ศัตรูทั้งหมด\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนการ์ดโจมตีใบอื่นที่คุณเล่นในเทิร์นนี้"
+    },
+    "CONQUEROR": {
+      "description": "[gold]หลอมสร้าง[/gold] {Forge:diff()}\nและในเทิร์นนี้ [gold]พระแสงอาญาสิทธิ์[/gold]สร้างความเสียหายใส่ศัตรูเป็น 2 เท่า"
+    },
+    "CONSUMING_SHADOW": {
+      "description": "[gold]ปลุกเสก[/gold] {Repeat:diff()} [gold]ความมืด[/gold]\nตอนจบเทิร์น [gold]ปล่อยพลัง[/gold]ลูกแก้วลูกซ้ายสุด"
+    },
+    "CONVERGENCE": {
+      "description": "[gold]คงสภาพ[/gold]ทั้ง[gold]มือ[/gold]ในเทิร์นนี้\nเทิร์นถัดไป\nได้รับ {Energy:energyIcons()} และ {Stars:starIcons()}"
+    },
+    "COOLANT": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {CoolantPower:diff()} [gold]บล็อก[/gold]ตามจำนวนลูกแก้วไม่ซ้ำธาตุที่คุณมี"
+    },
+    "COOLHEADED": {
+      "description": "[gold]ปลุกเสก[/gold] 1 [gold]น้ำแข็ง[/gold]\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "ใจเย็น"
+    },
+    "COORDINATE": {
+      "description": "ผู้เล่นคนอื่น 1 คนได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "CORROSIVE_WAVE": {
+      "description": "ทุกครั้งที่คุณจั่วการ์ดในเทิร์นนี้ สร้าง {CorrosiveWave:diff()} [gold]พิษ[/gold]ใส่ศัตรูทั้งหมด"
+    },
+    "CORRUPTION": {
+      "description": "การ์ดทักษะทั้งหมดมีค่าร่าย 0 {energyPrefix:energyIcons(1)}\nทุกครั้งที่เล่นการ์ดทักษะ [gold]สลาย[/gold]มัน",
+      "title": "เปื้อนมลทิน"
+    },
+    "COSMIC_INDIFFERENCE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nนำการ์ด 1 ใบจาก[gold]กองทิ้ง[/gold]ไปวางไว้บนสุดของ[gold]กองจั่ว[/gold]"
+    },
+    "COUNTDOWN": {
+      "description": "ตอนเริ่มต้นเทิร์น สร้าง {CountdownPower:diff()} [gold]อายุขัย[/gold]ใส่ศัตรู 1 ตัวแบบสุ่ม",
+      "title": "นับถอยหลัง"
+    },
+    "CRASH_LANDING": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nเติมทั้ง[gold]มือ[/gold]ด้วย[gold]Debris[/gold]"
+    },
+    "CREATIVE_AI": {
+      "description": "ตอนเริ่มต้นเทิร์น เพิ่มการ์ดพลัง 1 ใบแบบสุ่มใส่[gold]มือ[/gold]",
+      "title": "ปัญญาประดิษฐ์สร้างสรรค์"
+    },
+    "CRESCENT_SPEAR": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนการ์ดทั้งหมดของคุณที่มีค่าร่าย {singleStarIcon}"
+    },
+    "CRIMSON_MANTLE": {
+      "description": "ตอนเริ่มต้นเทิร์น เสีย 1 HP และได้รับ {CrimsonMantlePower:diff()} [gold]บล็อก[/gold]"
+    },
+    "CRUELTY": {
+      "description": "ศัตรูที่มี[gold]จุดอ่อน[/gold]ได้รับความเสียหายเพิ่ม {CrueltyPower:diff()}%"
+    },
+    "CRUSH_UNDER": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด ศัตรูทั้งหมดเสีย {StrengthLoss:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "CURSE_OF_THE_BELL": {
+      "title": "คำสาปจากกระดิ่ง"
+    },
+    "DAGGER_SPRAY": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด จำนวน 2 ครั้ง",
+      "title": "ฝนมีดบิน"
+    },
+    "DAGGER_THROW": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ด 1 ใบ\nทิ้งการ์ด 1 ใบ",
+      "title": "ขว้างมีด"
+    },
+    "DANSE_MACABRE": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดค่าร่าย {Energy:energyIcons()} ขึ้นไป ได้รับ {DanseMacabrePower:diff()} [gold]บล็อก[/gold]",
+      "title": "ระบำมรณะ"
+    },
+    "DARKNESS": {
+      "description": "[gold]ปลุกเสก[/gold] 1 [gold]ความมืด[/gold]\nผลต่อเนื่องของลูกแก้ว[gold]ความมืด[/gold]ทั้งหมดทำงาน{IfUpgraded:show: 2 ครั้ง|}",
+      "title": "ความมืดมิด"
+    },
+    "DARK_EMBRACE": {
+      "description": "ทุกครั้งที่การ์ด[gold]สลาย[/gold]\nจั่วการ์ด 1 ใบ",
+      "title": "ความมืดโอบกอด"
+    },
+    "DARK_SHACKLES": {
+      "description": "ศัตรูเสีย {StrengthLoss:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้",
+      "title": "พันธนาการทมิฬ"
+    },
+    "DASH": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nสร้างความเสียหาย {Damage:diff()}",
+      "title": "พุ่งเข้าใส่"
+    },
+    "DAZED": {
+      "title": "ความมึนงง"
+    },
+    "DEADLY_POISON": {
+      "description": "สร้าง {PoisonPower:diff()} [gold]พิษ[/gold]",
+      "title": "พิษร้ายแรง"
+    },
+    "DEATHBRINGER": {
+      "description": "สร้าง {DoomPower:diff()} [gold]อายุขัย[/gold]และ {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]ใส่ศัตรูทั้งหมด"
+    },
+    "DEATHS_DOOR": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nถ้าคุณเคยสร้าง[gold]อายุขัย[/gold]ในเทิร์นนี้ ได้รับ[gold]บล็อก[/gold]เพิ่ม {Repeat:diff()} ครั้ง",
+      "title": "ประตูมรณะ"
+    },
+    "DEATH_MARCH": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนการ์ดที่คุณจั่วในเทิร์นนี้"
+    },
+    "DEBILITATE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]จุดอ่อน[/gold]และ[gold]ความอ่อนแอ[/gold]มีผลกับศัตรูเป็น 2 เท่า เป็นเวลา {DebilitatePower:diff()} เทิร์น"
+    },
+    "DEBRIS": {
+      "title": "เศษซาก"
+    },
+    "DEBT": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] เสีย {Gold:diff()} [gold]ทอง[/gold]",
+      "title": "หนี้สิน"
+    },
+    "DECAY": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] ได้รับความเสียหาย {Damage:diff()}",
+      "title": "ความเสื่อมสลาย"
+    },
+    "DECISIONS_DECISIONS": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ\nเลือกการ์ดทักษะ 1 ใบใน[gold]มือ[/gold]แล้วเล่น {Repeat:diff()} ครั้ง",
+      "title": "คิดแล้วคิดอีก"
+    },
+    "DEFEND_DEFECT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ป้องกัน"
+    },
+    "DEFEND_IRONCLAD": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ป้องกัน"
+    },
+    "DEFEND_NECROBINDER": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ป้องกัน"
+    },
+    "DEFEND_REGENT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ป้องกัน"
+    },
+    "DEFEND_SILENT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ป้องกัน"
+    },
+    "DEFILE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}"
+    },
+    "DEFLECT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ปัดป้อง"
+    },
+    "DEFRAGMENT": {
+      "description": "ได้รับ {FocusPower:diff()} [gold]โฟกัส[/gold]",
+      "title": "จัดเรียงข้อมูล"
+    },
+    "DEFY": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]",
+      "title": "ขัดขืน"
+    },
+    "DELAY": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nและเทิร์นถัดไป\nได้รับ {Energy:energyIcons()}",
+      "title": "หน่วงเวลา"
+    },
+    "DEMESNE": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {Energy:energyIcons()} และจั่วการ์ดเพิ่ม {Cards:diff()} ใบ"
+    },
+    "DEMON_FORM": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]",
+      "title": "ร่างปีศาจ"
+    },
+    "DEPRECATED_CARD": {
+      "description": "การ์ดนี้ถูกนำออกจากเกมแล้ว",
+      "title": "การ์ดที่ถูกนำออกจากเกม"
+    },
+    "DESPAIR": {
+      "description": "ทุก 1 [gold]อายุขัย[/gold]ที่คุณสร้าง ได้รับ 1 [gold]บล็อก[/gold]"
+    },
+    "DEVASTATE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}"
+    },
+    "DEVOUR_LIFE": {
+      "description": "ทุกครั้งที่คุณเล่น[gold]วิญญาณ[/gold] [gold]อัญเชิญ[/gold] {DevourLifePower:diff()}",
+      "title": "กลืนกินชีวิต"
+    },
+    "DIRGE": {
+      "description": "[gold]อัญเชิญ[/gold] {Summon:diff()} จำนวน X ครั้ง\nเพิ่ม[gold]{IfUpgraded:show:วิญญาณ+|วิญญาณ}[/gold] X  ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "DISCOVERY": {
+      "description": "เลือกการ์ด 1 จาก 3 ใบที่ถูกสุ่มมาเพื่อเพิ่มใส่[gold]มือ[/gold] มันมีค่าร่าย 0 {energyPrefix:energyIcons(1)} ในเทิร์นนี้",
+      "title": "การค้นพบ"
+    },
+    "DISINTEGRATION": {
+      "description": "ตอนจบเทิร์น ได้รับความเสียหาย {DisintegrationPower:diff()}"
+    },
+    "DISMANTLE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้าศัตรูมี[gold]จุดอ่อน[/gold] โจมตี 2 ครั้ง"
+    },
+    "DISTRACTION": {
+      "description": "เพิ่มการ์ดทักษะ 1 ใบแบบสุ่มใส่[gold]มือ[/gold] มันเล่นฟรีในเทิร์นนี้",
+      "title": "เบนความสนใจ"
+    },
+    "DODGE_AND_ROLL": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเทิร์นถัดไปได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "กลิ้งหลบ"
+    },
+    "DOMINATE": {
+      "description": "ได้รับ {StrengthPerVulnerable:diff()} [gold]ความแข็งแรง[/gold]ตามจำนวน[gold]จุดอ่อน[/gold]บนตัวศัตรู"
+    },
+    "DOUBLE_ENERGY": {
+      "description": "พลังงานเพิ่มเป็น 2 เท่า",
+      "title": "พลังงานสองเท่า"
+    },
+    "DOUBT": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใบ[gold]มือ[/gold] ได้รับ {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]",
+      "title": "ความเคลือบแคลง"
+    },
+    "DRAIN_POWER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]พัฒนา[/gold]การ์ด {Cards:diff()} ใบแบบสุ่มใน[gold]กองทิ้ง[/gold]"
+    },
+    "DRAMATIC_ENTRANCE": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "เปิดตัวอลังการ"
+    },
+    "DREDGE": {
+      "description": "นำการ์ด {Cards:diff()} {Cards:plural:card|cards} ใบจาก[gold]กองทิ้ง[/gold]ขึ้น[gold]มือ[/gold]"
+    },
+    "DRUM_OF_BATTLE": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ\nตอนเริ่มต้นเทิร์น [gold]สลาย[/gold]การ์ดใบบนสุดของ[gold]กองจั่ว[/gold]",
+      "title": "ลั่นกลองรบ"
+    },
+    "DUALCAST": {
+      "description": "[gold]ปล่อยพลัง[/gold] ลูกแก้วลูกขวาสุด 2 ครั้ง",
+      "title": "ร่ายซ้ำ"
+    },
+    "DUAL_WIELD": {
+      "description": "เลือกการ์ดโจมตีหรือการ์ดพลัง เพิ่มสำเนาการ์ดนั้น {IfUpgraded:show:{Cards} ใบ|1 ใบ}ใส่[gold]มือ[/gold]",
+      "title": "จับดาบสองมือ"
+    },
+    "DYING_STAR": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด ศัตรูทั้งหมดเสีย {StrengthLoss:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "ECHOING_SLASH": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nทำงานซ้ำตามจำนวนศัตรูที่ฆ่าได้",
+      "title": "เฉือนสะท้อน"
+    },
+    "ECHO_FORM": {
+      "description": "การ์ดใบแรกที่เล่นในแต่ละเทิร์นจะถูกเล่นเพิ่มอีกครั้ง",
+      "title": "ร่างกังวาน"
+    },
+    "EIDOLON": {
+      "description": "[gold]สลาย[/gold]ทั้ง[gold]มือ[/gold]\nถ้ามีการ์ด[gold]สลาย[/gold]ด้วยวิธีนี้ 9 ใบ ได้รับ 1 [gold]ไร้ตัวตน[/gold]"
+    },
+    "END_OF_DAYS": {
+      "description": "สร้าง {DoomPower:diff()} [gold]อายุขัย[/gold]ใส่ศัตรูทั้งหมด\nฆ่าศัตรูทั้งหมดที่เหลือ HP ไม่เกิน[gold]อายุขัย[/gold]"
+    },
+    "ENERGY_SURGE": {
+      "description": "ผู้เล่นทั้งหมดได้รับ {Energy:energyIcons()}"
+    },
+    "ENFEEBLING_TOUCH": {
+      "description": "ศัตรูเสีย {StrengthLoss:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "ENLIGHTENMENT": {
+      "description": "ลดค่าร่ายการ์ดใน[gold]มือ[/gold]ทั้งหมดเหลือ 1 ใน{IfUpgraded:show:การต่อสู้|เทิร์น}นี้",
+      "title": "รู้แจ้งเห็นจริง"
+    },
+    "ENTHRALLED": {
+      "description": "ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] ต้องเล่นก่อนการ์ดอื่น"
+    },
+    "ENTRENCH": {
+      "description": "[gold]บล็อก[/gold]ของคุณกลายเป็น 2 เท่า",
+      "title": "ขุดสนามเพลาะ"
+    },
+    "ENTROPY": {
+      "description": "ตอนเริ่มต้นเทิร์น [gold]แปรสภาพ[/gold]การ์ด {Cards:diff()} ใบใน[gold]มือ[/gold]"
+    },
+    "ENVENOM": {
+      "description": "ทุกครั้งที่โจมตีแบบไม่ถูกบล็อกได้ สร้าง {EnvenomPower:diff()} [gold]พิษ[/gold]",
+      "title": "อาบยาพิษ"
+    },
+    "EQUILIBRIUM": {
+      "description": "ได้รับ {Block:diff()} [gold]Block[/gold]\n[gold]คงสภาพ[/gold]ทั้ง[gold]มือ[/gold]ในเทิร์นนี้",
+      "title": "ดุลยภาพ"
+    },
+    "ERADICATE": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน X ครั้ง"
+    },
+    "ESCAPE_PLAN": {
+      "description": "จั่วการ์ด 1 ใบ\nถ้าจั่วได้การ์ดทักษะ ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ทางหนีทีไล่"
+    },
+    "ETERNAL_ARMOR": {
+      "description": "ได้รับ {PlatingPower:diff()} [gold]Plating[/gold]"
+    },
+    "EVIL_EYE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nได้รับเพิ่ม {Block:diff()} [gold]บล็อก[/gold]ถ้าคุณ[gold]สลาย[/gold]การ์ดไปในเทิร์นนี้"
+    },
+    "EXPECT_A_FIGHT": {
+      "description": "ได้รับ {energyPrefix:energyIcons(1)} ตามจำนวนการ์ดโจมตีใน[gold]มือ[/gold]{InCombat:\n(ได้รับ {CalculatedEnergy:energyIcons()})|}"
+    },
+    "EXPERTISE": {
+      "description": "จั่วการ์ดจนมี {Cards:diff()} ใบใน[gold]มือ[/gold]",
+      "title": "ความช่ำชอง"
+    },
+    "EXPOSE": {
+      "description": "กำจัด[gold]อาคม[/gold]และ[gold]บล็อก[/gold]ทั้งหมดจากศัตรู\nสร้าง {Power:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "EXTERMINATE": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน {Repeat:diff()} ครั้งใส่ศัตรูทั้งหมด"
+    },
+    "FALLING_STAR": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "FAN_OF_KNIVES": {
+      "description": "ต่อไปนี้[gold]มีดสั้น[/gold]จะโจมตีศัตรูทั้งหมด\nเพิ่ม[gold]มีดสั้น[/gold] {Shivs:diff()} ใบใส่[gold]มือ[/gold]",
+      "title": "พัดมีดบิน"
+    },
+    "FASTEN": {
+      "description": "ได้รับเพิ่ม {ExtraBlock:diff()} [gold]บล็อก[/gold]จากการ์ดป้องกัน",
+      "title": "รัดให้แน่น"
+    },
+    "FEAR": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]",
+      "title": "ความกลัว"
+    },
+    "FEED": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้า[gold]สังหาร[/gold] เพิ่ม {MaxHp:diff()} HP สูงสุด",
+      "title": "กัดกิน"
+    },
+    "FEEDING_FRENZY": {
+      "description": "ได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "FEEL_NO_PAIN": {
+      "description": "ทุกครั้งที่การ์ด[gold]สลาย[/gold] ได้รับ {Power:diff()} [gold]บล็อก[/gold]",
+      "title": "สภาพไร้เจ็บปวด"
+    },
+    "FERAL": {
+      "description": "{FeralPower:plural:ครั้งแรก|{FeralPower:diff()} ครั้งแรก}ที่คุณเล่นการ์ดโจมตีค่าร่าย\n0{energyPrefix:energyIcons(1)} ในแต่ละเทิร์น\nนำมันกลับขึ้น[gold]มือ[/gold]"
+    },
+    "FETCH": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()}\nถ้านี่คือครั้งแรกที่เล่นการ์ดนี้ในเทิร์นนี้ จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "FIEND_FIRE": {
+      "description": "[gold]สลาย[/gold]ทั้ง[gold]มือ[/gold]\nสร้างความเสียหาย {Damage:diff()} ตามจำนวนการ์ดที่[gold]สลาย[/gold]",
+      "title": "เพลิงมาร"
+    },
+    "FIGHT_ME": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน 2 ครั้ง\nได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]\nศัตรูได้รับ {EnemyStrength:diff()} [gold]ความแข็งแรง[/gold]",
+      "title": "มาสู้กัน!"
+    },
+    "FIGHT_THROUGH": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเพิ่ม[gold]Wounds[/gold] 2 ใบเข้า[gold]กองทิ้ง[/gold]"
+    },
+    "FINESSE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nจั่ว 1 การ์ด",
+      "title": "ลูกเล่น"
+    },
+    "FINISHER": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ตามจำนวนการ์ดโจมตีที่เล่นในเทิร์นนี้{InCombat:\n(โจมตี {CalculatedHits:diff()} ครั้ง)|}",
+      "title": "โจมตีปิดฉาก"
+    },
+    "FISTICUFFS": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nได้รับ[gold]บล็อก[/gold]ตามความเสียหายที่ไม่ถูกบล็อกที่ทำได้"
+    },
+    "FLAK_CANNON": {
+      "description": "[gold]สลาย[/gold]การ์ด[gold]สถานะ[/gold]ทั้งหมดของคุณ\nสร้างความเสียหาย {Damage:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม ตามจำนวนการ์ดที่ถูก[gold]สลาย[/gold]{InCombat:\n(โจมตี {CalculatedHits:diff()} ครั้ง)|}"
+    },
+    "FLAME_BARRIER": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nทุกครั้งที่คุณถูกโจมตีในเทิร์นนี้ สร้างความเสียหายกลับไป {DamageBack:diff()}",
+      "title": "กำแพงอัคคี"
+    },
+    "FLAME_IN_THE_DARK": {
+      "description": "ได้รับ {Energy:energyIcons()}\nจั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "FLANKING": {
+      "description": "ศัตรูได้รับความเสียหายเป็น 2 เท่าจากผู้เล่นคนอื่นๆ ในเทิร์นนี้",
+      "title": "โจมตีจากด้านข้าง"
+    },
+    "FLASH_OF_STEEL": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ด 1 ใบ",
+      "title": "คมเหล็กพริบตา"
+    },
+    "FLATTEN": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()}\nการ์ดนี้ค่าร่ายเป็น 0 {energyPrefix:energyIcons(1)} ถ้า[gold]Osty[/gold]เคยโจมตีในเทิร์นนี้"
+    },
+    "FLECHETTES": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ตามจำนวนการ์ดทักษะใน[gold]มือ[/gold]{InCombat:\n(โจมตี {CalculatedHits:diff()} ครั้ง)|}",
+      "title": "ลูกดอกสงคราม"
+    },
+    "FLICK_FLACK": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด"
+    },
+    "FOCUSED_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nได้รับ {FocusPower:diff()} [gold]โฟกัส[/gold]ในเทิร์นนี้",
+      "title": "จู่โจมโฟกัส"
+    },
+    "FOLLOW_THROUGH": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nถ้าการ์ดใบล่าสุดที่คุณเล่นในเทิร์นนี้เป็นการ์ดทักษะ สร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold] ใส่ศัตรูทั้งหมด",
+      "title": "กระบวนท่าส่งต่อ"
+    },
+    "FOOTWORK": {
+      "description": "ได้รับ {DexterityPower:diff()} [gold]ความชำนาญ[/gold]",
+      "title": "จังหวะก้าวเท้า"
+    },
+    "FORBIDDEN_GRIMOIRE": {
+      "description": "ตอนจบการต่อสู้ คุณสามารถกำจัดการ์ด 1 ใบจาก[gold]กองการ์ด[/gold]ได้"
+    },
+    "FOREGONE_CONCLUSION": {
+      "description": "เทิร์นถัดไป นำการ์ด {Cards:diff()} ใบจาก[gold]กองจั่ว[/gold]ขึ้น[gold]มือ[/gold]"
+    },
+    "FORGOTTEN_RITUAL": {
+      "description": "ถ้าคุณเคย[gold]สลาย[/gold]การ์ดในเทิร์นนี้ ได้รับ {Energy:energyIcons()}"
+    },
+    "FRANTIC_ESCAPE": {
+      "description": "ออกไปไกลขึ้น\nเพิ่ม [gold]Sandpit[/gold] 1\nเพิ่มค่าร่ายการ์ดนี้ 1"
+    },
+    "FRIENDSHIP": {
+      "description": "เสีย {StrengthPower:inverseDiff()} [gold]ความแข็งแรง[/gold]\nได้รับ {Energy:energyIcons()} ตอนเริ่มต้นเทิร์น",
+      "title": "มิตรภาพ"
+    },
+    "FTL": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้าคุณใช้การ์ดไม่เกิน {PlayMax:diff()} ใบในเทิร์นนี้ จั่ว 1 การ์ด",
+      "title": "เร็วเหนือแสง"
+    },
+    "FUEL": {
+      "description": "ได้รับ {Energy:energyIcons()}\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "เชื้อเพลิง"
+    },
+    "FURNACE": {
+      "description": "ตอนเริ่มต้นเทิร์น [gold]หลอมสร้าง[/gold] {Forge:diff()}",
+      "title": "เตาเผา"
+    },
+    "FUSION": {
+      "description": "[gold]ปลุกเสก[/gold] 1 [gold]พลาสมา[/gold]",
+      "title": "รวมปรมาณู"
+    },
+    "GAMMA_BLAST": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "GANG_UP": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนครั้งที่พันธมิตรเคยโจมตีศัตรูในเทิร์นนี้"
+    },
+    "GATHER_LIGHT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nได้รับ {Stars:starIcons()}"
+    },
+    "GENESIS": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {StarsPerTurn:starIcons()}"
+    },
+    "GENETIC_ALGORITHM": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\n[gold]บล็อก[/gold]ของการ์ดนี้เพิ่มขึ้น {Increase:diff()} แบบถาวร",
+      "title": "อัลกอริทึมพันธุกรรม"
+    },
+    "GHOST_EATER": {
+      "description": "นำ[gold]อายุขัย[/gold]ออกทั้งหมด\nได้รับ {Energy:energyIcons()} ต่อทุก 6 [gold]อายุขัย[/gold]ที่ถูกนำออก"
+    },
+    "GIANT_ROCK": {
+      "description": "สร้างความเสียหาย {Damage:diff()}"
+    },
+    "GLACIER": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\n[gold]ปลุกเสก[/gold] 2 [gold]น้ำแข็ง[/gold]",
+      "title": "ธารน้ำแข็ง"
+    },
+    "GLASSWORK": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\n[gold]ปลุกเสก[/gold] 1 [gold]แก้ว[/gold]",
+      "title": "งานแก้ว"
+    },
+    "GLIMMER": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ\nนำการ์ด {PutBack:diff()} ใบจาก[gold]มือ[/gold]ไปวางไว้บนสุดของ[gold]กองจั่ว[/gold]"
+    },
+    "GLIMPSE_BEYOND": {
+      "description": "ผู้เล่นทั้งหมดเพิ่ม[gold]วิญญาณ[/gold] {Cards:diff()} ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "GLITTERSTREAM": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเทิร์นถัดไป ได้รับ {BlockNextTurn:diff()} [gold]บล็อก[/gold]"
+    },
+    "GLOW": {
+      "description": "ได้รับ {Stars:starIcons()}\nจั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "GOLD_AXE": {
+      "description": "สร้างความเสียหายตามจำนวนการ์ดที่เคยเล่นในการต่อสู้นี้{InCombat:\n(สร้างความเสียหาย {CalculatedDamage:diff()})|}"
+    },
+    "GOOD_INSTINCTS": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "สัญชาตญาณดี"
+    },
+    "GO_FOR_THE_EYES": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้าศัตรูตั้งใจจะโจมตี สร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]",
+      "title": "พุ่งใส่ตา"
+    },
+    "GRAND_FINALE": {
+      "description": "จะเล่นได้ก็ต่อเมื่อไม่มีการ์ดใน[gold]กองจั่ว[/gold] สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "อวสานอลังการ"
+    },
+    "GRAPPLE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nและทุกครั้งที่คุณได้รับ[gold]บล็อก[/gold]ในเทิร์นนี้ สร้างความเสียหาย {GrapplePower:diff()} ใส่ศัตรูตัวนั้น"
+    },
+    "GRAVEBLAST": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nนำการ์ด 1 ใบจาก[gold]กองทิ้ง[/gold]ขึ้น[gold]มือ[/gold]"
+    },
+    "GRAVE_WARDEN": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเพิ่ม[gold]{IfUpgraded:show:วิญญาณ+|วิญญาณ}[/gold] 1 ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "GREED": {
+      "title": "ความโลภ"
+    },
+    "GUARDS": {
+      "description": "[gold]แปรสภาพ[/gold]การ์ดกี่ใบก็ได้ใน[gold]มือ[/gold]ให้เป็น[gold]{IfUpgraded:show:ลูกน้องสละชีพ+|ลูกน้องสละชีพ}[/gold]"
+    },
+    "GUIDING_STAR": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเทิร์นถัดไป จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "GUILTY": {
+      "description": "ถูกกำจัดออกจาก[gold]กองการ์ด[/gold]หลังผ่านไป {Combats:diff()} การต่อสู้"
+    },
+    "GUNK_UP": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน {Repeat:diff()} ครั้ง\nเพิ่ม[gold]Slimed[/gold] 1 ใบเข้า[gold]กองทิ้ง[/gold]"
+    },
+    "HAILSTORM": {
+      "description": "ตอนจบเทิร์น ถ้าคุณมี[gold]น้ำแข็ง[/gold] สร้างความเสียหาย {HailstormPower:diff()} ใส่ศัตรูทั้งหมด"
+    },
+    "HAMMER_TIME": {
+      "description": "ทุกครั้งที่คุณ[gold]หลอมสร้าง[/gold] พันธมิตรทั้งหมดจะ[gold]หลอมสร้าง[/gold]เช่นกัน"
+    },
+    "HAND_OF_GREED": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้า[gold]สังหาร[/gold] ได้รับ {Gold:diff()} [gold]ทอง[/gold]",
+      "title": "มือแห่งความโลภ"
+    },
+    "HAND_TRICK": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเพิ่ม[gold]เล่ห์เหลี่ยม[/gold]ให้การ์ดทักษะ 1 ใบใน[gold]มือ[/gold]ในเทิร์นนี้"
+    },
+    "HANG": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nการ์ดแขวนคอทั้งหมดสร้างความเสียหายใส่ศัตรูตัวนี้เป็น 2 เท่า",
+      "title": "แขวนคอ"
+    },
+    "HAUNT": {
+      "description": "ทุกครั้งที่คุณเล่น[gold]วิญญาณ[/gold] ศัตรู 1 ตัวแบบสุ่มเสีย {HpLoss:diff()} HP"
+    },
+    "HAVOC": {
+      "description": "เล่นการ์ดใบบนสุดของ[gold]กองจั่ว[/gold]แล้ว[gold]สลาย[/gold]มัน",
+      "title": "นำพาหายนะ"
+    },
+    "HAZE": {
+      "description": "สร้าง {PoisonPower:diff()} [gold]พิษ[/gold]ใส่ศัตรูทั้งหมด",
+      "title": "หมอกพิษ"
+    },
+    "HEADBUTT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nนำการ์ด 1 ใบจาก[gold]กองทิ้ง[/gold]ไปวางไว้บนสุดของ[gold]กองจั่ว[/gold]",
+      "title": "โขกหัว"
+    },
+    "HEAVENLY_DRILL": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน X ครั้ง\nถ้า X มีค่า {Energy:diff()} ขึ้นไป จะเกิดผล 2 เท่า"
+    },
+    "HEGEMONY": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเทิร์นถัดไป ได้รับ {Energy:energyIcons()}"
+    },
+    "HEIRLOOM_HAMMER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเลือกการ์ดไม่มีสี 1 ใบใน[gold]มือ[/gold] เพิ่มสำเนาของการ์ดนั้น 1 ใบใส่[gold]มือ[/gold]"
+    },
+    "HELIX_DRILL": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ตามจำนวน {energyPrefix:energyIcons(1)} ที่เคยจ่ายในเทิร์นนี้{InCombat:\n(โจมตี {CalculatedHits:diff()} ครั้ง)|}"
+    },
+    "HELLO_WORLD": {
+      "description": "ตอนเริ่มต้นเทิร์น เพิ่มการ์ดธรรมดา 1 ใบแบบสุ่มใส่[gold]มือ[/gold]",
+      "title": "สวัสดีชาวโลก"
+    },
+    "HELLRAISER": {
+      "description": "ทุกครั้งที่คุณจั่วการ์ดที่มีคำว่า \"จู่โจม\" มันจะถูกเล่นใส่ศัตรู 1 ตัวแบบสุ่ม",
+      "title": "ปลุกนรก"
+    },
+    "HEMOKINESIS": {
+      "description": "เสีย {HpLoss:diff()} HP\nสร้างความเสียหาย {Damage:diff()}",
+      "title": "คาถาโลหิต"
+    },
+    "HIDDEN_CACHE": {
+      "description": "ได้รับ {Stars:starIcons()}\nเทิร์นถัดไป ได้รับ {StarNextTurnPower:starIcons()}"
+    },
+    "HIDDEN_DAGGERS": {
+      "description": "ทิ้งการ์ด {Cards:diff()} ใบ\nเพิ่ม[gold]{IfUpgraded:show:มีดสั้น+|มีดสั้น}[/gold] {Shivs:diff()} ใบใส่[gold]มือ[/gold]"
+    },
+    "HIDDEN_GEM": {
+      "description": "การ์ดใน[gold]กองจั่ว[/gold] 1 ใบแบบสุ่มได้รับ [gold]เล่นซ้ำ[/gold] {Replay:diff()}"
+    },
+    "HIGH_FIVE": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()}\nและสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]\nใส่ศัตรูทั้งหมด"
+    },
+    "HOLOGRAM": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nนำการ์ด 1 ใบจาก[gold]กองทิ้ง[/gold]ขึ้น[gold]มือ[/gold]",
+      "title": "ภาพจำลอง"
+    },
+    "HOTFIX": {
+      "description": "ได้รับ {FocusPower:diff()} [gold]โฟกัส[/gold]ในเทิร์นนี้",
+      "title": "แก้ไขเร่งด่วน"
+    },
+    "HOWL_FROM_BEYOND": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nตอนเริ่มต้นเทิร์น เล่นจาก[gold]กองสลาย[/gold]",
+      "title": "เสียงหอนจากเบื้องบน"
+    },
+    "HUDDLE_UP": {
+      "description": "พันธมิตรทั้งหมดจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "จับกลุ่ม"
+    },
+    "HYPERBEAM": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nเสีย {FocusPower:diff()} [gold]โฟกัส[/gold]",
+      "title": "ลำแสงพิฆาต"
+    },
+    "ICE_LANCE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]ปลุกเสก[/gold] {Repeat:diff()} [gold]น้ำแข็ง[/gold]",
+      "title": "หอกน้ำแข็ง"
+    },
+    "IGNITION": {
+      "description": "พันธมิตร 1 คน[gold]ปลุกเสก[/gold] [gold]พลาสมา[/gold]",
+      "title": "การจุดระเบิด"
+    },
+    "IMMORTALITY": {
+      "description": "เสีย {HpLoss:diff()} HP\nได้รับ {IntangiblePower:diff()} [gold]ไร้ตัวตน[/gold]",
+      "title": "อมตะ"
+    },
+    "IMPALE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {PoisonPower:diff()} [gold]พิษ[/gold]"
+    },
+    "IMPATIENCE": {
+      "description": "ถ้าไม่มีการ์ดโจมตีใน[gold]มือ[/gold] จั่วการ์ด {Cards:diff()} ใบ",
+      "title": "ความใจร้อน"
+    },
+    "IMPERVIOUS": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ฟันแทงไม่เข้า"
+    },
+    "INFECTION": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] ได้รับความเสียหาย {Damage:diff()}",
+      "title": "ติดเชื้อ"
+    },
+    "INFERNAL_BLADE": {
+      "description": "เพิ่มการ์ดโจมตี 1 ใบแบบสุ่มใส่[gold]มือ[/gold] มันเล่นฟรีในเทิร์นนี้",
+      "title": "นรกศาสตรา"
+    },
+    "INFERNO": {
+      "description": "ตอนเริ่มต้นเทิร์น เสีย 1 HP\nทุกครั้งที่คุณเสีย HP ในเทิร์นของคุณ สร้างความเสียหาย {InfernoPower:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "เพลิงโลกันตร์"
+    },
+    "INFINITE_BLADES": {
+      "description": "ตอนเริ่มต้นเทิร์น เพิ่ม[gold]มีดสั้น[/gold] 1 ใบใส่[gold]มือ[/gold]",
+      "title": "คมมีดไร้ขอบเขต"
+    },
+    "INFLAME": {
+      "description": "ได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]",
+      "title": "จุดไฟ"
+    },
+    "INJURY": {
+      "title": "ความเสียหาย"
+    },
+    "INTERCEPT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nดึงการโจมตีทั้งหมดในเทิร์นนี้ที่เล็งผู้เล่นอื่นมาที่คุณแทน",
+      "title": "สกัดกั้น"
+    },
+    "INVOKE": {
+      "description": "เทิร์นถัดไป [gold]อัญเชิญ[/gold] {Summon:diff()} และได้รับ {Energy:energyIcons()}"
+    },
+    "IRON_WAVE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nสร้างความเสียหาย {Damage:diff()}",
+      "title": "คลื่นคมดาบ"
+    },
+    "ITERATION": {
+      "description": "ครั้งแรกที่คุณเล่นการ์ดสถานะในแต่ละเทิร์น จั่วการ์ด {IterationPower:diff()} ใบ"
+    },
+    "I_AM_INVINCIBLE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใบบนสุดของ[gold]กองจั่ว[/gold] จะเล่นมัน"
+    },
+    "JACKPOT": {
+      "title": "แจ็กพอต"
+    },
+    "JACK_OF_ALL_TRADES": {
+      "description": "เพิ่มการ์ดไม่มีสี {Cards:diff()} ใบแบบสุ่มใส่[gold]มือ[/gold]",
+      "title": "รู้อย่างเป็ด"
+    },
+    "JUGGERNAUT": {
+      "description": "ทุกครั้งที่ได้รับ[gold]บล็อก[/gold] สร้างความเสียหาย {JuggernautPower:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม",
+      "title": "กำลังภายใน"
+    },
+    "JUGGLING": {
+      "description": "เพิ่มสำเนา 1 ใบของการ์ด[gold]โจมตี[/gold]ใบที่ 3 ที่คุณเล่นในแต่ละเทิร์นใส่[gold]มือ[/gold]"
+    },
+    "KINGLY_KICK": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nทุกครั้งที่คุณจั่วได้การ์ดนี้ ลดค่าร่ายการ์ดนี้ลง 1"
+    },
+    "KINGLY_PUNCH": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nทุกครั้งที่คุณจั่วได้การ์ดนี้ เพิ่มความเสียหายของมัน {Increase:diff()} จนจบการต่อสู้"
+    },
+    "KNOCKDOWN": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nในเทิร์นนี้ ศัตรูจะได้รับความเสียหายจากผู้เล่นคนอื่นเป็น {IfUpgraded:show:3|2} เท่า"
+    },
+    "KNOCKOUT_BLOW": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้าฆ่าศัตรูได้ ได้รับ {Stars:starIcons()}"
+    },
+    "KNOW_THY_PLACE": {
+      "description": "สร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "LANTERN_KEY": {
+      "description": "ปลดล็อกเหตุการณ์พิเศษในองก์ถัดไป"
+    },
+    "LARGESSE": {
+      "description": "ผู้เล่นคนอื่น 1 คนเพิ่มการ์ดไร้สี{IfUpgraded:show: [gold]แบบพัฒนาแล้ว[/gold]} 1 ใบแบบสุ่มใส่[gold]มือ[/gold]"
+    },
+    "LEADING_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่ม[gold]มีดสั้น[/gold] {Shivs:diff()} ใบใส่[gold]มือ[/gold]"
+    },
+    "LEAP": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "กระโจนหลบ"
+    },
+    "LEGION_OF_BONE": {
+      "description": "ผู้เล่นทั้งหมด[gold]อัญเชิญ[/gold] {Summon:diff()}"
+    },
+    "LEG_SWEEP": {
+      "description": "สร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]\nได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "กวาดขา"
+    },
+    "LETHALITY": {
+      "description": "การโจมตีแรกในแต่ละเทิร์น สร้างความเสียหายเพิ่ม {LethalityPower:diff()}%"
+    },
+    "LIFT": {
+      "description": "ให้ {Block:diff()} [gold]บล็อก[/gold]แก่ผู้เล่นคนอื่น 1 คน"
+    },
+    "LIGHTNING_ROD": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nตอนเริ่มต้นเทิร์นในอีก {LightningRodPower:plural:1 เทิร์น|{:diff()} เทิร์น} [gold]ปลุกเสก[/gold] 1 [gold]สายฟ้า[/gold]",
+      "title": "สายล่อฟ้า"
+    },
+    "LOOP": {
+      "description": "ตอนเริ่มต้นเทิร์น ผลต่อเนื่องของลูกแก้วลูกขวาสุดจะทำงาน{IfUpgraded:show: อีก 2 ครั้ง}",
+      "title": "คำสั่งวนซ้ำ"
+    },
+    "LUMINESCE": {
+      "description": "ได้รับ {Energy:energyIcons()}"
+    },
+    "LUNAR_BLAST": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ตามจำนวนการ์ดทักษะที่เคยเล่นในเทิร์นนี้{InCombat:\n(โจมตี {CalculatedHits:diff()} ครั้ง)|}"
+    },
+    "MACHINE_LEARNING": {
+      "description": "ตอนเริ่มต้นเทิร์น จั่วการ์ดเพิ่ม {Cards:diff()} ใบ",
+      "title": "แมชชีนเลิร์นนิ่ง"
+    },
+    "MAKE_IT_SO": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nการ์ดทักษะทุก {Cards:diff()} ใบที่คุณเล่นในเทิร์นเดียวกัน นำการ์ดนี้ขึ้น[gold]มือ[/gold]"
+    },
+    "MALAISE": {
+      "description": "ศัตรูเสีย X{IfUpgraded:show:+1} [gold]ความแข็งแรง[/gold] สร้าง X{IfUpgraded:show:+1} [gold]ความอ่อนแอ[/gold]",
+      "title": "สาปส่งโรคภัย"
+    },
+    "MANGLE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nศัตรูเสีย {StrengthLoss:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "MANIFEST_AUTHORITY": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเพิ่มการ์ดไร้สี{IfUpgraded:show: [gold]แบบพัฒนาแล้ว[/gold]} 1 ใบแบบสุ่มใส่[gold]มือ[/gold]"
+    },
+    "MASTER_OF_STRATEGY": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ",
+      "title": "จอมกลยุทธ์"
+    },
+    "MASTER_PLANNER": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดทักษะ มันจะได้รับ[gold]เล่ห์เหลี่ยม[/gold]",
+      "title": "จอมวางแผน"
+    },
+    "MAUL": {
+      "description": "สร้างความเสียหาน {Damage:diff()} จำนวน 2 ครั้ง\nการ์ด Maul ทั้งหมดสร้างความเสียหายเพิ่ม {Increase:diff()} ในการต่อสู้นี้"
+    },
+    "MAYHEM": {
+      "description": "ตอนเริ่มต้นเทิร์น เล่นการ์ดใบบนสุดของ[gold]กองจั่ว[/gold]",
+      "title": "ความโกลาหล"
+    },
+    "MEMENTO_MORI": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนการ์ดที่เคยถูกทิ้งในเทิร์นนี้"
+    },
+    "METAMORPHOSIS": {
+      "description": "เพิ่มการ์ดโจมตี {Cards:diff()} ใบแบบสุ่มเข้า[gold]กองจั่ว[/gold] มันเล่นฟรีในการตอนสู้นี้",
+      "title": "แปรร่างเปลี่ยนรูป"
+    },
+    "METEOR_SHOWER": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]และ[gold]จุดอ่อน[/gold]ใส่ศัตรูทั้งหมด",
+      "title": "ฝนดาวตก"
+    },
+    "METEOR_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]ปลุกเสก[/gold] 3 [gold]พลาสมา[/gold]",
+      "title": "อุกกาบาตจู่โจม"
+    },
+    "MIMIC": {
+      "description": "ได้รับ[gold]บล็อก[/gold]ตามจำนวน[gold]บล็อก[/gold]บนผู้เล่นคนอื่น 1 คน",
+      "title": "เลียนแบบ"
+    },
+    "MIND_BLAST": {
+      "description": "สร้างความเสียหายตามจำนวนการ์ดใน[gold]กองจั่ว[/gold]{InCombat:\n(สร้างความเสียหาย {CalculatedDamage:diff()})|}",
+      "title": "จิตสังหาร"
+    },
+    "MIND_ROT": {
+      "description": "จั่วการ์ดน้อยลง {MindRotPower:diff()} ใบในแต่ละเทิร์น"
+    },
+    "MINION_DIVE_BOMB": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "อุกกาบาตลูกน้อง"
+    },
+    "MINION_SACRIFICE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]",
+      "title": "ลูกน้องสละชีพ"
+    },
+    "MINION_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "ลูกน้องจู่โจม"
+    },
+    "MIRAGE": {
+      "description": "ได้รับ[gold]บล็อก[/gold]ตามจำนวน[gold]พิษ[/gold]บนตัวศัตรูทั้งหมด{InCombat:\n(ได้รับ {CalculatedBlock:diff()} [gold]บล็อก[/gold])|}",
+      "title": "ภาพลวงตา"
+    },
+    "MISERY": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้างผลผิดปกติใส่ศัตรูตัวอื่นทั้งหมด ตามผลผิดปกติทั้งหมดบนศัตรูตัวนี้"
+    },
+    "MODDED": {
+      "description": "ได้รับช่องเก็บลูกแก้ว {Repeat:diff()} ช่อง\nจั่วการ์ด {Cards:diff()} ใบ เพิ่มค่าร่ายของการ์ดนี้ 1"
+    },
+    "MOLTEN_FIST": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่ม[gold]จุดอ่อน[/gold]บนตัวศัตรูเป็น 2 เท่า"
+    },
+    "MOMENTUM_STRIKE": {
+      "title": "จู่โจมด้วยแรงเหวี่ยง"
+    },
+    "MONARCHS_GAZE": {
+      "description": "ทุกครั้งที่คุณโจมตีศัตรู มันจะเสีย {StrengthLoss:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "MONOLOGUE": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดในเทิร์นนี้ ได้รับ {Power:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "MULTI_CAST": {
+      "description": "[gold]ปล่อยพลัง[/gold]ลูกแก้วลูกขวาสุด {IfUpgraded:show:X+1|X} ครั้ง",
+      "title": "ร่ายทวี"
+    },
+    "MURDER": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนการ์ดที่ถูกจั่วในการต่อสู้นี้"
+    },
+    "NECRO_MASTERY": {
+      "description": "[gold]อัญเชิญ[/gold] {Summon:diff()}\nทุกครั้งที่[gold]Osty[/gold]เสีย HP\nศัตรูทั้งหมดเสีย HP ตามจำนวนนั้นด้วย"
+    },
+    "NEGATIVE_PULSE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nสร้าง {DoomPower:diff()} [gold]อายุขัย[/gold]ใส่ศัตรูทั้งหมด"
+    },
+    "NEOWS_FURY": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nนำการ์ด {Cards:plural:1|{:diff()}} ใบแบบสุ่มจาก[gold]กองทิ้ง[/gold]ขึ้น[gold]มือ[/gold]"
+    },
+    "NEUROSURGE": {
+      "description": "ได้รับ {Energy:energyIcons()}\nจั่วการ์ด {Cards:diff()} ใบ\nตอนเริ่มต้นเทิร์น สร้าง {NeurosurgePower:diff()} [gold]อายุขัย[/gold]ใส่ตัวคุณ"
+    },
+    "NEUTRALIZE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]",
+      "title": "ทำให้เป็นกลาง"
+    },
+    "NEUTRON_AEGIS": {
+      "description": "ได้รับ {PlatingPower:diff()} [gold]Plating[/gold]"
+    },
+    "NIGHTMARE": {
+      "description": "เลือกการ์ด 1 ใบ\nเทิร์นถัดไป เพิ่มสำเนา 3 ใบของการ์ดนั้นใส่[gold]มือ[/gold]",
+      "title": "ฝันร้าย"
+    },
+    "NORMALITY": {
+      "description": "คุณไม่สามารถเล่นการ์ดเกิน 3 ใบได้ในเทิร์นนี้{InCombat:\n(เหลือ {CalculatedCards:plural:{} ใบ|{} ใบ})|}",
+      "title": "จำกัดฐานะ"
+    },
+    "NOSTALGIA": {
+      "description": "การ์ดโจมตีหรือทักษะใบแรกที่คุณเล่นในแต่ละเทิร์นจะถูกนำไปวางใบบนสุดของ[gold]กองจั่ว[/gold]"
+    },
+    "NOXIOUS_FUMES": {
+      "description": "ตอนเริ่มต้นเทิร์น สร้าง {PoisonPerTurn:diff()} [gold]พิษ[/gold]ใส่ศัตรูทั้งหมด",
+      "title": "รมควันพิษ"
+    },
+    "NO_ESCAPE": {
+      "description": "สร้าง {CalculationBase:diff()} [gold]อายุขัย[/gold] บวกอีก {CalculationExtra:diff()} [gold]อายุขัย[/gold]ต่อทุก {DoomThreshold:diff()} [gold]อายุขัย[/gold]บนตัวศัตรู{IsTargeting:\n(สร้าง {CalculatedDoom:diff()} [gold]อายุขัย[/gold])|}"
+    },
+    "NULL": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]\n[gold]ปลุกเสก[/gold] 1 [gold]ความมืด[/gold]"
+    },
+    "OBLIVION": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดในเทิร์นนี้ สร้าง {DoomPower:diff()} [gold]อายุขัย[/gold]ใส่ศัตรู"
+    },
+    "OFFERING": {
+      "description": "เสีย {HpLoss:diff()} HP\nได้รับ {Energy:energyIcons()}\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "เซ่นสังเวย"
+    },
+    "OFF_BY_ONE": {
+      "description": "ถ้าคุณจบเทิร์นโดยเหลือการ์ด 1 ใบใน[gold]มือ[/gold]เป๊ะๆ ได้รับเพิ่ม {Energy:energyIcons()} ตอนเริ่มต้นเทิร์นถัดไป"
+    },
+    "OMNISLICE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nศัตรูตัวอื่นทั้งหมดได้รับความเสียหายตามความเสียหายที่ทำได้"
+    },
+    "ONE_TWO_PUNCH": {
+      "description": "ในเทิร์นนี้ การ์ดโจมตีอีก {Attacks:cond:>1?{Attacks:diff()}|1} ใบจะถูกเล่นอีกครั้ง"
+    },
+    "ORBIT": {
+      "description": "ทุกการจ่าย {energyPrefix:energyIcons(4)}\nจะได้รับ {Energy:energyIcons()}"
+    },
+    "OUTBREAK": {
+      "description": "ทุก{Repeat:plural:ครั้ง| {Repeat:diff()} ครั้ง}ที่คุณสร้าง[gold]พิษ[/gold] สร้างความเสียหาย {OutbreakPower:diff()} ใส่ศัตรูทั้งหมด"
+    },
+    "OUTMANEUVER": {
+      "description": "เทิร์นถัดไป ได้รับ {Energy:energyIcons()}",
+      "title": "ใช้เล่ห์ใช้กล"
+    },
+    "OVERCLOCK": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ\nเพิ่ม[gold]เผาไหม้[/gold] 1 ใบเข้า[gold]กองทิ้ง[/gold]",
+      "title": "โอเวอร์คล็อก"
+    },
+    "PACTS_END": {
+      "description": "จะเล่นได้ก็ต่อเมื่อคุณมีการ์ด {Cards:diff()} ใบขึ้นไปใน[gold]กองทิ้ง[/gold]\nสร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด"
+    },
+    "PAELS_STRIKE": {
+      "description": "สร้างความเสียหายตามจำนวนการ์ดใน[gold]กองการ์ด[/gold]{InCombat:\n(สร้างความเสียหาย {Damage:diff()})|}"
+    },
+    "PAGESTORM": {
+      "description": "ทุกครั้งที่คุณจั่วการ์ด[gold]กึ่งสลาย[/gold] จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "PALE_BLUE_DOT": {
+      "description": "ถ้าคุณเล่นการ์ด {CardPlay} ใบขึ้นไปในเทิร์นเดียว ตอนเริ่มเทิร์นถัดไป จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "PANACHE": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ด 5 ใบในเทิร์นเดียว สร้างความเสียหาย {PanacheDamage:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "วางท่าอย่างเท่"
+    },
+    "PANIC_BUTTON": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nคุณไม่สามารถได้รับ[gold]บล็อก[/gold]จากการ์ดเป็นเวลา{Turns:diff()} เทิร์น",
+      "title": "ปุ่มฉุกเฉิน"
+    },
+    "PARRY": {
+      "description": "ทุกครั้งที่คุณเล่น[gold]Sovereign Blade[/gold] ได้รับ {ParryPower:diff()} [gold]บล็อก[/gold]"
+    },
+    "PARSE": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "PARTICLE_WALL": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nนำการ์ดนี้กลับขึ้น[gold]มือ[/gold]"
+    },
+    "PATTER": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nได้รับ {VigorPower:diff()} [gold]ความกำยำ[/gold]"
+    },
+    "PECK": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน {Repeat:diff()} ครั้ง"
+    },
+    "PERFECTED_STRIKE": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนการ์ดที่มีคำว่า “จู่โจม”",
+      "title": "จู่โจมสมบูรณ์แบบ"
+    },
+    "PHANTOM_BLADES": {
+      "description": "[gold]มีดสั้น[/gold]ได้รับ[gold]คงสภาพ[/gold]\n[gold]มีดสั้น[/gold]ใบแรกที่คุณเล่นในแต่ละเทิร์นสร้างความเสียหายเพิ่ม {PhantomBladesPower:diff()}"
+    },
+    "PHOTON_CUT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ด {Cards:diff()} ใบ\nนำการ์ด 1 ใบจาก[gold]มือ[/gold]ไปวางไว้บนสุดของ[gold]กองจั่ว[/gold]"
+    },
+    "PIERCING_WAIL": {
+      "description": "ศัตรูทั้งหมดเสีย {StrengthLoss:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้",
+      "title": "คำครวญกรีดโสต"
+    },
+    "PILLAGE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ดจนกว่าจะจั่วได้การ์ดที่ไม่ใช่การ์ดโจมตี"
+    },
+    "PILLAR_OF_CREATION": {
+      "description": "ทุกครั้งที่คุณสร้างการ์ด ได้รับ {Block:diff()} [gold]บล็อก[/gold]"
+    },
+    "PINPOINT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nค่าร่ายลดลง 1 {energyPrefix:energyIcons(1)} ตามจำนวนการ์ดทักษะที่เคยเล่นในเทิร์นนี้"
+    },
+    "PITY": {
+      "description": "ศัตรู 1 ตัวฟื้นฟู HP จนเต็ม\nได้รับ {singleStarIcon} ต่อทุก {Hp:inverseDiff()} HP ที่ฟื้นฟู"
+    },
+    "POISONED_STAB": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {PoisonPower:diff()} [gold]พิษ[/gold]",
+      "title": "มีดอาบยาพิษ"
+    },
+    "POKE": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()}"
+    },
+    "POMMEL_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "จู่โจมกระแทกด้าม"
+    },
+    "POUNCE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nการ์ดทักษะใบต่อไปค่าร่ายเหลือ 0 {energyPrefix:energyIcons(1)}"
+    },
+    "PRECISE_CUT": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายน้อยลง {ExtraDamage:inverseDiff()} ตามจำนวนการ์ดอื่นใน[gold]มือ[/gold]"
+    },
+    "PREDATOR": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเทิร์นถัดไป จั่วการ์ด 2 ใบ",
+      "title": "ออกล่าเหยื่อ"
+    },
+    "PREPARED": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ\nทิ้งการ์ด {Cards:diff()} ใบ",
+      "title": "เตรียมตัวอย่างดี"
+    },
+    "PREP_TIME": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {PrepTimePower:diff()} [gold]ความกำยำ[/gold]"
+    },
+    "PRIMAL_FORCE": {
+      "description": "แปรสภาพการ์ดโจมตีทั้งหมดใน[gold]มือ[/gold]ให้เป็น[gold]{IfUpgraded:show:หินยักษ์+|ศิลายักษ์}[/gold]"
+    },
+    "PRODUCTION": {
+      "description": "ได้รับ {Energy:energyIcons()}"
+    },
+    "PROLONG": {
+      "description": "เทิร์นถัดไป ได้รับ[gold]บล็อก[/gold]ตามจำนวน[gold]บล็อก[/gold]ที่มีในปัจจุบัน"
+    },
+    "PROPHESIZE": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "PROTECTOR": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่มตาม [gold]HP สูงสุด[/gold] ของ[gold]Osty[/gold]"
+    },
+    "PROWESS": {
+      "description": "ได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]\nได้รับ {DexterityPower:diff()} [gold]ความชำนาญ[/gold]"
+    },
+    "PULL_AGGRO": {
+      "description": "[gold]อัญเชิญ[/gold] {Summon:diff()}\nได้รับ {Block:diff()} [gold]บล็อก[/gold]"
+    },
+    "PULL_FROM_BELOW": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ตามจำนวนการ์ด[gold]กึ่งสลาย[/gold]ที่เล่นในการต่อสู้นี้{InCombat:\n(โจมตี {CalculatedHits:diff()} ครั้ง)|}"
+    },
+    "PURITY": {
+      "description": "สลายการ์ดได้สูงสุด {Cards:diff()} ใบใน[gold]มือ[/gold]",
+      "title": "ความบริสุทธิ์"
+    },
+    "PUTREFY": {
+      "description": "สร้าง {Power:diff()} [gold]ความอ่อนแอ[/gold]\nสร้าง {Power:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "PYRE": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {Energy:energyIcons()}"
+    },
+    "QUADCAST": {
+      "description": "[gold]ปล่อยพลัง[/gold]ลูกแก้วลูกขวาสุด {Repeat:diff()} ครั้ง",
+      "title": "ร่ายซ้ำร่ายซ้อน"
+    },
+    "QUASAR": {
+      "description": "เลือกการ์ดไร้สี{IfUpgraded:show:แบบพัฒนาแล้ว|} 1 จากที่สุ่มมา 3 ใบเพื่อเพิ่มใส่[gold]มือ[/gold]"
+    },
+    "QUICK_SLASH": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ด 1 ใบ",
+      "title": "เฉือนอย่างรวดเร็ว"
+    },
+    "RADIATE": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด ตามจำนวน {Stars:starIcons()} ที่ได้รับในเทิร์นนี้{InCombat:\n(โจมตี {CalculatedHits:diff()} ครั้ง)|}"
+    },
+    "RAGE": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตีในเทิร์นนี้ ได้รับ {Power:diff()} [gold]บล็อก[/gold]",
+      "title": "บันดาลโทสะ"
+    },
+    "RAINBOW": {
+      "description": "[gold]ปลุกเสก[/gold] 1 [gold]สายฟ้า[/gold]\n[gold]ปลุกเสก[/gold] 1 [gold]น้ำแข็ง[/gold]\n[gold]ปลุกเสก[/gold] 1 [gold]ความมืด[/gold]",
+      "title": "สายรุ้ง"
+    },
+    "RALLY": {
+      "description": "ผู้เล่นทั้งหมดได้รับ {Block:diff()} [gold]บล็อก[/gold]"
+    },
+    "RAMPAGE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่มพลังให้การ์ดนี้อีก {Increase:diff()} ในการต่อสู้นี้",
+      "title": "ศาสตราอาละวาด"
+    },
+    "RATTLE": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()}\nโจมตีเพิ่มอีกครั้งต่อทุก 2 ครั้งที่เขาโจมตีในเทิร์นนี้{InCombat:\n(โจมตี {CalculatedHits:diff()} ครั้ง)|}"
+    },
+    "REANIMATE": {
+      "description": "[gold]อัญเชิญ[/gold] {Summon:diff()}"
+    },
+    "REAP": {
+      "description": "สร้างความเสียหาย {Damage:diff()}"
+    },
+    "REAPER_FORM": {
+      "description": "ทุกครั้งที่การ์ดโจมตีสร้างความเสียหาย สร้าง[gold]อายุขัย[/gold]ตามจำนวนนั้นด้วย"
+    },
+    "REAVE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่ม[gold]{IfUpgraded:show:วิญญาณ+|วิญญาณ}[/gold] 1 ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "REBOOT": {
+      "description": "สับการ์ดทั้งหมดของคุณเข้า[gold]กองจั่ว[/gold]\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "เปิดเครื่องใหม่"
+    },
+    "REBOUND": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nนำการ์ดที่คุณเล่นใบต่อไปกลับไปวางไว้บนสุดของ[gold]กองจั่ว[/gold]",
+      "title": "ดีดกลับ"
+    },
+    "REFINE_BLADE": {
+      "description": "[gold]หลอมสร้าง[/gold] {Forge:diff()}\nเทิร์นถูกไป ได้รับ {Energy:energyIcons()}"
+    },
+    "REFLECT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nสะท้อนความเสียหายจากการโจมตีที่บล็อกได้กลับไปหาผู้โจมตีในเทิร์นนี้"
+    },
+    "REFLEX": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ",
+      "title": "สัญชาตญาณตอบโต้"
+    },
+    "REFRACT": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน 2 ครั้ง\n[gold]ปลุกเสก[/gold] {Repeat:diff()} [gold]แก้ว[/gold]"
+    },
+    "REGRET": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] เสีย 1 HP ตามจำนวนการ์ดใน[gold]มือ[/gold]",
+      "title": "เสียใจภายหลัง"
+    },
+    "RELAX": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเทิร์นถัดไป จั่วการ์ด {Cards:diff()} ใบและได้รับ {Energy:energyIcons()}"
+    },
+    "REND": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนผลผิดปกติที่ไม่ซ้ำกันบนตัวศัตรูตัวนั้น"
+    },
+    "RESERVES": {
+      "description": "ถ้าคุณมี {energyPrefix:energyIcons(1)} ไม่พอใช้ร่ายการ์ด จะใช้ 2{singleStarIcon} แลก {energyPrefix:energyIcons(1)} แทน"
+    },
+    "RESONANCE": {
+      "description": "ได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold] ศัตรูทั้งหมดเสีย 1 [gold]ความแข็งแรง[/gold]"
+    },
+    "RESTLESSNESS": {
+      "description": "ถ้า[gold]มือ[/gold]ว่าง จั่วการ์ด {Cards:diff()} ใบและได้รับ {Energy:energyIcons()}"
+    },
+    "RICOCHET": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม จำนวน {Repeat:diff()} ครั้ง"
+    },
+    "RIGHT_HAND_HAND": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()}\nทุกครั้งที่คุณเล่นการ์ดค่าร่าย {Energy:energyIcons()} ขึ้นไป นำการ์ดนี้จาก[gold]กองทิ้ง[/gold]กลับขึ้น[gold]มือ[/gold]",
+      "title": "มือมือขวา"
+    },
+    "RIP_AND_TEAR": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม จำนวน 2 ครั้ง",
+      "title": "ฉีกเป็นชิ้นๆ"
+    },
+    "ROLLING_BOULDER": {
+      "description": "ตอนต้นเทิร์น สร้างความเสียหาย {RollingBoulderPower:diff()} ใส่ศัตรูทั้งหมด และเพิ่มความเสียหายนี้อีก {IncrementAmount:diff()}"
+    },
+    "ROYALTIES": {
+      "description": "ตอนจบการต่อสู้ ได้รับ {Gold:diff()} [gold]ทอง[/gold]"
+    },
+    "ROYAL_GAMBLE": {
+      "description": "ได้รับ {Stars:diff()} {singleStarIcon}"
+    },
+    "RUPTURE": {
+      "description": "ทุกครั้งที่คุณเสีย HP ในเทิร์นของคุณ ได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]",
+      "title": "กายาแตกร้าว"
+    },
+    "SACRIFICE": {
+      "description": "ถ้า[gold]Osty[/gold]ยังมีชีวิต เขาจะตายและคุณได้รับ[gold]บล็อก[/gold]ตามจำนวน 2 เท่าของ HP สูงสุดของเขา",
+      "title": "สละชีพ"
+    },
+    "SALVO": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]คงสภาพ[/gold]ทั้ง[gold]มือ[/gold]ในเทิร์นนี้"
+    },
+    "SCAVENGE": {
+      "description": "[gold]สลาย[/gold]การ์ด 1 ใบ\nเทิร์นถัดไป ได้รับ {Energy:energyIcons()}"
+    },
+    "SCOURGE": {
+      "description": "สร้าง {DoomPower:diff()} [gold]อายุขัย[/gold]\nจั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "SCRAPE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nจั่วการ์ด {Cards:diff()} ใบ\nทิ้งการ์ดทั้งหมดที่ไม่ใช่ค่าร่าย 0 {energyPrefix:energyIcons(1)} ที่จั่วมาด้วยวิธีนี้",
+      "title": "กรีดและสืบค้น"
+    },
+    "SCRAWL": {
+      "description": "จั่วการ์ดจนเต็ม[gold]มือ[/gold]",
+      "title": "เร่งจารึก"
+    },
+    "SCULPTING_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่ม[gold]กึ่งสลาย[/gold]ให้การ์ด 1 ใบใน[gold]มือ[/gold]"
+    },
+    "SEANCE": {
+      "description": "แปรสภาพการ์ด 1 ใบใน[gold]กองจั่ว[/gold]ให้เป็น[gold]{IfUpgraded:show:วิญญาณ+|วิญญาณ}[/gold]"
+    },
+    "SECOND_WIND": {
+      "description": "[gold]สลาย[/gold]การ์ดที่ไม่ใช่การ์ดโจมตีทั้งหมดใน[gold]มือ[/gold] ได้รับ {Block:diff()} [gold]บล็อก[/gold]ตามจำนวนการ์ดที่[gold]สลาย[/gold]",
+      "title": "ฮึดสู้อีกครั้ง"
+    },
+    "SECRET_TECHNIQUE": {
+      "description": "นำการ์ดทักษะ 1 ใบจาก[gold]กองจั่ว[/gold]ขึ้น[gold]มือ[/gold]",
+      "title": "กระบวนท่าลับ"
+    },
+    "SECRET_WEAPON": {
+      "description": "นำการ์ดโจมตี 1 ใบจาก[gold]กองจั่ว[/gold]ขึ้น[gold]มือ[/gold]",
+      "title": "อาวุธลับ"
+    },
+    "SEEKER_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเลือกการ์ด 1 จาก {Cards:diff()} ใบใน[gold]กองจั่ว[/gold]เพื่อนำขึ้น[gold]มือ[/gold]"
+    },
+    "SEEKING_EDGE": {
+      "description": "[gold]หลอมสร้าง[/gold] {Forge:diff()}\nต่อไปนี้[gold]Sovereign Blade[/gold]จะสร้างความเสียหายใส่ศัตรูทั้งหมด"
+    },
+    "SENTRY_MODE": {
+      "description": "ตอนเริ่มต้นเทิร์น เพิ่ม[gold]Sweeping Gaze[/gold] {SentryModePower:diff()} ใบใส่[gold]มือ[/gold]"
+    },
+    "SERPENT_FORM": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ด สร้างความเสียหาย {SerpentFormPower:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม",
+      "title": "ร่างอสรพิษ"
+    },
+    "SETUP_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "SEVEN_STARS": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด จำนวน {Repeat:plural:{} ครั้ง|{} ครั้ง}"
+    },
+    "SEVERANCE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่ม[gold]วิญญาณ[/gold]เข้า[gold]กองการ์ด[/gold], [gold]มือ[/gold], และ[gold]กองทิ้ง[/gold] อย่างละ 1 ใบ"
+    },
+    "SHADOWMELD": {
+      "description": "ในเทิร์นนี้ ได้รับ[gold]บล็อก[/gold] 2 เท่า"
+    },
+    "SHADOW_SHIELD": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\n[gold]ปลุกเสก[/gold] 1 [gold]ความมืด[/gold]"
+    },
+    "SHADOW_STEP": {
+      "description": "ทิ้งการ์ดทั้ง[gold]มือ[/gold]\nเทิร์นถัดไป การ์ดโจมตีทั้งหมดสร้างความเสียหาย 2 เท่า"
+    },
+    "SHAME": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] ได้รับ {Frail:diff()} [gold]ความบอบบาง[/gold]",
+      "title": "ความละอาย"
+    },
+    "SHARED_FATE": {
+      "description": "เสีย {PlayerStrengthLoss:diff()} [gold]ความแข็งแรง[/gold]\nศัตรูเสีย {EnemyStrengthLoss:diff()} [gold]ความแข็งแรง[/gold]"
+    },
+    "SHARP_EDGE": {
+      "description": "ทุกครั้งที่คุณสร้าง[gold]มีดสั้น[/gold] [gold]พัฒนา[/gold]มัน"
+    },
+    "SHATTER": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\n[gold]ปล่อยพลัง[/gold]ลูกแก้วทั้งหมดของคุณ"
+    },
+    "SHINING_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nได้รับ {Stars:starIcons()}\nนำการ์ดนี้ไปไว้บนสุดของ[gold]กองจั่ว[/gold]"
+    },
+    "SHINY_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nลดค่าร่ายการ์ดไร้สี {Cards:diff()} ใบในมือลง {energyPrefix:energyIcons(1)} ในเทิร์นนี้"
+    },
+    "SHIV": {
+      "description": "สร้างความเสียหาย {Damage:diff()}{FanOfKnivesAmount:cond:>0? ใส่ศัตรูทั้งหมด|}",
+      "title": "มีดสั้น"
+    },
+    "SHOCKWAVE": {
+      "description": "สร้าง {Power:diff()} [gold]ความอ่อนแอ[/gold]และ[gold]จุดอ่อน[/gold]ใส่ศัตรูทั้งหมด",
+      "title": "คลื่นกระแทก"
+    },
+    "SHROUD": {
+      "description": "ทุกครั้งที่คุณสร้าง[gold]อายุขัย[/gold] ได้รับ {Block:diff()} [gold]บล็อก[/gold]"
+    },
+    "SHRUG_IT_OFF": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "แล้วไงใครแคร์"
+    },
+    "SIC_EM": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()}\nทุกครั้งที่[gold]Osty[/gold]โจมตีศัตรูตัวนี้ในเทิร์นนี้ [gold]อัญเชิญ[/gold] {SicEmPower:diff()}"
+    },
+    "SIGNAL_BOOST": {
+      "description": "การ์ดพลังใบถัดไปที่คุณเล่นจะถูกเล่นอีกครั้ง"
+    },
+    "SKEWER": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน X ครั้ง",
+      "title": "ระดมแทง"
+    },
+    "SKIM": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ",
+      "title": "อ่านค่าอย่างเร็ว"
+    },
+    "SLEIGHT_OF_FLESH": {
+      "description": "ทุกครั้งที่คุณสร้างผลผิดปกติใส่ศัตรู มันจะได้รับความเสียหาย {SleightOfFleshPower:diff()}"
+    },
+    "SLICE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "หั่น"
+    },
+    "SLIMED": {
+      "description": "จั่วการ์ด 1 ใบ",
+      "title": "เมือกสไลม์"
+    },
+    "SLOTH": {
+      "description": "เล่นการ์ดได้ไม่เกิน {SlothPower:diff()} ใบต่อเทิร์น",
+      "title": "ความเกียจคร้าน"
+    },
+    "SMOKESTACK": {
+      "description": "ทุกครั้งที่คุณสร้างการ์ดสถานะ สร้างความเสียหาย {SmokestackPower:diff()} ใส่ศัตรูทั้งหมด"
+    },
+    "SNAKEBITE": {
+      "description": "สร้าง {PoisonPower:diff()} [gold]พิษ[/gold]"
+    },
+    "SNAP": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()}\nเพิ่ม[gold]คงสภาพ[/gold]ให้การ์ด 1 ใบใน[gold]มือ[/gold]"
+    },
+    "SNEAKY": {
+      "description": "ทุกครั้งที่พันธมิตรโจมตีศัตรู ได้รับ {SneakyPower:diff()} [gold]บล็อก[/gold]"
+    },
+    "SOLAR_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nได้รับ {Stars:starIcons()}"
+    },
+    "SOUL": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ",
+      "title": "วิญญาณ"
+    },
+    "SOUL_STORM": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวน[gold]วิญญาณ[/gold]ใน[gold]กองสลาย[/gold]",
+      "title": "พายุวิญญาณ"
+    },
+    "SOVEREIGN_BLADE": {
+      "description": "สร้างความเสียหาย {Damage:diff()} {SeekingEdgeAmount:cond:>0? ใส่ศัตรูทั้งหมด|}{Repeat:plural:| จำนวน {} ครั้ง}",
+      "title": "พระแสงอาญาสิทธิ์"
+    },
+    "SOW": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด"
+    },
+    "SPECTRUM_SHIFT": {
+      "description": "ตอนเริ่มต้นเทิร์น เพิ่มการ์ดไร้สี {Cards:diff()} ใบแบบสุ่มใส่[gold]มือ[/gold]"
+    },
+    "SPEEDSTER": {
+      "description": "ทุกครั้งที่คุณจั่วการ์ดในเทิร์นของคุณ สร้างความเสียหาย {SpeedsterPower:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "ผู้ใช้ความเร็ว"
+    },
+    "SPIKED": {
+      "description": "ตอนจบเทิร์น ได้รับความเสียหาย {Damage:diff()}"
+    },
+    "SPINNER": {
+      "description": "{IfUpgraded:show:[gold]ปลุกเสก[/gold] 1 [gold]แก้ว[/gold]\n|}ตอนเริ่มต้นเทิร์น [gold]ปลุกเสก[/gold] 1 [gold]แก้ว[/gold]"
+    },
+    "SPIRIT_OF_ASH": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ด[gold]กึ่งสลาย[/gold] ได้รับ {BlockOnExhaust:diff()} [gold]บล็อก[/gold]"
+    },
+    "SPITE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้าคุณเคยเสีย HP ในเทิร์นนี้ จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "SPLASH": {
+      "description": "เลือกการ์ดโจมตี{IfUpgraded:show: [gold]แบบพัฒนาแล้ว[/gold]} 1 จาก 3 ใบแบบสุ่มจากตัวละครอื่นเพื่อเพิ่มใส่[gold]มือ[/gold] มันเล่นฟรีในเทิร์นนี้"
+    },
+    "SPOILS_MAP": {
+      "description": "ระบุตำแหน่งสถานที่ที่ได้[gold]ทอง[/gold]เพิ่ม {Gold:diff()} ในองก์ถัดไป"
+    },
+    "SPOILS_OF_BATTLE": {
+      "description": "[gold]หลอมสร้าง[/gold] {Forge:diff()}"
+    },
+    "SPUR": {
+      "description": "[gold]อัญเชิญ[/gold] {Summon:diff()}\n[gold]Osty[/gold]ฟื้นฟู {Heal:diff()} HP"
+    },
+    "SQUASH": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "SQUEEZE": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนการโจมตีครั้งอื่นของ[gold]Osty[/gold]"
+    },
+    "STACK": {
+      "description": "ได้รับ[gold]บล็อก[/gold]ตามจำนวนการ์ดใน[gold]กองทิ้ง[/gold]{IfUpgraded:show: +{CalculationBase}|}{InCombat:\n(ได้รับ {CalculatedBlock:diff()} [gold]บล็อก[/gold])|}",
+      "title": "ทับซ้อน"
+    },
+    "STAMPEDE": {
+      "description": "ตอนจบเทิร์น การ์ดโจมตี {Power:diff()} ใบแบบสุ่มใน[gold]มือ[/gold]จะถูกเล่นใส่ศัตรูแบบสุ่ม"
+    },
+    "STARDUST": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม จำนวน X ครั้ง"
+    },
+    "STAR_BLAST": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nสร้างความเสียหาย {Damage:diff()}"
+    },
+    "STAR_SHIELD": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nจั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "STOKE": {
+      "description": "[gold]สลาย[/gold]การ์ดทั้ง[gold]มือ[/gold]\nจั่วการ์ดตามจำนวนการ์ดที่ถูก[gold]สลาย[/gold]"
+    },
+    "STOMP": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nค่าร่ายลดลง 1 {energyPrefix:energyIcons(1)} ตามจำนวนการ์ดโจมตีที่เล่นในเทิร์นนี้"
+    },
+    "STONE_ARMOR": {
+      "description": "ได้รับ {PlatingPower:diff()} [gold]Plating[/gold]"
+    },
+    "STORM": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดพลัง [gold]ปลุกเสก[/gold] {StormPower:diff()} [gold]สายฟ้า[/gold]",
+      "title": "มรสุม"
+    },
+    "STORM_OF_STEEL": {
+      "description": "ทิ้งการ์ดทั้ง[gold]มือ[/gold]\nเพิ่ม[gold]{IfUpgraded:show:มีดสั้น+|มีดสั้น}[/gold] 1 ใบใส่[gold]มือ[/gold]ตามจำนวนการ์ดที่ถูกทิ้ง",
+      "title": "พายุมีด"
+    },
+    "STRANGLE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nทุกครั้งที่คุณเล่นการ์ดในเทิร์นนี้ ศัตรูเสีย {StranglePower:diff()} HP"
+    },
+    "STRATAGEM": {
+      "description": "ทุกครั้งที่คุณสับ[gold]กองจั่ว[/gold] เลือกการ์ด 1 ใบเพื่อนำขึ้น[gold]มือ[/gold]"
+    },
+    "STRIKE_DEFECT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "จู่โจม"
+    },
+    "STRIKE_IRONCLAD": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "จู่โจม"
+    },
+    "STRIKE_NECROBINDER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "จู่โจม"
+    },
+    "STRIKE_REGENT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "จู่โจม"
+    },
+    "STRIKE_SILENT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "จู่โจม"
+    },
+    "SUBROUTINE": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดพลัง ได้รับ {energyPrefix:energyIcons(1)}"
+    },
+    "SUCKER_PUNCH": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]",
+      "title": "หมัดทีเผลอ"
+    },
+    "SUMMON_FORTH": {
+      "description": "[gold]หลอมสร้าง[/gold] {Forge:diff()}\nนำ[gold]Sovereign Blade[/gold]จากที่ไหนก็ได้ขึ้น[gold]มือ[/gold]"
+    },
+    "SUNDER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้าฆ่าศัตรูได้ ได้รับ {Energy:energyIcons()}",
+      "title": "มหาวิปโยค"
+    },
+    "SUPERCRITICAL": {
+      "description": "ได้รับ {Energy:energyIcons()}"
+    },
+    "SUPERMASSIVE": {
+      "description": "สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่ม {ExtraDamage:diff()} ตามจำนวนการ์ดที่คุณสร้างในการต่อสู้นี้"
+    },
+    "SUPPRESS": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {WeakPower:diff()} [gold]ความอ่อนแอ[/gold]"
+    },
+    "SURVIVOR": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nทิ้งการ์ด 1 ใบ",
+      "title": "ผู้รอดชีวิตฮึดสู้"
+    },
+    "SWEEPING_BEAM": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด\nจั่วการ์ด {Cards:diff()} ใบ",
+      "title": "กวาดลำแสง"
+    },
+    "SWEEPING_GAZE": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {OstyDamage:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม"
+    },
+    "SWIFT_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}",
+      "title": "จู่โจมฉับพลัน"
+    },
+    "SWORD_BOOMERANG": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม จำนวน {Repeat:diff()} ครั้ง",
+      "title": "ดาบบูมเมอแรง"
+    },
+    "SWORD_SAGE": {
+      "description": "ค่าร่ายของ[gold]Sovereign Blade[/gold] เพิ่มขึ้น 1 ต่อไปนี้[gold]Sovereign Blade[/gold]โจมตีเพิ่มอีกครั้ง"
+    },
+    "SYNCHRONIZE": {
+      "description": "ได้รับ {CalculationExtra:diff()} [gold]โฟกัส[/gold]ในเทิร์นนี้ตามจำนวนลูกแก้วไม่ซ้ำธาตุที่คุณมี{InCombat:\n(ได้รับ {CalculatedFocus:diff()} [gold]โฟกัส[/gold])|}"
+    },
+    "SYNTHESIS": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nการ์ดพลังใบถัดไปมีค่าร่าย 0 {energyPrefix:energyIcons(1)}"
+    },
+    "TACTICIAN": {
+      "description": "ได้รับ {Energy:energyIcons()}",
+      "title": "อุบายแยบยล"
+    },
+    "TAG_TEAM": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nการ์ดโจมตีใบถัดไปของพันธมิตร 1 คนที่เล่นใส่ศัตรูตัวนี้จะถูกเล่นซ้ำอีกครั้ง"
+    },
+    "TANK": {
+      "description": "ได้รับความเสียหายจากศัตรู 2 เท่า\nพันธมิตรทั้งหมดได้รับความเสียหายจากศัตรูครึ่งเดียว"
+    },
+    "TAUNT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "TEAR_ASUNDER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nโจมตีเพิ่มอีกตามจำนวนครั้งที่คุณเสีย HP ในการต่อสู้นี้{InCombat:\n(โจมตี {CalculatedHits:diff()} {CalculatedHits:plural:ครั้ง|ครั้ง})|}"
+    },
+    "TEMPEST": {
+      "description": "[gold]ปลุกเสก[/gold] {IfUpgraded:show:X+1|X} [gold]สายฟ้า[/gold]",
+      "title": "อสนีบาต"
+    },
+    "TERRAFORMING": {
+      "description": "ได้รับ {VigorPower:diff()} [gold]ความกำยำ[/gold]"
+    },
+    "TESLA_COIL": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nผลของ[gold]สายฟ้า[/gold]ทั้งผลทำงานใส่ศัตรูตัวนี้"
+    },
+    "TEZCATARAS_MIGHT": {
+      "description": "ได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]\nตอนจบเทิร์น เสีย {StrengthLoss:diff()} [gold]ความแข็งแรง[/gold]"
+    },
+    "THE_BOMB": {
+      "description": "เมื่อผ่านไป {Turns:diff()} เทิร์น สร้างความเสียหาย {BombDamage:diff()} ใส่ศัตรูทั้งหมด",
+      "title": "ระเบิด"
+    },
+    "THE_GAMBIT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nถ้าคุณได้รับความเสียหายที่บล็อกไม่ได้ในการต่อสู้นี้ จะตายทันที",
+      "title": "ผู้เดิมพันชะตา"
+    },
+    "THE_HUNT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้า[gold]สังหาร[/gold] ได้รับรางวัลการ์ดเพิ่ม 1 รางวัล"
+    },
+    "THE_SCYTHE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nเพิ่มความเสียหายให้การ์ดนี้ {Increase:diff()} แบบถาวร"
+    },
+    "THE_SEALED_THRONE": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ด ได้รับ {singleStarIcon}"
+    },
+    "THE_SMITH": {
+      "description": "[gold]หลอมสร้าง[/gold] {Forge:diff()}"
+    },
+    "THINKING_AHEAD": {
+      "description": "จั่วการ์ด {Cards:diff()} ใบ\nนำการ์ด 1 ใบจาก[gold]มือ[/gold]ไปวางไว้บนสุดของ[gold]กองจั่ว[/gold]",
+      "title": "คิดล่วงหน้า"
+    },
+    "THRASH": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน 2 ครั้ง\n[gold]สลาย[/gold]การ์ดโจมตี 1 ใบแบบสุ่มใน[gold]มือ[/gold]และนำความเสียหายของมันมาเพิ่มให้การ์ดนี้แทน"
+    },
+    "THRUMMING_HATCHET": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nตอนเริ่มต้นเทิร์น นำการ์ดนี้กลับขึ้น[gold]มือ[/gold]"
+    },
+    "THUNDER": {
+      "description": "ทุกครั้งที่คุณ[gold]ปล่อยพลังสายฟ้า[/gold] สร้างความเสียหาย {ThunderPower:diff()} ใส่ศัตรูแต่ละตัวที่ถูกสายฟ้าโจมตี",
+      "title": "ฟ้าคะนอง"
+    },
+    "THUNDERCLAP": {
+      "description": "สร้างความเสียหาย {Damage:diff()} และสร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]ใส่ศัตรูทั้งหมด",
+      "title": "ฟ้าผ่า"
+    },
+    "TIMES_UP": {
+      "description": "สร้างความเสียหายตาม[gold]อายุขัย[/gold]บนตัวศัตรู{IsTargeting:\n(สร้างความเสียหาย {CalculatedDamage:diff()})|}"
+    },
+    "TOOLS_OF_THE_TRADE": {
+      "description": "ตอนเริ่มต้นเทิร์น จั่วการ์ด 1 ใบและทิ้งการ์ด 1 ใบ",
+      "title": "สรรพอุปกรณ์"
+    },
+    "TORIC_TOUGHNESS": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nได้รับ {Block:diff()} [gold]บล็อก[/gold]ตอนเริ่มต้นเทิร์น เป็นเวลา {Turns:diff()} {Turns:plural:เทิร์น|เทิร์น}"
+    },
+    "TOXIC": {
+      "description": "ตอนจบเทิร์น ถ้าการ์ดนี้อยู่ใน[gold]มือ[/gold] ได้รับความเสียหาย {Damage:diff()}"
+    },
+    "TRACKING": {
+      "description": "ศัตรูที่มี[gold]ความอ่อนแอ[/gold]ได้รับความเสียหายจากการ์ดโจมตี 2 เท่า"
+    },
+    "TRAINING_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nถ้า[gold]สังหาร[/gold] Cocoon ได้รับค่าประสบการณ์ 1"
+    },
+    "TRANSFIGURE": {
+      "description": "เพิ่ม[gold]เล่นซ้ำ[/gold]ให้ 1 การ์ดใน[gold]มือ[/gold]\nแต่ค่าร่ายเพิ่มขึ้น {Energy:energyIcons()}"
+    },
+    "TRASH_TO_TREASURE": {
+      "description": "ทุกครั้งที่คุณสร้างการ์ดสถานะ [gold]ปลุกเสก[/gold]ลูกแก้ว 1 ลูกแบบสุ่ม"
+    },
+    "TREMBLE": {
+      "description": "สร้าง {VulnerablePower:diff()} [gold]จุดอ่อน[/gold]"
+    },
+    "TRUE_GRIT": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\n[gold]สลาย[/gold]การ์ด 1 ใบ{IfUpgraded:show:|แบบสุ่ม}",
+      "title": "ใจสู้ที่แท้จริง"
+    },
+    "TURBO": {
+      "description": "ได้รับ {Energy:energyIcons()}\nเพิ่ม[gold]ความว่างเปล่า[/gold] 1 ใบเข้า[gold]กองทิ้ง[/gold]",
+      "title": "เทอร์โบ"
+    },
+    "TWIN_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน 2 ครั้ง",
+      "title": "จู่โจมคู่"
+    },
+    "TYRANNY": {
+      "description": "ตอนเริ่มต้นเทิร์น จั่วการ์ด 1 ใบและ[gold]สลาย[/gold]การ์ด 1 ใบใน[gold]มือ[/gold]"
+    },
+    "ULTIMATE_DEFEND": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]"
+    },
+    "ULTIMATE_STRIKE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}"
+    },
+    "UNDEATH": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nเพิ่มสำเนา 1 ใบของการ์ดนี้เข้า[gold]กองทิ้ง[/gold]"
+    },
+    "UNLEASH": {
+      "description": "[gold]Osty[/gold]สร้างความเสียหาย {CalculatedDamage:diff()}\nสร้างความเสียหายเพิ่มตามจำนวน HP ปัจจุบันของ[gold]Osty[/gold]"
+    },
+    "UNMOVABLE": {
+      "description": "ครั้งแรกที่คุณได้รับ[gold]บล็อก[/gold]จากการ์ดในแต่ละเทิร์น จะได้รับเป็น 2 เท่า"
+    },
+    "UNRELENTING": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nการ์ดโจมตีใบถัดไปมีค่าร่าย 0 {energyPrefix:energyIcons(1)}"
+    },
+    "UNTOUCHABLE": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]"
+    },
+    "UPPERCUT": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nสร้าง {Power:diff()} [gold]ความอ่อนแอ[/gold]\nสร้าง {Power:diff()} [gold]จุดอ่อน[/gold]",
+      "title": "หมัดสอยดาว"
+    },
+    "UPROAR": {
+      "description": "สร้างความเสียหาย {Damage:diff()} จำนวน 2 ครั้ง\nเล่นการ์ดโจมตี 1 ใบแบบสุ่มจาก[gold]กองจั่ว[/gold]"
+    },
+    "UP_MY_SLEEVE": {
+      "description": "เพิ่ม[gold]มีดสั้น[/gold] {Cards:diff()} ใบใส่[gold]มือ[/gold]\nลดค่าร่ายของการ์ดนี้ลง 1"
+    },
+    "VEILPIERCER": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\nการ์ด[gold]กึ่งสลาย[/gold]ใบถัดไปมีค่าร่าย 0 {energyPrefix:energyIcons(1)}"
+    },
+    "VENERATE": {
+      "description": "ได้รับ {Stars:starIcons()}"
+    },
+    "VETERAN": {
+      "description": "ได้รับ {Block:diff()} [gold]บล็อก[/gold]\nได้รับ {StrengthPower:diff()} [gold]ความแข็งแรง[/gold]"
+    },
+    "VICIOUS": {
+      "description": "ทุกครั้งที่คุณสร้าง[gold]จุดอ่อน[/gold] จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "VISIONS_OF_GRANDEUR": {
+      "description": "ถ้าคุณมี {StarThreshold:diff()}{singleStarIcon} จั่วการ์ด {Cards:diff()} ใบ"
+    },
+    "VOID": {
+      "description": "ทุกครั้งที่จั่วได้การ์ดนี้ เสีย {Energy:energyIcons()}",
+      "title": "ความว่างเปล่า"
+    },
+    "VOID_FORM": {
+      "description": "จบเทิร์นทันที แต่หลังจากนี้\nการ์ด{VoidFormPower:plural:ใบแรก|{VoidFormPower:diff()} ใบแรก}ที่คุณเล่นในแต่ละเทิร์นจะเล่นฟรี"
+    },
+    "VOLLEY": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรู 1 ตัวแบบสุ่ม จำนวน X ครั้ง"
+    },
+    "VOLTAIC": {
+      "description": "[gold]ปลุกเสกสายฟ้า[/gold]ตามจำนวน[gold]สายฟ้า[/gold]ที่เคยถูก[gold]ปลุกเสก[/gold]ในการต่อสู้นี้{InCombat:\n([gold]ปลุกเสก[/gold] {CalculatedChannels:diff()} [gold]สายฟ้า[/gold])|}"
+    },
+    "WARP_SPACE": {
+      "description": "เพิ่มการ์ด {Cards:diff()} ใบแบบสุ่มเข้า[gold]กองจั่ว[/gold]\nลดค่าร่ายของมันลง 1 จนกว่าจะถูกเล่น"
+    },
+    "WASTE_AWAY": {
+      "description": "ได้รับน้อยลง {WasteAwayPower:diff()} {energyPrefix:energyIcons(1)} ต่อเทิร์น"
+    },
+    "WELL_LAID_PLANS": {
+      "description": "ตอนจบเทิร์น [gold]คงสภาพ[/gold]การ์ดได้สูงสุด {RetainAmount:diff()} ใบ",
+      "title": "แผนการอย่างดี"
+    },
+    "WHIRLWIND": {
+      "description": "สร้างความเสียหาย {Damage:diff()} ใส่ศัตรูทั้งหมด จำนวน X ครั้ง",
+      "title": "พายุลมกรด"
+    },
+    "WHISTLE": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]สตัน[/gold]ศัตรูตัวนั้น"
+    },
+    "WHITE_NOISE": {
+      "description": "เพิ่มการ์ดพลัง 1 ใบแบบสุ่มใส่[gold]มือ[/gold] มันเล่นฟรีในเทิร์นนี้",
+      "title": "คลื่นรบกวนเชิงบวก"
+    },
+    "WISH": {
+      "description": "นำการ์ด 1 ใบจาก[gold]กองจั่ว[/gold]ขึ้น[gold]มือ[/gold]",
+      "title": "อธิษฐาน"
+    },
+    "WISP": {
+      "description": "ได้รับ {Energy:energyIcons()}"
+    },
+    "WOUND": {
+      "title": "บาดแผล"
+    },
+    "WRAITH_FORM": {
+      "description": "ได้รับ {IntangiblePower:diff()} [gold]ไร้ตัวตน[/gold]\nตอนเริ่มต้นเทิร์น เสีย {WraithFormPower:diff()} [gold]ความชำนาญ[/gold]",
+      "title": "ร่างมายา"
+    },
+    "WRITHE": {
+      "title": "อาการชัก"
+    },
+    "WROUGHT_IN_WAR": {
+      "description": "สร้างความเสียหาย {Damage:diff()}\n[gold]หลอมสร้าง[/gold] {Forge:diff()}"
+    },
+    "ZAP": {
+      "description": "[gold]ปลุกเสก[/gold] 1 [gold]สายฟ้า[/gold]",
+      "title": "ฟ้าแลบ"
+    }
+  },
+  "relics": {
+    "AKABEKO": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ ได้รับ [blue]{VigorPower}[/blue] [gold]ความกำยำ[/gold]"
+    },
+    "ALCHEMICAL_COFFER": {
+      "description": "ตอนได้รับมา จะเพิ่มช่องเก็บขวดยา [blue]{PotionSlots}[/blue] ช่องพร้อมขวดยาแบบสุ่ม"
+    },
+    "AMETHYST_AUBERGINE": {
+      "description": "ศัตรูดรอป[gold]ทอง[/gold]มากขึ้น [blue]{Gold}[/blue]"
+    },
+    "ANCHOR": {
+      "description": "เริ่มต้นแต่ละการต่อสู้ด้วย [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "ARCANE_SCROLL": {
+      "description": "เมื่อรับมา จะได้รับ[gold]การ์ดหายาก[/gold] 1 ใบแบบสุ่มเข้า[gold]กองการ์ด[/gold]"
+    },
+    "ARCHAIC_TOOTH": {
+      "description": "เมื่อรับมา [gold]แปรสภาพ[/gold]{StarterCard.StringValue:cond:[gold]{StarterCard}[/gold]ให้เป็น[gold]{AncientCard}[/gold]|การ์ดเริ่มต้นเวอร์ชันเทพโบราณ 1 ใบ}"
+    },
+    "ART_OF_WAR": {
+      "description": "ถ้าคุณไม่ได้เล่นการ์ดโจมตีในเทิร์นของคุณ จะได้รับ {Energy:energyIcons()} เพิ่มในเทิร์นถัดไป",
+      "title": "ตำราพิชัยสงคราม"
+    },
+    "ASTROLABE": {
+      "description": "เมื่อรับมา [gold]แปรสภาพ[/gold] [blue]{Cards}[/blue] การ์ด จากนั้น[gold]พัฒนา[/gold]พวกมัน"
+    },
+    "BAG_OF_MARBLES": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ สร้าง [blue]{VulnerablePower}[/blue] [gold]จุดอ่อน[/gold]ใส่ศัตรูทั้งหมด"
+    },
+    "BAG_OF_PREPARATION": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ จั่วเพิ่มอีก [blue]{Cards}[/blue] การ์ด"
+    },
+    "BEATING_REMNANT": {
+      "description": "คุณไม่สามารถเสียเกิน [blue]20[/blue] HP ได้ในแต่ละเทิร์น"
+    },
+    "BEAUTIFUL_BRACELET": {
+      "description": "เมื่อรับมา เลือก [blue]{Cards}[/blue] การ์ดใน[gold]กองการ์ด[/gold] จากนั้น[gold]ร่ายมนต์[/gold] [purple]Swift[/purple] [blue]3[/blue] ให้พวกมัน"
+    },
+    "BELLOWS": {
+      "description": "[gold]พัฒนา[/gold]การ์ดทั้งหมดใน[gold]มือ[/gold]แรกในแต่ละการต่อสู้"
+    },
+    "BELT_BUCKLE": {
+      "description": "ช่วงที่ไม่มีขวดยา คุณจะได้รับเพิ่ม [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]"
+    },
+    "BIG_HAT": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ เพิ่มการ์ด[gold]กึ่งสลาย[/gold] [blue]{Cards}[/blue] ใบแบบสุ่มใส่[gold]มือ[/gold]"
+    },
+    "BIG_MUSHROOM": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด แต่ตอนเริ่มต้นแต่ละการต่อสู้ จั่วการ์ดน้อยลง [blue]{Cards}[/blue] ใบ"
+    },
+    "BIIIG_HUG": {
+      "description": "เมื่อรับมา กำจัด [blue]{Cards}[/blue] การ์ดจาก[gold]กองการ์ด[/gold] ทุกครั้งที่[gold]กองจั่ว[/gold]ถูกสับ จะเพิ่ม [gold]Soot[/gold] 1 ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "BING_BONG": {
+      "description": "ทุกครั้งที่เพิ่มการ์ดเข้า[gold]กองการ์ด[/gold] จะเพิ่มสำเนาอีก 1 ใบด้วย"
+    },
+    "BLACK_BLOOD": {
+      "description": "ตอนจบการต่อสู้ ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "BLACK_STAR": {
+      "description": "[gold]ลูกพี่[/gold]ดรอปเครื่องรางเพิ่มอีก 1 ชิ้น"
+    },
+    "BLESSED_ANTLER": {
+      "description": "ได้รับ {Energy:energyIcons()} ตอนเริ่มต้นแต่ละเทิร์น แต่ตอนเริ่มต้นแต่ละการต่อสู้ สับ[gold]ความมึนงง[/gold] [blue]{Cards}[/blue] ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "BLOOD_SOAKED_ROSE": {
+      "description": "เมื่อรับมา เพิ่ม[red]Enthralled[/red] [blue]1[/blue] ใบเข้า[gold]กองการ์ด[/gold] ได้รับ {Energy:energyIcons()} ตอนเริ่มต้นแต่ละเทิร์น"
+    },
+    "BLOOD_VIAL": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "BONE_TEA": {
+      "description": "ตอนเริ่มต้นการต่อสู้ในอีก [blue]{Combats}[/blue] ครั้ง [gold]พัฒนา[/gold]มือเริ่มต้น"
+    },
+    "BOOKMARK": {
+      "description": "ตอนจบเทิร์น ลดค่าร่ายของการ์ดที่ถูก[gold]คงสภาพ[/gold]ลง [blue]1[/blue] จนกว่าจะเล่น",
+      "title": "ที่คั่นหนังสือ"
+    },
+    "BOOK_OF_FIVE_RINGS": {
+      "description": "การ์ดทุก [blue]{Cards}[/blue] ใบที่คุณเพิ่มเข้า[gold]กองการ์ด[/gold] ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "BOOK_REPAIR_KNIFE": {
+      "description": "ทุกครั้งที่ศัตรูที่ไม่ใช่ลูกน้องตายเพราะ[gold]อายุขัย[/gold] ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "BOUND_PHYLACTERY": {
+      "description": "ตอนเริ่มต้นเทิร์น [gold]อัญเชิญ[/gold] [blue]{Summon}[/blue]"
+    },
+    "BREAD": {
+      "description": "ตอนเริ่มต้นเทิร์นแรก เสีย {LoseEnergy:energyIcons()} แต่ตอนเริ่มต้นเทิร์นอื่นๆ ได้รับ {GainEnergy:energyIcons()}",
+      "title": "ขนมปัง"
+    },
+    "BRILLIANT_SCARF": {
+      "description": "การ์ดใบที่ [blue]5[/blue] ที่คุณเล่นในแต่ละเทิร์นจะเล่นฟรี"
+    },
+    "BRIMSTONE": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ [blue]{SelfStrength}[/blue] [gold]ความแข็งแรง[/gold] และศัตรูทั้งหมดได้รับ [blue]{EnemyStrength}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "BRONZE_SCALES": {
+      "description": "เริ่มต้นแต่ละการต่อสู้ด้วย [blue]{ThornsPower}[/blue] [gold]หนาม[/gold]"
+    },
+    "BURNING_BLOOD": {
+      "description": "ตอนจบการต่อสู้ ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "BURNING_STICKS": {
+      "description": "เมื่อ[gold]สลาย[/gold]การ์ดทักษะเป็นครั้งแรกในแต่ละการต่อสู้ เพิ่มสำเนา 1 ใบใส่[gold]มือ[/gold]"
+    },
+    "BYRDPIP": {
+      "description": "เมื่อรับมา ได้รับการ์ด[gold]Byrd Swoop[/gold] ซึ่ง[gold]Byrdpip[/gold]จะติดตามคุณไปด้วย"
+    },
+    "CALLING_BELL": {
+      "description": "เมื่อรับมา ได้รับ[red]คำสาป[/red]ที่เป็นเอกลักษณ์และ [blue]{Relics}[/blue] [gold]เครื่องราง[/gold]"
+    },
+    "CAPTAINS_WHEEL": {
+      "description": "ตอนริ่มต้นเทิร์นที่ [blue]3[/blue] ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "CAULDRON": {
+      "description": "เมื่อรับมา ปรุง [blue]{Potions}[/blue] ขวดยาแบบสุ่ม",
+      "title": "หม้อปรุงยา"
+    },
+    "CENTENNIAL_PUZZLE": {
+      "description": "เมื่อคุณเสีย HP เป็นครั้งแรกในแต่ละการต่อสู้ จั่ว [blue]{Cards}[/blue] การ์ด"
+    },
+    "CHARONS_ASHES": {
+      "description": "ทุกครั้งที่[gold]สลาย[/gold]การ์ด สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรูทั้งหมด"
+    },
+    "CHEMICAL_X": {
+      "description": "ผลของการ์ดค่าร่าย [blue]X[/blue] ทั้งหมดจะเพิ่มขึ้นอีก [blue]{Increase}[/blue]",
+      "title": "สารเคมีเอ็กซ์"
+    },
+    "CHOICES_PARADOX": {
+      "description": "ตอนเริ่มต้นการต่อสู้ เลือกการ์ด [blue]1[/blue] จาก [blue]{Cards}[/blue] ใบที่ถูกสุ่มมาเพื่อเพิ่มใส่[gold]มือ[/gold] และเพิ่ม[gold]คงสภาพ[/gold]ให้มันด้วย"
+    },
+    "CHOSEN_CHEESE": {
+      "description": "ตอนจบการต่อสู้ ได้รับ [blue]{MaxHp}[/blue] HP สูงสุด",
+      "title": "ชีสที่ถูกเลือก"
+    },
+    "CIRCLET": {
+      "description": "มันคือรัดเกล้า",
+      "title": "รัดเกล้า"
+    },
+    "CLAWS": {
+      "description": "เมื่อรับมา [gold]แปรสภาพ[/gold]การ์ดได้สูงสุด [blue]{Cards}[/blue] ใบให้เป็น[gold]Maul[/gold]"
+    },
+    "CLOAK_CLASP": {
+      "description": "ตอนจบเทิร์น ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]ตามจำนวนการ์ดใน[gold]มือ[/gold]"
+    },
+    "CRACKED_CORE": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ [gold]ปลุกเสก[/gold] [blue]{Lightning}[/blue] [gold]สายฟ้า[/gold]"
+    },
+    "CROSSBOW": {
+      "title": "หน้าไม้"
+    },
+    "CURSED_KETTLE": {
+      "description": "เมื่อกำจัด[gold]ลูกพี่[/gold] [gold]ลูกพี่[/gold]ตัวอื่นในองก์นี้จะได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]ตอนเริ่มต้นการต่อสู้"
+    },
+    "CURSED_PEARL": {
+      "description": "เมื่อรับมา ได้รับ[red]Greed[/red] ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold]"
+    },
+    "DARKSTONE_PERIAPT": {
+      "description": "ทุกครั้งที่ได้รับ[red]คำสาป[/red] เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด"
+    },
+    "DATA_DISK": {
+      "description": "เริ่มต้นแต่ละการต่อสู้ด้วย [blue]{FocusPower}[/blue] [gold]โฟกัส[/gold]",
+      "title": "ดิสก์ข้อมูล"
+    },
+    "DAUGHTER_OF_THE_WIND": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตี ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "DELICATE_FROND": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ เติมขวดยาแบบสุ่มจนเต็มช่องเก็บขวดยา"
+    },
+    "DEPRECATED_RELIC": {
+      "description": "เครื่องรางนี้ไม่อยู่ในเกมอีกต่อไปแล้ว เหลือไว้เพื่อดูต่างหน้าเท่านั้น",
+      "title": "เครื่องรางที่ถูกนำออกจากเกม"
+    },
+    "DIAMOND_DIADEM": {
+      "description": "ในเทิร์นที่คุณเล่นการ์ดไม่เกิน [blue]{CardThreshold}[/blue] ใบ คุณจะได้รับความเสียหายจากศัตรูทั้งหมดน้อยลงครึ่งหนึ่ง"
+    },
+    "DINGY_RUG": {
+      "description": "การ์ดไร้สีจะอยู่ในรางวัลการ์ดด้วย"
+    },
+    "DIVINE_RIGHT": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ ได้รับ {Stars:starIcons()}"
+    },
+    "DOLLYS_MIRROR": {
+      "description": "เมื่อรับมา เลือกทำสำเนาการ์ด 1 ใบใน[gold]กองการ์ด[/gold]"
+    },
+    "DRAGON_FRUIT": {
+      "description": "ทุกครั้งที่ได้รับ[gold]ทอง[/gold] เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด",
+      "title": "แก้วมังกร"
+    },
+    "DREAM_CATCHER": {
+      "description": "ทุกครั้งที่คุณ[gold]พักผ่อน[/gold] คุณสามารถเพิ่มการ์ด 1 ใบเข้า[gold]กองการ์ด[/gold]ได้",
+      "title": "ตาข่ายดักฝันร้าย"
+    },
+    "DRIFTWOOD": {
+      "description": "รางวัลการ์ดสามารถถูกสุ่มใหม่ได้อีกครั้ง"
+    },
+    "DUSTY_TOME": {
+      "description": "เมื่อรับมา ได้รับ{AncientCard.StringValue:cond:[gold]{}[/gold]|[gold]การ์ดเทพโบราณ[/gold]}",
+      "title": "ตำราฝุ่นเขรอะ"
+    },
+    "ECTOPLASM": {
+      "description": "คุณจะไม่ได้รับ[gold]ทอง[/gold]อีกต่อไป ได้รับ {Energy:energyIcons()} ตอนเริ่มต้นแต่ละเทิร์น"
+    },
+    "ELECTRIC_SHRYMP": {
+      "description": "เมื่อรับมา [gold]ร่ายมนตร์[/gold] [purple]Imbued[/purple] ให้การ์ดทักษะ 1 ใบ"
+    },
+    "EMBER_TEA": {
+      "description": "ตอนเริ่มต้นอีก {Combats:plural:1|[blue]{}[/blue]} การต่อสู้ ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "EMOTION_CHIP": {
+      "description": "ถ้าคุณเสีย HP ในเทิร์นก่อนหน้า ผลต่อเนื่องของลูกแก้วทั้งหมดจะทำงานตอนเริ่มต้นเทิร์น",
+      "title": "ชิปอารมณ์ความรู้สึก"
+    },
+    "EMPTY_CAGE": {
+      "description": "เมื่อรับมา กำจัดการ์ด [blue]{Cards}[/blue] ใบจาก[gold]กองการ์ด[/gold]"
+    },
+    "ENDLESS_APPETITE": {
+      "description": "ทุกครั้งที่คุณ[gold]สลาย[/gold]การ์ด ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "ETERNAL_FEATHER": {
+      "description": "ทุกครั้งที่เข้า[gold]จุดพัก[/gold] ฟื้นฟู [green]{Heal}[/green] HP ต่อทุก {Cards:plural:1 การ์ด|[blue]{}[/blue] การ์ด}ใน[gold]กองการ์ด[/gold]"
+    },
+    "FAKE_ANCHOR": {
+      "description": "เริ่มต้นแต่ละการต่อสู้ด้วย [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "FAKE_BLOOD_VIAL": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "FAKE_HAPPY_FLOWER": {
+      "description": "ทุกๆ [blue]{Turns}[/blue] เทิร์น ได้รับ {Energy:energyIcons()}"
+    },
+    "FAKE_LEES_WAFFLE": {
+      "description": "เมื่อรับมา ฟื้นฟู [green]{Heal}%[/green] ของ HP"
+    },
+    "FAKE_MANGO": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด",
+      "title": "มะม่วง???"
+    },
+    "FAKE_ORICHALCUM": {
+      "description": "ถ้าจบเทิร์นโดยไม่มี[gold]บล็อก[/gold] ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "FAKE_SNECKO_EYE": {
+      "description": "เริ่มต้นแต่ละการต่อสู้ด้วย [red]สับสน[/red]"
+    },
+    "FAKE_STRIKE_DUMMY": {
+      "description": "การ์ดที่มีคำว่า “จู่โจม” สร้างความเสียหายเพิ่มขึ้น [blue]{ExtraDamage}[/blue]"
+    },
+    "FAKE_VENERABLE_TEA_SET": {
+      "description": "ทุกครั้งที่เข้า[gold]จุดพัก[/gold] จะเริ่มต้นการต่อสู้ถัดไปโดยเพิ่มอีก {Energy:energyIcons()}"
+    },
+    "FENCING_MANUAL": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ [gold]หลอมสร้าง[/gold] [blue]{Forge}[/blue]"
+    },
+    "FORGOTTEN_SOUL": {
+      "description": "ทุกครั้งที่คุณ[gold]สลาย[/gold]การ์ด สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรู 1 ตัวแบบสุ่ม"
+    },
+    "FRAGRANT_MUSHROOM": {
+      "description": "เมื่อรับมา เสีย [red]{HpLoss}[/red] HP และ[gold]พัฒนา[/gold]การ์ด [blue]{Cards}[/blue] ใบแบบสุ่ม"
+    },
+    "FRESNEL_LENS": {
+      "description": "ทุกครั้งที่เพิ่มการ์ดที่ได้รับ[gold]บล็อก[/gold]เข้า[gold]กองการ์ด[/gold] จะ[gold]ร่ายมนตร์[/gold]มันด้วย[purple]Nimble[/purple] [blue]{NimbleAmount}[/blue]"
+    },
+    "FROZEN_EGG": {
+      "description": "ทุกครั้งที่เพิ่มการ์ดพลังเข้า[gold]กองการ์ด[/gold] [gold]พัฒนา[/gold]มัน",
+      "title": "ไข่แช่แข็ง"
+    },
+    "FUNERARY_MASK": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ เพิ่ม[gold]วิญญาณ[/gold] [blue]{Cards}[/blue] ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "FUR_COAT": {
+      "description": "เมื่อรับมา ทำเครื่องหมาย [blue]{Combats}[/blue] การต่อสู้แบบสุ่ม ศัตรูในห้องเหล่านั้นมี [blue]1[/blue] HP"
+    },
+    "GAMBLING_CHIP": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ ทิ้งการ์ดกี่ใบก็ได้ แล้วจั่วการ์ดตามจำนวนนั้น"
+    },
+    "GAME_PIECE": {
+      "description": "ทุกครั้งที่เล่นการ์ดพลัง จั่วการ์ด [blue]{Cards}[/blue] ใบ"
+    },
+    "GHOST_SEED": {
+      "description": "[gold]จู่โจม[/gold]และ[gold]ป้องกัน[/gold]ได้รับ[gold]กึ่งสลาย[/gold]"
+    },
+    "GIRYA": {
+      "description": "ต่อไปนี้สามารถได้รับ[gold]ความแข็งแรง[/gold]ที่[gold]จุดพัก[/gold] (สูงสุด [blue]3[/blue] ครั้ง)"
+    },
+    "GLASS_EYE": {
+      "description": "เมื่อรับมา ได้รับการ์ด[gold]ธรรมดา[/gold] [blue]2[/blue] ใบ, การ์ด[gold]ไม่ธรรมดา[/gold] [blue]2[/blue] ใบ, และการ์ด[gold]หายาก[/gold] [blue]1[/blue] ใบ"
+    },
+    "GLITTER": {
+      "description": "[gold]ร่ายมนตร์[/gold]การ์ดทั้งหมดในรางวัลการ์ดด้วย[purple]Glam[/purple]",
+      "title": "กากเพชร"
+    },
+    "GLOWING_ORB": {
+      "description": "เริ่มต้นการต่อสู้กับ[gold]ลูกพี่[/gold]โดยมีเพิ่มอีก {Energy:energyIcons()}",
+      "title": "ลูกแก้วเรืองแสง"
+    },
+    "GNARLED_HAMMER": {
+      "description": "เมื่อรับมา [gold]ร่ายมนตร์[/gold]การ์ดโจมตีได้สูงสุด [blue]{Cards}[/blue] ใบด้วย [purple]Sharp[/purple] [blue]{SharpAmount:diff()}[/blue]"
+    },
+    "GOLDEN_COMPASS": {
+      "description": "เมื่อรับมา แทนที่[gold]องก์[/gold] [blue]2[/blue] ด้วยแผนที่ซึ่งมีเส้นทางพิเศษเพียงทางเดียว",
+      "title": "เข็มทิศทองคำ"
+    },
+    "GOLDEN_PEARL": {
+      "description": "เมื่อรับมา ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold]",
+      "title": "ไข่มุกทองคำ"
+    },
+    "GOLD_PLATED_CABLES": {
+      "description": "ผลต่อเนื่องของลูกแก้วขวาสุดทำงานเพิ่มอีกครั้ง"
+    },
+    "GORGET": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ ได้รับ [blue]{PlatingPower}[/blue] [gold]Plating[/gold]"
+    },
+    "GREMLIN_HORN": {
+      "description": "ทุกครั้งที่ศัตรูตาย ได้รับ {Energy:energyIcons()} และจั่วการ์ด [blue]{Cards}[/blue] ใบ"
+    },
+    "HAND_DRILL": {
+      "description": "ทุกครั้งที่ทำลาย[gold]บล็อก[/gold]ของศัตรูได้ สร้าง [blue]{VulnerablePower}[/blue] [gold]จุดอ่อน[/gold]"
+    },
+    "HAPPY_FLOWER": {
+      "description": "ทุกๆ [blue]{Turns}[/blue] เทิร์น ได้รับ {Energy:energyIcons()}"
+    },
+    "HELICAL_DART": {
+      "description": "ทุกครั้งที่เล่น[gold]มีดสั้น[/gold] ได้รับ [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]ในเทิร์นนี้"
+    },
+    "HISTORY_COURSE": {
+      "description": "ตอนเริ่มต้นเทิร์น เล่นสำเนาของการ์ดที่เล่นล่าสุด"
+    },
+    "HORN_CLEAT": {
+      "description": "ตอนเริ่มต้นเทิร์นที่ [blue]2[/blue] ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "ICE_CREAM": {
+      "description": "สามารถสะสมพลังงานไปยังเทิร์นอื่นๆ ได้",
+      "title": "ไอศกรีม"
+    },
+    "INFUSED_CORE": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ [gold]ปลุกเสก[/gold] [blue]{Lightning}[/blue] [gold]สายฟ้า[/gold]"
+    },
+    "INK_BOTTLE": {
+      "description": "การ์ดทุก [blue]{CardThreshold}[/blue] ใบที่คุณเล่น จั่วการ์ด [blue]{Cards}[/blue] ใบ"
+    },
+    "INTIMIDATING_HELMET": {
+      "description": "ทุกครั้งที่เล่นการ์ดค่าร่าย {Energy:energyIcons()} ขึ้นไป ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "IRON_CLUB": {
+      "description": "การ์ดทุก [blue]{Cards}[/blue] ใบที่คุณเล่น จั่วการ์ด [blue]1[/blue] ใบ"
+    },
+    "JEWELRY_BOX": {
+      "description": "เมื่อรับมา เพิ่ม[gold]สภาวะเทียมเทพ[/gold] [blue]1[/blue] ใบเข้า[gold]กองการ์ด[/gold]"
+    },
+    "JOSS_PAPER": {
+      "description": "ทุก [blue]{ExhaustAmount}[/blue] ครั้งที่คุณ[gold]สลาย[/gold]การ์ด จั่วการ์ด [blue]{Cards}[/blue] ใบ"
+    },
+    "JUZU_BRACELET": {
+      "description": "จะไม่พบศัตรูปกติในห้อง [gold]?[/gold] อีกต่อไป"
+    },
+    "KIFUDA": {
+      "description": "เมื่อรับมา [gold]ร่ายมนตร์[/gold]การ์ดได้สูงสุด [blue]{Cards}[/blue] ใบด้วย [purple]Adroit[/purple]"
+    },
+    "KUNAI": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตี [blue]{Cards}[/blue] ใบในเทิร์นเดียว ได้รับ [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]"
+    },
+    "LANTERN": {
+      "description": "เริ่มต้นแต่ละการต่อสู้โดยมีเพิ่มอีก {Energy:energyIcons()}",
+      "title": "ตะเกียง"
+    },
+    "LARGE_CAPSULE": {
+      "description": "เมื่อรับมา ได้รับ[gold]เครื่องราง[/gold] [blue]{Relics}[/blue] ชิ้นแบบสุ่ม เพิ่ม[gold]จู่โจม[/gold]และ[gold]ป้องกัน[/gold]เข้า[gold]กองการ์ด[/gold]"
+    },
+    "LASTING_CANDY": {
+      "description": "ทุกการต่อสู้แบบครั้งเว้นครั้ง รางวัลการ์ดจะมีการ์ดพลังเพิ่ม 1 ใบ"
+    },
+    "LAVA_ROCK": {
+      "title": "หินลาวา"
+    },
+    "LEAD_PAPERWEIGHT": {
+      "description": "เมื่อรับมา เลือกการ์ดไร้สี [blue]1[/blue] จาก [blue]2[/blue] ใบเพื่อเพิ่มเข้า[gold]กองการ์ด[/gold]",
+      "title": "ตะกั่วทับกระดาษ"
+    },
+    "LEAFY_POULTICE": {
+      "description": "เมื่อรับมา [gold]แปรสภาพ[/gold][gold]จู่โจม[/gold] [blue]1[/blue] ใบ และ[gold]ป้องกัน[/gold] [blue]1[/blue] ใบ และเสีย [blue]{MaxHp}[/blue] HP สูงสุด"
+    },
+    "LEES_WAFFLE": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] Max HP สูงสุดและฟื้นฟู HP จนเต็ม"
+    },
+    "LETTER_OPENER": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดทักษะ [blue]{Cards}[/blue] ใบในเทิร์นเดียว สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรูทั้งหมด"
+    },
+    "LIZARD_TAIL": {
+      "description": "เมื่อคุณจะตาย ฟื้นฟู [green]{Heal}%[/green] ของ HP สูงสุดแทน (ใช้ได้ครั้งเดียว)"
+    },
+    "LOOMING_FRUIT": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด"
+    },
+    "LOST_WISP": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ด[gold]พลัง[/gold] สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรูทั้งหมด"
+    },
+    "LUCKY_FYSH": {
+      "description": "ทุกครั้งที่คุณเพิ่มการ์ดเข้า[gold]กองการ์ด[/gold] ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold]"
+    },
+    "LUNAR_PASTRY": {
+      "description": "ตอนจบเทิร์น ได้รับ {Stars:starIcons()}"
+    },
+    "MANGO": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด",
+      "title": "มะม่วง"
+    },
+    "MASSIVE_SCROLL": {
+      "description": "เมื่อรับมา เลือก[gold]การ์ดไร้สีแบบหลายคน[/gold] [blue]1[/blue] จาก [blue]3[/blue] ใบเพื่อเพิ่มเข้า[gold]กองการ์ด[/gold]"
+    },
+    "MAW_BANK": {
+      "description": "ทุกครั้งที่เปลี่ยนชั้น ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold] แต่จะพังทันทีที่คุณนำ[gold]ทอง[/gold]ไปใช้จ่ายที่ร้านค้า"
+    },
+    "MEAL_TICKET": {
+      "description": "ทุกครั้งที่คุณเข้าห้องร้านค้า ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "MEAT_CLEAVER": {
+      "description": "คุณสามารถ[gold]ปรุงอาหาร[/gold]ที่จุดพักได้"
+    },
+    "MEAT_ON_THE_BONE": {
+      "description": "ตอนจบการต่อสู้ ถ้า HP ของคุณเหลือไม่เกิน [blue]{HpThreshold}%[/blue] ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "MEDICAL_KIT": {
+      "description": "สามารถเล่นการ์ด[gold]สถานะ[/gold]ได้แล้ว มันจะ[gold]สลาย[/gold]ไป"
+    },
+    "MEMBERSHIP_CARD": {
+      "description": "ลดราคาสินค้าทั้งหมด [blue]{Discount}%[/blue]!",
+      "title": "บัตรสมาชิก"
+    },
+    "MERCURY_HOURGLASS": {
+      "description": "ตอนเริ่มต้นเทิร์น สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรูทั้งหมด"
+    },
+    "METRONOME": {
+      "description": "ครั้งแรกที่คุณ[gold]ปลุกเสก[/gold][gold]ลูกแก้ว[/gold] [blue]{OrbCount}[/blue] ลูกในแต่ละการต่อสู้ สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรูทั้งหมด"
+    },
+    "MINIATURE_CANNON": {
+      "description": "การ์ดโจมตีที่[gold]พัฒนาแล้ว[/gold]สร้างความเสียหายเพิ่มขึ้น [blue]{ExtraDamage}[/blue]"
+    },
+    "MINIATURE_TENT": {
+      "description": "คุณสามารถเลือกตัวเลือกที่[gold]จุดพัก[/gold]กี่ตัวเลือกก็ได้"
+    },
+    "MINI_REGENT": {
+      "description": "ครั้งแรกที่คุณจ่าย {singleStarIcon} ในแต่ละเทิร์น ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "MOLTEN_EGG": {
+      "description": "ทุกครั้งที่คุณเพิ่มการ์ดโจมตีเข้า[gold]กองการ์ด[/gold] [gold]พัฒนา[/gold]มัน"
+    },
+    "MR_STRUGGLES": {
+      "description": "ตอนต้นเทิร์น สร้างความเสียหายตามเลขเทิร์นใส่ศัตรูทั้งหมด"
+    },
+    "MUMMIFIED_HAND": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดพลัง การ์ด 1 ใบแบบสุ่มใน[gold]มือ[/gold]จะเล่นฟรีในเทิร์นนั้น"
+    },
+    "MUSIC_BOX": {
+      "description": "ตอนเริ่มต้นการต่อสู้ นำการ์ดพลัง 1 ใบแบบสุ่มจาก[gold]กองจั่ว[/gold]ขึ้น[gold]มือ[/gold] มันเล่นฟรี",
+      "title": "กล่องดนตรี"
+    },
+    "MYSTERIOUS_COCOON": {
+      "description": "เมื่อได้รับ [blue]{Experience}[/blue] ค่าประสบการณ์ แปรสภาพ[gold]Training Strike[/gold]ให้เป็น[gold]Impale[/gold]",
+      "title": "รังไหมลึกลับ"
+    },
+    "MYSTIC_LIGHTER": {
+      "description": "การ์ดโจมตีที่ถูก[gold]ร่ายมนตร์[/gold]สร้างความเสียหายเพิ่มขึ้น [blue]{Damage}[/blue]"
+    },
+    "NEOWS_TORMENT": {
+      "description": "เมื่อรับมา เพิ่ม[gold]Neow's Fury[/gold] [blue]1[/blue] ใบเข้า[gold]กองการ์ด[/gold]"
+    },
+    "NEW_LEAF": {
+      "description": "เมื่อรับมา [gold]แปรสภาพ[/gold]การ์ด [blue]{Cards}[/blue] ใบ"
+    },
+    "NINJA_SCROLL": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ เพิ่ม[gold]มีดสั้น[/gold] [blue]{Shivs}[/blue] ใบใส่[gold]มือ[/gold]",
+      "title": "คัมภีร์นินจา"
+    },
+    "NUNCHAKU": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตี [blue]{Cards}[/blue] ใบ ได้รับ {Energy:energyIcons()}"
+    },
+    "NUTRITIOUS_OYSTER": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด"
+    },
+    "ODDLY_SMOOTH_STONE": {
+      "description": "เริ่มต้นแต่ละการต่อสู้ด้วย [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]"
+    },
+    "OLD_COIN": {
+      "description": "เมื่อรับมา ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold]",
+      "title": "เหรียญเก่า"
+    },
+    "ORANGE_DOUGH": {
+      "description": "ตอนเริ่มต้นแต่ละการต่อสู้ เพิ่มการ์ดไร้สี [blue]{Cards}[/blue] ใบแบบสุ่มใส่[gold]มือ[/gold]"
+    },
+    "ORICHALCUM": {
+      "description": "ถ้าจบเทิร์นโดยไม่มี[gold]บล็อก[/gold] ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "ORNAMENTAL_FAN": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตี [blue]{Cards}[/blue] ใบในเทิร์นเดียว ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "ORRERY": {
+      "description": "เมื่อรับมา ได้รับรางวัลการ์ด [blue]{Cards}[/blue] ใบ"
+    },
+    "PAELS_CLAW": {
+      "description": "เมื่อรับมา [gold]ร่ายมนตร์[/gold][gold]ป้องกัน[/gold]ทั้งหมดด้วย[purple]{EnchantmentName}[/purple]"
+    },
+    "PAELS_EYE": {
+      "description": "ครั้งแรกของแต่ละการต่อสู้ที่คุณจบเทิร์นโดยไม่เช่นการ์ดเลย [gold]สลาย[/gold]ทั้ง[gold]มือ[/gold]แล้วเล่นต่ออีกเทิร์น"
+    },
+    "PAELS_FLESH": {
+      "description": "ได้รับเพิ่มอีก {Energy:energyIcons()} ตอนเริ่มต้นเทิร์นที่ [blue]3[/blue] และทุกเทิร์นหลังจากนั้น"
+    },
+    "PAELS_GROWTH": {
+      "description": "เมื่อรับมา [gold]ร่ายมนต์[/gold]การ์ด 1 ใบด้วย[purple]{EnchantmentName}[/purple]"
+    },
+    "PAELS_HORN": {
+      "description": "เมื่อรับมา เพิ่ม[gold]Relax[/gold] [blue]2[/blue] ใบเข้า[gold]กองการ์ด[/gold]"
+    },
+    "PAELS_LEGION": {
+      "description": "ได้รับ[gold]บล็อก[/gold]จากการ์ดเป็น 2 เท่า จากนั้นหลับเป็นเวลา [blue]{Turns}[/blue] เทิร์น"
+    },
+    "PAELS_TEARS": {
+      "description": "ถ้าคุณจบเทิร์นโดยเหลือ {energyPrefix:energyIcons(1)} จะได้รับเพิ่มอีก {Energy:energyIcons()} ในเทิร์นถัดไป"
+    },
+    "PAELS_TOOTH": {
+      "description": "เมื่อรับมา กำจัดการ์ด [blue]{Cards}[/blue] ใบจาก[gold]กองการ์ด[/gold] หลังจบแต่ละการต่อสู้ [gold]พัฒนา[/gold]การ์ด [blue]1[/blue] ใบแบบสุ่มจากกองที่แยกไว้ แล้วได้รับคืน {CardTitles.StringValue:cond:\n\nการ์ดที่แยกไว้:\n{}|}"
+    },
+    "PAELS_WING": {
+      "description": "คุณสามารถถวายรางวัลการ์ดให้ Pael ได้ ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นต่อการ์ดทุก {Sacrifices:plural:1 ใบ|[blue]{}[/blue] ใบ}ที่ถวาย"
+    },
+    "PANDORAS_BOX": {
+      "description": "[gold]แปรสภาพ[/gold] [gold]จู่โจม[/gold]และ[gold]ป้องกัน[/gold]ทั้งหมด",
+      "title": "กล่องแพนโดรา"
+    },
+    "PANTOGRAPH": {
+      "description": "ตอนเริ่มต้นของแต่ละการต่อสู้กับ[gold]บอส[/gold] ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "PAPER_KRANE": {
+      "description": "ศัตรูที่มี[gold]ความอ่อนแอ[/gold]สร้างความเสียหายน้อยลง [blue]40%[/blue] จากเดิม [blue]25%[/blue]"
+    },
+    "PAPER_PHROG": {
+      "description": "ศัตรูที่มี[gold]จุดอ่อน[/gold]ได้รับความเสียหายเพิ่มขึ้น [blue]75%[/blue] จากเดิม [blue]50%[/blue]"
+    },
+    "PARRYING_SHIELD": {
+      "description": "ถ้าคุณจบเทิร์นโดยมีอย่างน้อย [blue]{Block}[/blue] [gold]บล็อก[/gold] สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรู 1 ตัวแบบสุ่ม"
+    },
+    "PEAR": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด"
+    },
+    "PENDULUM": {
+      "description": "ทุกครั้งที่คุณสับ[gold]กองจั่ว[/gold] จั่วการ์ด 1 ใบ"
+    },
+    "PEN_NIB": {
+      "description": "การ์ดโจมตีทุก [blue]10[/blue] ใบจะสร้างความเสียหายเป็น 2 เท่า"
+    },
+    "PERMAFROST": {
+      "description": "ครั้งแรกที่คุณเล่นการ์ดพลังเป็นครั้งแรกในแต่ละการต่อสู้ ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "PHILOSOPHERS_STONE": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {Energy:energyIcons()} ศัตรูทั้งหมดเริ่มการต่อสู้ด้วย [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]",
+      "title": "ศิลานักปราชญ์"
+    },
+    "PHYLACTERY_UNBOUND": {
+      "description": "ตอนเริ่มต้นการต่อสู้ [gold]อัญเชิญ[/gold] [blue]{StartOfCombat}[/blue] และตอนเริ่มต้นเทิร์น [gold]อัญเชิญ[/gold] [blue]{StartOfTurn}[/blue]"
+    },
+    "PLANISPHERE": {
+      "description": "ทุกครั้งที่คุณเข้าห้อง [gold]?[/gold] ฟื้นฟู [green]{Heal}[/green] HP"
+    },
+    "POCKETWATCH": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดไม่เกิน [blue]{CardThreshold}[/blue] ใบในเทิร์น จั่วการ์ดเพิ่ม [blue]{Cards}[/blue] ใบตอนเริ่มต้นเทิร์นถัดไป"
+    },
+    "POLLINOUS_CORE": {
+      "description": "ทุก [blue]{Turns}[/blue] เทิร์น จั่วการ์ดเพิ่ม [blue]{Cards}[/blue] ใบ"
+    },
+    "POTION_BELT": {
+      "description": "เมื่อรับมา ได้รับช่องเก็บขวดยา [blue]{PotionSlots}[/blue] ช่อง"
+    },
+    "PRAYER_WHEEL": {
+      "description": "ศัตรูปกติดรอปรางวัลการ์ดเพิ่ม 1 รางวัล"
+    },
+    "PRECARIOUS_SHEARS": {
+      "description": "เมื่อรับมา กำจัดการ์ด [blue]{Cards}[/blue] ใบจาก[gold]กองการ์ด[/gold]และได้รับความเสียหาย [red]{Damage}[/red]"
+    },
+    "PRECISE_SCISSORS": {
+      "description": "เมื่อรับมา กำจัดการ์ด [blue]{Cards}[/blue] ใบจาก[gold]กองการ์ด[/gold]"
+    },
+    "PRISMATIC_GEM": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {Energy:energyIcons()} ต่อไปนี้รางวัลการ์ดจะมีสีอื่นด้วย"
+    },
+    "PUMPKIN_CANDLE": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {Energy:energyIcons()} เทียนจะดับตอนเริ่มต้น[gold]องก์[/gold] [blue]3[/blue]",
+      "title": "เทียนไขฟักทอง"
+    },
+    "PUNCH_DAGGER": {
+      "description": "เมื่อรับมา [gold]ร่ายมนตร์[/gold]การ์ดโจมตี 1 ใบด้วย[purple]Momentum[/purple] [blue]{Momentum}[/blue]"
+    },
+    "RADIANT_PEARL": {
+      "description": "ตอนเริ่มต้นการต่อสู้ เพิ่ม[gold]Luminesce[/gold] [blue]{Cards}[/blue] ใบใส่[gold]มือ[/gold]"
+    },
+    "RAINBOW_RING": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตี, ทักษะ, และพลังในเทิร์นเดียว ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]และ [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]"
+    },
+    "RAZOR_TOOTH": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ด [gold]พัฒนา[/gold]มันจนจบการต่อสู้"
+    },
+    "RED_MASK": {
+      "description": "ตอนเริ่มต้นการต่อสู้ สร้าง [blue]{WeakPower}[/blue] [gold]ความอ่อนแอ[/gold]ใส่ศัตรูทั้งหมด"
+    },
+    "RED_SKULL": {
+      "description": "ขณะที่คุณเหลือ HP ไม่เกิน [blue]{HpThreshold}%[/blue] คุณจะมี [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "RED_VINE_TEA": {
+      "description": "ตอนเริ่มต้นการต่อสู้ในอีก {Combats:plural:1 ครั้ง|[blue]{}[/blue] ครั้ง} จั่วการ์ดเพิ่ม [blue]{Cards}[/blue] ใบ"
+    },
+    "REGALITE": {
+      "description": "ทุกครั้งที่คุณสร้างการ์ดไร้สี ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "REGAL_PILLOW": {
+      "description": "ทุกครั้งที่คุณ[gold]พักผ่อน[/gold] ฟื้นฟูเพิ่ม [blue]{Heal}[/blue] HP"
+    },
+    "REPTILE_TRINKET": {
+      "description": "ทุกครั้งที่คุณใช้ขวดยา ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]ในเทิร์นนี้"
+    },
+    "RINGING_TRIANGLE": {
+      "description": "[gold]คงสภาพ[/gold]ทั้ง[gold]มือ[/gold]ในเทิร์นแรกของการต่อสู้"
+    },
+    "RING_OF_THE_DRAKE": {
+      "description": "ตอนเริ่มต้นของ {Turns:plural:1|[blue]{}[/blue]} เทิร์นแรก จั่วการ์ดเพิ่ม [blue]{Cards}[/blue] ใบ"
+    },
+    "RING_OF_THE_SNAKE": {
+      "description": "ตอนเริ่มต้นการต่อสู้ จั่วการ์ดเพิ่ม [blue]{Cards}[/blue] ใบ"
+    },
+    "RIPPLE_BASIN": {
+      "description": "ถ้าคุณไม่ได้เล่นการ์ดโจมตีเลยในเทิร์น ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "ROYAL_POISON": {
+      "description": "ตอนเริ่มต้นการต่อสู้ เสีย [blue]{Damage}[/blue] HP"
+    },
+    "ROYAL_STAMP": {
+      "description": "เมื่อรับมา เลือกการ์ดโจมตีหรือทักษะ 1 ใบใน[gold]กองการ์ด[/gold]เพื่อ[gold]ร่ายมนตร์[/gold]ด้วย[purple]{Enchantment}[/purple]"
+    },
+    "RUNIC_CAPACITOR": {
+      "description": "เริ่มการต่อสู้ด้วย[gold]ช่องเก็บลูกแก้ว[/gold]เพิ่มขึ้น [blue]{Repeat}[/blue] ช่อง"
+    },
+    "RUNIC_PYRAMID": {
+      "description": "ต่อไปนี้จะไม่ทิ้งการ์ดใน[gold]มือ[/gold]ตอนจบเทิร์น"
+    },
+    "SAI": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "SAND_CASTLE": {
+      "title": "ปราสาททราย"
+    },
+    "SCREAMING_FLAGON": {
+      "description": "ถ้าคุณจบเทิร์นโดยไม่เหลือการ์ดใน[gold]มือ[/gold] สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรูทั้งหมด"
+    },
+    "SCROLL_BOXES": {
+      "description": "เมื่อรับมา เสีย[gold]ทอง[/gold]ทั้งหมด แล้วเลือกซองการ์ด [blue]1[/blue] จาก [blue]2[/blue] ซองเพื่อเพิ่มเข้า[gold]กองการ์ด[/gold]"
+    },
+    "SEAL_OF_GOLD": {
+      "description": "ตอนเริ่มต้นเทิร์น จ่าย [blue]{Gold}[/blue] [gold]ทอง[/gold]เพื่อได้รับ{Energy:energyIcons()}"
+    },
+    "SEA_GLASS": {
+      "description": "ดูการ์ด [blue]{Cards}[/blue] ใบจาก{Character.StringValue:cond:[gold]{}[/gold]|ตัวละครอื่น} เลือกการ์ดกี่ใบก็ได้เพื่อเพิ่มเข้า[gold]กองการ์ด[/gold]"
+    },
+    "SELF_FORMING_CLAY": {
+      "description": "ทุกครั้งที่คุณเสีย HP ในการต่อสู้ ได้รับ [blue]{BlockNextTurn}[/blue] [gold]บล็อก[/gold]ในเทิร์นถัดไป"
+    },
+    "SHOVEL": {
+      "description": "ต่อไปนี้คุณสามารถขุดที่[gold]จุดพัก[/gold]เพื่อรับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม",
+      "title": "พลั่ว"
+    },
+    "SHURIKEN": {
+      "description": "ทุกครั้งที่คุณเล่นการ์ดโจมตี [blue]{Cards}[/blue] ใบในเทิร์นเดียว ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "SILVER_CRUCIBLE": {
+      "description": "รางวัลการ์ด [blue]{Cards}[/blue] รางวัลแรกที่คุณเปิดจะ[gold]พัฒนาแล้ว[/gold] แต่กล่องสมบัติแรกที่คุณเปิดจะ[red]ว่างเปล่า[/red]"
+    },
+    "SLING_OF_COURAGE": {
+      "description": "เริ่มการต่อสู้กับ[gold]ลูกพี่[/gold]ด้วย [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "SMALL_CAPSULE": {
+      "description": "เมื่อรับมา ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม"
+    },
+    "SNECKO_EYE": {
+      "description": "ตอนเริ่มต้นเทิร์น จั่วการ์ดเพิ่ม [blue]{Cards}[/blue] ใบ แต่เริ่มการต่อสู้ด้วย[red]สับสน[/red]"
+    },
+    "SNECKO_SKULL": {
+      "description": "ทุกครั้งที่คุณสร้าง[gold]พิษ[/gold] สร้างเพิ่ม [blue]{PoisonPower}[/blue] [gold]พิษ[/gold]"
+    },
+    "SOZU": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {Energy:energyIcons()} แต่นับจากนี้จะไม่ได้รับขวดยาอีก"
+    },
+    "SPARKLING_ROUGE": {
+      "description": "ตอนเริ่มต้นเทิร์นที่ [blue]3[/blue] ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]และ [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]"
+    },
+    "SPIKED_GAUNTLETS": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {Energy:energyIcons()} แต่การ์ดพลังมีค่าร่ายมากขึ้น [blue]1[/blue] {energyPrefix:energyIcons(1)}"
+    },
+    "STONE_CALENDAR": {
+      "description": "ตอนจบเทิร์นที่ [blue]{DamageTurn}[/blue] สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรูทั้งหมด"
+    },
+    "STONE_CRACKER": {
+      "description": "ตอนเริ่มต้นการต่อสู้กับ[gold]บอส[/gold] [gold]พัฒนา[/gold]การ์ด [blue]{Cards}[/blue] ใบแบบสุ่มใน[gold]กองจั่ว[/gold]จนจบการต่อสู้"
+    },
+    "STONE_HUMIDIFIER": {
+      "description": "ทุกครั้งที่คุณ[gold]พักผ่อน[/gold]ที่[gold]จุดพัก[/gold] เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด"
+    },
+    "STRAWBERRY": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด"
+    },
+    "STRIKE_DUMMY": {
+      "description": "การ์ดที่มีคำว่า “จู่โจม” สร้างความเสียหายเพิ่มขึ้น [blue]{ExtraDamage}[/blue]"
+    },
+    "SWORD_OF_JADE": {
+      "description": "เริ่มการต่อสู้ด้วย [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "SWORD_OF_STONE": {
+      "description": "แปรสภาพเป็น[gold]เครื่องราง[/gold]ทรงพลังหลังจากกำจัด[gold]ลูกพี่[/gold] [blue]{Elites}[/blue] ตัว"
+    },
+    "SYMBIOTIC_VIRUS": {
+      "description": "ตอนเริ่มการต่อสู้ [gold]ปลุกเสก[/gold] [blue]{Dark}[/blue] [gold]ความมืด[/gold]"
+    },
+    "TEA_OF_DISCOURTESY": {
+      "description": "ตอนเริ่มต้นการต่อสู้ถัดไป สับ[gold]ความมึนงง[/gold] [blue]{DazedCount}[/blue] ใบเข้า[gold]กองจั่ว[/gold]"
+    },
+    "THE_ABACUS": {
+      "description": "ทุกครั้งที่คุณสับ[gold]กองจั่ว[/gold] ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "THE_BOOT": {
+      "description": "ทุกครั้งที่คุณสร้างความเสียหายแบบไม่ถูกบล็อก ถ้าความเสียหายจากการโจมตีไม่เกิน [blue]{DamageThreshold}[/blue] ให้เปลี่ยนเป็น [blue]{DamageMinimum}[/blue] แทน"
+    },
+    "THE_COURIER": {
+      "description": "พ่อค้าเติมสต๊อกการ์ด, เครื่องราง, และขวดยาในร้านค้าเสมอ และราคาลดลง [blue]{Discount}%[/blue]"
+    },
+    "THROWING_AXE": {
+      "description": "การ์ดใบแรกที่คุณเล่นในแต่ละการต่อสู้จะเล่นซ้ำอีกครั้ง"
+    },
+    "TINGSHA": {
+      "description": "ทุกครั้งที่คุณทิ้งการ์ดในเทิร์นของคุณ สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรู 1 ตัวแบบสุ่ม ตามจำนวนการ์ดที่ถูกทิ้ง"
+    },
+    "TINY_MAILBOX": {
+      "description": "ทุกครั้งที่คุณ[gold]พักผ่อน[/gold] จัดหาขวดยา 1 ขวดแบบสุ่ม"
+    },
+    "TOASTY_MITTENS": {
+      "description": "ตอนเริ่มต้นเทิร์น [gold]สลาย[/gold]การ์ดใบบนสุดของ[gold]กองจั่ว[/gold]และได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]"
+    },
+    "TOOLBOX": {
+      "description": "ตอนเริ่มต้นการต่อสู้ เลือกการ์ดไร้สี [blue]1[/blue] จาก [blue]{Cards}[/blue] ใบที่ถูกสุ่มมา เพิ่มการ์ดที่เลือกใส่[gold]มือ[/gold]",
+      "title": "กล่องเครื่องมือ"
+    },
+    "TOUCH_OF_OROBAS": {
+      "description": "เมื่อรับมา แทนที่{StarterRelic.StringValue:cond:[gold]{StarterRelic}[/gold]ด้วย[gold]{UpgradedRelic}[/gold]|[gold]เครื่องราง[/gold]แบบเริ่มต้น ด้วยแบบ[gold]เทพโบราณ[/gold]}"
+    },
+    "TOUGH_BANDAGES": {
+      "description": "ทุกครั้งที่คุณทิ้งการ์ดในเทิร์นของคุณ ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]"
+    },
+    "TOXIC_EGG": {
+      "description": "ทุกครั้งที่คุณเพิ่มการ์ดทักษะเข้า[gold]กองการ์ด[/gold] [gold]พัฒนา[/gold]มัน"
+    },
+    "TOY_BOX": {
+      "title": "กล่องของเล่น"
+    },
+    "TRI_BOOMERANG": {
+      "description": "เลือกการ์ดโจมตี [blue]{Cards}[/blue] ใบใน[gold]กองการ์ด[/gold] [gold]ร่ายมนตร์[/gold]ด้วย[purple]Instinct[/purple]"
+    },
+    "TUNGSTEN_ROD": {
+      "description": "ทุกครั้งที่คุณจะเสีย HP คุณจะเสียน้อยลง [blue]{HpLossReduction}[/blue]"
+    },
+    "TWISTED_FUNNEL": {
+      "description": "ตอนเริ่มต้นการต่อสู้ สร้าง [blue]{PoisonPower}[/blue] [gold]พิษ[/gold] ใส่ศัตรูทั้งหมด"
+    },
+    "UNCEASING_TOP": {
+      "description": "ทุกครั้งที่คุณไม่เหลือการ์ดใน[gold]มือ[/gold]ในเทิร์นของคุณ จั่วการ์ด 1 ใบ"
+    },
+    "UNDYING_SIGIL": {
+      "description": "ศัตรูทั้งหมดที่เหลือ HP ไม่เกิน[gold]อายุขัย[/gold]จะสร้างความเสียหายน้อยลง [blue]50%[/blue]"
+    },
+    "VAJRA": {
+      "description": "เริ่มการต่อสู้ด้วย [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]",
+      "title": "วัชระ"
+    },
+    "VAMBRACE": {
+      "description": "ครั้งแรกที่คุณได้รับ[gold]บล็อก[/gold]จากการ์ดในการต่อสู้ จะได้รับเป็น 2 เท่า"
+    },
+    "VELVET_CHOKER": {
+      "description": "ตอนเริ่มต้นเทิร์น ได้รับ {Energy:energyIcons()} แต่คุณเล่นการ์ดได้ไม่เกิน [blue]{Cards}[/blue] ใบต่อเทิร์น"
+    },
+    "VENERABLE_TEA_SET": {
+      "description": "ทุกครั้งที่เข้า[gold]จุดพัก[/gold] จะเริ่มต้นการต่อสู้ถัดไปโดยเพิ่มอีก {Energy:energyIcons()}"
+    },
+    "VERY_HOT_COCOA": {
+      "description": "เริ่มต้นการต่อสู้โดยมีเพิ่มอีก [blue]{Energy:energyIcons()}[/blue]",
+      "title": "โกโก้ร้อนมาก"
+    },
+    "VEXING_PUZZLEBOX": {
+      "description": "ตอนเริ่มต้นการต่อสู้ เพิ่มการ์ด 1 ใบแบบสุ่มใส่[gold]มือ[/gold] มันมีค่าร่าย [blue]0[/blue]{energyPrefix:energyIcons(1)}"
+    },
+    "VINE_BRACELET": {
+      "description": "เมื่อรับมา เพิ่ม [blue]{MaxHp}[/blue] HP สูงสุด"
+    },
+    "VITRUVIAN_MINION": {
+      "description": "การ์ดที่มีคำว่า \"ลูกน้อง\" สร้างความเสียหาย 2 เท่า และได้รับ[gold]บล็อก[/gold] 2 เท่า"
+    },
+    "WAR_HAMMER": {
+      "description": "ทุกครั้งที่คุณสังหาร[gold]ลูกพี่[/gold] [gold]พัฒนา[/gold]การ์ด [blue]{Cards}[/blue] ใบแบบสุ่ม"
+    },
+    "WAR_PAINT": {
+      "description": "เมื่อรับมา [gold]พัฒนา[/gold]การ์ดทักษะ [blue]{Cards}[/blue] ใบแบบสุ่ม"
+    },
+    "WHETSTONE": {
+      "description": "เมื่อรับมา [gold]พัฒนา[/gold]การ์ดโจมตี [blue]{Cards}[/blue] ใบแบบสุ่ม"
+    },
+    "WHITE_BEAST_STATUE": {
+      "description": "ขวดยาจะปรากฏในรางวัลการต่อสู้เสมอ"
+    },
+    "WHITE_STAR": {
+      "description": "[gold]ลูกพี่[/gold]ดรอปรางวัลการ์ดเพิ่ม 1 รางวัลแบบ[gold]หายาก[/gold]"
+    },
+    "WONGOS_MYSTERY_TICKET": {
+      "description": "ได้รับ[gold]เครื่องราง[/gold] [blue]{Repeat}[/blue] ชิ้นแบบสุ่ม หลังจาก [blue]{RemainingCombats}[/blue] การต่อสู้"
+    },
+    "WONGO_CUSTOMER_APPRECIATION_BADGE": {
+      "description": "ไม่มีผลอะไร"
+    },
+    "YUMMY_COOKIE": {
+      "description": "เมื่อรับมา [gold]พัฒนา[/gold]การ์ด [blue]{Cards}[/blue] ใบ",
+      "title": "คุกกี้แสนอร่อย"
+    }
+  },
+  "encounters": {
+    "CORPSE_SLUGS_NORMAL": {
+      "title": "ฝูงทากศพ"
+    },
+    "CORPSE_SLUGS_WEAK": {
+      "title": "ทากศพ"
+    },
+    "FAKE_MERCHANT_EVENT_ENCOUNTER": {
+      "title": "พ่อค้า???"
+    },
+    "HAUNTED_SHIP_NORMAL": {
+      "title": "เรือผีสิง"
+    },
+    "KNOWLEDGE_DEMON_BOSS": {
+      "title": "อสูรความรู้"
+    },
+    "LAGAVULIN_MATRIARCH_BOSS": {
+      "title": "นางพญาลากาวูลิน"
+    },
+    "LOUSE_PROGENITOR_NORMAL": {
+      "title": "พระเจ้าเหา"
+    },
+    "OWL_MAGISTRATE_NORMAL": {
+      "title": "ฮูกพิพากษา"
+    },
+    "THE_ARCHITECT_EVENT_ENCOUNTER": {
+      "title": "สถาปนิก"
+    },
+    "WATERFALL_GIANT_BOSS": {
+      "title": "ยักษ์น้ำตก"
+    }
+  },
+  "monsters": {
+    "INFESTED_PRISM": {
+      "moves": {
+        "WHIRLWIND": {
+          "title": "พายุลมกรด"
+        }
+      }
+    }
+  },
+  "acts": {
+    "GLORY": {
+      "title": "ความรุ่งโรจน์"
+    },
+    "HIVE": {
+      "title": "รังผึ้ง"
+    },
+    "OVERGROWTH": {
+      "title": "รกชัฏ"
+    },
+    "UNDERDOCKS": {
+      "title": "ท่าเรือเบื้องล่าง"
+    }
+  },
+  "potions": {
+    "ASHWATER": {
+      "description": "[gold]สลาย[/gold]การ์ดกี่ใบก็ได้ใน[gold]มือ[/gold]",
+      "title": "น้ำขี้เถ้า"
+    },
+    "ATTACK_POTION": {
+      "description": "เลือกการ์ดโจมตี [blue]1[/blue] จาก [blue]3[/blue] ใบที่ถูกสุ่มมาเพื่อเพิ่มใส่[gold]มือ[/gold] การ์ดนั้นเล่นได้ฟรีในเทิร์นนี้",
+      "title": "น้ำยาโจมตี"
+    },
+    "BEETLE_JUICE": {
+      "description": "การโจมตีของศัตรูสร้างความเสียหายน้อยลง [blue]{DamageDecrease}%[/blue] {Repeat:plural:ในเทิร์นถัดไป|เป็นเวลา [blue]{}[/blue] เทิร์น}"
+    },
+    "BLESSING_OF_THE_FORGE": {
+      "description": "[gold]พัฒนา[/gold]การ์ดทั้งหมดใน[gold]มือ[/gold]จนจบการต่อสู้",
+      "title": "พรแห่งเตาหลอม"
+    },
+    "BLOCK_POTION": {
+      "description": "ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]",
+      "title": "น้ำยาบล็อก"
+    },
+    "BLOOD_POTION": {
+      "description": "ฟื้นฟู [green]{HealPercent}%[/green] ของ HP สูงสุด",
+      "title": "น้ำยาโลหิต"
+    },
+    "BONE_BREW": {
+      "description": "[gold]อัญเชิญ[/gold] [blue]{Summon}[/blue]"
+    },
+    "BOTTLED_POTENTIAL": {
+      "description": "สับการ์ดทั้งหมดเข้า[gold]กองจั่ว[/gold] แล้วจั่ว [blue]{Cards}[/blue] {Cards:plural:การ์ด|การ์ด}",
+      "title": "ศักยภาพบรรจุขวด"
+    },
+    "CLARITY": {
+      "description": "จั่วการ์ด [blue]{Cards}[/blue] ใบ และตอนเริ่มต้นเทิร์นถัดไป จั่วการ์ดเพิ่ม [blue]1[/blue] ใบ เป็นเวลา {ClarityPower:plural:1 เทิร์น|[blue]{}[/blue] เทิร์น}",
+      "title": "สารสกัดกระจ่างแจ้งแจ่มชัด"
+    },
+    "COLORLESS_POTION": {
+      "description": "เลือกการ์ดไร้สี [blue]1[/blue] จาก [blue]3[/blue] ใบที่ถูกสุ่มมาเพื่อเพิ่มใส่[gold]มือ[/gold] การ์ดนั้นเล่นได้ฟรีในเทิร์นนี้",
+      "title": "น้ำยาไร้สี"
+    },
+    "COSMIC_CONCOCTION": {
+      "description": "เพิ่มการ์ด[gold]พัฒนาแล้ว[/gold] [blue]{Cards}[/blue] ใบใส่[gold]มือ[/gold]",
+      "title": "รวมมิตรจักรวาล"
+    },
+    "CUNNING_POTION": {
+      "description": "เพิ่ม[gold]มีดสั้นพัฒนาแล้ว[/gold] [blue]{Cards}[/blue] ใบใส่[gold]มือ[/gold]",
+      "title": "น้ำยาร้อยเล่ห์"
+    },
+    "CURE_ALL": {
+      "description": "ได้รับ {Energy:energyIcons()} จั่ว [blue]{Cards}[/blue] การ์ด",
+      "title": "น้ำยารักษาทุกอย่าง"
+    },
+    "DEPRECATED_POTION": {
+      "description": "ขวดยานี้ถูกนำออกจากเกมแล้ว",
+      "title": "น้ำยาที่ถูกนำออกจากเกม"
+    },
+    "DEXTERITY_POTION": {
+      "description": "ได้รับ [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]",
+      "title": "น้ำยาความชำนาญ"
+    },
+    "DISTILLED_CHAOS": {
+      "description": "เล่นการ์ดใบบนสุดของ[gold]กองจั่ว[/gold] จำนวน [blue]{Repeat}[/blue] ใบ",
+      "title": "โกลาหลกลั่น"
+    },
+    "DROPLET_OF_PRECOGNITION": {
+      "description": "เลือกการ์ด 1 ใบจาก[gold]กองจั่ว[/gold]เพื่อนำขึ้น[gold]มือ[/gold]",
+      "title": "หยดหยั่งรู้"
+    },
+    "DUPLICATOR": {
+      "description": "ในเทิร์นนี้ การ์ดถัดไปจะถูกเล่นซ้ำอีกครั้ง",
+      "title": "น้ำยาคัดลอก"
+    },
+    "ENERGY_POTION": {
+      "description": "ได้รับ {Energy:energyIcons()}",
+      "title": "น้ำยาพลังงาน"
+    },
+    "ENTROPIC_BREW": {
+      "description": "เติมช่องเก็บขวดยาที่ว่างทั้งหมดด้วยขวดยาแบบสุ่ม",
+      "title": "น้ำยาเข้มข้น"
+    },
+    "ESSENCE_OF_DARKNESS": {
+      "description": "[gold]ปลุกเสก[/gold] 1 [gold]ความมืด[/gold]ตามจำนวน[gold]ช่องเก็บลูกแก้ว[/gold]",
+      "title": "แก่นของความมืด"
+    },
+    "EXPLOSIVE_AMPOULE": {
+      "description": "สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ศัตรูทั้งหมด",
+      "title": "หลอดแก้วอัดระเบิด"
+    },
+    "FAIRY_IN_A_BOTTLE": {
+      "description": "เมื่อคุณต้องตาย ทิ้งขวดยานี้แทน แล้วฟื้นฟู [blue]30%[/blue] ของ HP สูงสุด",
+      "title": "ภูติบรรจุขวด"
+    },
+    "FIRE_POTION": {
+      "description": "สร้างความเสียหาย [blue]{Damage}[/blue]",
+      "title": "น้ำยาไฟ"
+    },
+    "FLEX_POTION": {
+      "description": "ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold] ตอนจบเทิร์นเสีย [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]",
+      "title": "น้ำยาเบ่งกล้าม"
+    },
+    "FOCUS_POTION": {
+      "description": "ได้รับ [blue]{FocusPower}[/blue] [gold]โฟกัส[/gold]",
+      "title": "น้ำยาโฟกัส"
+    },
+    "FORTIFIER": {
+      "description": "[gold]บล็อก[/gold]ของคุณกลายเป็น 3 เท่า",
+      "title": "น้ำยาเสริมกำลัง"
+    },
+    "FOUL_POTION": {
+      "description": "สร้างความเสียหาย [blue]{Damage}[/blue] ใส่ทุกสิ่ง\nสามารถขว้างใส่[gold]พ่อค้า[/gold]เพื่อ [blue]{Gold}[/blue] [gold]ทอง[/gold]แทนได้"
+    },
+    "FRUIT_JUICE": {
+      "description": "ได้รับ [blue]{MaxHp}[/blue] HP สูงสุด",
+      "title": "น้ำผลไม้"
+    },
+    "FYSH_OIL": {
+      "description": "ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold] และ [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]"
+    },
+    "GAMBLERS_BREW": {
+      "description": "ทิ้งการ์ดกี่ใบก็ได้ แล้วจั่วการ์ดตามจำนวนนั้น",
+      "title": "น้ำยาเสี่ยงโชค"
+    },
+    "GHOST_IN_A_JAR": {
+      "description": "ได้รับ [blue]1[/blue] [gold]ไร้ตัวตน[/gold]",
+      "title": "ผีบรรจุขวด"
+    },
+    "GIGANTIFICATION_POTION": {
+      "description": "การ์ดโจมตีใบถัดไปจะสร้างความเสียหาย 3 เท่า",
+      "title": "น้ำยาร่างยักษ์"
+    },
+    "GLOWWATER_POTION": {
+      "description": "[gold]สลาย[/gold]ทั้ง[gold]มือ[/gold] จั่ว [blue]{Cards}[/blue] การ์ด",
+      "title": "น้ำยาเรืองแสง"
+    },
+    "HEART_OF_IRON": {
+      "title": "หัวใจดุจเหล็ก"
+    },
+    "KINGS_COURAGE": {
+      "description": "[gold]หลอมสร้าง[/gold] [blue]{Forge}[/blue]"
+    },
+    "LIQUID_BRONZE": {
+      "description": "ได้รับ [blue]{ThornsPower}[/blue] [gold]หนาม[/gold]",
+      "title": "สัมฤทธิ์เหลว"
+    },
+    "LIQUID_MEMORIES": {
+      "description": "นำการ์ด 1 ใบจาก[gold]กองทิ้ง[/gold]ขึ้น[gold]มือ[/gold] มันมีค่าร่าย [blue]0[/blue] {energyPrefix:energyIcons(1)} ในเทิร์นนี้",
+      "title": "ความทรงจำเหลว"
+    },
+    "LUCKY_TONIC": {
+      "description": "ได้รับ [blue]{BufferPower}[/blue] [gold]ม่านกันชน[/gold]",
+      "title": "ยาบำรุงโชคดี"
+    },
+    "MAZALETHS_GIFT": {
+      "description": "ได้รับ [blue]{RitualPower}[/blue] [gold]พิธีกรรม[/gold]"
+    },
+    "OROBIC_ACID": {
+      "description": "เพิ่มการ์ดโจมตี, ทักษะ, และพลังอย่างละ 1 ใบแบบสุ่มใส่[gold]มือ[/gold] การ์ดเหล่านั้นเล่นได้ฟรีในเทิร์นนี้"
+    },
+    "POISON_POTION": {
+      "description": "สร้าง [blue]{PoisonPower}[/blue] [gold]พิษ[/gold]",
+      "title": "น้ำยาพิษ"
+    },
+    "POTION_OF_BINDING": {
+      "description": "สร้าง [blue]{WeakPower:diff()}[/blue] [gold]ความอ่อนแอ[/gold] และ [blue]{VulnerablePower:diff()}[/blue] [gold]จุดอ่อน[/gold] ใส่ศัตรูทั้งหมด",
+      "title": "น้ำยาผูกมัด"
+    },
+    "POTION_OF_CAPACITY": {
+      "description": "ได้รับ[gold]ช่องเก็บลูกแก้ว[/gold] [blue]{Repeat}[/blue] ช่อง",
+      "title": "น้ำยาความจุ"
+    },
+    "POTION_OF_DOOM": {
+      "description": "สร้าง [blue]{DoomPower}[/blue] [gold]อายุขัย[/gold]",
+      "title": "น้ำยาอายุขัย"
+    },
+    "POTION_SHAPED_ROCK": {
+      "description": "สร้างความเสียหาย [blue]{Damage}[/blue]",
+      "title": "หินทรงขวดยา"
+    },
+    "POT_OF_GHOULS": {
+      "description": "เพิ่ม[gold]Soul[/gold] [blue]{Cards}[/blue] ใบใส่[gold]มือ[/gold]",
+      "title": "ไหผีปอบ"
+    },
+    "POWDERED_DEMISE": {
+      "description": "ศัตรูเสีย [blue]{Demise}[/blue] HP ตอนจบเทิร์นของมัน",
+      "title": "ผงมรณะ"
+    },
+    "POWER_POTION": {
+      "description": "เลือกการ์ดพลัง [blue]1[/blue] จาก [blue]3[/blue] ใบที่ถูกสุ่มมาเพื่อเพิ่มใส่[gold]มือ[/gold] การ์ดนั้นเล่นได้ฟรีในเทิร์นนี้",
+      "title": "น้ำยาพลัง"
+    },
+    "RADIANT_TINCTURE": {
+      "description": "ได้รับ {Energy:energyIcons()} และได้รับเพิ่มอีก {energyPrefix:energyIcons(1)} ตอนเริ่มต้นเทิร์น เป็นเวลา [blue]{RadiancePower}[/blue] เทิร์น"
+    },
+    "REGEN_POTION": {
+      "description": "ได้รับ [green]{RegenPower}[/green] [gold]การฟื้นพลัง[/gold]",
+      "title": "น้ำยาฟื้นพลัง"
+    },
+    "SHACKLING_POTION": {
+      "description": "ศัตรูทั้งหมดเสีย [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]ในเทิร์นนี้",
+      "title": "น้ำยาพันธนาการ"
+    },
+    "SHIP_IN_A_BOTTLE": {
+      "description": "ได้รับ [blue]{Block:diff()}[/blue] [gold]บล็อก[/gold] และเทิร์นถัดไปได้รับ [blue]{Block:diff()}[/blue] [gold]บล็อก[/gold]",
+      "title": "เรือในขวด"
+    },
+    "SKILL_POTION": {
+      "description": "เลือกการ์ดทักษะ [blue]1[/blue] จาก [blue]3[/blue] ใบที่ถูกสุ่มมาเพื่อเพิ่มใส่[gold]มือ[/gold] การ์ดนั้นเล่นได้ฟรีในเทิร์นนี้",
+      "title": "น้ำยาทักษะ"
+    },
+    "SNECKO_OIL": {
+      "description": "จั่ว [blue]{Cards}[/blue] การ์ด สุ่มค่าร่ายของการ์ดใน[gold]มือ[/gold]ทั้งหมดในเทิร์นนี้",
+      "title": "น้ำมันงุกแก"
+    },
+    "SOLDIERS_STEW": {
+      "description": "การ์ดทั้งหมดที่มีคำว่า[gold]จู่โจม[/gold]ได้รับ[gold]เล่นซ้ำ[/gold] [blue]1[/blue] ในการต่อสู้นี้",
+      "title": "สตูว์ของทหาร"
+    },
+    "SPEED_POTION": {
+      "description": "ได้รับ [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold] ตอนจบเทิร์นเสีย [blue]{DexterityPower}[/blue] [gold]ความชำนาญ[/gold]",
+      "title": "น้ำยาความเร็ว"
+    },
+    "STABLE_SERUM": {
+      "description": "[gold]คงสภาพ[/gold]ทั้ง[gold]มือ[/gold]เป็นเวลา [blue]{Repeat}[/blue] เทิร์น"
+    },
+    "STAR_POTION": {
+      "description": "ได้รับ {Stars:starIcons()}",
+      "title": "น้ำยาดาว"
+    },
+    "STRENGTH_POTION": {
+      "description": "ได้รับ [blue]{StrengthPower}[/blue] [gold]ความแข็งแรง[/gold]",
+      "title": "น้ำยาความแข็งแรง"
+    },
+    "SWIFT_POTION": {
+      "description": "จั่ว [blue]{Cards}[/blue] การ์ด",
+      "title": "น้ำยาฉับพลัน"
+    },
+    "TOUCH_OF_INSANITY": {
+      "description": "เลือกการ์ด 1 ใบใน[gold]มือ[/gold]เพื่อทำให้ค่าร่ายเป็น [blue]0[/blue] จนจบการต่อสู้",
+      "title": "สัมผัสแห่งวิกลจริต"
+    },
+    "VULNERABLE_POTION": {
+      "description": "สร้าง [blue]{VulnerablePower}[/blue] [gold]จุดอ่อน[/gold]",
+      "title": "น้ำยาจุดอ่อน"
+    },
+    "WEAK_POTION": {
+      "description": "สร้าง [blue]{WeakPower}[/blue] [gold]ความอ่อนแอ[/gold]",
+      "title": "น้ำยาความอ่อนแอ"
+    }
+  },
+  "map": {
+    "CLEAR_DRAWING": {
+      "description": "ลบการขีดเขียนของคุณทั้งหมด",
+      "title": "ลบการขีดเขียน"
+    },
+    "DRAWING_BUTTON": {
+      "description": "ขีดเขียนลงบนแผนที่"
+    },
+    "ERASING_BUTTON": {
+      "description": "ลบการขีดเขียนเส้นล่าสุด"
+    },
+    "EVENT": {
+      "title": "เหตุการณ์"
+    },
+    "LEGEND_ANCIENT": {
+      "hoverTip": {
+        "description": "เทพโบราณอาศัยอยู่ในห้องนี้\n\nพวกเขาให้พร, สมบัติ, และความรู้อันแสนยิ่งใหญ่",
+        "title": "เทพโบราณ"
+      },
+      "title": "เทพโบราณ"
+    },
+    "LEGEND_BOSS": {
+      "hoverTip": {
+        "description": "ศัตรูที่อันตรายที่สุดในพื้นที่\n\nหากกำจัดได้ จะเปิดทางไปยังองก์ต่อไป",
+        "title": "บอส"
+      },
+      "title": "บอส"
+    },
+    "LEGEND_ELITE": {
+      "hoverTip": {
+        "description": "ศัตรูทรงพลังอยู่ในห้องนี้\n\nหากกำจัดได้ จะได้รับ[gold]เครื่องราง[/gold]เป็นรางวัล",
+        "title": "ลูกพี่ทั้งหลาย"
+      },
+      "title": "ลูกพี่"
+    },
+    "LEGEND_ENEMY": {
+      "hoverTip": {
+        "description": "ศัตรูอยู่ในห้องนี้",
+        "title": "ศัตรูทั้งหลาย"
+      },
+      "title": "ศัตรู"
+    },
+    "LEGEND_EVENT": {
+      "hoverTip": {
+        "description": "มีสิ่งผิดปกติเกิดขึ้นในห้องนี้...",
+        "title": "เหตุการณ์"
+      }
+    },
+    "LEGEND_MAP": {
+      "hoverTip": {
+        "description": "เลือกเส้นทางเริ่มต้น",
+        "title": "แผนที่"
+      }
+    },
+    "LEGEND_MERCHANT": {
+      "hoverTip": {
+        "description": "พ่อค้าลึกลับจะขายสินค้าในห้องนี้\n\nนำ[gold]ทอง[/gold]มาจับจ่ายได้ที่นี่!",
+        "title": "ร้านค้าต่างๆ"
+      },
+      "title": "พ่อค้า"
+    },
+    "LEGEND_REST": {
+      "hoverTip": {
+        "description": "แวะห้องนี้เพื่อ[green]ฟื้นฟู[/green] HP บางส่วน หรือ [gold]พัฒนา[/gold]การ์ด",
+        "title": "จุดพัก"
+      },
+      "title": "พักผ่อน"
+    },
+    "LEGEND_TREASURE": {
+      "hoverTip": {
+        "description": "[gold]ทอง[/gold]และ[gold]เครื่องราง[/gold]มากมายอยู่ในห้องนี้",
+        "title": "ห้องสมบัติ"
+      },
+      "title": "สมบัติ"
+    },
+    "LEGEND_UNKNOWN": {
+      "hoverTip": {
+        "description": "ห้องปริศนา\n\nอาจเจอเหตุการณ์, ศัตรู, ร้านค้า, หรือสมบัติ",
+        "title": "???"
+      },
+      "title": "ปริศนา"
+    }
+  },
+  "gameplay_ui": {
+    "MULTIPLAYER_EXPANDED_STATE": {
+      "title": "[center][blue]{PlayerName}[/blue] [gold]{Character}[/gold][/center]"
+    }
+  },
+  "run_history": {
+    "GAME_MODE": {
+      "title": "[gold]{PlayerCount}:[/gold] {GameMode}"
+    }
+  },
+  "events": {
+    "ABYSSAL_BATHS": {
+      "pages": {
+        "ALL": {
+          "options": {
+            "LINGER": {
+              "description": "ได้รับ [green]{MaxHp}[/green] HP สูงสุด ได้รับความเสียหาย [red]{Damage}[/red]"
+            }
+          }
+        },
+        "INITIAL": {
+          "options": {
+            "ABSTAIN": {
+              "description": "ฟื้นฟู [green]{Heal}[/green] HP"
+            },
+            "IMMERSE": {
+              "description": "ได้รับ [green]{MaxHp}[/green] HP สูงสุด ได้รับความเสียหาย [red]{Damage}[/red]"
+            }
+          }
+        }
+      }
+    },
+    "AMALGAMATOR": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "COMBINE_DEFENDS": {
+              "description": "กำจัด[gold]ป้องกัน[/gold] [blue]2[/blue] ใบ เพิ่ม[gold]{Card2}[/gold]เข้า[gold]กองการ์ด[/gold]"
+            },
+            "COMBINE_STRIKES": {
+              "description": "กำจัด[gold]จู่โจม[/gold] [blue]2[/blue] ใบ เพิ่ม[gold]{Card1}[/gold]เข้า[gold]กองการ์ด[/gold]"
+            }
+          }
+        }
+      }
+    },
+    "AROMA_OF_CHAOS": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "LET_GO": {
+              "description": "[gold]แปรสภาพ[/gold]การ์ด 1 ใบใน[gold]กองการ์ด[/gold]"
+            }
+          }
+        }
+      }
+    },
+    "BATTLEWORN_DUMMY": {
+      "pages": {
+        "DEFEAT": {
+          "description": "“[jitter][red]อ่อนแอ!![/red][/jitter]\nรับรู้ความอัปยศแล้ว!”\n\nหุ่นเงียบไปสักพักหนึ่ง จากนั้น—\n\n“ครั้งหน้าก็เลือกระดับง่ายกว่านี้หน่อยนะ สวัสดี”"
+        },
+        "INITIAL": {
+          "description": "พอคุณเข้าใกล้ มันก็เริ่มสั่นและประกายไฟก็สว่างวาบขึ้นทันที!\n\n“[jitter]ตืดดด![/jitter] ได้เวลาซ้อม!!! คุณมีเวลา [blue]3 เทิร์น[/blue]ในการเอาชนะฉัน!\nเลือกการตั้งค่า ไม่งั้นเจอ[red]ความอัปยศถึงตาย[/red]\nมีตัวเลือกดังต่อไปนี้:”\n\nหลังจบข้อความน่ากลัวแล้ว หุ่นก็บรรจงอ่านคำชี้แจงให้ฟังอย่างละเอียด\n\nคุณจะเลือกอะไร?",
+          "options": {
+            "SETTING_1": {
+              "description": "ต่อสู้กับหุ่นฝึกซ้อม [blue]{Setting1Hp}[/blue] HP จัดหา[gold]ขวดยา[/gold] [blue]1[/blue] ขวดแบบสุ่ม",
+              "title": "การตั้งค่า 1"
+            },
+            "SETTING_2": {
+              "description": "ต่อสู้กับหุ่นฝึกซ้อม [blue]{Setting2Hp}[/blue] HP พัฒนาการ์ด [blue]2[/blue] ใบแบบสุ่ม",
+              "title": "การตั้งค่า 2"
+            },
+            "SETTING_3": {
+              "description": "ต่อสู้กับหุ่นฝึกซ้อม [blue]{Setting3Hp}[/blue] HP ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม",
+              "title": "การตั้งค่า 3"
+            }
+          }
+        },
+        "VICTORY": {
+          "description": "“[jitter]ผ่านการทดสอบ![/jitter]\nคุณเพียบพร้อมที่จะปกป้อง[gold]โรงงาน[/gold]แห่งนี้ให้พ้นจากผู้รุกรานแล้ว!! อย่าลืมดื่มน้ำหลังซ้อมเสร็จ!”"
+        }
+      },
+      "title": "หุ่นฝึกซ้อมโชกโชน"
+    },
+    "BRAIN_LEECH": {
+      "pages": {
+        "INITIAL": {
+          "description": "[jitter]*จี๊ด*[/jitter]\n\nคุณรู้สึกถึงความเจ็บแปลบบริเวณศีรษะ และมีความคิดพุ่งเข้าหัวคุณ\n\n[purple][sine]“แบ่งปันความรู้กันไหม???”[/sine][/purple]\n\nคุณไม่แน่ใจว่าควรทำอย่างไร...",
+          "options": {
+            "RIP": {
+              "description": "เสีย [red]{RipHpLoss}[/red] HP ได้รับรางวัลการ์ดไร้สี 1 ใบ",
+              "title": "ดึงปลิงออก"
+            },
+            "SHARE_KNOWLEDGE": {
+              "description": "เลือกการ์ด [blue]{CardChoiceCount}[/blue] จาก [blue]{FromCardChoiceCount}[/blue] ใบที่ถูกสุ่มมาเพื่อเพิ่มเข้า[gold]กองการ์ด[/gold]",
+              "title": "แบ่งปันความรู้"
+            }
+          }
+        },
+        "RIP": {
+          "description": "คุณ[jitter]ดึงปลิงออกจากศีรษะ[/jitter]อย่างรุนแรงและขว้างมันออกไปไกลโพ้น!\n\nมีเสียงเกิดขึ้นในหัวของคุณ:\n[purple][sine]“ม่ายยยยยยยยยยยยยยยย....”"
+        },
+        "SHARE_KNOWLEDGE": {
+          "description": "[purple][sine]“ความคิดช่างสลับซับซ้อน เปี่ยมด้วยความรู้และความโอ้อวดอะไรเช่นนี้!\nเป็นอาหารอุดมสมบูรณ์สำหรับการบำรุงสมองอย่างแท้จริง!”[/sine][/purple]\n\nสิ่งมีชีวิตตนนั้นพึงพอใจ หลุดออกมา และคลานจากไป\nคุณ[blue]ตกตะลึง[/blue]"
+        }
+      },
+      "title": "ปลิงสมอง"
+    },
+    "BUGSLAYER": {
+      "pages": {
+        "DONE": {
+          "description": "ร่างนั้นพยักหน้าให้คุณอย่างเงียบๆ แล้วจากไป"
+        },
+        "EXTERMINATION": {
+          "description": "“เจ้าอยากเรียน[gold]วิชาล้างผลาญ[/gold]สินะ ดีมาก...”\n\nเขาเงียบไปครู่หนึ่ง พิจารณาว่าจะสอนคุณอย่างไรจึงจะดีที่สุด...\n\n[jitter]“จงดูให้ดี! นี่คือวิชาของข้า!!”[/jitter]\nเขาโอ้อวดพร้อมยกกระป๋อง[green]ยาฆ่าแมลง[/green]ขึ้นมา"
+        },
+        "INITIAL": {
+          "description": "ขณะที่คุณจัดการกับ[jitter][red]ฝูงแมลงก้าวร้าว[/red][/jitter] ทันใดนั้นคุณก็สังเกตเห็น[gold]นักรบแข็งแกร่งทรงพลัง[/gold]ซึ่งต่อสู้ร่วมกับคุณมาโดยตลอด!\n\nฝูงแมลงสัมผัสได้ถึงความพ่ายแพ้ จึงกระจายตัวไป คุณหันไปหาสหายร่วมรบ\n“เจ้าอยากได้คำแนะนำในการกำจัดแมลงชั้นต่ำพวกนี้หรือไม่?”\n\nช่างสุภาพอะไรเช่นนี้ คุณพยักหน้าตอบรับข้อเสนอของเขา",
+          "options": {
+            "EXTERMINATION": {
+              "description": "เพิ่ม[gold]{Card1}[/gold]เข้า[gold]กองการ์ด[/gold]",
+              "title": "เรียนวิชาล้างผลาญ"
+            },
+            "SQUASH": {
+              "description": "เพิ่ม[gold]{Card2}[/gold]เข้า[gold]กองการ์ด[/gold]",
+              "title": "เรียนวิชาบดขยี้"
+            }
+          }
+        },
+        "SQUASH": {
+          "description": "“เจ้าอยากเรียน[gold]วิชาบดขยี้[/gold]สินะ ดีมาก...”\n\nเขาเงียบไปครู่หนึ่ง พิจารณาว่าจะสอนคุณอย่างไรจึงจะดีที่สุด...\n\n[jitter]“จงดูให้ดี! นี่คือวิชาของข้า!!”[/jitter]\nเขาโอ้อวดพร้อมเหยียบลงไปที่แมลงยักษ์"
+        }
+      },
+      "title": "ผู้สังหารแมลง"
+    },
+    "BYRDONIS_NEST": {
+      "pages": {
+        "EAT": {
+          "description": "คุณตอกไข่และกินเข้าไป\nอาหารเช้าแสนอร่อย"
+        },
+        "INITIAL": {
+          "options": {
+            "EAT": {
+              "description": "ได้รับ [blue]{MaxHp}[/blue] HP สูงสุด",
+              "title": "กินไข่"
+            },
+            "TAKE": {
+              "description": "เพิ่ม[gold]{Card}[/gold]เข้า[gold]กองการ์ด[/gold]",
+              "title": "เก็บไข่"
+            }
+          }
+        },
+        "TAKE": {
+          "description": "คุณค่อยๆ ช้อนไข่ขึ้นมาแล้วเก็บเข้าตัว โดยคิดว่ามันอาจ[green]ฟัก[/green]ออกมาเป็นอะไรบางอย่างที่มีประโยชน์ในอนาคต"
+        }
+      }
+    },
+    "COLORFUL_PHILOSOPHERS": {
+      "pages": {
+        "DONE": {
+          "description": "ดูเหมือนว่าความคิดเห็นของคุณจะไม่ได้รับการยอมรับ รูปปั้นเหล่านั้นกลับมาถกเถียงกันอย่างไม่รู้จบอีกครั้ง"
+        },
+        "INITIAL": {
+          "description": "เบื้องหน้าของคุณเป็นทัศนียภาพแสนอลังการ\nคุณเห็นรูปปั้น 3 สีไม่ซ้ำกันตั้งอยู่บนแท่น กำลัง[jitter][red]ถกเถียงกันอย่างดุเดือด[/red][/jitter]เกี่ยวกับนัยยะเชิงปรัชญาของสีสัน\n\nพอฟังดู คุณก็พอจับประเด็นได้ว่า คำถามที่สำคัญที่สุดคือ สีไหน[gold]ดีที่สุด[/gold]\n\nคุณจึงแทรกความคิดเห็นของตัวเองเข้าไป",
+          "options": {
+            "DEFECT": {
+              "description": "ได้รับการ์ดนักเวทแปรพักตร์ [blue]{Cards}[/blue] ใบ",
+              "title": "ฟ้า"
+            },
+            "EQUALITY": {
+              "title": "เท่าเทียมกัน"
+            },
+            "IRONCLAD": {
+              "description": "ได้รับการ์ดนักรบเกราะเหล็ก [blue]{Cards}[/blue] ใบ",
+              "title": "แดง"
+            },
+            "NECROBINDER": {
+              "description": "ได้รับการ์ดของNecrobinder [blue]{Cards}[/blue] ใบ",
+              "title": "ชมพู"
+            },
+            "REGENT": {
+              "description": "ได้รับการ์ดของRegent [blue]{Cards}[/blue] ใบ",
+              "title": "ส้ม"
+            },
+            "SILENT": {
+              "description": "ได้รับการ์ดนักฆ่าแห่งความเงียบ [blue]{Cards}[/blue] ใบ",
+              "title": "เขียว"
+            }
+          }
+        }
+      },
+      "title": "เหล่าปราชญ์มากสีสัน"
+    },
+    "COLOSSAL_FLOWER": {
+      "pages": {
+        "EXTRACT_CURRENT_PRIZE": {
+          "description": "คุณเก็บ[gold]น้ำหวาน[/gold]จากเนื้อของดอกไม้อย่างระมัดระวัง\nกลีบดอกไม้เรืองแสงด้วยความโกรธ"
+        },
+        "EXTRACT_INSTEAD": {
+          "description": "ร่างกายทั้งตัวของคุณชาและยับเยินไปหมด เพราะ[purple]พิษ[/purple], [red]หนาม[/red], และ[green]ใบ[/green]\nพอได้แล้ว\n\nคุณเก็บ[gold]ก้อนน้ำหวานคุณภาพดี[/gold]เข้าตัวและถอยไป"
+        },
+        "INITIAL": {
+          "description": "มี[green]ดอกไม้มหึมา[/green]เติบโตอยู่บน[red][jitter]กองภูเขากระดูก[/jitter][/red]\n\nในขณะที่[sine][rainbow freq=0.3 sat=0.8 val=1]กลีบดอกเปลี่ยนสีได้[/rainbow][/sine]กำลังขยับเป็นช่วงๆ คุณก็สัมผัสได้ว่ามี[aqua]กองเกสรทรงพลัง[/aqua]อยู่ใจกลาง แต่กลีบดอกที่ขยับขึ้นลงอยู่นั้น[red]แหลมคมมาก[/red]และคาดเดาไม่ได้\n\nคุณสามารถเก็บ[gold]น้ำหวานทองคำ[/gold]ได้ แต่รางวัล ณ ใจกลางก็เย้ายวนใจเหลือเกิน...",
+          "options": {
+            "EXTRACT_CURRENT_PRIZE_1": {
+              "description": "ได้รับ [blue]{Prize1}[/blue] [gold]ทอง[/gold]",
+              "title": "สกัดน้ำหวาน"
+            },
+            "REACH_DEEPER_1": {
+              "description": "เข้าไปลึกขึ้นอีก เสีย [red]5[/red] HP",
+              "title": "ลึกเข้าไปอีก"
+            }
+          }
+        },
+        "REACH_DEEPER_1": {
+          "options": {
+            "EXTRACT_CURRENT_PRIZE_2": {
+              "description": "ได้รับ [blue]{Prize2}[/blue] [gold]ทอง[/gold]",
+              "title": "สกัดน้ำหวาน"
+            },
+            "REACH_DEEPER_2": {
+              "description": "เข้าไปลึกกว่าเดิม เสีย [red]6[/red] HP",
+              "title": "ลึกเข้าไปอีก"
+            }
+          }
+        },
+        "REACH_DEEPER_2": {
+          "options": {
+            "EXTRACT_INSTEAD": {
+              "description": "ได้รับ [blue]{Prize3}[/blue] [gold]ทอง[/gold]",
+              "title": "สกัดน้ำหวาน"
+            }
+          }
+        }
+      }
+    },
+    "DENSE_VEGETATION": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "REST": {
+              "description": "ฟื้นฟู [green]{Heal}[/green] HP และต่อสู้[red]ศัตรู[/red]กลุ่มหนึ่ง",
+              "title": "พักผ่อน"
+            },
+            "TRUDGE_ON": {
+              "description": "กำจัดการ์ด 1 ใบจาก[gold]กองการ์ด[/gold] เสีย [red]{HpLoss}[/red] HP"
+            }
+          }
+        },
+        "REST": {
+          "options": {
+            "FIGHT": {
+              "title": "ต่อสู้!"
+            }
+          }
+        }
+      }
+    },
+    "DOLL_ROOM": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "EXAMINE": {
+              "description": "เสีย [red]{ExamineHpLoss}[/red] HP เลือก[gold]เครื่องรางตุ๊กตา[/gold] [blue]1[/blue] จาก [blue]3[/blue] ชิ้น",
+              "title": "ตรวจสอบแต่ละชิ้นแล้วเลือกให้ดีที่สุด"
+            },
+            "RANDOM": {
+              "description": "ได้รับ[gold]เครื่องรางตุ๊กตา[/gold] 1 ชิ้นแบบสุ่ม",
+              "title": "เลือกแบบสุ่ม"
+            },
+            "TAKE_SOME_TIME": {
+              "description": "เสีย [red]{TakeTimeHpLoss}[/red] HP เลือก[gold]เครื่องรางตุ๊กตา[/gold] [blue]1[/blue] จาก [blue]2[/blue] ชิ้น",
+              "title": "ขอเวลาสักพัก"
+            }
+          }
+        },
+        "TAKE": {
+          "options": {
+            "TAKE": {
+              "description": "ได้รับ[gold]{RelicName}[/gold]"
+            }
+          }
+        }
+      },
+      "title": "ห้องตุ๊กตา"
+    },
+    "DOORS_OF_LIGHT_AND_DARK": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "DARK": {
+              "description": "กำจัดการ์ด [blue]1[/blue]ใบใน[gold]กองการ์ด[/gold]",
+              "title": "ประตูแห่งความมืด"
+            },
+            "LIGHT": {
+              "description": "[gold]พัฒนา[/gold]การ์ด [blue]{Cards}[/blue] ใบแบบสุ่ม",
+              "title": "ประตูแห่งแสง"
+            }
+          }
+        }
+      },
+      "title": "ประตูแห่งแสงและความมืด"
+    },
+    "DROWNING_BEACON": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "BOTTLE": {
+              "description": "จัดหา [aqua]{Potion}[/aqua]"
+            },
+            "CLIMB": {
+              "description": "ได้รับ[gold]{Relic}[/gold] เสีย [red]{HpLoss}[/red] HP สูงสุด"
+            }
+          }
+        }
+      }
+    },
+    "ENDLESS_CONVEYOR": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "OBSERVE_CHEF": {
+              "description": "[gold]พัฒนา[/gold]การ์ด 1 ใบใน[gold]กองการ์ด[/gold] แบบสุ่ม"
+            }
+          }
+        }
+      }
+    },
+    "ERROR": {
+      "title": "ล็อก"
+    },
+    "FAKE_MERCHANT": {
+      "title": "พ่อค้า???"
+    },
+    "FIELD_OF_MAN_SIZED_HOLES": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "ENTER_YOUR_HOLE": {
+              "description": "[gold]ร่ายมนตร์[/gold]ใส่การ์ด 1 ใบด้วย[purple]{Enchantment}[/purple]"
+            },
+            "RESIST": {
+              "description": "กำจัดการ์ด [blue]{Cards}[/blue] ใบจาก[gold]กองการ์ด[/gold] เพิ่ม[red]{ResistCurse}[/red]เข้า[gold]กองการ์ด[/gold]"
+            }
+          }
+        }
+      }
+    },
+    "GRAVE_OF_THE_FORGOTTEN": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "ACCEPT": {
+              "description": "ได้รับ[gold]{Relic}[/gold]",
+              "title": "ยอมรับ{Relic}"
+            },
+            "CONFRONT": {
+              "description": "เพิ่ม[red]{Curse}[/red]เข้า[gold]กองการ์ด[/gold] [gold]ร่ายมนตร์[/gold]การ์ด 1 ใบที่มี[gold]สลาย[/gold]ด้วย[purple]{Enchantment}[/purple]",
+              "title": "เผชิญหน้ากับความจริง"
+            },
+            "CONFRONT_LOCKED": {
+              "description": "ไม่สามารถ[purple]ร่ายมนตร์[/purple]ได้เพราะคุณไม่มีการ์ดที่มี[gold]สลาย[/gold]",
+              "title": "ล็อก"
+            }
+          }
+        }
+      }
+    },
+    "INFESTED_AUTOMATON": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "STUDY": {
+              "description": "ได้รับการ์ด[gold]พลัง[/gold] 1 ใบแบบสุ่ม"
+            },
+            "TOUCH_CORE": {
+              "description": "ได้รับ[gold]การ์ดค่าร่าย 0[/gold] 1 ใบแบบสุ่ม"
+            }
+          }
+        }
+      }
+    },
+    "JUNGLE_MAZE_ADVENTURE": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "JOIN_FORCES": {
+              "description": "ได้รับ [blue]{JoinForcesGold}[/blue] [gold]ทอง[/gold]"
+            },
+            "SOLO_QUEST": {
+              "description": "ได้รับ [blue]{SoloGold}[/blue] [gold]ทอง[/gold] เสีย [red]{SoloHp}[/red] HP"
+            }
+          }
+        }
+      },
+      "title": "ผจญภัยเขาวงกตดงดิบ"
+    },
+    "LOST_WISP": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "CLAIM": {
+              "description": "เพิ่ม[red]{Curse}[/red]เข้า[gold]กองการ์ด[/gold] ได้รับ[gold]{Relic}[/gold]"
+            },
+            "CLAIM_LOCKED": {
+              "description": "HP สูงสุดของคุณต่ำเกินไป",
+              "title": "ล็อก"
+            },
+            "SEARCH": {
+              "description": "ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold]",
+              "title": "ค้นหาบริเวณรอบข้าง"
+            }
+          }
+        }
+      }
+    },
+    "LUMINOUS_CHOIR": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "OFFER_TRIBUTE": {
+              "description": "จ่าย [red]{Gold}[/red] [gold]ทอง[/gold] ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม"
+            },
+            "OFFER_TRIBUTE_LOCKED": {
+              "description": "ต้องการ [blue]{Gold}[/blue] [gold]ทอง[/gold]",
+              "title": "ล็อก"
+            },
+            "REACH_INTO_THE_FLESH": {
+              "description": "กำจัดการ์ด [blue]2[/blue] ใบจาก[gold]กองการ์ด[/gold] เพิ่ม[red]Spore Mind[/red]เข้า[gold]กองการ์ด[/gold]"
+            }
+          }
+        }
+      }
+    },
+    "MORPHIC_GROVE": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "GROUP": {
+              "description": "เสีย [red]{Gold}[/red] [gold]ทอง[/gold] [gold]แปรสภาพ[/gold]การ์ด [blue]2[/blue] ใบ"
+            },
+            "LONER": {
+              "description": "ได้รับ [green]{MaxHp}[/green] HP สูงสุด­"
+            }
+          }
+        }
+      }
+    },
+    "POTION_COURIER": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "RANSACK": {
+              "description": "จัดหา[gold]ขวดยาไม่ธรรมดา[/gold] [blue]1[/blue] ขวดแบบสุ่ม"
+            }
+          }
+        }
+      }
+    },
+    "PUNCH_OFF": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "I_CAN_TAKE_THEM": {
+              "description": "ต่อสู้พวกมันเพื่อ[gold]รางวัลที่ดีขึ้น[/gold]",
+              "title": "ฉันเอาอยู่"
+            },
+            "NAB": {
+              "description": "เพิ่ม[red]Injury[/red]เข้า[gold]กองการ์ด[/gold] ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม"
+            }
+          }
+        },
+        "I_CAN_TAKE_THEM": {
+          "options": {
+            "FIGHT": {
+              "title": "ต่อสู้"
+            }
+          }
+        }
+      }
+    },
+    "RANWID_THE_ELDER": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "GOLD": {
+              "description": "ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม",
+              "title": "ให้ {Gold} ทอง"
+            },
+            "POTION": {
+              "description": "ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม",
+              "title": "ให้{Potion}"
+            },
+            "POTION_LOCKED": {
+              "description": "คุณไม่เหลือขวดยาที่สามารถมอบให้ได้",
+              "title": "ล็อก"
+            },
+            "RELIC": {
+              "description": "ได้รับ[gold]เครื่องราง[/gold] [blue]2[/blue] ชิ้นแบบสุ่ม",
+              "title": "ให้{Relic}"
+            },
+            "RELIC_LOCKED": {
+              "description": "คุณไม่เหลือเครื่องรางที่สามารถมอบให้ได้",
+              "title": "ล็อก"
+            }
+          }
+        }
+      }
+    },
+    "REFLECTIONS": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "SHATTER": {
+              "description": "ทำสำเนาทั้ง[gold]กองการ์ด[/gold] ได้รับ[purple]โชคร้าย[/purple]",
+              "title": "ทุบให้แตก"
+            },
+            "TOUCH_A_MIRROR": {
+              "description": "[red]ย้อนการพัฒนา[/red]การ์ด [blue]2[/blue] ใบแบบสุ่ม [green]พัฒนา[/green]การ์ด [blue]4[/blue] ใบแบบสุ่ม",
+              "title": "สัมผัสกระจก"
+            }
+          }
+        }
+      },
+      "title": "ภาพสะท้อน นอท้ะสพาภ"
+    },
+    "RELIC_TRADER": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "BOTTOM": {
+              "description": "แลก[gold]{BottomRelicOwned}[/gold]เป็น[gold]{BottomRelicNew}[/gold]",
+              "title": "เอาอันล่าง"
+            },
+            "MIDDLE": {
+              "description": "แลก[gold]{MiddleRelicOwned}[/gold]เป็น[gold]{MiddleRelicNew}[/gold]",
+              "title": "เอาอันกลาง"
+            },
+            "TOP": {
+              "description": "แลก[gold]{TopRelicOwned}[/gold]เป็น[gold]{TopRelicNew}[/gold]",
+              "title": "เอาอันบน"
+            }
+          }
+        }
+      },
+      "title": "วาณิชเครื่องราง"
+    },
+    "ROOM_FULL_OF_CHEESE": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "GORGE": {
+              "description": "เลือกการ์ด[gold]ธรรมดา[/gold] [blue]2[/blue] จากที่สุ่มมา[blue]8[/blue] ใบเพื่อเพิ่มเข้า[gold]กองการ์ด[/gold]"
+            },
+            "SEARCH": {
+              "description": "เสีย [red]{Damage}[/red] HP ได้รับ[gold]ชีสที่ถูกเลือก[/gold]",
+              "title": "ค้นหา"
+            }
+          }
+        }
+      },
+      "title": "ห้องที่เต็มไปด้วยชีส"
+    },
+    "ROUND_TEA_PARTY": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "ENJOY_TEA": {
+              "description": "ได้รับ[red]{Relic}[/red] [green]ฟื้นฟู HP จนเต็ม[/green]",
+              "title": "ดื่มด่ำกับชา"
+            },
+            "PICK_FIGHT": {
+              "description": "เสีย [red]{Damage}[/red] HP ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม"
+            }
+          }
+        }
+      }
+    },
+    "SAPPHIRE_SEED": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "EAT": {
+              "description": "ฟื้นฟู [green]{Heal}[/green] HP [gold]พัฒนา[/gold]การ์ด 1 ใบใน[gold]กองการ์ด[/gold]"
+            },
+            "PLANT": {
+              "description": "[gold]ร่ายมนตร์[/gold]ใส่การ์ด 1 ใบด้วย[purple]{Enchantment}[/purple]"
+            }
+          }
+        }
+      }
+    },
+    "SELF_HELP_BOOK": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "NO_OPTIONS": {
+              "description": "คุณไม่มีการ์ดให้ร่ายมนตร์ใส่",
+              "title": "ช่างมัน"
+            },
+            "READ_ENTIRE_BOOK": {
+              "description": "เลือกการ์ดพลัง 1 ใบเพื่อ[gold]ร่ายมนตร์[/gold]ด้วย[purple]{Enchantment3}[/purple] [blue]{Enchantment3Amount}[/blue]",
+              "title": "อ่านทั้งเล่ม"
+            },
+            "READ_ENTIRE_BOOK_LOCKED": {
+              "description": "คุณไม่มีการ์ดพลังให้[gold]ร่ายมนตร์[/gold]ใส่",
+              "title": "ล็อก"
+            },
+            "READ_PASSAGE": {
+              "description": "เลือกการ์ดทักษะ 1 ใบเพื่อ[gold]ร่ายมนตร์[/gold]ด้วย[purple]{Enchantment2}[/purple] [blue]{Enchantment2Amount}[/blue]",
+              "title": "สุ่มอ่าน 1 ย่อหน้า"
+            },
+            "READ_PASSAGE_LOCKED": {
+              "description": "คุณไม่มีการ์ดทักษะให้[gold]ร่ายมนตร์[/gold]ใส่",
+              "title": "ล็อก"
+            },
+            "READ_THE_BACK": {
+              "description": "เลือกการ์ดโจมตี 1 ใบเพื่อ[gold]ร่ายมนตร์[/gold]ด้วย[purple]{Enchantment1}[/purple] [blue]{Enchantment1Amount}[/blue]",
+              "title": "อ่านปกหลัง"
+            },
+            "READ_THE_BACK_LOCKED": {
+              "description": "คุณไม่มีการ์ดโจมตีให้[gold]ร่ายมนตร์[/gold]ใส่",
+              "title": "ล็อก"
+            }
+          }
+        },
+        "NO_OPTIONS": {
+          "description": "ปกติคุณก็ไม่สนใจหนังสืออยู่แล้ว ดังนั้นหนังสือท่วมเลือดนี่ไม่ต้องพูดถึง"
+        },
+        "READ_ENTIRE_BOOK": {
+          "description": "ข้อความน่าสนใจมาก! คุณยังคงจำคำกล่าวที่เป็นทางเลือกได้อย่างชัดเจน:\n“หลักเลี่ยงมอนสเตอร์ขนาดใหญ่”\n“รับการ์ดทุกใบ”\n“มีแต่พวกขี้ขลาดเท่านั้นที่บล็อก”\n\nมือของคุณมี[red]เลือด[/red]ท่วมไปหมด"
+        },
+        "READ_PASSAGE": {
+          "description": "คุณเปิดมั่วๆ ไปเจอหน้านี้:\n“การป้องกัน 101: ก็อย่าโดนโจมตีสิ!”\n\nคุณอ่านบทความที่เหลือจนครบและพบว่ามันเบิกเนตรอย่างประหลาด คุณนำแนวคิดเหล่านี้มาใช้ในกลยุทธ์การต่อสู้ของคุณ"
+        },
+        "READ_THE_BACK": {
+          "description": "คุณพลิกหนังสือเพื่ออ่านสรุป\n[blue]“นักวิจารณ์และพวกคลั่งลัทธิเห็นด้วยว่าอาวุธแหลมๆ คมๆ เป็นวิธีที่ดีที่สุดในการสร้างความเสียหาย!”[/blue]\n\nด้านหลังของหนังสือมีป้ายราคาติดอยู่ มันถูกขีดฆ่าทิ้งและถูกเขียนใหม่ด้วยราคาที่ถูกลงมาก"
+        }
+      },
+      "title": "หนังสือพัฒนาตัวเอง"
+    },
+    "SLIPPERY_BRIDGE": {
+      "pages": {
+        "HOLD_ON_0": {
+          "description": "[jitter]คุณยังทนได้อยู่![/jitter]",
+          "options": {
+            "HOLD_ON_1": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            }
+          }
+        },
+        "HOLD_ON_1": {
+          "description": "ยัง... ยัง... [jitter]ไหววววว!!!![/jitter]",
+          "options": {
+            "HOLD_ON_2": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            }
+          }
+        },
+        "HOLD_ON_2": {
+          "description": "[sine]อ๊ากกกก!?!!![/sine]",
+          "options": {
+            "HOLD_ON_3": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            }
+          }
+        },
+        "HOLD_ON_3": {
+          "description": "[jitter][b]ฉันทำได้!!![/b][/jitter]",
+          "options": {
+            "HOLD_ON_4": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            }
+          }
+        },
+        "HOLD_ON_4": {
+          "description": "[gold][b][jitter][b]ม่ายยยยยยยย[/b][/jitter][/b][/gold]",
+          "options": {
+            "HOLD_ON_5": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            }
+          }
+        },
+        "HOLD_ON_5": {
+          "description": "[red][b][jitter][b]ฉันทำอะไรอยู่เนี่ย!?[/b][/jitter][/b][/red]",
+          "options": {
+            "HOLD_ON_6": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            }
+          }
+        },
+        "HOLD_ON_6": {
+          "description": "[red][b][jitter][b]!!!!!!!!!!!!!... !!!\n\n!!!!!!!! !!!!!!!!!!!?? !!!!!!!!![/b][/jitter][/b][/red]",
+          "options": {
+            "HOLD_ON_LOOP": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            }
+          }
+        },
+        "HOLD_ON_LOOP": {
+          "description": "ผู้พัฒนาอยากบอกคุณว่า ไม่ได้ทำข้อความให้ผู้เล่นที่ทนได้นานขนาดนี้ ขออภัยในความไม่สะดวก",
+          "options": {
+            "HOLD_ON_LOOP": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            }
+          }
+        },
+        "INITIAL": {
+          "options": {
+            "HOLD_ON_0": {
+              "description": "เสีย [red]{HpLoss}[/red] HP สุ่มการ์ดในตัวเลือกด้านบน",
+              "title": "จับไว้"
+            },
+            "OVERCOME": {
+              "description": "[red]{RandomCard}[/red]ถูกกำจัดออกจาก[gold]กองการ์ด[/gold]",
+              "title": "พิชิต"
+            }
+          }
+        },
+        "OVERCOME": {
+          "description": "เกลียดสะพานจังเลยว่ะ"
+        }
+      },
+      "title": "สะพานลื่น"
+    },
+    "SPIRALING_WHIRLPOOL": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "DRINK": {
+              "description": "ฟื้นฟู [green]{Heal}[/green] HP",
+              "title": "ดื่ม"
+            },
+            "OBSERVE": {
+              "description": "[gold]ร่ายมนตร์[/gold] [gold]จู่โจม[/gold]หรือ[gold]ป้องกัน[/gold]ด้วย[purple]Spiral[/purple]",
+              "title": "สังเกต"
+            },
+            "REACH_IN": {
+              "description": "ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม เพิ่ม[red]อาการชัก[/red]เข้า[gold]กองการ์ด[/gold]"
+            }
+          }
+        }
+      }
+    },
+    "SPIRIT_GRAFTER": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "LET_IT_IN": {
+              "description": "ฟื้นฟู [green]{LetItInHealAmount}[/green] HP เพิ่ม[gold]Metamorphosis[/gold]เข้า[gold]กองการ์ด[/gold]",
+              "title": "ให้มันเข้ามา"
+            },
+            "REJECTION": {
+              "description": "เสีย [red]{RejectionHpLoss}[/red] HP กำจัดการ์ด 1 ใบจาก[gold]กองการ์ด[/gold]",
+              "title": "ปฏิเสธ"
+            }
+          }
+        }
+      }
+    },
+    "STONE_OF_ALL_TIME": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "LIFT": {
+              "description": "เสีย [red]{DrinkRandomPotion}[/red] ได้รับ [blue]{DrinkMaxHpGain}[/blue] HP สูงสุด",
+              "title": "ดื่มแล้วยก"
+            },
+            "LIFT_LOCKED": {
+              "description": "ตัองการขวดยา 1 ขวด",
+              "title": "ล็อก"
+            },
+            "PUSH": {
+              "description": "เสีย [red]{PushHpLoss}[/red] HP [gold]ร่ายมนตร์[/gold]การ์ดโจมตี 1 ใบด้วย[purple]Vigorous[/purple] [blue]{PushVigorousAmount}[/blue]",
+              "title": "ผลัก"
+            },
+            "PUSH_LOCKED": {
+              "description": "ตัองการการ์ดโจมตี 1 ใบ",
+              "title": "ล็อก"
+            }
+          }
+        }
+      }
+    },
+    "SUNKEN_STATUE": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "DIVE_INTO_WATER": {
+              "description": "ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold] เสีย [red]{HpLoss}[/red] HP"
+            },
+            "GRAB_SWORD": {
+              "description": "ได้รับ[gold]{Relic}[/gold]"
+            }
+          }
+        }
+      }
+    },
+    "SUNKEN_TREASURY": {
+      "pages": {
+        "FIRST_CHEST": {
+          "description": "ใช่แล้ว มี[gold]ทอง[/gold]อยู่ในนั้น"
+        },
+        "INITIAL": {
+          "options": {
+            "FIRST_CHEST": {
+              "description": "ได้รับ [blue]{SmallChestGold}[/blue] [gold]ทอง[/gold]",
+              "title": "กล่องสมบัติใบแรก"
+            },
+            "SECOND_CHEST": {
+              "description": "ได้รับ [blue]{LargeChestGold}[/blue] [gold]ทอง[/gold] ได้รับ[red]Greed[/red]",
+              "title": "กล่องสมบัติใบที่ 2"
+            }
+          }
+        }
+      }
+    },
+    "SYMBIOTE": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "APPROACH": {
+              "description": "[gold]ร่ายมนตร์[/gold]การ์ดโจมตี 1 ใบด้วย[purple]{Enchantment}[/purple]"
+            },
+            "APPROACH_LOCKED": {
+              "description": "คุณไม่มีการ์ดโจมตีที่สามารถร่ายมนตร์ใส่ได้",
+              "title": "ล็อก"
+            },
+            "KILL_WITH_FIRE": {
+              "description": "เลือกการ์ด 1 ใบเพื่อ[gold]แปรสภาพ[/gold]"
+            }
+          }
+        }
+      }
+    },
+    "TABLET_OF_TRUTH": {
+      "pages": {
+        "DECIPHER": {
+          "options": {
+            "GIVE_UP": {
+              "description": "เลิกอ่านแล้วจากไป",
+              "title": "ยอมแพ้"
+            }
+          }
+        },
+        "DECIPHER_1": {
+          "options": {
+            "DECIPHER": {
+              "description": "เสีย [red]{DecipherMaxHpLoss}[/red] HP สูงสุด [gold]พัฒนา[/gold]การ์ด 1 ใบแบบสุ่ม",
+              "title": "ถอดรหัสต่อไป"
+            }
+          }
+        },
+        "DECIPHER_2": {
+          "options": {
+            "DECIPHER": {
+              "description": "เสีย [red]{DecipherMaxHpLoss}[/red] HP สูงสุด [gold]พัฒนา[/gold]การ์ด 1 ใบแบบสุ่ม",
+              "title": "พยายามถอดรหัสต่อ"
+            }
+          }
+        },
+        "DECIPHER_3": {
+          "options": {
+            "DECIPHER": {
+              "description": "เสีย [red]{DecipherMaxHpLoss}[/red] HP สูงสุด [gold]พัฒนา[/gold]การ์ด 1 ใบแบบสุ่ม",
+              "title": "พยายาม ถอด รหัส ต่อ ไป"
+            }
+          }
+        },
+        "DECIPHER_4": {
+          "options": {
+            "DECIPHER": {
+              "description": "เสีย [red]{DecipherMaxHpLoss}[/red] HP สูงสุด [gold]พัฒนา[/gold]การ์ดทั้งหมด"
+            }
+          }
+        },
+        "INITIAL": {
+          "options": {
+            "DECIPHER_1": {
+              "description": "เสีย [red]{DecipherMaxHpLoss}[/red] HP สูงสุด [gold]พัฒนา[/gold]การ์ด 1 ใบแบบสุ่ม",
+              "title": "ถอดรหัส"
+            },
+            "SMASH": {
+              "description": "ฟื้นฟู [green]{SmashHPGain}[/green] HP"
+            }
+          }
+        }
+      }
+    },
+    "TEA_MASTER": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "BONE_TEA": {
+              "description": "จ่าย [red]{BoneTeaCost}[/red] [gold]ทอง[/gold] {BoneTeaDescription}"
+            },
+            "BONE_TEA_LOCKED": {
+              "description": "ต้องการ [blue]{BoneTeaCost}[/blue] [gold]ทอง[/gold]",
+              "title": "ล็อก"
+            },
+            "EMBER_TEA": {
+              "description": "จ่าย [red]{EmberTeaCost}[/red] [gold]ทอง[/gold] {EmberTeaDescription}"
+            },
+            "EMBER_TEA_LOCKED": {
+              "description": "ต้องการ [blue]{EmberTeaCost}[/blue] [gold]ทอง[/gold]",
+              "title": "ล็อก"
+            },
+            "TEA_OF_DISCOURTESY": {
+              "description": "{TeaOfDiscourtesyDescription}"
+            }
+          }
+        }
+      }
+    },
+    "THE_FUTURE_OF_POTIONS": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "POTION": {
+              "description": "เสีย[gold]{Potion}[/gold] ได้รับ[gold]{Type}{Rarity}[/gold]แบบพัฒนาแล้ว",
+              "title": "ใส่ขวดยา{Rarity}"
+            }
+          }
+        }
+      }
+    },
+    "THE_LANTERN_KEY": {
+      "pages": {
+        "DONE": {
+          "options": {
+            "RETURN_THE_KEY": {
+              "description": "ร่างแปลกหน้าขอบคุณที่ให้การช่วยเหลือ และตอบแทนคุณอย่างงาม"
+            }
+          }
+        },
+        "INITIAL": {
+          "options": {
+            "KEEP_THE_KEY": {
+              "description": "ต่อสู้เพื่อชิงกุญแจ",
+              "title": "เก็บกุญแจไว้"
+            },
+            "RETURN_THE_KEY": {
+              "description": "ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold]",
+              "title": "คืนกุญแจ"
+            }
+          }
+        }
+      }
+    },
+    "THE_LEGENDS_WERE_TRUE": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "SLOWLY_FIND_AN_EXIT": {
+              "description": "เสีย [red]{Damage}[/red] HP จัดหา[gold]ขวดยา[/gold] [blue]1[/blue] ขวดแบบสุ่ม",
+              "title": "ค่อยๆ หาทางออก"
+            }
+          }
+        }
+      }
+    },
+    "THIS_OR_THAT": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "ORNATE": {
+              "description": "เพิ่ม[red]{Curse}[/red]เข้า[gold]กองการ์ด[/gold] ได้รับ[gold]เครื่องราง[/gold] 1 ชิ้นแบบสุ่ม",
+              "title": "อันนั้น"
+            },
+            "PLAIN": {
+              "description": "เสีย [red]{HpLoss}[/red] HP ได้รับ [blue]{Gold}[/blue] [gold]ทอง[/gold]",
+              "title": "อันนี้"
+            }
+          }
+        }
+      },
+      "title": "อันนี้หรืออันนั้น?"
+    },
+    "TINKER_TIME": {
+      "pages": {
+        "CHOOSE_CARD_TYPE": {
+          "options": {
+            "ATTACK": {
+              "description": "ทำการ์ดโจมตีที่มีความสามารถพิเศษ สร้างความเสียหาย [blue]{Damage}[/blue]",
+              "title": "อาวุธ"
+            },
+            "POWER": {
+              "description": "สร้างการ์ดพลังที่มีความสามารถพิเศษ",
+              "title": "อุปกรณ์"
+            },
+            "SKILL": {
+              "description": "สร้างการ์ดทักษะที่มีความสามารถพิเศษ ได้รับ [blue]{Block}[/blue] [gold]บล็อก[/gold]",
+              "title": "เครื่องป้องกัน"
+            }
+          }
+        },
+        "CHOOSE_RIDER": {
+          "options": {
+            "CHAOS": {
+              "description": "เพิ่มการ์ด 1 ใบแบบสุ่มใส่[gold]มือ[/gold] มันมีค่าร่าย [blue]0[/blue] {energyPrefix:energyIcons(1)} ในเทิร์นนี้"
+            },
+            "CHOKING": {
+              "description": "ทุกครั้งที่คุณเล่นการ์ดในเทิร์นนี้ ศัตรูเสีย [blue]{ChokingDamage}[/blue] HP"
+            },
+            "CURIOUS": {
+              "description": "การ์ดพลังมีค่าร่ายลดลง [blue]{CuriousReduction}[/blue] {energyPrefix:energyIcons(1)}"
+            },
+            "ENERGIZED": {
+              "description": "ได้รับ {EnergizedEnergy:energyIcons()}"
+            },
+            "EXPERTISE": {
+              "description": "ได้รับ [blue]{ExpertiseStrength}[/blue] [gold]ความแข็งแรง[/gold] ได้รับ [blue]{ExpertiseDexterity}[/blue] [gold]ความชำนาญ[/gold]",
+              "title": "ความช่ำชอง"
+            },
+            "IMPROVEMENT": {
+              "description": "ตอนจบการต่อสู้ [gold]พัฒนา[/gold]การ์ด 1 ใบแบบสุ่ม",
+              "title": "การปรับปรุง"
+            },
+            "SAPPING": {
+              "description": "สร้าง [blue]{SappingWeak}[/blue] [gold]ความอ่อนแอ[/gold] สร้าง [blue]{SappingVulnerable}[/blue] [gold]จุดอ่อน[/gold]"
+            },
+            "VIOLENCE": {
+              "description": "โจมตีเพิ่ม [blue]2[/blue] ครั้ง"
+            },
+            "WISDOM": {
+              "description": "จั่วการ์ด [blue]{WisdomCards}[/blue] ใบ"
+            }
+          }
+        },
+        "INITIAL": {
+          "options": {
+            "CHOOSE_CARD_TYPE": {
+              "description": "สร้างการ์ดขึ้นมาเองเพื่อเพิ่มเข้า[gold]กองการ์ด[/gold]"
+            }
+          }
+        }
+      }
+    },
+    "TRIAL": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "REJECT": {
+              "description": "[red]ไม่อนุญาตให้ปฏิเสธ[/red]",
+              "title": "ปฏิเสธ"
+            }
+          }
+        },
+        "MERCHANT": {
+          "options": {
+            "GUILTY": {
+              "description": "เพิ่ม[red]Regret[/red]เข้า[gold]กองการ์ด[/gold] ได้รับ[gold]เครื่องราง[/gold] [blue]2[/blue] ชิ้นแบบสุ่ม",
+              "title": "ตัดสิน: มีความผิด"
+            },
+            "INNOCENT": {
+              "description": "เพิ่ม[red]Shame[/red]เข้า[gold]กองการ์ด[/gold] [gold]พัฒนา[/gold]การ์ด [blue]2[/blue] ใบ",
+              "title": "ตัดสิน: บริสุทธิ์"
+            }
+          }
+        },
+        "NOBLE": {
+          "options": {
+            "GUILTY": {
+              "description": "ฟื้นฟู [green]10[/green] HP",
+              "title": "ตัดสิน: มีความผิด"
+            },
+            "INNOCENT": {
+              "description": "เพิ่ม[red]Regret[/red]เข้า[gold]กองการ์ด[/gold] ได้รับ [blue]300[/blue] [gold]ทอง[/gold]",
+              "title": "ตัดสิน: บริสุทธิ์"
+            }
+          }
+        },
+        "NONDESCRIPT": {
+          "options": {
+            "GUILTY": {
+              "description": "เพิ่ม[red]Doubt[/red]เข้า[gold]กองการ์ด[/gold] ได้รับรางวัลการ์ด [blue]2[/blue] ครั้ง",
+              "title": "ตัดสิน: มีความผิด"
+            },
+            "INNOCENT": {
+              "description": "เพิ่ม[red]Doubt[/red]เข้า[gold]กองการ์ด[/gold] [gold]แปรสภาพ[/gold]การ์ด [blue]2[/blue] ใบ",
+              "title": "ตัดสิน: บริสุทธิ์"
+            }
+          }
+        }
+      }
+    },
+    "UNREST_SITE": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "KILL": {
+              "description": "[red]เสีย {MaxHpLoss} HP สูงสุด[/red] ได้รับ[gold]เครื่องราง[/gold]แบบสุ่ม"
+            },
+            "REST": {
+              "description": "[green]ฟื้นฟู HP จนเต็ม[/green] ได้รับ[red]Poor Sleep[/red]",
+              "title": "ก็จะพักผ่อนอยู่ดี"
+            }
+          }
+        }
+      }
+    },
+    "WAR_HISTORIAN_REPY": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "UNLOCK_CAGE": {
+              "description": "เสีย[gold]Lantern Key[/gold] ได้รับ[gold]History Course[/gold]",
+              "title": "ปลดล็อกกรง"
+            },
+            "UNLOCK_CHEST": {
+              "description": "เสีย[gold]Lantern Key[/gold] จัดหา[gold]ขวดยา[/gold] [blue]2[/blue] ขวดแบบสุ่ม ได้รับ[gold]เครื่องราง[/gold] [blue]2[/blue] ชิ้นแบบสุ่ม",
+              "title": "ปลดล็อกกล่องสมบัติ"
+            }
+          }
+        }
+      }
+    },
+    "WATERLOGGED_SCRIPTORIUM": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "BLOODY_INK": {
+              "description": "ได้รับ [green]6[/green] HP สูงสุด"
+            },
+            "PRICKLY_SPONGE": {
+              "description": "จ่าย [red]{PricklySpongeGold}[/red] [gold]ทอง[/gold] [gold]ร่ายมนตร์[/gold]การ์ด [blue]{Cards}[/blue] ใบด้วย[purple]Steady[/purple]"
+            },
+            "PRICKLY_SPONGE_LOCKED": {
+              "description": "ต้องการ [blue]{PricklySpongeGold}[/blue] [gold]ทอง[/gold]",
+              "title": "ล็อก"
+            },
+            "TENTACLE_QUILL": {
+              "description": "จ่าย [red]{Gold}[/red] [gold]ทอง[/gold] [gold]ร่ายมนตร์[/gold]การ์ด 1 ใบด้วย[purple]Steady[/purple]"
+            },
+            "TENTACLE_QUILL_LOCKED": {
+              "description": "ต้องการ [blue]{Gold}[/blue] [gold]ทอง[/gold]",
+              "title": "ล็อก"
+            }
+          }
+        }
+      }
+    },
+    "WELCOME_TO_WONGOS": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "BARGAIN_BIN": {
+              "description": "จ่าย [red]{BargainBinCost}[/red] [gold]ทอง[/gold] ได้รับ[gold]เครื่องรางธรรมดา[/gold] [blue]1[/blue] ชิ้นแบบสุ่ม"
+            },
+            "BARGAIN_BIN_LOCKED": {
+              "description": "ต้องการ [blue]{BargainBinCost}[/blue] [gold]ทอง[/gold]",
+              "title": "ล็อก"
+            },
+            "FEATURED_ITEM": {
+              "description": "จ่าย [red]{FeaturedItemCost}[/red] [gold]ทอง[/gold] ได้รับ[gold]{RandomRelic}[/gold]"
+            },
+            "FEATURED_ITEM_LOCKED": {
+              "description": "ต้องการ [blue]{FeaturedItemCost}[/blue] [gold]ทอง[/gold]",
+              "title": "ล็อก"
+            },
+            "LEAVE": {
+              "description": "[red]ลดระดับ[/red]การ์ด 1 ใบแบบสุ่ม"
+            },
+            "MYSTERY_BOX": {
+              "description": "จ่าย [red]{MysteryBoxCost}[/red] [gold]ทอง[/gold] ได้รับ[gold]เครื่องราง[/gold] [blue]{MysteryBoxRelicCount}[/blue] ชิ้นแบบสุ่ม หลังจาก [blue]{MysteryBoxCombatCount}[/blue] การต่อสู้"
+            },
+            "MYSTERY_BOX_LOCKED": {
+              "description": "ต้องการ [blue]{MysteryBoxCost}[/blue] [gold]ทอง[/gold]",
+              "title": "ล็อก"
+            }
+          }
+        }
+      }
+    },
+    "WELLSPRING": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "BATHE": {
+              "description": "กำจัดการ์ด [blue]1[/blue] ใบจาก[gold]กองการ์ด[/gold] เพิ่ม[red]Guilty[/red] [blue]{BatheCurses}[/blue] ใบเข้า[gold]กองการ์ด[/gold]"
+            },
+            "BOTTLE": {
+              "description": "จัดหา[gold]ขวดยา[/gold] [blue]1[/blue] ขวดแบบสุ่ม"
+            }
+          }
+        }
+      }
+    },
+    "WHISPERING_HOLLOW": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "GOLD": {
+              "description": "เสีย [red]{Gold}[/red] [gold]ทอง[/gold] จัดหา[gold]ขวดยา[/gold] [blue]2[/blue] ขวดแบบสุ่ม"
+            },
+            "HUG": {
+              "description": "เสีย [red]{HpLoss}[/red] HP เลือกการ์ด 1 ใบเพื่อ[gold]แปรสภาพ[/gold]",
+              "title": "กอดต้นไม้"
+            }
+          }
+        }
+      }
+    },
+    "WOOD_CARVINGS": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "BIRD": {
+              "description": "เลือกการ์ดเริ่มต้น [blue]1[/blue] ใบเพื่อ[gold]แปรสภาพ[/gold]ให้เป็น[gold]{BirdCard}[/gold]",
+              "title": "นก"
+            },
+            "SNAKE": {
+              "description": "[gold]ร่ายมนตร์[/gold]การ์ด [blue]1[/blue] ใบด้วย[purple]{SnakeEnchantment}[/purple]",
+              "title": "งู"
+            },
+            "SNAKE_LOCKED": {
+              "title": "ล็อก"
+            },
+            "TORUS": {
+              "description": "เลือกการ์ดเริ่มต้น [blue]1[/blue] ใบเพื่อ[gold]แปรสภาพ[/gold]ให้เป็น[gold]{ToricCard}[/gold]"
+            }
+          }
+        }
+      },
+      "title": "ไม้แกะสลัก"
+    },
+    "ZEN_WEAVER": {
+      "pages": {
+        "INITIAL": {
+          "options": {
+            "ARACHNID_ACUPUNCTURE": {
+              "description": "จ่าย [red]{ArachnidAcupunctureCost}[/red] [gold]ทอง[/gold] กำจัดการ์ด [blue]2[/blue] ใบจาก[gold]กองการ์ด[/gold]"
+            },
+            "BREATHING_TECHNIQUES": {
+              "description": "จ่าย [red]{BreathingTechniquesCost}[/red] [gold]ทอง[/gold] เพิ่ม[gold]Enlightenment[/gold] [blue]2[/blue] ใบเข้า[gold]กองการ์ด[/gold]"
+            },
+            "EMOTIONAL_AWARENESS": {
+              "description": "จ่าย [red]{EmotionalAwarenessCost}[/red] [gold]ทอง[/gold] กำจัดการ์ด [blue]1[/blue] ใบจาก[gold]กองการ์ด[/gold]"
+            },
+            "LOCKED": {
+              "description": "[gold]ทอง[/gold]ไม่เพียงพอ",
+              "title": "ล็อก"
+            }
+          }
+        }
+      }
+    }
+  },
+  "ancients": {
+    "ERROR": {
+      "title": "ล็อก"
+    },
+    "NEOW": {
+      "title": "เนียว"
+    }
+  },
+  "enchantments": {
+    "ADROIT": {
+      "description": "ได้รับ [blue]{Block:diff()}[/blue] [gold]บล็อก[/gold]",
+      "title": "มนตร์คล่องแคล่ว"
+    },
+    "CLONE": {
+      "description": "สามารถทำสำเนาการ์ดนี้ได้ที่[gold]จุดพัก[/gold]",
+      "title": "มนตร์โคลนนิ่ง"
+    },
+    "CORRUPTED": {
+      "description": "สร้างความเสียหายมากขึ้น [blue]50%[/blue] แต่เสีย [blue]2[/blue] HP",
+      "title": "มนตร์ผุพัง"
+    },
+    "DEPRECATED_ENCHANTMENT": {
+      "description": "มนตร์นี้ถูกนำออกจากเกมแล้ว",
+      "title": "มนตร์ที่หายไป"
+    },
+    "FAVORED": {
+      "description": "พลังโจมตีของการ์ดนี้เป็น 2 เท่า",
+      "title": "มนตร์โปรดปราน"
+    },
+    "GLAM": {
+      "description": "การ์ดนี้มี[gold]เล่นซ้ำ[/gold] 1 ครั้งต่อการต่อสู้",
+      "title": "มนตร์สวยหรู"
+    },
+    "GOOPY": {
+      "description": "การ์ดนี้ได้รับ[gold]สลาย[/gold] แต่เมื่อเล่นการ์ดนี้ [gold]บล็อก[/gold]ของการ์ดนี้จะเพิ่มขึ้น [blue]1[/blue] แบบถาวร",
+      "title": "มนตร์หนังเหนียว"
+    },
+    "IMBUED": {
+      "description": "เมื่อเริ่มต้นแต่ละการต่อสู้ การ์ดนี้จะถูกเล่นโดยอัตโนมัติ",
+      "title": "มนตร์อัดฉีด"
+    },
+    "INSTINCT": {
+      "description": "ลดค่าร่ายของการ์ดนี้ [blue]1[/blue]",
+      "title": "มนตร์สัญชาตญาณ"
+    },
+    "MOCK_FREE_ENCHANTMENT": {
+      "title": "Mock Free Enchantment"
+    },
+    "MOMENTUM": {
+      "description": "เมื่อเล่น เพิ่มพลังโจมตีให้การ์ดนี้ [blue]{Amount}[/blue] ในการต่อสู้นี้",
+      "title": "มนตร์แรงเหวี่ยง"
+    },
+    "NIMBLE": {
+      "description": "เพิ่ม[gold]บล็อก[/gold]ที่ได้รับจากการ์ดนี้ [blue]{Amount}[/blue]",
+      "title": "มนตร์ปราดเปรียว"
+    },
+    "PERFECT_FIT": {
+      "description": "เมื่อการ์ดนี้จะถูกสับเข้า[gold]กองจั่ว[/gold] ให้วางไว้บนสุดแทน",
+      "title": "มนตร์เหมาะเหม็ง"
+    },
+    "ROYALLY_APPROVED": {
+      "description": "การ์ดนี้มี[gold]ติดตัว[/gold]และ[gold]คงสภาพ[/gold]",
+      "title": "มนตร์พระราชทาน"
+    },
+    "SHARP": {
+      "description": "เพิ่มความเสียหายของการ์ดนี้ [blue]{Amount}[/blue]",
+      "title": "มนตร์แหลมคม"
+    },
+    "SLITHER": {
+      "description": "เมื่อจั่วการ์ดนี้ สุ่มเปลี่ยนค่าร่ายจาก [blue]0[/blue] ถึง [blue]3[/blue]",
+      "title": "มนตร์อสรพิษ"
+    },
+    "SLUMBERING_ESSENCE": {
+      "description": "ถ้าการ์ดนี้อยู่ในมือตอนจบเทิร์น ลดค่าร่ายลง [blue]1[/blue] จนกว่าจะถูกเล่น",
+      "title": "มนตร์สกัดหลับใหล"
+    },
+    "SOULS_POWER": {
+      "description": "การ์ดนี้เสีย[gold]สลาย[/gold]",
+      "title": "มนตร์พลังวิญญาณ"
+    },
+    "SOWN": {
+      "description": "ครั้งแรกที่คุณเล่นการ์ดนี้ในแต่ละการต่อสู้ ได้รับ{Amount:energyIcons()}",
+      "title": "มนตร์หว่านเมล็ด"
+    },
+    "SPIRAL": {
+      "description": "การ์ดนี้ได้รับ[gold]เล่นซ้ำ[/gold] [blue]1[/blue]",
+      "title": "มนตร์หมุนวน"
+    },
+    "STEADY": {
+      "description": "การ์ดนี้ได้รับ[gold]คงสภาพ[/gold]",
+      "title": "มนตร์มั่นคง"
+    },
+    "SWIFT": {
+      "description": "ครั้งแรกที่คุณเล่นการ์ดนี้ จั่ว [blue]{Amount}[/blue] {Amount:plural:การ์ด|การ์ด}",
+      "title": "มนตร์ฉับพลัน"
+    },
+    "TEZCATARAS_EMBER": {
+      "description": "ค่าร่าย [blue]0[/blue] และได้รับ[gold]นิรันดร์[/gold]",
+      "title": "เพลิงของเทซคาทารา"
+    },
+    "VIGOROUS": {
+      "description": "ครั้งแรกที่เล่นการ์ดนี้ สร้างความเสียหายเพิ่ม [blue]{Amount}[/blue]",
+      "title": "มนตร์ชีวิตชีวา"
+    }
+  },
+  "game_modes": {
+    "SINGLE_PLAYER_CUSTOM": {
+      "description": "สร้างความท้าทายของตัวเองโดยเลือกจากกติกาบ้าคลั่งทั้งหลาย",
+      "title": "กำหนดเอง"
+    },
+    "SINGLE_PLAYER_DAILY_RUN": {
+      "description": "มีการท้าทายใหม่เกิดขึ้นวันละครั้ง<br>แข่งกับผู้เล่นคนอื่น",
+      "title": "การเดินทางรายวัน"
+    },
+    "SINGLE_PLAYER_STANDARD": {
+      "description": "ออกเดินทางสังหารสไปร์โดยลำพัง",
+      "title": "มาตรฐาน"
+    }
+  },
+  "modifiers": {
+    "ALL_STAR": {
+      "description": "เริ่มต้นด้วย [blue]5[/blue] [gold]การ์ดไร้สี[/gold]",
+      "title": "รวมดารา"
+    },
+    "BIG_GAME_HUNTER": {
+      "description": "ศัตรูลูกพี่ยกทัพบุกสไปร์ และดรอปรางวัลดีขึ้น",
+      "title": "นักล่าสัตว์ใหญ่"
+    },
+    "BINARY": {
+      "description": "[gold]รางวัลการ์ด[/gold]เหลือเพียง [blue]2[/blue] การ์ด",
+      "title": "เลขฐานสอง"
+    },
+    "CURSED_RUN": {
+      "description": "ตอนเริ่มต้นแต่ละองก์ เพิ่ม [red]คำสาป[/red] แบบสุ่มเข้ากองการ์ด",
+      "title": "การเดินทางต้องสาป"
+    },
+    "DEADLY_EVENTS": {
+      "description": "ห้องปริศนาสามารถพบลูกพี่ได้ แต่ก็เพิ่มโอกาสการพบห้องสมบัติด้วย",
+      "title": "เหตุการณ์เสี่ยงตาย"
+    },
+    "DRAFT": {
+      "description": "เลือก [blue]10[/blue] การ์ดจาก[gold]รางวัลการ์ด[/gold]เพื่อทำเป็นกองการ์ดเริ่มต้น",
+      "title": "ดราฟต์"
+    },
+    "FLIGHT": {
+      "description": "คุณสามารถข้ามไปยังห้องที่อยู่บนเส้นทางอื่นได้",
+      "title": "บินได้"
+    },
+    "HOARDER": {
+      "description": "ทุกครั้งที่คุณเพิ่มการ์ดเข้ากองการ์ด จะเพิ่มสำเนาอีก [blue]2[/blue] การ์ด คุณไม่สามารถใช้บริการกำจัดการ์ดออกจากกองการ์ดของพ่อค้าได้อีกต่อไป",
+      "title": "นักกักตุน"
+    },
+    "INSANITY": {
+      "description": "เริ่มต้นด้วยกองการ์ดที่มี [blue]30[/blue] การ์ดแบบสุ่ม",
+      "title": "วิกลจริต"
+    },
+    "MIDAS": {
+      "description": "ศัตรูดรอปทองมากขึ้น [blue]200%[/blue] แต่คุณไม่สามารถตีบวกที่[gold]จุดพัก[/gold]ได้อีกต่อไป",
+      "title": "ไมดาส"
+    },
+    "MURDEROUS": {
+      "description": "ทั้งคุณและศัตรูทั้งหมด เริ่มแต่ละการต่อสู้ด้วย [blue]3[/blue] [gold]ความแข็งแรง[/gold]",
+      "title": "เจตนาฆ่า"
+    },
+    "NIGHT_TERRORS": {
+      "description": "การพักผ่อนที่[gold]จุดพัก[/gold]จะฟื้นฟู HP ทั้งหมด แต่ต้องจ่ายด้วย [red]5[/red] HP สูงสุด",
+      "title": "ฝันผวา"
+    },
+    "SEALED_DECK": {
+      "description": "เลือก [blue]10[/blue] การ์ดจาก [blue]30[/blue] การ์ดเพื่อทำเป็นกองการ์ดเริ่มต้น",
+      "title": "กองการ์ดใหม่แกะกล่อง"
+    },
+    "SPECIALIZED": {
+      "description": "เริ่มต้นด้วย [blue]5[/blue] สำเนาของการ์ดเดียว",
+      "title": "เชี่ยวชาญเป็นพิเศษ"
+    },
+    "TERMINAL": {
+      "description": "ทุกครั้งที่เข้าห้องใหม่ เสีย [red]1[/red] HP สูงสุด เริ่มแต่ละการต่อสู้ด้วย [blue]5[/blue] [gold]Plating[/gold]",
+      "title": "ระยะสุดท้าย"
+    },
+    "VINTAGE": {
+      "description": "ศัตรูปกติดรอปเครื่องรางแทนที่จะเป็นการ์ด",
+      "title": "เก่าย้อนยุค"
+    }
+  },
+  "rest_site_ui": {
+    "OPTION_CLONE": {
+      "description": "ทำสำเนาการ์ดทั้งหมดที่มี[gold]{EnchantmentName}[/gold]",
+      "name": "โคลนนิ่ง"
+    },
+    "OPTION_COOK": {
+      "description": "[gold]กำจัด[/gold] [blue]{Cards}[/blue] การ์ดจาก[gold]กองการ์ด[/gold] แล้ว HP สูงสุดเพิ่มขึ้น [green]{MaxHp}[/green]",
+      "name": "ปรุงอาหาร"
+    },
+    "OPTION_DIG": {
+      "description": "ขุดหา[gold]เครื่องราง[/gold]",
+      "name": "ขุด"
+    },
+    "OPTION_HATCH": {
+      "name": "ฟักไข่"
+    },
+    "OPTION_HEAL": {
+      "description": "ฟื้นฟู 30% ของ HP สูงสุด ({Heal}){ExtraText}",
+      "name": "พักผ่อน"
+    },
+    "OPTION_LIFT": {
+      "description": "เริ่มการต่อสู้ด้วย +1 ความแข็งแรง (เหลือ {LiftsLeft})",
+      "name": "ฝึกซ้อม"
+    },
+    "OPTION_MEND": {
+      "description": "ฟื้นฟู {HasTarget:{Name}|คนอื่น} เป็นจำนวน 30% ของ HP สูงสุดของเป้าหมาย {HasTarget: ({Heal})|}",
+      "name": "ดูแล"
+    },
+    "OPTION_SMITH": {
+      "description": "[gold]พัฒนา[/gold]การ์ด {Count:plural:1|{}} ใบจาก[gold]กองการ์ด[/gold]",
+      "name": "ตีบวก"
+    }
+  },
+  "game_over_screen": {}
+}
