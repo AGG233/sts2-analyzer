@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     '~/assets/css/main.css'
   ],
   build: {
-    transpile: ['vue-echarts']
+    transpile: ['vue-echarts', 'primevue', '@primevue/themes']
   },
   app: {
     head: {

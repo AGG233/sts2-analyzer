@@ -1,75 +1,22 @@
-# Nuxt Minimal Starter
+# STS2 Analyzer
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A static website for analyzing Slay the Spire 2 run history files. Built with Nuxt 3 + Vue 3 + TypeScript + ECharts + Pinia + PrimeVue.
 
 ## Setup
 
 Make sure to install dependencies:
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+## Commands
 
-Start the development server on `http://localhost:3000`:
+- `npm run dev` — Start Nuxt dev server
+- `npm run build` — Production build
+- `npm run preview` — Preview production build locally
+- `npm run generate` — Generate static site
 
-```bash
-# npm
-npm run dev
+## Project Structure
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This is a migration project from Vite to Nuxt. Documentation is available in `docs/superpowers/plans/`.
