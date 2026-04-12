@@ -8,9 +8,11 @@ import CombinedTimelineChart from '../components/CombinedTimelineChart.vue'
 import FloorDetail from '../components/FloorDetail.vue'
 import RunMap from '../components/RunMap.vue'
 import {
+  getDeckAtFloor,
   getDeckEvolution,
   getGoldTimeline,
   getHpTimeline,
+  getRelicsAtFloor,
   getRunSummary,
 } from '../data/analytics'
 import { useGameI18n } from '../locales/lookup'
@@ -27,6 +29,7 @@ const { characterName, encounterName, cardName, relicName } = useGameI18n()
 const selectedPlayer = ref(0)
 const selectedFloor = ref<number | undefined>(undefined)
 const viewMode = ref<'preview' | 'detail'>('preview')
+const mapRef = ref<InstanceType<typeof RunMap> | null>(null)
 
 const run = computed(() => store.getRunBySeed(props.seed))
 const summary = computed(() => run.value ? getRunSummary(run.value) : null)
@@ -96,6 +99,13 @@ function handleSelectFloor(floor: number) {
   }
 }
 
+// Preview mode: hover floor for live deck/relics update
+const hoveredFloor = ref<number | null>(null)
+
+function handleHoverFloor(floor: number | null) {
+  hoveredFloor.value = floor
+}
+
 // 单个玩家数据
 const hpData = computed(() => run.value ? getHpTimeline(run.value, selectedPlayer.value) : [])
 const goldData = computed(() => run.value ? getGoldTimeline(run.value, selectedPlayer.value) : [])
@@ -134,19 +144,27 @@ const allPlayersDeckData = computed(() => {
 const currentDeck = computed(() => {
   if (!run.value)
     return []
+  // When hovering on timeline, show deck at that floor
+  if (hoveredFloor.value !== null) {
+    return getDeckAtFloor(run.value, hoveredFloor.value, selectedPlayer.value)
+  }
   return run.value.players[selectedPlayer.value]?.deck ?? []
 })
 const currentRelics = computed(() => {
   if (!run.value)
     return []
+  // When hovering on timeline, show relics at that floor
+  if (hoveredFloor.value !== null) {
+    return getRelicsAtFloor(run.value, hoveredFloor.value, selectedPlayer.value).map(r => ({ id: r.id, floor_added_to_deck: r.floor_added_to_deck }))
+  }
   return run.value.players[selectedPlayer.value]?.relics ?? []
 })
 
-// 预览模式：最终卡组按 (id, upgradeLevel) 分组
+// 预览模式：卡组按 (id, upgradeLevel) 分组
 const groupedCurrentDeck = computed(() => {
   const map = new Map<string, { name: string, upgraded: boolean, count: number }>()
   for (const card of currentDeck.value) {
-    const lvl = card.current_upgrade_level ?? 0
+    const lvl = 'current_upgrade_level' in card ? (card as { current_upgrade_level?: number }).current_upgrade_level ?? 0 : 0
     const key = `${card.id}|${lvl}`
     if (!map.has(key)) {
       map.set(key, { name: cardName(card.id), upgraded: lvl > 0, count: 1 })
@@ -180,6 +198,63 @@ function formatTime(seconds: number): string {
 function formatDate(ts: number): string {
   return new Date(ts * 1000).toLocaleDateString()
 }
+
+// ---- Smart wheel routing ----
+
+function findNearestScrollable(el: HTMLElement): HTMLElement | null {
+  let current: HTMLElement | null = el
+  while (current) {
+    const style = getComputedStyle(current)
+    const overflowY = style.overflowY
+    if ((overflowY === 'auto' || overflowY === 'scroll') && current.scrollHeight > current.clientHeight) {
+      return current
+    }
+    current = current.parentElement
+  }
+  return null
+}
+
+function canScroll(el: HTMLElement, direction: 'up' | 'down'): boolean {
+  if (direction === 'up') {
+    return el.scrollTop > 0
+  }
+  return el.scrollTop + el.clientHeight < el.scrollHeight - 1
+}
+
+function handleMainWheel(event: WheelEvent) {
+  if (!run.value)
+    return
+
+  const target = event.target as HTMLElement
+  const direction = event.deltaY > 0 ? 'down' : 'up'
+
+  // Check if mouse is over a scrollable container
+  const scrollable = findNearestScrollable(target)
+  if (scrollable && canScroll(scrollable, direction)) {
+    // Let the container scroll naturally
+    return
+  }
+
+  // No scrollable container or at boundary → floor selection
+  event.preventDefault()
+  if (!mapRef.value)
+    return
+
+  const floors = mapRef.value.getAllFloorsSorted()
+  if (floors.length === 0)
+    return
+
+  const current = selectedFloor.value ?? floors[0]
+  const currentIndex = floors.indexOf(current)
+  if (currentIndex === -1)
+    return
+
+  const step = event.deltaY > 0 ? 1 : -1
+  const newIndex = Math.max(0, Math.min(floors.length - 1, currentIndex + step))
+  if (newIndex !== currentIndex) {
+    handleSelectFloor(floors[newIndex])
+  }
+}
 </script>
 
 <template>
@@ -206,7 +281,7 @@ function formatDate(ts: number): string {
       </div>
     </div>
 
-    <div class="main-content">
+    <div class="main-content" @wheel="handleMainWheel">
       <!-- Left: Map -->
       <div class="left-panel">
         <!-- Fixed controls overlay -->
@@ -221,6 +296,7 @@ function formatDate(ts: number): string {
           />
         </div>
         <RunMap
+          ref="mapRef"
           :run="run"
           :selected-floor="selectedFloor"
           @select-floor="handleSelectFloor"
@@ -255,7 +331,9 @@ function formatDate(ts: number): string {
             <!-- Deck and Relics -->
             <div class="items-section">
               <div class="items-row">
-                <span class="items-label">{{ t('ui.run.deckSize') }}: {{ currentDeck.length }}</span>
+                <span class="items-label">
+                  {{ hoveredFloor !== null ? `${t('ui.run.deckSize')} (F${hoveredFloor})` : t('ui.run.finalDeck') }}: {{ currentDeck.length }}
+                </span>
               </div>
               <div class="items-container deck-container">
                 <Tag
@@ -292,6 +370,7 @@ function formatDate(ts: number): string {
                   :all-players-hp-data="allPlayersHpData"
                   :all-players-gold-data="allPlayersGoldData"
                   :all-players-deck-data="allPlayersDeckData"
+                  @hover-floor="handleHoverFloor"
                 />
               </section>
             </div>

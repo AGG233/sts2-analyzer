@@ -74,28 +74,7 @@ function handleNodeClick(node: MapNode) {
   emit('selectFloor', node.floor)
 }
 
-// 滚轮选层
-function handleWheel(event: WheelEvent) {
-  event.preventDefault()
-  const floors = getAllFloorsSorted()
-  if (floors.length === 0)
-    return
-
-  const currentFloor = props.selectedFloor ?? floors[0]
-  const currentIndex = floors.indexOf(currentFloor)
-  if (currentIndex === -1)
-    return
-
-  // deltaY > 0 → 向下滚动 → 下一个楼层
-  // deltaY < 0 → 向上滚动 → 上一个楼层
-  const direction = event.deltaY > 0 ? 1 : -1
-  const newIndex = Math.max(0, Math.min(floors.length - 1, currentIndex + direction))
-  if (newIndex !== currentIndex) {
-    emit('selectFloor', floors[newIndex])
-  }
-}
-
-// 获取所有楼层并排序（从第1层开始递增）
+// Get all floors sorted (exposed for parent wheel handling)
 function getAllFloorsSorted(): number[] {
   const floors: number[] = []
   for (const act of mapData.value.acts) {
@@ -103,9 +82,10 @@ function getAllFloorsSorted(): number[] {
       floors.push(node.floor)
     }
   }
-  // 排序：floor 1 在前，floor N 在后
   return floors.sort((a, b) => a - b)
 }
+
+defineExpose({ getAllFloorsSorted })
 
 function getNodeColor(node: MapNode): string {
   return typeColors[node.type] ?? typeColors.unknown
@@ -138,9 +118,8 @@ function scrollToFloor(floor: number) {
         const svgHeightValue = svgHeight.value
         const maxScrollTop = svgHeightValue - containerHeight
 
-        // 简单直接的公式：
-        // 把节点底部对齐到容器底部，向上预留足够空间
-        const scrollTop = nodeYPos - containerHeight + 120
+        // 当前楼层固定在底部
+        const scrollTop = nodeYPos - containerHeight + bottomPadding + nodeRadius
 
         // 限制在有效范围内
         const safeScrollTop = Math.max(0, Math.min(scrollTop, maxScrollTop))

@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import type { SimDeckCard } from '../data/analytics'
 import type { FloorPlayerStats, RunFile } from '../data/types'
-import Button from 'primevue/button'
-import Fieldset from 'primevue/fieldset'
 import Tag from 'primevue/tag'
-import { computed, reactive } from 'vue'
+import { computed, reactive, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { getDeckAtFloor, getFloorTimeline, getRelicsAtFloor } from '../data/analytics'
 import { typeColors } from '../data/map'
 import { getCharacterColor } from '../data/characters'
 import { useGameI18n } from '../locales/lookup'
+import PlayerExpandedDetail from './floor-detail/PlayerExpandedDetail.vue'
 
 const props = defineProps<{
   run: RunFile
@@ -226,35 +225,9 @@ function getCardSeverity(status: string): 'success' | 'secondary' | 'info' | 'wa
   }
 }
 
-function isRelicGainedThisFloor(detail: PlayerDetail, relicId: string): boolean {
-  return detail.relics.some(r =>
-    r.id === relicId &&
-    (r.status === 'choice-picked' || r.status === 'gained')
-  )
-}
 
-function isRelicRemovedThisFloor(detail: PlayerDetail, relicId: string): boolean {
-  return detail.relics.some(r => r.id === relicId && r.status === 'removed')
-}
-
-function isCardGainedThisFloor(floorAdded: number): boolean {
-  const currentFloorNum = props.floor ?? 0
-  return floorAdded === currentFloorNum
-}
-
-function getCardSeverityForDeck(group: { upgraded: number, floorAdded: number }): 'success' | 'secondary' | 'info' | 'warn' | 'danger' | undefined {
-  if (isCardGainedThisFloor(group.floorAdded)) {
-    return 'success'
-  }
-  if (group.upgraded) {
-    return 'warn'
-  }
-  return 'secondary'
-}
-
-// Collapsible player cards and sections
+// Collapsible player cards
 const expandedPlayers = reactive<Record<number, boolean>>({})
-const expandedSections = reactive<Record<string, boolean>>({})
 
 function togglePlayer(playerIndex: number) {
   expandedPlayers[playerIndex] = !expandedPlayers[playerIndex]
@@ -264,21 +237,43 @@ function isPlayerExpanded(playerIndex: number): boolean {
   return expandedPlayers[playerIndex] ?? false
 }
 
-function toggleSection(key: string) {
-  expandedSections[key] = !expandedSections[key]
-}
-
-function isSectionExpanded(key: string): boolean {
-  return expandedSections[key] ?? false
-}
-
-function needsCollapse(items: { length: number }): boolean {
-  return items.length > 5
-}
-
 // Initialize expanded state for single player
-if (playerDetails.value.length === 1) {
-  expandedPlayers[0] = true
+watch(playerDetails, (details) => {
+  if (details.length === 1 && !expandedPlayers[0]) {
+    expandedPlayers[0] = true
+  }
+}, { immediate: true })
+
+// Transition hooks for smooth height animation
+function onExpandEnter(el: Element, done: () => void) {
+  const htmlEl = el as HTMLElement
+  htmlEl.style.height = '0'
+  htmlEl.style.opacity = '0'
+  htmlEl.style.overflow = 'hidden'
+  htmlEl.offsetHeight // force reflow
+  htmlEl.style.transition = 'height 0.3s ease-out, opacity 0.3s ease-out'
+  htmlEl.style.height = `${htmlEl.scrollHeight}px`
+  htmlEl.style.opacity = '1'
+  htmlEl.addEventListener('transitionend', () => {
+    htmlEl.style.height = ''
+    htmlEl.style.overflow = ''
+    htmlEl.style.transition = ''
+    done()
+  }, { once: true })
+}
+
+function onExpandLeave(el: Element, done: () => void) {
+  const htmlEl = el as HTMLElement
+  htmlEl.style.height = `${htmlEl.scrollHeight}px`
+  htmlEl.style.overflow = 'hidden'
+  htmlEl.offsetHeight // force reflow
+  htmlEl.style.transition = 'height 0.25s ease-in, opacity 0.25s ease-in'
+  htmlEl.style.height = '0'
+  htmlEl.style.opacity = '0'
+  htmlEl.addEventListener('transitionend', () => {
+    htmlEl.style.transition = ''
+    done()
+  }, { once: true })
 }
 </script>
 
@@ -316,7 +311,7 @@ if (playerDetails.value.length === 1) {
       </div>
     </div>
 
-    <!-- Per-Player Character Cards -->
+    <!-- Per-Player Character Cards (single template) -->
     <div class="player-cards-grid" :class="{ single: playerDetails.length === 1 }">
       <div
         v-for="detail in playerDetails"
@@ -324,7 +319,7 @@ if (playerDetails.value.length === 1) {
         class="player-card"
         :style="{ borderTopColor: getPlayerColor(detail.character) }"
       >
-        <!-- Collapsed View: Summary Row -->
+        <!-- Summary Row (always visible) -->
         <div class="card-header-row" @click="togglePlayer(detail.playerIndex)">
           <div class="player-identity">
             <span
@@ -419,34 +414,18 @@ if (playerDetails.value.length === 1) {
           </span>
         </div>
 
-        <!-- Expanded View: Details -->
-        <div v-if="isPlayerExpanded(detail.playerIndex)" class="player-detail">
-          <!-- Relics at Floor -->
-          <Fieldset class="card-fieldset" :legend="`${t('ui.run.relics')}: ${detail.floorRelics.length}`">
-            <div class="tag-list">
-              <Tag
-                v-for="relic in detail.floorRelics"
-                :key="relic.id"
-                :value="`${relic.name} F${relic.floor}`"
-                :severity="isRelicGainedThisFloor(detail, relic.id) ? 'success' : isRelicRemovedThisFloor(detail, relic.id) ? 'danger' : 'secondary'"
-                :class="{ 'tag-strikethrough': isRelicRemovedThisFloor(detail, relic.id) }"
-              />
-            </div>
-          </Fieldset>
-
-          <!-- Deck at Floor -->
-          <Fieldset class="card-fieldset" :legend="`${t('ui.run.deckSize')}: ${detail.deck.length}`">
-            <div class="tag-list">
-              <Tag
-                v-for="(group, idx) in detail.groupedDeck"
-                :key="idx"
-                :value="`${group.name}${group.count > 1 ? ` x${group.count}` : ''}${group.upgraded > 1 ? ` <+${group.upgraded}>` : ''}`"
-                :severity="getCardSeverityForDeck(group)"
-                :class="{ 'tag-bold': group.upgraded > 1 }"
-              />
-            </div>
-          </Fieldset>
-        </div>
+        <!-- Expanded Details (with JS transition) -->
+        <Transition :enter="onExpandEnter" :leave="onExpandLeave" :css="false">
+          <div v-if="isPlayerExpanded(detail.playerIndex)">
+            <PlayerExpandedDetail
+              :deck="detail.deck"
+              :floor-relics="detail.floorRelics"
+              :gained-ids="new Set(detail.relics.filter(r => r.status === 'choice-picked' || r.status === 'gained').map(r => r.id))"
+              :removed-ids="new Set(detail.relics.filter(r => r.status === 'removed').map(r => r.id))"
+              :current-floor="props.floor"
+            />
+          </div>
+        </Transition>
       </div>
     </div>
   </div>
@@ -538,10 +517,9 @@ if (playerDetails.value.length === 1) {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-top: 3px solid transparent;
   border-radius: 8px;
-  overflow: hidden;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 
 .player-card:hover {
@@ -551,7 +529,7 @@ if (playerDetails.value.length === 1) {
 /* Card Header Row */
 .card-header-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
   padding: 0.6rem 0.75rem;
   background: rgba(255, 255, 255, 0.04);
@@ -564,6 +542,7 @@ if (playerDetails.value.length === 1) {
   align-items: center;
   gap: 0.5rem;
   flex-shrink: 0;
+  padding-top: 0.2rem;
 }
 
 .player-color-dot {
@@ -577,16 +556,17 @@ if (playerDetails.value.length === 1) {
   font-weight: 700;
   font-size: 0.85rem;
   color: #e0e0e0;
+  white-space: nowrap;
 }
 
 /* Stats Inline */
 .card-stats-inline {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.5rem;
   flex: 1;
-  overflow: hidden;
+  min-width: 0;
 }
 
 .stat-item-inline {
@@ -597,6 +577,7 @@ if (playerDetails.value.length === 1) {
   padding: 0.3rem 0.6rem;
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
 }
 
 .stat-item-inline .stat-label-inline {
@@ -668,6 +649,7 @@ if (playerDetails.value.length === 1) {
   justify-content: center;
   color: #8aa0b8;
   flex-shrink: 0;
+  padding-top: 0.2rem;
 }
 
 .expand-icon:hover {
@@ -677,12 +659,8 @@ if (playerDetails.value.length === 1) {
 /* Player Detail */
 .player-detail {
   padding: 0.75rem;
-  animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-  from { opacity: 0; max-height: 0; }
-  to { opacity: 1; max-height: 1000px; }
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 /* Tag list */
@@ -691,15 +669,6 @@ if (playerDetails.value.length === 1) {
   flex-wrap: wrap;
   gap: 0.4rem;
   min-width: 0;
-}
-
-.tag-list-collapsed {
-  max-height: 32px;
-  overflow: hidden;
-}
-
-.collapse-btn {
-  margin-top: 0.35rem;
 }
 
 .header-monsters {

@@ -18,6 +18,10 @@ const props = defineProps<{
   allPlayersDeckData?: DeckChange[][]
 }>()
 
+const emit = defineEmits<{
+  (e: 'hoverFloor', floor: number | null): void
+}>()
+
 use([LineChart, BarChart, GridComponent, TooltipComponent, LegendComponent, CanvasRenderer])
 
 const { t } = useI18n()
@@ -174,6 +178,11 @@ const option = computed(() => {
       : t('ui.chart.deckSize')
 
   return {
+    animation: true,
+    animationDuration: 500,
+    animationEasing: 'cubicOut' as const,
+    animationDurationUpdate: 300,
+    animationEasingUpdate: 'cubicOut' as const,
     tooltip: { trigger: 'axis' },
     legend: { top: 0 },
     grid: { left: 60, right: 30, top: 60, bottom: 50 },
@@ -193,6 +202,30 @@ const option = computed(() => {
     series,
   }
 })
+
+function handleChartMouseOver(params: { dataIndex?: number, targetType?: string }) {
+  if (params.targetType === 'axis' && params.dataIndex !== undefined) {
+    // Get xAxis data for current chart type
+    let xAxisData: number[] = []
+    if (chartType.value === 'hp') {
+      xAxisData = props.allPlayersHpData?.length ? props.allPlayersHpData[0].map(d => d.floor) : props.hpData?.map(d => d.floor) ?? []
+    }
+    else if (chartType.value === 'gold') {
+      xAxisData = props.allPlayersGoldData?.length ? props.allPlayersGoldData[0].map(d => d.floor) : props.goldData?.map(d => d.floor) ?? []
+    }
+    else {
+      xAxisData = props.allPlayersDeckData?.length ? props.allPlayersDeckData[0].map(d => d.floor) : props.deckData?.map(d => d.floor) ?? []
+    }
+    const floor = xAxisData[params.dataIndex]
+    if (floor !== undefined) {
+      emit('hoverFloor', floor)
+    }
+  }
+}
+
+function handleChartMouseOut() {
+  emit('hoverFloor', null)
+}
 </script>
 
 <template>
@@ -206,7 +239,7 @@ const option = computed(() => {
       size="small"
       class="chart-switcher"
     />
-    <VChart :option="option" style="height: 300px; width: 100%" autoresize />
+    <VChart :option="option" style="height: 300px; width: 100%" autoresize @mouseover="handleChartMouseOver" @mouseout="handleChartMouseOut" />
   </div>
 </template>
 
