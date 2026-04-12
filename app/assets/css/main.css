@@ -1,0 +1,21 @@
+:root {
+  --p-primary-color: #ffc107;
+  --p-surface-color: #0a1628;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--p-surface-color);
+  color: #e0e0e0;
+}
+
+a {
+  color: #42a5f5;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
