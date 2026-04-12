@@ -1,8 +1,9 @@
+import { definePreset } from '@primeuix/themes'
 import Aura from '@primeuix/themes/aura'
 import type { PrimeVueConfiguration } from 'primevue/config'
 
 // STS2 custom theme - gold primary, dark teal surfaces
-export const StsPreset = Aura.createPreset({
+export const StsPreset = definePreset(Aura, {
   semantic: {
     primary: {
       50: '#fcf0e0',

@@ -67,13 +67,13 @@ export function generateMapData(run: RunFile): MapData {
   const totalFloors = run.map_point_history.reduce((sum, act) => sum + act.length, 0)
 
   for (let actIndex = 0; actIndex < run.map_point_history.length; actIndex++) {
-    const act = run.map_point_history[actIndex]
+    const act = run.map_point_history[actIndex]!
     const actId = run.acts[actIndex] ?? `ACT${actIndex + 1}`
     const nodes: MapNode[] = []
     const startY = currentY
 
     for (let floorIndex = 0; floorIndex < act.length; floorIndex++) {
-      const point = act[floorIndex]
+      const point = act[floorIndex]!
       const globalFloor = getGlobalFloorNumber(run, actIndex, floorIndex)
 
       // Generate x position - use small random variation for visual interest
@@ -126,7 +126,7 @@ export function generateMapData(run: RunFile): MapData {
 function getGlobalFloorNumber(run: RunFile, actIndex: number, floorIndex: number): number {
   let total = 0
   for (let i = 0; i < actIndex; i++) {
-    total += run.map_point_history[i].length
+    total += run.map_point_history[i]!.length
   }
   return total + floorIndex + 1
 }
@@ -138,8 +138,8 @@ export function getNodeConnections(mapData: MapData): Array<{ from: MapNode, to:
   for (const act of mapData.acts) {
     for (let i = 0; i < act.nodes.length - 1; i++) {
       connections.push({
-        from: act.nodes[i],
-        to: act.nodes[i + 1],
+        from: act.nodes[i]!,
+        to: act.nodes[i + 1]!,
       })
     }
   }

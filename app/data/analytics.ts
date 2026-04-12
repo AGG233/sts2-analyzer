@@ -140,9 +140,9 @@ function flattenFloors(run: RunFile): FlatFloor[] {
   let globalFloor = 1
 
   for (let actIdx = 0; actIdx < run.map_point_history.length; actIdx++) {
-    const act = run.map_point_history[actIdx]
+    const act = run.map_point_history[actIdx]!
     for (let floorIdx = 0; floorIdx < act.length; floorIdx++) {
-      const point = act[floorIdx]
+      const point = act[floorIdx]!
       if (point.player_stats && point.player_stats.length > 0) {
         result.push({
           globalFloor,
@@ -266,7 +266,7 @@ export function getRunSummary(run: RunFile): RunSummary {
 
     // Try to get real Steam ID from first floor stats
     if (floors.length > 0) {
-      const firstFloorStats = floors[0].playerStats[index]
+      const firstFloorStats = floors[0]!.playerStats[index]
       if (firstFloorStats && firstFloorStats.player_id && firstFloorStats.player_id !== index) {
         steamId = firstFloorStats.player_id
       }
@@ -348,7 +348,9 @@ export function getDeckHistory(run: RunFile, playerIndex: number = 0): Map<numbe
 
   // Walk floors in reverse, undoing changes
   for (let i = floors.length - 1; i >= 0; i--) {
-    const f = floors[i]
+    const f = floors[i]!
+    if (!f)
+      continue
     const stats = f.playerStats[playerIndex]
     if (!stats)
       continue
