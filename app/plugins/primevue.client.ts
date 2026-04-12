@@ -1,5 +1,5 @@
 import PrimeVue from 'primevue/config'
-import Aura from '@primevue/themes/aura'
+import { primevueConfig } from '~/config/primevue'
 import Button from 'primevue/button'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
@@ -9,14 +9,7 @@ import Tag from 'primevue/tag'
 import Tooltip from 'primevue/tooltip'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(PrimeVue, {
-    theme: {
-      preset: Aura,
-      options: {
-        darkModeSelector: '.dark-mode'
-      }
-    }
-  })
+  nuxtApp.vueApp.use(PrimeVue, primevueConfig)
 
   // Register commonly used PrimeVue components
   nuxtApp.vueApp.component('Button', Button)
