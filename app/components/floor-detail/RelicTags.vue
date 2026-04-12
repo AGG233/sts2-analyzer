@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import Tag from 'primevue/tag'
 
-interface RelicItem {
-  id: string
-  name: string
-  floor: number
-}
-
 interface Props {
-  relics: RelicItem[]
-  gainedIds?: Set<string>
-  removedIds?: Set<string>
+  relics: Array<{
+    id: string
+    name: string
+    floor: number
+  }>
+  gainedIds: Set<string>
+  removedIds: Set<string>
 }
 
 const props = defineProps<Props>()
 
-const getRelicSeverity = (relicId: string): 'success' | 'secondary' | 'danger' | undefined => {
-  if (props.gainedIds?.has(relicId)) return 'success'
-  if (props.removedIds?.has(relicId)) return 'danger'
-  return 'secondary'
+function isRelicGained(relicId: string): boolean {
+  return props.gainedIds.has(relicId)
+}
+
+function isRelicRemoved(relicId: string): boolean {
+  return props.removedIds.has(relicId)
 }
 </script>
 
@@ -28,8 +28,8 @@ const getRelicSeverity = (relicId: string): 'success' | 'secondary' | 'danger' |
       v-for="relic in relics"
       :key="relic.id"
       :value="`${relic.name} F${relic.floor}`"
-      :severity="getRelicSeverity(relic.id)"
-      :class="{ 'tag-strikethrough': removedIds?.has(relic.id) }"
+      :severity="isRelicGained(relic.id) ? 'success' : isRelicRemoved(relic.id) ? 'danger' : 'secondary'"
+      :class="{ 'tag-strikethrough': isRelicRemoved(relic.id) }"
     />
   </div>
 </template>

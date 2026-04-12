@@ -1,16 +1,25 @@
 <script setup lang="ts">
 import Tag from 'primevue/tag'
-import type { GroupedDeckItem } from './merge-utils'
 
 interface Props {
-  groups: GroupedDeckItem[]
+  groups: Array<{
+    name: string
+    upgraded: number
+    count: number
+    floorAdded: number
+  }>
   currentFloor?: number
 }
 
 const props = defineProps<Props>()
 
-const getCardSeverity = (group: GroupedDeckItem): 'success' | 'secondary' | 'warn' | undefined => {
-  if (props.currentFloor && group.floorAdded === props.currentFloor) {
+function isCardGainedThisFloor(floorAdded: number): boolean {
+  const currentFloorNum = props.currentFloor ?? 0
+  return floorAdded === currentFloorNum
+}
+
+function getCardSeverity(group: { upgraded: number; floorAdded: number }): 'success' | 'secondary' | 'info' | 'warn' | 'danger' | undefined {
+  if (isCardGainedThisFloor(group.floorAdded)) {
     return 'success'
   }
   if (group.upgraded) {
