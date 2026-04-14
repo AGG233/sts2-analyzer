@@ -2,7 +2,6 @@
 import Button from 'primevue/button'
 import Message from 'primevue/message'
 import { onMounted, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { batchParseRunFiles, filterRunFiles, scanDirectoryHandle } from '~/data/parser'
 import { useRunStore } from '~/stores/runStore'
 

@@ -6,7 +6,6 @@ import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { computed } from 'vue'
 import VChart from 'vue-echarts'
-import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
   data: HpPoint[]

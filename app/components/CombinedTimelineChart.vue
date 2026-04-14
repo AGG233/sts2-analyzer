@@ -7,7 +7,6 @@ import { CanvasRenderer } from 'echarts/renderers'
 import SelectButton from 'primevue/selectbutton'
 import { computed, ref } from 'vue'
 import VChart from 'vue-echarts'
-import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
   hpData?: HpPoint[]

@@ -4,7 +4,6 @@ import type { SimDeckCard } from '~/data/analytics'
 import Tag from 'primevue/tag'
 import { getCharacterColor } from '~/data/characters'
 import { useGameI18n } from '~/locales/lookup'
-import { useI18n } from 'vue-i18n'
 import PlayerExpandedDetail from './PlayerExpandedDetail.vue'
 
 const props = defineProps<{

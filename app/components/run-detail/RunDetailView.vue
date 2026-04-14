@@ -15,6 +15,7 @@ const props = defineProps<{
 }>()
 
 const store = useRunStore()
+const { t } = useI18n()
 const mapRef = ref<InstanceType<typeof RunMap> | null>(null)
 
 const run = computed(() => store.getRunBySeed(props.seed))

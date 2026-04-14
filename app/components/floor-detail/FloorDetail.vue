@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { RunFile } from '~/data/types'
 import { computed, reactive, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { getFloorTimeline, getDeckAtFloor, getRelicsAtFloor } from '~/data/analytics'
 import { useGameI18n } from '~/locales/lookup'
 import FloorHeader from './FloorHeader.vue'

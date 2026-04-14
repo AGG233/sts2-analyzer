@@ -4,7 +4,6 @@ import DeckTags from './DeckTags.vue'
 import RelicTags from './RelicTags.vue'
 import type { SimDeckCard } from '~/data/analytics'
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { useGameI18n } from '~/locales/lookup'
 
 interface Props {

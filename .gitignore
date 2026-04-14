@@ -22,3 +22,16 @@ logs
 .env
 .env.*
 !.env.example
+
+# Dot-directories and dot-files
+.claude/
+.nuxt/
+.playwright-mcp/
+.vscode/
+.worktrees/
+
+# Non-project docs
+CLAUDE.md
+docs/
+GAME_SOURCE.md
+home-view-primevue.png
