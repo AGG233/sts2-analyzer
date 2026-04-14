@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { FloorPlayerStats } from '~/../data/types'
-import type { SimDeckCard } from '~/../data/analytics'
+import type { FloorPlayerStats } from '~/data/types'
+import type { SimDeckCard } from '~/data/analytics'
 import Tag from 'primevue/tag'
-import { getCharacterColor } from '~/../data/characters'
-import { useGameI18n } from '~/../locales/lookup'
+import { getCharacterColor } from '~/data/characters'
+import { useGameI18n } from '~/locales/lookup'
 import { useI18n } from 'vue-i18n'
 import PlayerExpandedDetail from './PlayerExpandedDetail.vue'
 
@@ -133,13 +133,13 @@ function onExpandLeave(el: Element, done: () => void) {
 
         <!-- Rest Site Choice -->
         <span v-if="props.stats.rest_site_choices?.length" class="stat-item-inline">
-          <span class="stat-label-inline">{{ t('ui.run.restSiteChoice') }}:</span>
+          <span class="stat-label-inline">{{ t('run.restSiteChoice') }}:</span>
           <Tag :value="props.stats.rest_site_choices.map(restSiteChoiceName).join(', ')" />
         </span>
 
         <!-- Event Choices -->
         <span v-if="props.stats.event_choices?.length" class="stat-item-inline">
-          <span class="stat-label-inline">{{ t('ui.run.eventChoices') }}:</span>
+          <span class="stat-label-inline">{{ t('run.eventChoices') }}:</span>
           <Tag
             v-for="(choice, index) in props.stats.event_choices"
             :key="index"

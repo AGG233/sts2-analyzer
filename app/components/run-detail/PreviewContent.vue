@@ -42,7 +42,7 @@ const handleHoverFloor = (floor: number | null) => {
     <!-- Preview Mode: Timeline charts -->
     <div class="preview-content-inner">
       <section class="chart-section">
-        <h2>{{ t('ui.run.timeline') }}</h2>
+        <h2>{{ t('run.timeline') }}</h2>
         <CombinedTimelineChart
           :hp-data="hpData"
           :gold-data="goldData"

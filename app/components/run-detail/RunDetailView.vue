@@ -38,8 +38,8 @@ const getPlayerDisplayName = (playerIndex: number): string => {
 }
 
 const viewModeOptions = computed(() => [
-  { label: t('ui.run.preview'), value: 'preview' },
-  { label: t('ui.run.detail'), value: 'detail' },
+  { label: t('run.preview'), value: 'preview' },
+  { label: t('run.detail'), value: 'detail' },
 ])
 
 watch(() => viewMode.value, (newMode, oldMode) => {
@@ -170,8 +170,8 @@ const currentRelics = computed(() => {
 
   <div v-else class="not-found">
     <p>
-      {{ t('ui.run.runNotFound') }} <router-link to="/">
-        {{ t('ui.run.goBack') }}
+      {{ t('run.runNotFound') }} <router-link to="/">
+        {{ t('run.goBack') }}
       </router-link>
     </p>
   </div>

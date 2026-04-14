@@ -1,5 +1,5 @@
-import type { FloorPlayerStats } from '~/../data/types'
-import type { SimDeckCard } from '~/../data/analytics'
+import type { FloorPlayerStats } from '~/data/types'
+import type { SimDeckCard } from '~/data/analytics'
 
 interface MergedCard {
   id: string

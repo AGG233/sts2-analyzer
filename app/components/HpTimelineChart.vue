@@ -41,21 +41,21 @@ const option = computed(() => {
   } else if (props.data && props.data.length > 0) {
     // 单玩家模式
     series.push({
-      name: t('ui.chart.hp'),
+      name: t('chart.hp'),
       type: 'line',
       data: props.data.map(d => d.hp),
       itemStyle: { color: '#e53935' },
       areaStyle: { color: 'rgba(229,57,53,0.1)' },
     })
     series.push({
-      name: t('ui.chart.maxHp'),
+      name: t('chart.maxHp'),
       type: 'line',
       data: props.data.map(d => d.maxHp),
       itemStyle: { color: '#90a4ae' },
       lineStyle: { type: 'dashed' },
     })
     series.push({
-      name: t('ui.chart.damageTaken'),
+      name: t('chart.damageTaken'),
       type: 'bar',
       data: props.data.map(d => d.damageTaken),
       itemStyle: { color: 'rgba(255,152,0,0.6)' },
@@ -69,7 +69,7 @@ const option = computed(() => {
     xAxis: {
       type: 'category',
       data: (props.data || (props.allPlayersData && props.allPlayersData[0]) || []).map(d => d.floor),
-      name: t('ui.chart.floorAxis'),
+      name: t('chart.floorAxis'),
       nameLocation: 'middle',
       nameGap: 30,
     },

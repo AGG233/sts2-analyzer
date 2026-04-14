@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { FlatFloor } from '~/../data/analytics'
+import type { FlatFloor } from '~/data/analytics'
 import Tag from 'primevue/tag'
-import { typeColors } from '~/../data/map'
-import { useGameI18n } from '~/../locales/lookup'
+import { typeColors } from '~/data/map'
+import { useGameI18n } from '~/locales/lookup'
 
 const props = defineProps<{
   floor: FlatFloor

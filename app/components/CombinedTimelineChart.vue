@@ -33,9 +33,9 @@ const playerColors = ['#42a5f5', '#66bb6a', '#ffa726', '#ab47bc']
 const chartType = ref<'hp' | 'gold' | 'deck'>('hp')
 
 const chartTypeOptions = computed(() => [
-  { label: t('ui.chart.hp'), value: 'hp' as const },
-  { label: t('ui.chart.gold'), value: 'gold' as const },
-  { label: t('ui.chart.deckSize'), value: 'deck' as const },
+  { label: t('chart.hp'), value: 'hp' as const },
+  { label: t('chart.gold'), value: 'gold' as const },
+  { label: t('chart.deckSize'), value: 'deck' as const },
 ])
 
 const option = computed(() => {
@@ -60,14 +60,14 @@ const option = computed(() => {
     }
     else if (props.hpData && props.hpData.length > 0) {
       series.push({
-        name: t('ui.chart.hp'),
+        name: t('chart.hp'),
         type: 'line',
         data: props.hpData.map(d => d.hp),
         itemStyle: { color: '#e53935' },
         areaStyle: { color: 'rgba(229,57,53,0.1)' },
       })
       series.push({
-        name: t('ui.chart.maxHp'),
+        name: t('chart.maxHp'),
         type: 'line',
         data: props.hpData.map(d => d.maxHp),
         itemStyle: { color: '#90a4ae' },
@@ -94,20 +94,20 @@ const option = computed(() => {
     }
     else if (props.goldData && props.goldData.length > 0) {
       series.push({
-        name: t('ui.chart.gold'),
+        name: t('chart.gold'),
         type: 'line',
         data: props.goldData.map(d => d.gold),
         itemStyle: { color: '#f9a825' },
         areaStyle: { color: 'rgba(249,168,37,0.1)' },
       })
       series.push({
-        name: t('ui.chart.spent'),
+        name: t('chart.spent'),
         type: 'bar',
         data: props.goldData.map(d => d.spent),
         itemStyle: { color: 'rgba(229,57,53,0.6)' },
       })
       series.push({
-        name: t('ui.chart.gained'),
+        name: t('chart.gained'),
         type: 'bar',
         data: props.goldData.map(d => d.gained),
         itemStyle: { color: 'rgba(46,125,50,0.6)' },
@@ -134,7 +134,7 @@ const option = computed(() => {
     }
     else if (props.deckData && props.deckData.length > 0) {
       series.push({
-        name: t('ui.chart.deckSize'),
+        name: t('chart.deckSize'),
         type: 'line',
         data: props.deckData.map(d => d.deckSize),
         itemStyle: { color: '#42a5f5' },
@@ -172,10 +172,10 @@ const option = computed(() => {
   }
 
   const yAxisName = chartType.value === 'hp'
-    ? t('ui.chart.hp')
+    ? t('chart.hp')
     : chartType.value === 'gold'
-      ? t('ui.chart.gold')
-      : t('ui.chart.deckSize')
+      ? t('chart.gold')
+      : t('chart.deckSize')
 
   return {
     animation: true,
@@ -189,7 +189,7 @@ const option = computed(() => {
     xAxis: {
       type: 'category',
       data: xAxisData,
-      name: t('ui.chart.floorAxis'),
+      name: t('chart.floorAxis'),
       nameLocation: 'middle',
       nameGap: 30,
     },

@@ -28,22 +28,22 @@ const formatDate = (ts: number): string => {
   <div class="top-bar">
     <div class="top-bar-left">
       <router-link to="/" class="back-link">
-        <Button :label="t('ui.run.back')" icon="pi pi-arrow-left" variant="text" size="small" />
+        <Button :label="t('run.back')" icon="pi pi-arrow-left" variant="text" size="small" />
       </router-link>
     </div>
 
     <div class="top-summary">
       <span v-if="summary.playerCount <= 1" class="character">{{ characterName(summary.character) }}</span>
       <Tag
-        :value="summary.win ? t('ui.run.victory') : t('ui.run.defeat')"
+        :value="summary.win ? t('run.victory') : t('run.defeat')"
         :severity="summary.win ? 'success' : 'danger'"
       />
       <span class="seed">Seed: {{ summary.seed }}</span>
       <span class="ascension">A{{ summary.ascension }}</span>
-      <span class="top-meta">{{ summary.totalFloors }} {{ t('ui.run.floors') }}</span>
+      <span class="top-meta">{{ summary.totalFloors }} {{ t('run.floors') }}</span>
       <span class="top-meta">{{ formatTime(summary.runTime) }}</span>
       <span class="top-meta">{{ formatDate(summary.startTime) }}</span>
-      <span v-if="!summary.win" class="top-meta death">{{ t('ui.run.killedBy') }}: {{ encounterName(summary.deathCause) }}</span>
+      <span v-if="!summary.win" class="top-meta death">{{ t('run.killedBy') }}: {{ encounterName(summary.deathCause) }}</span>
     </div>
   </div>
 </template>

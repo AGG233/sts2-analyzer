@@ -58,7 +58,7 @@ const groupedCurrentRelics = computed(() => {
     <div class="items-section">
       <div class="items-row">
         <span class="items-label">
-          {{ hoveredFloor !== null ? `${t('ui.run.deckSize')} (F${hoveredFloor})` : t('ui.run.finalDeck') }}: {{ deck.length }}
+          {{ hoveredFloor !== null ? `${t('run.deckSize')} (F${hoveredFloor})` : t('run.finalDeck') }}: {{ deck.length }}
         </span>
       </div>
       <div class="items-container deck-container">
@@ -74,7 +74,7 @@ const groupedCurrentRelics = computed(() => {
     <!-- Relics -->
     <div class="items-section">
       <div class="items-row">
-        <span class="items-label">{{ t('ui.run.relics') }}: {{ relics.length }}</span>
+        <span class="items-label">{{ t('run.relics') }}: {{ relics.length }}</span>
       </div>
       <div class="items-container relics-container">
         <Tag

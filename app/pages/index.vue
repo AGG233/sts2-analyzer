@@ -28,38 +28,38 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
 
 <template>
   <div class="home">
-    <h1>{{ t('ui.app.title') }}</h1>
+    <h1>{{ t('app.title') }}</h1>
 
     <DirectoryScanner />
 
     <div v-if="store.runs.length > 0" class="stats-overview">
-      <span class="stat">{{ t('ui.home.total') }}: {{ store.runs.length }}</span>
-      <span class="stat win">{{ t('ui.home.wins') }}: {{ store.wins }}</span>
-      <span class="stat loss">{{ t('ui.home.losses') }}: {{ store.losses }}</span>
-      <span class="stat">{{ t('ui.home.winRate') }}: {{ (store.wins / store.runs.length * 100).toFixed(1) }}%</span>
+      <span class="stat">{{ t('home.total') }}: {{ store.runs.length }}</span>
+      <span class="stat win">{{ t('home.wins') }}: {{ store.wins }}</span>
+      <span class="stat loss">{{ t('home.losses') }}: {{ store.losses }}</span>
+      <span class="stat">{{ t('home.winRate') }}: {{ (store.wins / store.runs.length * 100).toFixed(1) }}%</span>
     </div>
 
     <!-- Character Statistics -->
     <div v-if="characterStats.length > 0" class="character-stats">
-      <h2>{{ t('ui.home.characterStats') }}</h2>
+      <h2>{{ t('home.characterStats') }}</h2>
       <DataTable :value="characterStats" sort-mode="single" removable-sort>
-        <Column :header="t('ui.home.character')">
+        <Column :header="t('home.character')">
           <template #body="{ data }">
             {{ characterName(data.character) }}
           </template>
         </Column>
-        <Column :header="t('ui.home.wins')" sortable>
+        <Column :header="t('home.wins')" sortable>
           <template #body="{ data }">
             <Tag :value="String(data.wins)" severity="success" />
           </template>
         </Column>
-        <Column :header="t('ui.home.losses')" sortable>
+        <Column :header="t('home.losses')" sortable>
           <template #body="{ data }">
             <Tag :value="String(data.losses)" severity="danger" />
           </template>
         </Column>
-        <Column :header="t('ui.home.total')" sortable />
-        <Column :header="t('ui.home.winRate')" sortable>
+        <Column :header="t('home.total')" sortable />
+        <Column :header="t('home.winRate')" sortable>
           <template #body="{ data }">
             <Tag :value="`${(data.winRate * 100).toFixed(1)}%`" :severity="getWinRateSeverity(data.winRate)" />
           </template>

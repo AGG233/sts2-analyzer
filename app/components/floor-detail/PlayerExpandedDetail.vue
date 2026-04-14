@@ -2,10 +2,10 @@
 import Fieldset from 'primevue/fieldset'
 import DeckTags from './DeckTags.vue'
 import RelicTags from './RelicTags.vue'
-import type { SimDeckCard } from '~/../data/analytics'
+import type { SimDeckCard } from '~/data/analytics'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useGameI18n } from '~/../locales/lookup'
+import { useGameI18n } from '~/locales/lookup'
 
 interface Props {
   deck: SimDeckCard[]
@@ -48,7 +48,7 @@ const groupedDeck = computed(() => {
 
 <template>
   <div class="player-detail">
-    <Fieldset class="card-fieldset" :legend="`${t('ui.run.relics')}: ${floorRelics.length}`">
+    <Fieldset class="card-fieldset" :legend="`${t('run.relics')}: ${floorRelics.length}`">
       <RelicTags
         :relics="floorRelics"
         :gained-ids="gainedIds"
@@ -56,7 +56,7 @@ const groupedDeck = computed(() => {
       />
     </Fieldset>
 
-    <Fieldset class="card-fieldset" :legend="`${t('ui.run.deckSize')}: ${deck.length}`">
+    <Fieldset class="card-fieldset" :legend="`${t('run.deckSize')}: ${deck.length}`">
       <DeckTags
         :groups="groupedDeck"
         :current-floor="currentFloor"

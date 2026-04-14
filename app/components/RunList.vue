@@ -75,13 +75,13 @@ function onRowClick(event: { data: RunSummary }) {
 
 <template>
   <div v-if="summaries.length > 0" class="run-list">
-    <h2>{{ t('ui.home.runHistory') }} ({{ filteredSummaries.length }} {{ t('ui.home.runs') }})</h2>
+    <h2>{{ t('home.runHistory') }} ({{ filteredSummaries.length }} {{ t('home.runs') }})</h2>
 
     <!-- Filters -->
     <div class="filters">
       <select v-model="filterCharacter" class="filter-select">
         <option value="">
-          {{ t('ui.run.allCharacters') }}
+          {{ t('run.allCharacters') }}
         </option>
         <option v-for="char in uniqueCharacters" :key="char.value" :value="char.value">
           {{ char.label }}
@@ -90,26 +90,26 @@ function onRowClick(event: { data: RunSummary }) {
 
       <select v-model="filterResult" class="filter-select">
         <option value="">
-          {{ t('ui.run.allResults') }}
+          {{ t('run.allResults') }}
         </option>
         <option value="win">
-          {{ t('ui.run.victory') }}
+          {{ t('run.victory') }}
         </option>
         <option value="loss">
-          {{ t('ui.run.defeat') }}
+          {{ t('run.defeat') }}
         </option>
       </select>
 
       <select v-model="filterAscension" class="filter-select">
         <option value="">
-          {{ t('ui.run.allAscensions') }}
+          {{ t('run.allAscensions') }}
         </option>
         <option v-for="asc in uniqueAscensions" :key="asc.value" :value="asc.value">
           {{ asc.label }}
         </option>
       </select>
 
-      <Button :label="t('ui.run.reset')" icon="pi pi-refresh" variant="outlined" size="small" @click="resetFilters" />
+      <Button :label="t('run.reset')" icon="pi pi-refresh" variant="outlined" size="small" @click="resetFilters" />
     </div>
 
     <!-- Table -->
@@ -122,12 +122,12 @@ function onRowClick(event: { data: RunSummary }) {
       removable-sort
       @row-click="onRowClick"
     >
-      <Column field="win" :header="t('ui.table.result')" sortable>
+      <Column field="win" :header="t('table.result')" sortable>
         <template #body="{ data }">
-          <Tag :value="data.win ? t('ui.table.win') : t('ui.table.loss')" :severity="getResultSeverity(data.win)" />
+          <Tag :value="data.win ? t('table.win') : t('table.loss')" :severity="getResultSeverity(data.win)" />
         </template>
       </Column>
-      <Column field="character" :header="t('ui.table.character')" sortable>
+      <Column field="character" :header="t('table.character')" sortable>
         <template #body="{ data }">
           {{ characterName(data.character) }}
         </template>
@@ -135,19 +135,19 @@ function onRowClick(event: { data: RunSummary }) {
           <i class="pi" :class="sortOrder === 1 ? 'pi-sort-alt' : sortOrder === -1 ? 'pi-sort-alt' : 'pi-sort-alt'" />
         </template>
       </Column>
-      <Column field="ascension" :header="t('ui.table.asc')" sortable />
-      <Column field="seed" :header="t('ui.run.seed')">
+      <Column field="ascension" :header="t('table.asc')" sortable />
+      <Column field="seed" :header="t('run.seed')">
         <template #body="{ data }">
           <code class="seed-code">{{ data.seed }}</code>
         </template>
       </Column>
-      <Column field="totalFloors" :header="t('ui.run.floors')" sortable />
-      <Column field="runTime" :header="t('ui.table.time')" sortable>
+      <Column field="totalFloors" :header="t('run.floors')" sortable />
+      <Column field="runTime" :header="t('table.time')" sortable>
         <template #body="{ data }">
           {{ formatTime(data.runTime) }}
         </template>
       </Column>
-      <Column field="startTime" :header="t('ui.run.date')" sortable>
+      <Column field="startTime" :header="t('run.date')" sortable>
         <template #body="{ data }">
           {{ formatDate(data.startTime) }}
         </template>

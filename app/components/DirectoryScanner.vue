@@ -12,7 +12,7 @@ const store = useRunStore()
 const scanning = ref(false)
 const scanResult = ref<{ count: number } | null>(null)
 const error = ref<string | null>(null)
-const supportsDirectoryPicker = 'showDirectoryPicker' in window
+const supportsDirectoryPicker = import.meta.client && 'showDirectoryPicker' in window
 
 async function onPickDirectory() {
   if (!supportsDirectoryPicker)
@@ -103,14 +103,14 @@ onMounted(async () => {
     <div class="btn-group">
       <template v-if="supportsDirectoryPicker">
         <Button
-          :label="scanning ? t('ui.home.scanning') : (store.dirHandle ? t('ui.home.changeDir') : t('ui.home.selectDir'))"
+          :label="scanning ? t('home.scanning') : (store.dirHandle ? t('home.changeDir') : t('home.selectDir'))"
           icon="pi pi-folder-open"
           :loading="scanning"
           @click="onPickDirectory"
         />
         <Button
           v-if="store.dirHandle"
-          :label="t('ui.home.update')"
+          :label="t('home.update')"
           icon="pi pi-refresh"
           variant="outlined"
           :loading="scanning"
@@ -120,7 +120,7 @@ onMounted(async () => {
       <template v-else>
         <label class="fallback-label">
           <Button
-            :label="scanning ? t('ui.home.scanning') : t('ui.home.selectDir')"
+            :label="scanning ? t('home.scanning') : t('home.selectDir')"
             icon="pi pi-folder-open"
             :loading="scanning"
             severity="secondary"
@@ -131,7 +131,7 @@ onMounted(async () => {
     </div>
 
     <Message v-if="scanResult" severity="success" :closable="false" class="scan-message">
-      {{ t('ui.home.foundRuns', { count: scanResult.count }) }}
+      {{ t('home.foundRuns', { count: scanResult.count }) }}
     </Message>
     <Message v-if="error" severity="error" :closable="false" class="scan-message">
       {{ error }}

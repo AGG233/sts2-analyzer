@@ -25,10 +25,18 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English' },
       { code: 'zh', name: '中文' },
       { code: 'ja', name: '日本語' },
-      { code: 'ko', name: '한국어' }
+      { code: 'ko', name: '한국어' },
+      { code: 'de', name: 'Deutsch' },
+      { code: 'fr', name: 'Français' },
+      { code: 'es', name: 'Español' },
+      { code: 'it', name: 'Italiano' },
+      { code: 'pl', name: 'Polski' },
+      { code: 'pt', name: 'Português' },
+      { code: 'ru', name: 'Русский' },
+      { code: 'tr', name: 'Türkçe' },
+      { code: 'th', name: 'ไทย' }
     ],
     defaultLocale: 'en',
-    strategy: 'no_prefix',
-    vueI18n: './i18n.config.ts'
+    strategy: 'no_prefix'
   }
 })
