@@ -7,6 +7,7 @@ import Dropdown from 'primevue/dropdown'
 import InputText from 'primevue/inputtext'
 import Tag from 'primevue/tag'
 import Tooltip from 'primevue/tooltip'
+import Toast from 'primevue/toast'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, primevueConfig)
@@ -18,6 +19,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('Dropdown', Dropdown)
   nuxtApp.vueApp.component('InputText', InputText)
   nuxtApp.vueApp.component('Tag', Tag)
+  nuxtApp.vueApp.component('Toast', Toast)
 
   // Register directive
   nuxtApp.vueApp.directive('tooltip', Tooltip)

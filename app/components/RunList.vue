@@ -7,6 +7,7 @@ import Tag from 'primevue/tag'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useGameI18n } from '~/locales/lookup'
+import SeedCopyButton from '~/components/SeedCopyButton.vue'
 
 const props = defineProps<{ summaries: (RunSummary & { _run: unknown })[] }>()
 
@@ -138,6 +139,7 @@ function onRowClick(event: { data: RunSummary }) {
       <Column field="seed" :header="t('run.seed')">
         <template #body="{ data }">
           <code class="seed-code">{{ data.seed }}</code>
+          <SeedCopyButton :seed="data.seed" />
         </template>
       </Column>
       <Column field="totalFloors" :header="t('run.floors')" sortable />

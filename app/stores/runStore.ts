@@ -10,6 +10,7 @@ export const useRunStore = defineStore('runs', () => {
   const runs = ref<RunFile[]>([])
   const loading = ref(false)
   const dirHandle = ref<FileSystemDirectoryHandle | null>(null)
+  const runsBySeed = ref<Map<string, RunFile>>(new Map())
 
   // Computed
   const summaries = computed(() =>
@@ -24,16 +25,22 @@ export const useRunStore = defineStore('runs', () => {
     summaries.value.filter(s => !s.win).length
   )
 
+  // Action: Notification emitter (local reference for use within store)
+  let notifyEmitter: ((severity: 'success'|'info'|'warn'|'error', summary: string, detail?: string, life?: number) => void) | null = null
+
   // Actions
   const addRuns = (newRuns: RunFile[]) => {
     runs.value = [...runs.value, ...newRuns]
+    for (const r of newRuns) {
+      runsBySeed.value.set(r.seed, r)
+    }
     if (import.meta.client) {
       saveRuns(runs.value)
     }
   }
 
   const getRunBySeed = (seed: string) => {
-    return runs.value.find(r => r.seed === seed)
+    return runsBySeed.value.get(seed) ?? runs.value.find(r => r.seed === seed)
   }
 
   const setDirHandle = async (handle: FileSystemDirectoryHandle) => {
@@ -51,9 +58,12 @@ export const useRunStore = defineStore('runs', () => {
       const files = await scanDirectoryHandle(dirHandle.value)
       const parsed = await batchParseRunFiles(files)
       runs.value = parsed.map(p => p.data)
+      runsBySeed.value = new Map(runs.value.map(r => [r.seed, r]))
       if (import.meta.client) {
         await saveRuns(runs.value)
       }
+      // 触发扫描完成通知
+      notify('success', '扫描完成', `找到 ${runs.value.length} 个存档文件`, 3000)
     } catch (error) {
       console.error('Rescan failed:', error)
     } finally {
@@ -61,8 +71,20 @@ export const useRunStore = defineStore('runs', () => {
     }
   }
 
+  // 通知方法
+  function notify(severity: 'success'|'info'|'warn'|'error', summary: string, detail?: string, life = 3000) {
+    // 创建一个全局事件发射器（使用 window 作为事件总线）
+    if (import.meta.client) {
+      const event = new CustomEvent('notification', {
+        detail: { severity, summary, detail, life }
+      })
+      window.dispatchEvent(event)
+    }
+  }
+
   const clear = () => {
     runs.value = []
+    runsBySeed.value = new Map()
     dirHandle.value = null
     if (import.meta.client) {
       clearAll()
@@ -78,6 +100,7 @@ export const useRunStore = defineStore('runs', () => {
       const savedRuns = await loadRuns()
       if (savedRuns.length > 0) {
         runs.value = savedRuns
+        runsBySeed.value = new Map(runs.value.map(r => [r.seed, r]))
       }
 
       // Load directory handle

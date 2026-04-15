@@ -90,6 +90,11 @@
     "floorAxis": "Floor",
     "deckSize": "Deck Size",
     "cardsAdded": "Cards Added",
-    "cardsRemoved": "Cards Removed"
+    "cardsRemoved": "Cards Removed",
+    "cardPickRate": "Card Pick Rate",
+    "cardPickRateByCharacter": "Card Pick Rate - {character}"
+  },
+  "notification": {
+    "scanComplete": "Scan complete"
   }
 }

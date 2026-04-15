@@ -27,6 +27,15 @@ async function onPickDirectory() {
     scanResult.value = { count: parsed.length }
     await store.setDirHandle(dirHandle)
     await store.addRuns(parsed.map(r => r.data))
+    // 触发通知
+    window.dispatchEvent(new CustomEvent('notification', {
+      detail: {
+        severity: 'success',
+        summary: '扫描完成',
+        detail: `找到 ${parsed.length} 个存档文件`,
+        life: 3000
+      }
+    }))
   }
   catch (e) {
     if ((e as DOMException)?.name === 'AbortError') {
@@ -47,6 +56,15 @@ async function onUpdate() {
   try {
     const count = await store.rescan()
     scanResult.value = { count }
+    // 触发通知
+    window.dispatchEvent(new CustomEvent('notification', {
+      detail: {
+        severity: 'success',
+        summary: '更新完成',
+        detail: `找到 ${count} 个存档文件`,
+        life: 3000
+      }
+    }))
   }
   catch (e) {
     error.value = e instanceof Error ? e.message : String(e)
@@ -69,6 +87,15 @@ async function onFallbackInput(event: Event) {
     const parsed = await batchParseRunFiles(files)
     scanResult.value = { count: parsed.length }
     await store.addRuns(parsed.map(r => r.data))
+    // 触发通知
+    window.dispatchEvent(new CustomEvent('notification', {
+      detail: {
+        severity: 'success',
+        summary: '扫描完成',
+        detail: `找到 ${parsed.length} 个存档文件`,
+        life: 3000
+      }
+    }))
   }
   catch (e) {
     error.value = e instanceof Error ? e.message : String(e)

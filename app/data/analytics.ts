@@ -133,9 +133,17 @@ export interface SimDeckCard {
   upgradeLevel: number
 }
 
+// ---- Caches ----
+
+const floorsCache = new WeakMap<RunFile, FlatFloor[]>()
+const deckHistoryCache = new WeakMap<RunFile, Map<number, Map<number, SimDeckCard[]>>>()
+
 // ---- Helper: flatten map_point_history ----
 
 function flattenFloors(run: RunFile): FlatFloor[] {
+  const cached = floorsCache.get(run)
+  if (cached) return cached
+
   const result: FlatFloor[] = []
   let globalFloor = 1
 
@@ -156,6 +164,7 @@ function flattenFloors(run: RunFile): FlatFloor[] {
     }
   }
 
+  floorsCache.set(run, result)
   return result
 }
 
@@ -329,13 +338,30 @@ export function getDeckAtFloor(run: RunFile, floor: number, playerIndex: number 
  * Returns Map<globalFloor, SimDeckCard[]>
  */
 export function getDeckHistory(run: RunFile, playerIndex: number = 0): Map<number, SimDeckCard[]> {
+  let playerMap = deckHistoryCache.get(run)
+  if (playerMap?.has(playerIndex)) return playerMap.get(playerIndex)!
+
   const player = run.players[playerIndex]
-  if (!player)
-    return new Map()
+  if (!player) {
+    const empty = new Map<number, SimDeckCard[]>()
+    if (!playerMap) {
+      playerMap = new Map()
+      deckHistoryCache.set(run, playerMap)
+    }
+    playerMap.set(playerIndex, empty)
+    return empty
+  }
 
   const floors = flattenFloors(run)
-  if (floors.length === 0)
-    return new Map()
+  if (floors.length === 0) {
+    const empty = new Map<number, SimDeckCard[]>()
+    if (!playerMap) {
+      playerMap = new Map()
+      deckHistoryCache.set(run, playerMap)
+    }
+    playerMap.set(playerIndex, empty)
+    return empty
+  }
 
   // --- Phase 1: Reverse simulation from final deck to initial deck ---
 
@@ -483,6 +509,11 @@ export function getDeckHistory(run: RunFile, playerIndex: number = 0): Map<numbe
     result.set(f.globalFloor, deck.map(c => ({ ...c })))
   }
 
+  if (!playerMap) {
+    playerMap = new Map()
+    deckHistoryCache.set(run, playerMap)
+  }
+  playerMap.set(playerIndex, result)
   return result
 }
 
@@ -645,4 +676,69 @@ export function getFloorTypeDistribution(runs: RunFile[]): { type: string, count
   return Array.from(map.entries())
     .map(([type, count]) => ({ type, count }))
     .sort((a, b) => b.count - a.count)
+}
+
+// ---- 角色专属卡牌分析 ----
+
+// 角色专属卡牌ID后缀映射
+const CHARACTER_CARD_SUFFIXES: Record<string, string> = {
+  'CHARACTER.IRONCLAD': 'IRONCLAD',
+  'CHARACTER.SILENT': 'SILENT',
+  'CHARACTER.REGENT': 'REGENT',
+  'CHARACTER.NECROBINDER': 'NECROBINDER',
+  'CHARACTER.DEFECT': 'DEFECT',
+}
+
+// 检查卡牌是否是其他角色的专属卡牌
+function isOtherCharacterCard(cardId: string, currentCharacterId: string): boolean {
+  const currentSuffix = CHARACTER_CARD_SUFFIXES[currentCharacterId]
+  if (!currentSuffix) return false
+
+  // 检查卡牌是否包含其他角色的后缀
+  return Object.entries(CHARACTER_CARD_SUFFIXES)
+    .filter(([charId]) => charId !== currentCharacterId)
+    .some(([_, suffix]) => cardId.endsWith(`_${suffix}`))
+}
+
+// 计算特定角色的卡牌选取率（排除其他角色的专属卡牌）
+export function getCardPickRateByCharacter(runs: RunFile[], characterId: string): CardPickStat[] {
+  const map = new Map<string, { picked: number, skipped: number }>()
+
+  for (const run of runs) {
+    // 只统计该角色的run
+    if (run.players[0]?.character !== characterId) continue
+
+    for (const act of run.map_point_history) {
+      for (const floor of act) {
+        for (const ps of floor.player_stats) {
+          for (const choice of ps.card_choices ?? []) {
+            const id = choice.card.id
+
+            // 排除其他角色的专属卡牌
+            if (isOtherCharacterCard(id, characterId)) {
+              continue
+            }
+
+            const entry = map.get(id) ?? { picked: 0, skipped: 0 }
+            if (choice.was_picked) {
+              entry.picked++
+            } else {
+              entry.skipped++
+            }
+            map.set(id, entry)
+          }
+        }
+      }
+    }
+  }
+
+  return Array.from(map.entries())
+    .map(([cardId, { picked, skipped }]) => ({
+      cardId,
+      picked,
+      skipped,
+      total: picked + skipped,
+      pickRate: picked + skipped > 0 ? picked / (picked + skipped) : 0,
+    }))
+    .sort((a, b) => b.total - a.total)
 }

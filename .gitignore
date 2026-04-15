@@ -32,6 +32,14 @@ logs
 
 # Non-project docs
 CLAUDE.md
-docs/
+# docs/
 GAME_SOURCE.md
 home-view-primevue.png
+
+# Screenshots (exclude from repo except public/)
+*.png
+*.jpg
+*.jpeg
+!public/**/*.png
+!public/**/*.jpg
+!public/**/*.jpeg
