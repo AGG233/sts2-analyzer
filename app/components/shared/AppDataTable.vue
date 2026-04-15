@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
+import { ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from '@lucide/vue'
 
 interface Column {
   field?: string
@@ -83,9 +84,9 @@ function toggleSort(field: string) {
   }
 }
 
-function getSortIcon(field: string): string {
-  if (sortField.value !== field) return '↕'
-  return sortOrder.value === 1 ? '↑' : '↓'
+function getSortIcon(field: string): any {
+  if (sortField.value !== field) return ArrowUpDown
+  return sortOrder.value === 1 ? ArrowUp : ArrowDown
 }
 </script>
 
@@ -118,7 +119,7 @@ function getSortIcon(field: string): string {
         @click="currentPage--"
         class="px-3 py-1 rounded disabled:opacity-50"
       >
-        ←
+        <ChevronLeft class="w-4 h-4" />
       </button>
       <span class="text-sm text-gray-400">
         {{ currentPage }} / {{ totalPages }}
@@ -128,7 +129,7 @@ function getSortIcon(field: string): string {
         @click="currentPage++"
         class="px-3 py-1 rounded disabled:opacity-50"
       >
-        →
+        <ChevronRight class="w-4 h-4" />
       </button>
     </div>
   </div>

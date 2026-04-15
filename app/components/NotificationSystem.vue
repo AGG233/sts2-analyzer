@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
+import { Check, Info, TriangleAlert, X, CircleAlert } from '@lucide/vue'
 
 interface Notification {
   id: number
@@ -17,6 +18,13 @@ const severityClasses: Record<string, string> = {
   info: 'bg-blue-500/90 border-blue-400',
   warn: 'bg-yellow-500/90 border-yellow-400',
   error: 'bg-red-500/90 border-red-400',
+}
+
+const severityIcons = {
+  success: Check,
+  info: Info,
+  warn: TriangleAlert,
+  error: CircleAlert,
 }
 
 const handleNotification = (event: Event) => {
@@ -67,17 +75,20 @@ onUnmounted(() => {
         ]"
       >
         <div class="flex items-start justify-between gap-3">
-          <div>
-            <div class="font-medium text-white">{{ notification.summary }}</div>
-            <div v-if="notification.detail" class="text-sm text-white/80 mt-1">
-              {{ notification.detail }}
+          <div class="flex items-start gap-3">
+            <component :is="severityIcons[notification.severity]" class="w-5 h-5 text-white flex-shrink-0 mt-0.5" />
+            <div>
+              <div class="font-medium text-white">{{ notification.summary }}</div>
+              <div v-if="notification.detail" class="text-sm text-white/80 mt-1">
+                {{ notification.detail }}
+              </div>
             </div>
           </div>
           <button
-            class="text-white/70 hover:text-white"
+            class="text-white/70 hover:text-white flex-shrink-0"
             @click="removeNotification(notification.id)"
           >
-            ✕
+            <X class="w-4 h-4" />
           </button>
         </div>
       </div>

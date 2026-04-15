@@ -5,6 +5,7 @@ import AppTag from '~/components/shared/AppTag.vue'
 import { getCharacterColor } from '~/data/characters'
 import { useGameI18n } from '~/locales/lookup'
 import PlayerExpandedDetail from './PlayerExpandedDetail.vue'
+import { Heart, Coins, FlaskConical, Gift, ChevronUp, ChevronDown, ArrowUpRight, ArrowDownRight, X } from '@lucide/vue'
 
 const props = defineProps<{
   playerIndex: number
@@ -40,6 +41,20 @@ function getCardSeverity(status: string): 'success' | 'secondary' | 'info' | 'wa
     case 'removed': return 'danger'
     default: return undefined
   }
+}
+
+function getCardStatusPrefix(status: string): any | null {
+  switch (status) {
+    case 'transformed-from': return ArrowUpRight
+    case 'transformed-to': return ArrowDownRight
+    case 'removed': return X
+    default: return null
+  }
+}
+
+function getRelicStatusPrefix(status: string): any | null {
+  if (status === 'removed') return X
+  return null
 }
 
 function onToggle() {
@@ -97,7 +112,7 @@ function onExpandLeave(el: Element, done: () => void) {
       <div class="card-stats-inline">
         <!-- HP -->
         <span class="stat-item-inline">
-          <span class="stat-icon">❤️</span>
+          <Heart class="stat-icon lucide-icon text-danger" />
           <span class="stat-value-inline">
             <span class="value">{{ props.stats.current_hp }}</span>
             <span class="separator">/</span>
@@ -109,7 +124,7 @@ function onExpandLeave(el: Element, done: () => void) {
 
         <!-- Gold -->
         <span class="stat-item-inline">
-          <span class="stat-icon">💰</span>
+          <Coins class="stat-icon lucide-icon text-warn" />
           <span class="stat-value-inline">
             <span class="value">{{ props.stats.current_gold }}g</span>
           </span>
@@ -119,7 +134,7 @@ function onExpandLeave(el: Element, done: () => void) {
 
         <!-- Potions -->
         <span v-if="props.potions.length > 0" class="stat-item-inline">
-          <span class="stat-icon">🧪</span>
+          <FlaskConical class="stat-icon lucide-icon text-info" />
           <AppTag
             v-for="pot in props.potions"
             :key="pot.id"
@@ -147,31 +162,37 @@ function onExpandLeave(el: Element, done: () => void) {
 
         <!-- Relic Changes -->
         <span v-if="props.relics.length > 0" class="stat-item-inline">
-          <span class="stat-icon">🎁</span>
+          <Gift class="stat-icon lucide-icon text-success" />
           <AppTag
             v-for="(relic, index) in props.relics"
             :key="index"
             :severity="relic.status === 'choice-picked' || relic.status === 'gained' ? 'success' : relic.status === 'removed' ? 'danger' : 'secondary'"
             :class="{ 'tag-strikethrough': relic.status === 'choice-skipped' || relic.status === 'removed' }"
             class="relic-tag"
-          >{{ relic.status === 'removed' ? '✕ ' : '' }}{{ relic.name }}</AppTag>
+          >
+            <component v-if="getRelicStatusPrefix(relic.status)" :is="getRelicStatusPrefix(relic.status)" class="inline-icon" />
+            {{ relic.name }}
+          </AppTag>
         </span>
 
         <!-- Card Changes -->
         <span v-if="props.cards.length > 0" class="stat-item-inline">
-          <span class="stat-icon">🃏</span>
+          <span class="stat-icon card-icon"><Scroll class="w-4 h-4" /></span>
           <AppTag
             v-for="(item, index) in props.cards"
             :key="index"
             :severity="getCardSeverity(item.status)"
             :class="{ 'tag-strikethrough': item.status === 'choice-skipped' || item.status === 'transformed-from' || item.status === 'removed' }"
             class="card-tag"
-          >{{ item.status === 'transformed-from' ? '↗ ' : item.status === 'transformed-to' ? '↘ ' : item.status === 'removed' ? '✕ ' : '' }}{{ item.name }}</AppTag>
+          >
+            <component v-if="getCardStatusPrefix(item.status)" :is="getCardStatusPrefix(item.status)" class="inline-icon" />
+            {{ item.name }}
+          </AppTag>
         </span>
       </div>
 
       <span class="expand-icon">
-        <i class="pi" :class="props.isExpanded ? 'pi-chevron-up' : 'pi-chevron-down'"></i>
+        <component :is="props.isExpanded ? ChevronUp : ChevronDown" class="w-4 h-4" />
       </span>
     </div>
 
@@ -265,6 +286,23 @@ function onExpandLeave(el: Element, done: () => void) {
 .stat-icon {
   font-size: 1rem;
   flex-shrink: 0;
+}
+
+.lucide-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.inline-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.15rem;
+}
+
+.card-icon {
+  font-size: 0.9rem;
 }
 
 .stat-value-inline {

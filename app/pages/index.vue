@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BarChart3, Trophy, Check, X, PieChart } from '@lucide/vue'
 import AppTag from '~/components/shared/AppTag.vue'
 import { computed, ref } from 'vue'
 import DirectoryScanner from '~/components/DirectoryScanner.vue'
@@ -33,7 +34,7 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
     <aside class="left-panel">
       <div class="panel-header">
         <h1 class="app-title">
-          📈
+          <BarChart3 class="w-6 h-6" />
           {{ t('app.title') }}
         </h1>
       </div>
@@ -45,22 +46,22 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
 
         <div v-if="store.runs.length > 0" class="stats-overview">
           <div class="stat-item">
-            🏆
+            <Trophy class="w-5 h-5 mb-1" />
             <span class="stat-label">{{ t('home.total') }}</span>
             <span class="stat-value">{{ store.runs.length }}</span>
           </div>
           <div class="stat-item win">
-            ✓
+            <Check class="w-5 h-5 mb-1" />
             <span class="stat-label">{{ t('home.wins') }}</span>
             <span class="stat-value">{{ store.wins }}</span>
           </div>
           <div class="stat-item loss">
-            ✕
+            <X class="w-5 h-5 mb-1" />
             <span class="stat-label">{{ t('home.losses') }}</span>
             <span class="stat-value">{{ store.losses }}</span>
           </div>
           <div class="stat-item rate">
-            📊
+            <PieChart class="w-5 h-5 mb-1" />
             <span class="stat-label">{{ t('home.winRate') }}</span>
             <span class="stat-value">{{ (store.wins / store.runs.length * 100).toFixed(1) }}%</span>
           </div>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Loader2 } from '@lucide/vue'
+
 interface Props {
   variant?: 'primary' | 'secondary' | 'outlined' | 'text'
   size?: 'small' | 'medium' | 'large'
@@ -47,7 +49,7 @@ const sizeClasses: Record<string, string> = {
     :disabled="disabled || loading"
     @click="emit('click')"
   >
-    <span v-if="loading" class="animate-spin">⟳</span>
+    <Loader2 v-if="loading" class="w-4 h-4 animate-spin" />
     <span v-else-if="icon" class="icon">{{ icon }}</span>
     <slot />
   </button>

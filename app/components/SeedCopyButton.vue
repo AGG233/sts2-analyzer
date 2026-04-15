@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Check, Copy } from '@lucide/vue'
 import AppButton from '~/components/shared/AppButton.vue'
 
 const props = defineProps<{ seed: string }>()
@@ -22,7 +23,7 @@ function copySeed() {
     :title="copied ? '已复制!' : '复制种子'"
     class="seed-copy-button"
   >
-    {{ copied ? '✓' : '📋' }}
+    <component :is="copied ? Check : Copy" class="w-4 h-4" />
   </AppButton>
 </template>
 

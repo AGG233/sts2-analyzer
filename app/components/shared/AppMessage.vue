@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Check, Info, TriangleAlert, X } from '@lucide/vue'
+
 interface Props {
   severity?: 'success' | 'info' | 'warn' | 'error'
   closable?: boolean
@@ -24,11 +26,11 @@ const severityClasses: Record<string, string> = {
   error: 'bg-red-500/20 border-red-500/30 text-red-200',
 }
 
-const severityIcons: Record<string, string> = {
-  success: '✓',
-  info: 'ℹ',
-  warn: '⚠',
-  error: '✕',
+const severityIcons = {
+  success: Check,
+  info: Info,
+  warn: TriangleAlert,
+  error: X,
 }
 </script>
 
@@ -41,7 +43,7 @@ const severityIcons: Record<string, string> = {
       props.class
     ]"
   >
-    <span class="text-lg">{{ severityIcons[severity] }}</span>
+    <component :is="severityIcons[severity]" class="w-5 h-5" />
     <div class="flex-1">
       <slot />
     </div>
@@ -50,7 +52,7 @@ const severityIcons: Record<string, string> = {
       class="opacity-70 hover:opacity-100"
       @click="visible = false; emit('close')"
     >
-      ✕
+      <X class="w-4 h-4" />
     </button>
   </div>
 </template>

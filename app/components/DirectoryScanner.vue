@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { FolderOpen, RefreshCw } from '@lucide/vue'
 import AppButton from '~/components/shared/AppButton.vue'
 import AppMessage from '~/components/shared/AppMessage.vue'
 import { onMounted, ref } from 'vue'
@@ -132,7 +133,8 @@ onMounted(async () => {
           :loading="scanning"
           @click="onPickDirectory"
         >
-          📁 {{ scanning ? t('home.scanning') : (store.dirHandle ? t('home.changeDir') : t('home.selectDir')) }}
+          <FolderOpen class="w-4 h-4" />
+          {{ scanning ? t('home.scanning') : (store.dirHandle ? t('home.changeDir') : t('home.selectDir')) }}
         </AppButton>
         <AppButton
           v-if="store.dirHandle"
@@ -140,7 +142,8 @@ onMounted(async () => {
           :loading="scanning"
           @click="onUpdate"
         >
-          ↻ {{ t('home.update') }}
+          <RefreshCw class="w-4 h-4" />
+          {{ t('home.update') }}
         </AppButton>
       </template>
       <template v-else>
@@ -148,7 +151,8 @@ onMounted(async () => {
           <AppButton
             :loading="scanning"
           >
-            📁 {{ scanning ? t('home.scanning') : t('home.selectDir') }}
+            <FolderOpen class="w-4 h-4" />
+            {{ scanning ? t('home.scanning') : t('home.selectDir') }}
           </AppButton>
           <input type="file" webkitdirectory :disabled="scanning" @change="onFallbackInput">
         </label>

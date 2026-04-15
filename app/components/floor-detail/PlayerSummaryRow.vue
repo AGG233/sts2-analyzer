@@ -3,6 +3,7 @@ import AppTag from '~/components/shared/AppTag.vue'
 import type { FloorPlayerStats } from '~/data/types'
 import type { MergedCard, MergedRelic, MergedPotion } from './merge-utils'
 import { getCharacterColor } from '~/data/characters'
+import { Heart, Coins, FlaskConical, Tent, Dices, Gem, Scroll } from '@lucide/vue'
 
 interface Props {
   stats: FloorPlayerStats
@@ -52,7 +53,7 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
     <div class="card-stats-inline">
       <!-- HP -->
       <span class="stat-item-inline">
-        <span class="stat-icon">❤️</span>
+        <Heart class="stat-icon text-danger" />
         <span class="stat-value-inline">
           <span class="value">{{ stats.current_hp }}</span>
           <span class="separator">/</span>
@@ -66,7 +67,7 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 
       <!-- Gold -->
       <span class="stat-item-inline">
-        <span class="stat-icon">💰</span>
+        <Coins class="stat-icon text-warn" />
         <span class="stat-value-inline">
           <span class="value">{{ stats.current_gold }}g</span>
         </span>
@@ -77,7 +78,7 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 
       <!-- Potions -->
       <span class="stat-item-inline">
-        <span class="stat-icon">🧪</span>
+        <FlaskConical class="stat-icon text-info" />
         <span class="stat-value-inline">
           <span class="value">{{ stats.potion_choices?.length || 0 }}c/{{ stats.potion_used?.length || 0 }}u</span>
         </span>
@@ -85,7 +86,7 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 
       <!-- Rest Site -->
       <span class="stat-item-inline">
-        <span class="stat-icon">🏕️</span>
+        <Tent class="stat-icon text-success" />
         <span class="stat-value-inline">
           <span class="value">{{ stats.rest_site_choices?.map(c => restSiteChoiceName(c)).join(', ') }}</span>
         </span>
@@ -93,7 +94,7 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 
       <!-- Event -->
       <span class="stat-item-inline">
-        <span class="stat-icon">🎲</span>
+        <Dices class="stat-icon text-accent" />
         <span class="stat-value-inline">
           <span class="value">{{ stats.event_choices?.length || 0 }}</span>
         </span>
@@ -101,7 +102,7 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 
       <!-- Relics -->
       <span class="stat-item-inline">
-        <span class="stat-icon">💎</span>
+        <Gem class="stat-icon text-warn" />
         <span class="stat-value-inline">
           <span class="value">{{ stats.relic_choices?.length || 0 }}c/{{ stats.bought_relics?.length || 0 }}g/{{ stats.relics_removed?.length || 0 }}r</span>
         </span>
@@ -109,7 +110,7 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 
       <!-- Cards -->
       <span class="stat-item-inline">
-        <span class="stat-icon">🃏</span>
+        <Scroll class="stat-icon text-secondary" />
         <span class="stat-value-inline">
           <span class="value">{{ stats.card_choices?.length || 0 }}c/{{ stats.cards_gained?.length || 0 }}g/{{ stats.cards_transformed?.length || 0 }}t/{{ stats.upgraded_cards?.length || 0 }}u/{{ stats.cards_removed?.length || 0 }}r</span>
         </span>
@@ -162,8 +163,9 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 }
 
 .stat-icon {
-  font-size: 1.1rem;
-  line-height: 1;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex-shrink: 0;
 }
 
 .stat-value-inline {

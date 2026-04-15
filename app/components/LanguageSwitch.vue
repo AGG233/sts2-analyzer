@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Globe } from '@lucide/vue'
 import AppButton from '~/components/shared/AppButton.vue'
 
 const { locale } = useI18n()
@@ -45,7 +46,7 @@ onUnmounted(() => {
       @click="showDropdown = !showDropdown"
       class="lang-button"
     >
-      🌐
+      <Globe class="w-5 h-5" />
     </AppButton>
     <div
       v-if="showDropdown"

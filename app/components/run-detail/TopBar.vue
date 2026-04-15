@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ArrowLeft } from '@lucide/vue'
 import AppButton from '~/components/shared/AppButton.vue'
 import AppTag from '~/components/shared/AppTag.vue'
 import type { RunFile } from '~/data/types'
@@ -29,7 +30,8 @@ const formatDate = (ts: number): string => {
     <div class="top-bar-left">
       <router-link to="/" class="back-link">
         <AppButton variant="text" size="small">
-          ← {{ t('run.back') }}
+          <ArrowLeft class="w-4 h-4" />
+          {{ t('run.back') }}
         </AppButton>
       </router-link>
     </div>
