@@ -85,7 +85,7 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .notification-enter-active {
   animation: slideIn 0.3s ease-out;
 }

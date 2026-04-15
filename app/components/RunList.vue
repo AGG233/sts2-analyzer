@@ -164,34 +164,36 @@ function onRowClick(data: RunSummary) {
   </div>
 </template>
 
-<style scoped>
-.run-list h2 {
-  font-size: 1.1rem;
-  margin: 1.5rem 0 0.75rem;
-  color: #e0e0e0;
+<style scoped lang="scss">
+.run-list {
+  h2 {
+    font-size: 1.1rem;
+    margin: $space-xl 0 $space-md;
+    color: $text-primary;
+  }
 }
 
 .filters {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: $space-md;
+  margin-bottom: $space-lg;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .filter-select {
-  padding: 0.4rem 0.75rem;
+  padding: 0.4rem $space-md;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
+  border-radius: $radius-md;
   font-size: 0.85rem;
   background: rgba(255, 255, 255, 0.08);
-  color: #e0e0e0;
+  color: $text-primary;
   cursor: pointer;
-}
 
-.filter-select option {
-  background: #152a42;
-  color: #e0e0e0;
+  option {
+    background: $surface-dark;
+    color: $text-primary;
+  }
 }
 
 .seed-code {

@@ -134,10 +134,10 @@ function getSortIcon(field: string): string {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .app-data-table {
   background: rgba(255, 255, 255, 0.02);
-  border-radius: 8px;
+  border-radius: $radius-lg;
 }
 
 table {
@@ -147,15 +147,15 @@ table {
 thead th {
   background: rgba(255, 255, 255, 0.04);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  color: #e0e0e0;
-  padding: 0.75rem 1rem;
+  color: $text-primary;
+  padding: $space-md $space-lg;
   text-align: left;
   font-weight: 500;
 }
 
 tbody td {
-  padding: 0.75rem 1rem;
+  padding: $space-md $space-lg;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  color: #e0e0e0;
+  color: $text-primary;
 }
 </style>

@@ -26,13 +26,13 @@ function copySeed() {
   </AppButton>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .seed-copy-button {
-  margin-left: 0.5rem;
-  color: #e0e0e0;
-}
+  margin-left: $space-sm;
+  color: $text-primary;
 
-.seed-copy-button:hover {
-  color: #f9a825;
+  &:hover {
+    color: $warn;
+  }
 }
 </style>

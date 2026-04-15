@@ -239,12 +239,12 @@ function handleChartMouseOut() {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .combined-timeline {
   position: relative;
 }
 
 .chart-switcher {
-  margin-bottom: 0.75rem;
+  margin-bottom: $space-md;
 }
 </style>

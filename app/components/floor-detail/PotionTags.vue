@@ -31,7 +31,7 @@ const getPotionSeverity = (status: string): 'success' | 'secondary' | undefined 
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .tag-list {
   display: flex;
   flex-wrap: wrap;

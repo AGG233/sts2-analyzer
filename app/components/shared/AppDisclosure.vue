@@ -23,13 +23,13 @@ const props = withDefaults(defineProps<Props>(), {
   </Disclosure>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .card-fieldset {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   min-width: 200px;
-}
 
-.card-fieldset:last-child {
-  border-bottom: none;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 </style>

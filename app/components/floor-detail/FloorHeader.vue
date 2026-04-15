@@ -47,18 +47,18 @@ function typeColor(type: string): string {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .floor-header {
-  margin-bottom: 1rem;
-  padding: 0.75rem 1rem;
+  margin-bottom: $space-lg;
+  padding: $space-md $space-lg;
   background: rgba(255, 255, 255, 0.04);
-  border-radius: 8px;
+  border-radius: $radius-lg;
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .card-header {
   display: flex;
-  gap: 1rem;
+  gap: $space-lg;
   align-items: center;
 }
 
@@ -66,9 +66,7 @@ function typeColor(type: string): string {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   color: white;
   font-weight: 700;
   font-size: 1.1rem;
@@ -78,23 +76,23 @@ function typeColor(type: string): string {
 .header-info {
   display: flex;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: $space-sm;
   flex-wrap: nowrap;
 }
 
 .header-type {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #e0e0e0;
+  color: $text-primary;
 }
 
 .header-model {
-  color: #8aa0b8;
+  color: $text-secondary;
   font-size: 0.9rem;
 }
 
 .header-turns {
-  color: #8aa0b8;
+  color: $text-secondary;
   font-size: 0.9rem;
   font-weight: 600;
   flex-shrink: 0;

@@ -56,7 +56,7 @@ const handleHoverFloor = (floor: number | null) => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .preview-content {
   height: 100%;
   display: flex;
@@ -66,15 +66,16 @@ const handleHoverFloor = (floor: number | null) => {
 .preview-content-inner {
   flex: 1;
   overflow-y: auto;
+  @include dark-scrollbar;
 }
 
 .chart-section {
-  margin-bottom: 2rem;
-}
+  margin-bottom: $space-2xl;
 
-.chart-section h2 {
-  font-size: 1.1rem;
-  margin-bottom: 0.75rem;
-  color: #e0e0e0;
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: $space-md;
+    color: $text-primary;
+  }
 }
 </style>

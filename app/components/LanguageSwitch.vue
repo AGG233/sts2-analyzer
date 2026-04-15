@@ -68,22 +68,22 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .language-switch {
   position: relative;
 }
 
 .lang-button {
-  color: #e0e0e0;
+  color: $text-primary;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: $radius-md;
   width: 40px;
   height: 40px;
-}
 
-.lang-button:hover {
-  background: rgba(255, 255, 255, 0.1);
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
 }
 
 .lang-dropdown {
@@ -91,28 +91,28 @@ onUnmounted(() => {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  margin-bottom: 0.5rem;
+  margin-bottom: $space-sm;
   width: 150px;
   z-index: 1000;
 }
 
 .lang-select {
   width: 100%;
-  padding: 0.5rem;
+  padding: $space-sm;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: $radius-md;
   background: rgba(10, 22, 40, 0.95);
-  color: #e0e0e0;
+  color: $text-primary;
   cursor: pointer;
-}
 
-.lang-select option {
-  background: #0a1628;
-  color: #e0e0e0;
-}
+  option {
+    background: #0a1628;
+    color: $text-primary;
+  }
 
-.lang-select:focus {
-  outline: none;
-  border-color: #f9a825;
+  &:focus {
+    outline: none;
+    border-color: $warn;
+  }
 }
 </style>

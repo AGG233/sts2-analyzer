@@ -90,14 +90,14 @@ const groupedCurrentRelics = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .deck-relics-section {
-  margin-top: 1rem;
+  margin-top: $space-lg;
 }
 
 .items-section {
-  margin-top: 1rem;
-  padding-top: 1rem;
+  margin-top: $space-lg;
+  padding-top: $space-lg;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -105,12 +105,12 @@ const groupedCurrentRelics = computed(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: $space-sm;
 }
 
 .items-label {
   font-weight: 600;
-  color: #e0e0e0;
+  color: $text-primary;
 }
 
 .items-container {

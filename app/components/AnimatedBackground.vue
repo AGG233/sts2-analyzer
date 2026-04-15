@@ -194,7 +194,7 @@ onUnmounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .animated-bg {
   position: fixed;
   inset: 0;
@@ -222,9 +222,9 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   overflow: hidden;
-}
 
-.spine-container :deep(canvas) {
-  display: block;
+  :deep(canvas) {
+    display: block;
+  }
 }
 </style>

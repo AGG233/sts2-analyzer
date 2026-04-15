@@ -1,0 +1,124 @@
+// Game-themed color palette
+$primary: #C9A84C;
+$primary-light: #EECB59;
+$primary-dark: #A3843F;
+
+$surface: #1A2E35;
+$surface-light: #487D8B;
+$surface-dark: #101C21;
+
+$accent: #4ECDC4;
+$accent-light: #65DFD2;
+$accent-dark: #3BAAA2;
+
+$danger: #E53935;
+$danger-soft: rgba(229, 57, 53, 0.6);
+
+$success: #43A047;
+$success-soft: rgba(67, 160, 71, 0.6);
+
+$warn: #F9A825;
+$warn-soft: rgba(249, 168, 37, 0.6);
+
+$info: #42A5F5;
+$info-soft: rgba(66, 165, 245, 0.6);
+
+// Text colors
+$text-primary: #E0E0E0;
+$text-secondary: #8AA0B8;
+$text-muted: #5A7A9A;
+$text-dim: #3D6080;
+
+// Spacing scale
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 0.75rem;
+$space-lg: 1rem;
+$space-xl: 1.5rem;
+$space-2xl: 2rem;
+
+// Border radius
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 8px;
+$radius-xl: 12px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 200ms ease;
+$transition-slow: 300ms ease;
+
+// Glassmorphism
+@mixin glass($opacity: 0.88) {
+  background: rgba(10, 22, 40, $opacity);
+  backdrop-filter: blur(8px);
+}
+
+@mixin glass-light {
+  @include glass(0.85);
+}
+
+// Interactive states
+@mixin hover-lift {
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+// Scrollbar
+@mixin dark-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Flex center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Tag base style
+@mixin tag-base {
+  display: inline-flex;
+  align-items: center;
+  padding: $space-xs $space-sm;
+  border-radius: $radius-md;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}

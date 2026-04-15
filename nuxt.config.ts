@@ -6,6 +6,15 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/main.css'
   ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/scss/_variables.scss" as *;'
+        }
+      }
+    }
+  },
   build: {
     transpile: ['vue-echarts']
   },

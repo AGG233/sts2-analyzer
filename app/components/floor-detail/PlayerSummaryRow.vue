@@ -118,21 +118,21 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .player-summary-row {
   display: flex;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: $space-md $space-lg;
   background-color: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-  gap: 1rem;
+  border-radius: $radius-lg;
+  margin-bottom: $space-sm;
+  gap: $space-lg;
 }
 
 .player-identity {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $space-sm;
   min-width: 180px;
 }
 
@@ -145,20 +145,20 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 
 .player-name {
   font-weight: 600;
-  color: var(--text-color);
+  color: $text-primary;
 }
 
 .card-stats-inline {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: $space-lg;
   flex: 1;
 }
 
 .stat-item-inline {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $space-sm;
 }
 
 .stat-icon {
@@ -169,17 +169,17 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
 .stat-value-inline {
   display: flex;
   align-items: baseline;
-  gap: 0.25rem;
-}
+  gap: $space-xs;
 
-.stat-value-inline .value {
-  font-weight: 500;
-  color: var(--text-color);
-}
+  .value {
+    font-weight: 500;
+    color: $text-primary;
+  }
 
-.stat-value-inline .separator {
-  color: var(--text-secondary-color);
-  font-size: 0.9rem;
+  .separator {
+    color: $text-secondary;
+    font-size: 0.9rem;
+  }
 }
 
 .change-tag {

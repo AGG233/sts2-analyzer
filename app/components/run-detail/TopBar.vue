@@ -49,12 +49,12 @@ const formatDate = (ts: number): string => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .top-bar {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.5rem 1.5rem;
+  gap: $space-lg;
+  padding: $space-sm $space-xl;
   background: rgba(10, 22, 40, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -68,7 +68,7 @@ const formatDate = (ts: number): string => {
 .top-summary {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: $space-lg;
   flex: 1;
   flex-wrap: nowrap;
   overflow: hidden;
@@ -78,21 +78,21 @@ const formatDate = (ts: number): string => {
 .character {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #f9a825;
+  color: $warn;
 }
 
 .seed,
 .ascension {
-  color: #8aa0b8;
+  color: $text-secondary;
   font-family: monospace;
 }
 
 .top-meta {
-  color: #5a7a9a;
+  color: $text-muted;
   font-size: 0.8rem;
-}
 
-.top-meta.death {
-  color: #ef5350;
+  &.death {
+    color: $danger;
+  }
 }
 </style>

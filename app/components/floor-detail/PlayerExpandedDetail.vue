@@ -64,19 +64,20 @@ const groupedDeck = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .player-detail {
-  padding: 0.75rem;
+  padding: $space-md;
   max-height: 600px;
   overflow-y: auto;
+  @include dark-scrollbar;
 }
 
 .card-fieldset {
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   min-width: 200px;
-}
 
-.card-fieldset:last-child {
-  border-bottom: none;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 </style>

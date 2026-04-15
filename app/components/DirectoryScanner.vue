@@ -164,26 +164,30 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .scanner {
   text-align: center;
-  padding: 2rem;
+  padding: $space-2xl;
 }
+
 .btn-group {
   display: inline-flex;
-  gap: 0.75rem;
+  gap: $space-md;
 }
+
 .fallback-label {
   position: relative;
   display: inline-block;
+
+  input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
 }
-.fallback-label input[type="file"] {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  cursor: pointer;
-}
+
 .scan-message {
-  margin-top: 0.75rem;
+  margin-top: $space-md;
 }
 </style>

@@ -91,67 +91,81 @@ function getCardsSkipped(floor: FlatFloor): string[] {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .timeline {
   max-height: 500px;
   overflow-y: auto;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: $radius-lg;
   background: rgba(255, 255, 255, 0.03);
+  @include dark-scrollbar;
 }
+
 .floor-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.75rem;
+  gap: $space-sm;
+  padding: 0.35rem $space-md;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   font-size: 0.8rem;
-  transition: background 0.15s;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &.compact {
+    padding: 0.2rem $space-sm;
+    font-size: 0.75rem;
+  }
 }
-.floor-row:hover {
-  background: rgba(255, 255, 255, 0.06);
-}
-.floor-row:last-child { border-bottom: none; }
-.floor-row.compact {
-  padding: 0.2rem 0.5rem;
-  font-size: 0.75rem;
-}
+
 .floor-badge {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   color: white;
   font-weight: 700;
   font-size: 0.75rem;
   flex-shrink: 0;
 }
+
 .floor-type {
   width: 40px;
   font-weight: 600;
   font-size: 0.75rem;
-  color: #8aa0b8;
+  color: $text-secondary;
   flex-shrink: 0;
 }
+
 .floor-info {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
   flex: 1;
 }
+
 .info-tag {
   font-size: 0.75rem;
 }
+
 .tag-strikethrough {
   text-decoration: line-through;
   opacity: 0.6;
 }
+
 .floor-encounter {
-  color: #5a7a9a;
+  color: $text-muted;
   font-size: 0.75rem;
   flex-shrink: 0;
 }
-.turns { color: #3d6080; }
+
+.turns {
+  color: $text-dim;
+}
 </style>

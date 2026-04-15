@@ -173,7 +173,7 @@ const currentRelics = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .run-detail-page {
   position: fixed;
   top: 60px;
@@ -196,8 +196,7 @@ const currentRelics = computed(() => {
   width: 30%;
   min-width: 300px;
   max-width: 400px;
-  background: rgba(10, 22, 40, 0.85);
-  backdrop-filter: blur(8px);
+  @include glass-light;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   flex-direction: column;
@@ -207,19 +206,19 @@ const currentRelics = computed(() => {
 
 .left-overlay {
   position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
+  bottom: $space-sm;
+  right: $space-sm;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.5rem;
+  gap: $space-sm;
 }
 
 .preview-player-selector {
   display: flex;
   gap: 0.4rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: $space-sm;
 }
 
 .right-panel {
@@ -227,8 +226,7 @@ const currentRelics = computed(() => {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  background: rgba(10, 22, 40, 0.88);
-  backdrop-filter: blur(8px);
+  @include glass;
 }
 
 .detail-content {
@@ -237,7 +235,7 @@ const currentRelics = computed(() => {
 
 .not-found {
   text-align: center;
-  padding: 4rem;
-  color: #8aa0b8;
+  padding: $space-2xl;
+  color: $text-secondary;
 }
 </style>

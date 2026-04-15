@@ -109,11 +109,11 @@ updateChartData()
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .card-pick-chart {
   width: 100%;
   height: 400px;
-  margin-top: 1rem;
+  margin-top: $space-lg;
 }
 
 .chart {

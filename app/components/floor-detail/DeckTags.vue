@@ -40,7 +40,7 @@ function getCardSeverity(group: { upgraded: number; floorAdded: number }): 'succ
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .tag-list {
   display: flex;
   flex-wrap: wrap;

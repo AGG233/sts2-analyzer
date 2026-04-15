@@ -190,37 +190,34 @@ function onExpandLeave(el: Element, done: () => void) {
   </div>
 </template>
 
-<style scoped>
-/* Per-Player Card */
+<style scoped lang="scss">
 .player-card {
   background: rgba(15, 31, 53, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-top: 3px solid transparent;
-  border-radius: 8px;
+  border-radius: $radius-lg;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow $transition-slow;
+
+  &:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  }
 }
 
-.player-card:hover {
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Card Header Row */
 .card-header-row {
   display: flex;
   align-items: flex-start;
-  gap: 0.5rem;
-  padding: 0.6rem 0.75rem;
+  gap: $space-sm;
+  padding: 0.6rem $space-md;
   background: rgba(255, 255, 255, 0.04);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Player Identity */
 .player-identity {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $space-sm;
   flex-shrink: 0;
   padding-top: 0.2rem;
 }
@@ -235,16 +232,15 @@ function onExpandLeave(el: Element, done: () => void) {
 .player-name {
   font-weight: 700;
   font-size: 0.85rem;
-  color: #e0e0e0;
+  color: $text-primary;
   white-space: nowrap;
 }
 
-/* Stats Inline */
 .card-stats-inline {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  gap: 0.5rem;
+  gap: $space-sm;
   flex: 1;
   min-width: 0;
 }
@@ -255,15 +251,15 @@ function onExpandLeave(el: Element, done: () => void) {
   gap: 0.3rem;
   background: rgba(255, 255, 255, 0.06);
   padding: 0.3rem 0.6rem;
-  border-radius: 6px;
+  border-radius: $radius-md;
   border: 1px solid rgba(255, 255, 255, 0.06);
   flex-shrink: 0;
-}
 
-.stat-item-inline .stat-label-inline {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #8aa0b8;
+  .stat-label-inline {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: $text-secondary;
+  }
 }
 
 .stat-icon {
@@ -275,38 +271,35 @@ function onExpandLeave(el: Element, done: () => void) {
   display: inline-flex;
   align-items: baseline;
   gap: 0.2rem;
-}
 
-.stat-value-inline .value {
-  font-weight: 700;
-  font-size: 0.95rem;
-}
+  .value {
+    font-weight: 700;
+    font-size: 0.95rem;
 
-.stat-value-inline .value:first-child {
-  color: #ef5350;
-}
+    &:first-child {
+      color: $danger;
+    }
 
-.stat-value-inline .value:last-child {
-  color: #e0e0e0;
+    &:last-child {
+      color: $text-primary;
+    }
+  }
 }
 
 .separator {
-  color: #5a7a9a;
+  color: $text-muted;
   font-size: 0.85rem;
 }
 
-.change-tag {
+.change-tag,
+.potion-tag,
+.relic-tag,
+.card-tag {
   font-size: 0.75rem;
 }
 
-.potion-tag {
-  font-size: 0.8rem;
-}
-
-.relic-tag {
-  font-size: 0.8rem;
-}
-
+.potion-tag,
+.relic-tag,
 .card-tag {
   font-size: 0.8rem;
 }
@@ -316,26 +309,23 @@ function onExpandLeave(el: Element, done: () => void) {
   opacity: 0.6;
 }
 
-/* Expand Icon */
 .expand-icon {
   width: 24px;
   height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #8aa0b8;
+  @include flex-center;
+  color: $text-secondary;
   flex-shrink: 0;
   padding-top: 0.2rem;
+
+  &:hover {
+    color: $text-primary;
+  }
 }
 
-.expand-icon:hover {
-  color: #e0e0e0;
-}
-
-/* Player Detail */
 .player-detail {
-  padding: 0.75rem;
+  padding: $space-md;
   max-height: 600px;
   overflow-y: auto;
+  @include dark-scrollbar;
 }
 </style>

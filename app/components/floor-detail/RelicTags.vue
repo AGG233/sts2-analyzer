@@ -33,7 +33,7 @@ function isRelicRemoved(relicId: string): boolean {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .tag-list {
   display: flex;
   flex-wrap: wrap;

@@ -138,89 +138,89 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .home {
   display: flex;
-  gap: 2rem;
+  gap: $space-2xl;
   height: 100vh;
-  padding: 2rem;
+  padding: $space-2xl;
+}
+
+.left-panel,
+.right-panel {
+  @include glass;
+  border-radius: $radius-xl;
+  padding: $space-xl;
 }
 
 .left-panel {
   flex: 0 0 30%;
   max-width: 320px;
-  background: rgba(10, 22, 40, 0.88);
-  border-radius: 12px;
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  backdrop-filter: blur(8px);
 }
 
 .panel-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: $space-xl;
 }
 
 .app-title {
   font-size: 1.2rem;
-  color: #f9a825;
+  color: $warn;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: $space-sm;
   margin: 0;
 }
 
 .panel-content {
   flex: 1;
   overflow-y: auto;
+  @include dark-scrollbar;
 }
 
 .panel-footer {
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: $space-lg;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .right-panel {
   flex: 1;
   overflow-y: auto;
-  background: rgba(10, 22, 40, 0.88);
-  border-radius: 12px;
-  padding: 1.5rem;
-  backdrop-filter: blur(8px);
 }
 
 .stats-overview {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin: 1rem 0;
-  padding: 1rem;
+  gap: $space-lg;
+  margin: $space-lg 0;
+  padding: $space-lg;
   background: rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  border-radius: $radius-lg;
 }
 
 .stat-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.75rem;
+  padding: $space-md;
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 6px;
-}
+  border-radius: $radius-md;
 
-.stat-item i {
-  font-size: 1.2rem;
-  margin-bottom: 0.25rem;
-}
+  i {
+    font-size: 1.2rem;
+    margin-bottom: $space-xs;
+  }
 
-.stat-item.win { color: #66bb6a; }
-.stat-item.loss { color: #ef5350; }
-.stat-item.rate { color: #f9a825; }
+  &.win { color: $success; }
+  &.loss { color: $danger; }
+  &.rate { color: $warn; }
+}
 
 .stat-label {
   font-size: 0.8rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: $space-xs;
 }
 
 .stat-value {
@@ -228,10 +228,12 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
   font-weight: bold;
 }
 
-.character-stats h2 {
-  font-size: 1.1rem;
-  margin: 1.5rem 0 0.75rem;
-  color: #e0e0e0;
+.character-stats {
+  h2 {
+    font-size: 1.1rem;
+    margin: $space-xl 0 $space-md;
+    color: $text-primary;
+  }
 }
 
 .character-table {
@@ -239,25 +241,27 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
 }
 
 .character-filter {
-  margin-bottom: 1.5rem;
+  margin-bottom: $space-xl;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: $space-lg;
 }
 
 .filter-select {
-  padding: 0.5rem 1rem;
+  padding: $space-sm $space-lg;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
+  border-radius: $radius-md;
   background: rgba(255, 255, 255, 0.08);
-  color: #e0e0e0;
+  color: $text-primary;
   cursor: pointer;
   min-width: 200px;
 }
 
-.card-pick-section h2 {
-  font-size: 1.2rem;
-  margin: 2rem 0 1rem;
-  color: #e0e0e0;
+.card-pick-section {
+  h2 {
+    font-size: 1.2rem;
+    margin: $space-2xl 0 $space-lg;
+    color: $text-primary;
+  }
 }
 </style>
