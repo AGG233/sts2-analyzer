@@ -31,8 +31,6 @@ logs
 .worktrees/
 
 # Non-project docs
-CLAUDE.md
-# docs/
 GAME_SOURCE.md
 home-view-primevue.png
 
