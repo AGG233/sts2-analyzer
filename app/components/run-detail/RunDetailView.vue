@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import Button from 'primevue/button'
-import SelectButton from 'primevue/selectbutton'
-import Tag from 'primevue/tag'
+import AppToggleButton from '~/components/shared/AppToggleButton.vue'
 import RunMap from '~/components/RunMap.vue'
 import TopBar from './TopBar.vue'
 import PreviewContent from './PreviewContent.vue'
@@ -123,12 +121,9 @@ const currentRelics = computed(() => {
       <!-- Left: Map -->
       <div class="left-panel">
         <div class="left-overlay">
-          <SelectButton
+          <AppToggleButton
             v-model="viewMode"
             :options="viewModeOptions"
-            option-label="label"
-            option-value="value"
-            :allow-empty="false"
             size="small"
           />
         </div>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 import type { SimDeckCard } from '~/data/analytics'
 
 interface Props {
@@ -62,12 +62,13 @@ const groupedCurrentRelics = computed(() => {
         </span>
       </div>
       <div class="items-container deck-container">
-        <Tag
+        <AppTag
           v-for="(group, idx) in groupedCurrentDeck"
           :key="idx"
-          :value="`${group.name}${group.count > 1 ? ` x${group.count}` : ''}`"
-          :severity="group.upgraded ? 'warn' : undefined"
-        />
+          :severity="group.upgraded ? 'warn' : 'secondary'"
+        >
+          {{ `${group.name}${group.count > 1 ? ` x${group.count}` : ''}` }}
+        </AppTag>
       </div>
     </div>
 
@@ -77,12 +78,13 @@ const groupedCurrentRelics = computed(() => {
         <span class="items-label">{{ t('run.relics') }}: {{ relics.length }}</span>
       </div>
       <div class="items-container relics-container">
-        <Tag
+        <AppTag
           v-for="relic in groupedCurrentRelics"
           :key="relic.name"
-          :value="`${relic.name}${relic.count > 1 ? ` x${relic.count}` : ''} F${relic.floor}`"
           severity="secondary"
-        />
+        >
+          {{ `${relic.name}${relic.count > 1 ? ` x${relic.count}` : ''} F${relic.floor}` }}
+        </AppTag>
       </div>
     </div>
   </div>

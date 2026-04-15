@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FloorPlayerStats } from '~/data/types'
 import type { SimDeckCard } from '~/data/analytics'
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 import { getCharacterColor } from '~/data/characters'
 import { useGameI18n } from '~/locales/lookup'
 import PlayerExpandedDetail from './PlayerExpandedDetail.vue'
@@ -103,8 +103,8 @@ function onExpandLeave(el: Element, done: () => void) {
             <span class="separator">/</span>
             <span class="value">{{ props.stats.max_hp }}</span>
           </span>
-          <Tag v-if="props.stats.damage_taken > 0" :value="`-${props.stats.damage_taken}`" severity="danger" class="change-tag" />
-          <Tag v-if="props.stats.hp_healed > 0" :value="`+${props.stats.hp_healed}`" severity="success" class="change-tag" />
+          <AppTag v-if="props.stats.damage_taken > 0" severity="danger" class="change-tag">-{{ props.stats.damage_taken }}</AppTag>
+          <AppTag v-if="props.stats.hp_healed > 0" severity="success" class="change-tag">+{{ props.stats.hp_healed }}</AppTag>
         </span>
 
         <!-- Gold -->
@@ -113,64 +113,60 @@ function onExpandLeave(el: Element, done: () => void) {
           <span class="stat-value-inline">
             <span class="value">{{ props.stats.current_gold }}g</span>
           </span>
-          <Tag v-if="props.stats.gold_gained > 0" :value="`+${props.stats.gold_gained}`" severity="success" class="change-tag" />
-          <Tag v-if="props.stats.gold_spent > 0" :value="`-${props.stats.gold_spent}`" severity="danger" class="change-tag" />
+          <AppTag v-if="props.stats.gold_gained > 0" severity="success" class="change-tag">+{{ props.stats.gold_gained }}</AppTag>
+          <AppTag v-if="props.stats.gold_spent > 0" severity="danger" class="change-tag">-{{ props.stats.gold_spent }}</AppTag>
         </span>
 
         <!-- Potions -->
         <span v-if="props.potions.length > 0" class="stat-item-inline">
           <span class="stat-icon">🧪</span>
-          <Tag
+          <AppTag
             v-for="pot in props.potions"
             :key="pot.id"
-            :value="pot.name"
             :severity="pot.status === 'choice-picked' ? 'success' : pot.status === 'used' ? 'secondary' : undefined"
             :class="{ 'tag-strikethrough': pot.status === 'choice-skipped' || pot.status === 'used' }"
             class="potion-tag"
-          />
+          >{{ pot.name }}</AppTag>
         </span>
 
         <!-- Rest Site Choice -->
         <span v-if="props.stats.rest_site_choices?.length" class="stat-item-inline">
           <span class="stat-label-inline">{{ t('run.restSiteChoice') }}:</span>
-          <Tag :value="props.stats.rest_site_choices.map(restSiteChoiceName).join(', ')" />
+          <AppTag>{{ props.stats.rest_site_choices.map(restSiteChoiceName).join(', ') }}</AppTag>
         </span>
 
         <!-- Event Choices -->
         <span v-if="props.stats.event_choices?.length" class="stat-item-inline">
           <span class="stat-label-inline">{{ t('run.eventChoices') }}:</span>
-          <Tag
+          <AppTag
             v-for="(choice, index) in props.stats.event_choices"
             :key="index"
-            :value="choice.title?.key ? t(`game.${choice.title.table}.${choice.title.key}`) : ''"
             severity="info"
-          />
+          >{{ choice.title?.key ? t(`game.${choice.title.table}.${choice.title.key}`) : '' }}</AppTag>
         </span>
 
         <!-- Relic Changes -->
         <span v-if="props.relics.length > 0" class="stat-item-inline">
           <span class="stat-icon">🎁</span>
-          <Tag
+          <AppTag
             v-for="(relic, index) in props.relics"
             :key="index"
-            :value="`${relic.status === 'removed' ? '✕ ' : ''}${relic.name}`"
             :severity="relic.status === 'choice-picked' || relic.status === 'gained' ? 'success' : relic.status === 'removed' ? 'danger' : 'secondary'"
             :class="{ 'tag-strikethrough': relic.status === 'choice-skipped' || relic.status === 'removed' }"
             class="relic-tag"
-          />
+          >{{ relic.status === 'removed' ? '✕ ' : '' }}{{ relic.name }}</AppTag>
         </span>
 
         <!-- Card Changes -->
         <span v-if="props.cards.length > 0" class="stat-item-inline">
           <span class="stat-icon">🃏</span>
-          <Tag
+          <AppTag
             v-for="(item, index) in props.cards"
             :key="index"
-            :value="`${item.status === 'transformed-from' ? '↗ ' : item.status === 'transformed-to' ? '↘ ' : item.status === 'removed' ? '✕ ' : ''}${item.name}`"
             :severity="getCardSeverity(item.status)"
             :class="{ 'tag-strikethrough': item.status === 'choice-skipped' || item.status === 'transformed-from' || item.status === 'removed' }"
             class="card-tag"
-          />
+          >{{ item.status === 'transformed-from' ? '↗ ' : item.status === 'transformed-to' ? '↘ ' : item.status === 'removed' ? '✕ ' : '' }}{{ item.name }}</AppTag>
         </span>
       </div>
 

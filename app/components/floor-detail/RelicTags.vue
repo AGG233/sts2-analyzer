@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 
 interface Props {
   relics: Array<{
@@ -24,13 +24,12 @@ function isRelicRemoved(relicId: string): boolean {
 
 <template>
   <div class="tag-list">
-    <Tag
+    <AppTag
       v-for="relic in relics"
       :key="relic.id"
-      :value="`${relic.name} F${relic.floor}`"
       :severity="isRelicGained(relic.id) ? 'success' : isRelicRemoved(relic.id) ? 'danger' : 'secondary'"
       :class="{ 'tag-strikethrough': isRelicRemoved(relic.id) }"
-    />
+    >{{ relic.name }} F{{ relic.floor }}</AppTag>
   </div>
 </template>
 

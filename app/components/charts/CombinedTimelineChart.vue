@@ -4,7 +4,7 @@ import { BarChart, LineChart } from 'echarts/charts'
 import { GridComponent, LegendComponent, TooltipComponent } from 'echarts/components'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
-import SelectButton from 'primevue/selectbutton'
+import AppToggleButton from '~/components/shared/AppToggleButton.vue'
 import { computed, ref } from 'vue'
 import VChart from 'vue-echarts'
 
@@ -229,12 +229,9 @@ function handleChartMouseOut() {
 
 <template>
   <div class="combined-timeline">
-    <SelectButton
+    <AppToggleButton
       v-model="chartType"
       :options="chartTypeOptions"
-      option-label="label"
-      option-value="value"
-      :allow-empty="false"
       size="small"
       class="chart-switcher"
     />

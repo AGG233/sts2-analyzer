@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import type { RunSummary } from '~/data/analytics'
-import Button from 'primevue/button'
-import Column from 'primevue/column'
-import DataTable from 'primevue/datatable'
-import Tag from 'primevue/tag'
+import AppButton from '~/components/shared/AppButton.vue'
+import AppTag from '~/components/shared/AppTag.vue'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useGameI18n } from '~/locales/lookup'
@@ -40,7 +38,7 @@ const uniqueAscensions = computed(() => {
   return Array.from(levels).sort((a, b) => a - b).map(a => ({ label: `A${a}`, value: String(a) }))
 })
 
-// Filtered summaries for DataTable
+// Filtered summaries
 const filteredSummaries = computed(() => {
   let result = [...props.summaries]
 
@@ -68,8 +66,8 @@ function getResultSeverity(win: boolean): 'success' | 'danger' {
   return win ? 'success' : 'danger'
 }
 
-function onRowClick(event: { data: RunSummary }) {
-  router.push(`/run/${event.data.seed}`)
+function onRowClick(data: RunSummary) {
+  router.push(`/run/${data.seed}`)
 }
 </script>
 
@@ -109,51 +107,60 @@ function onRowClick(event: { data: RunSummary }) {
         </option>
       </select>
 
-      <Button :label="t('run.reset')" icon="pi pi-refresh" variant="outlined" size="small" @click="resetFilters" />
+      <AppButton variant="outlined" size="small" @click="resetFilters">
+        ↻ {{ t('run.reset') }}
+      </AppButton>
     </div>
 
     <!-- Table -->
-    <DataTable
-      :value="filteredSummaries"
-      :row-hover="true"
-      :paginator="filteredSummaries.length > 20"
-      :rows="20"
-      sort-mode="single"
-      removable-sort
-      @row-click="onRowClick"
-    >
-      <Column field="win" :header="t('table.result')" sortable>
-        <template #body="{ data }">
-          <Tag :value="data.win ? t('table.win') : t('table.loss')" :severity="getResultSeverity(data.win)" />
-        </template>
-      </Column>
-      <Column field="character" :header="t('table.character')" sortable>
-        <template #body="{ data }">
-          {{ characterName(data.character) }}
-        </template>
-        <template #sorticon="{ sortOrder }">
-          <i class="pi" :class="sortOrder === 1 ? 'pi-sort-alt' : sortOrder === -1 ? 'pi-sort-alt' : 'pi-sort-alt'" />
-        </template>
-      </Column>
-      <Column field="ascension" :header="t('table.asc')" sortable />
-      <Column field="seed" :header="t('run.seed')">
-        <template #body="{ data }">
-          <code class="seed-code">{{ data.seed }}</code>
-          <SeedCopyButton :seed="data.seed" />
-        </template>
-      </Column>
-      <Column field="totalFloors" :header="t('run.floors')" sortable />
-      <Column field="runTime" :header="t('table.time')" sortable>
-        <template #body="{ data }">
-          {{ formatTime(data.runTime) }}
-        </template>
-      </Column>
-      <Column field="startTime" :header="t('run.date')" sortable>
-        <template #body="{ data }">
-          {{ formatDate(data.startTime) }}
-        </template>
-      </Column>
-    </DataTable>
+    <div class="table-container overflow-x-auto">
+      <table class="w-full text-sm cursor-pointer">
+        <thead class="text-left bg-white/5">
+          <tr>
+            <th class="px-4 py-3 font-medium text-gray-200">{{ t('table.result') }}</th>
+            <th class="px-4 py-3 font-medium text-gray-200">{{ t('table.character') }}</th>
+            <th class="px-4 py-3 font-medium text-gray-200">{{ t('table.asc') }}</th>
+            <th class="px-4 py-3 font-medium text-gray-200">{{ t('run.seed') }}</th>
+            <th class="px-4 py-3 font-medium text-gray-200">{{ t('run.floors') }}</th>
+            <th class="px-4 py-3 font-medium text-gray-200">{{ t('table.time') }}</th>
+            <th class="px-4 py-3 font-medium text-gray-200">{{ t('run.date') }}</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/10">
+          <tr
+            v-for="summary in filteredSummaries"
+            :key="summary.seed"
+            class="hover:bg-white/5 transition-colors"
+            @click="onRowClick(summary)"
+          >
+            <td class="px-4 py-3">
+              <AppTag :severity="getResultSeverity(summary.win)">
+                {{ summary.win ? t('table.win') : t('table.loss') }}
+              </AppTag>
+            </td>
+            <td class="px-4 py-3">
+              {{ characterName(summary.character) }}
+            </td>
+            <td class="px-4 py-3">
+              A{{ summary.ascension }}
+            </td>
+            <td class="px-4 py-3">
+              <code class="seed-code">{{ summary.seed }}</code>
+              <SeedCopyButton :seed="summary.seed" />
+            </td>
+            <td class="px-4 py-3">
+              {{ summary.totalFloors }}
+            </td>
+            <td class="px-4 py-3">
+              {{ formatTime(summary.runTime) }}
+            </td>
+            <td class="px-4 py-3">
+              {{ formatDate(summary.startTime) }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -190,9 +197,5 @@ function onRowClick(event: { data: RunSummary }) {
 .seed-code {
   font-family: monospace;
   font-size: 0.8rem;
-}
-
-:deep(.p-datatable-table) {
-  cursor: pointer;
 }
 </style>

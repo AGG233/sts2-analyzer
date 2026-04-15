@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { FlatFloor } from '~/data/analytics'
 import type { RunFile } from '~/data/types'
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 import { computed } from 'vue'
 import { getFloorTimeline } from '~/data/analytics'
 import { useGameI18n } from '~/locales/lookup'
@@ -62,13 +62,25 @@ function getCardsSkipped(floor: FlatFloor): string[] {
         {{ mapTypeShort(floor.mapPoint.map_point_type) }}
       </div>
       <div class="floor-info">
-        <Tag :value="`${floor.playerStats[playerIndex]?.current_hp ?? '-'}/${floor.playerStats[playerIndex]?.max_hp ?? '-'}`" severity="danger" class="info-tag" />
-        <Tag :value="`${floor.playerStats[playerIndex]?.current_gold ?? '-'}g`" severity="warn" class="info-tag" />
+        <AppTag severity="danger" class="info-tag">
+          {{ `${floor.playerStats[playerIndex]?.current_hp ?? '-'}/${floor.playerStats[playerIndex]?.max_hp ?? '-'}` }}
+        </AppTag>
+        <AppTag severity="warn" class="info-tag">
+          {{ `${floor.playerStats[playerIndex]?.current_gold ?? '-'}g` }}
+        </AppTag>
         <template v-if="!compact">
-          <Tag v-if="(floor.playerStats[playerIndex]?.damage_taken ?? 0) > 0" :value="`-${floor.playerStats[playerIndex]?.damage_taken}`" severity="danger" class="info-tag" />
-          <Tag v-if="(floor.playerStats[playerIndex]?.hp_healed ?? 0) > 0" :value="`+${floor.playerStats[playerIndex]?.hp_healed}`" severity="success" class="info-tag" />
-          <Tag v-for="card in getCardsPicked(floor)" :key="card" :value="card" severity="info" class="info-tag" />
-          <Tag v-for="card in getCardsSkipped(floor)" :key="`s-${card}`" :value="card" severity="secondary" class="info-tag tag-strikethrough" />
+          <AppTag v-if="(floor.playerStats[playerIndex]?.damage_taken ?? 0) > 0" severity="danger" class="info-tag">
+            -{{ floor.playerStats[playerIndex]?.damage_taken }}
+          </AppTag>
+          <AppTag v-if="(floor.playerStats[playerIndex]?.hp_healed ?? 0) > 0" severity="success" class="info-tag">
+            +{{ floor.playerStats[playerIndex]?.hp_healed }}
+          </AppTag>
+          <AppTag v-for="card in getCardsPicked(floor)" :key="card" severity="info" class="info-tag">
+            {{ card }}
+          </AppTag>
+          <AppTag v-for="card in getCardsSkipped(floor)" :key="`s-${card}`" severity="secondary" class="info-tag tag-strikethrough">
+            {{ card }}
+          </AppTag>
         </template>
       </div>
       <div v-if="!compact && floor.mapPoint.rooms[0]?.model_id" class="floor-encounter">

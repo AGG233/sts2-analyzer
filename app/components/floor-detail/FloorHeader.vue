@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { FlatFloor } from '~/data/analytics'
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 import { typeColors } from '~/data/map'
 import { useGameI18n } from '~/locales/lookup'
 
@@ -32,13 +32,12 @@ function typeColor(type: string): string {
       </div>
       <template v-if="props.floor.mapPoint.rooms[0]?.monster_ids?.length">
         <div class="header-monsters">
-          <Tag
+          <AppTag
             v-for="monster in props.floor.mapPoint.rooms[0].monster_ids"
             :key="monster"
-            :value="monsterName(monster)"
             severity="info"
             class="monster-tag"
-          />
+          >{{ monsterName(monster) }}</AppTag>
         </div>
       </template>
       <div v-if="(props.floor.mapPoint.rooms[0]?.turns_taken ?? 0) > 0" class="header-turns">

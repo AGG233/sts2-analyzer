@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Button from 'primevue/button'
-import Tag from 'primevue/tag'
+import AppButton from '~/components/shared/AppButton.vue'
+import AppTag from '~/components/shared/AppTag.vue'
 import type { RunFile } from '~/data/types'
 import { getRunSummary } from '~/data/analytics'
 
@@ -28,16 +28,17 @@ const formatDate = (ts: number): string => {
   <div class="top-bar">
     <div class="top-bar-left">
       <router-link to="/" class="back-link">
-        <Button :label="t('run.back')" icon="pi pi-arrow-left" variant="text" size="small" />
+        <AppButton variant="text" size="small">
+          ← {{ t('run.back') }}
+        </AppButton>
       </router-link>
     </div>
 
     <div class="top-summary">
       <span v-if="summary.playerCount <= 1" class="character">{{ characterName(summary.character) }}</span>
-      <Tag
-        :value="summary.win ? t('run.victory') : t('run.defeat')"
-        :severity="summary.win ? 'success' : 'danger'"
-      />
+      <AppTag :severity="summary.win ? 'success' : 'danger'">
+        {{ summary.win ? t('run.victory') : t('run.defeat') }}
+      </AppTag>
       <span class="seed">Seed: {{ summary.seed }}</span>
       <span class="ascension">A{{ summary.ascension }}</span>
       <span class="top-meta">{{ summary.totalFloors }} {{ t('run.floors') }}</span>

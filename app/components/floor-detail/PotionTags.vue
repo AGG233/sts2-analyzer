@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 import type { MergedPotion } from './merge-utils'
 
 interface Props {
@@ -22,13 +22,12 @@ const getPotionSeverity = (status: string): 'success' | 'secondary' | undefined 
 
 <template>
   <div class="tag-list">
-    <Tag
+    <AppTag
       v-for="pot in potions"
       :key="pot.id"
-      :value="pot.name"
       :severity="getPotionSeverity(pot.status)"
       :class="{ 'tag-strikethrough': pot.status === 'choice-skipped' || pot.status === 'used' }"
-    />
+    >{{ pot.name }}</AppTag>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 
 interface Props {
   groups: Array<{
@@ -31,13 +31,12 @@ function getCardSeverity(group: { upgraded: number; floorAdded: number }): 'succ
 
 <template>
   <div class="tag-list">
-    <Tag
+    <AppTag
       v-for="(group, idx) in groups"
       :key="idx"
-      :value="`${group.name}${group.count > 1 ? ` x${group.count}` : ''}${group.upgraded > 1 ? ` <+${group.upgraded}>` : ''}`"
       :severity="getCardSeverity(group)"
       :class="{ 'tag-bold': group.upgraded > 1 }"
-    />
+    >{{ group.name }}{{ group.count > 1 ? ` x${group.count}` : '' }}{{ group.upgraded > 1 ? ` <+${group.upgraded}>` : '' }}</AppTag>
   </div>
 </template>
 

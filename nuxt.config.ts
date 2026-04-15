@@ -2,13 +2,12 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n', '@pinia/nuxt'],
+  modules: ['@nuxtjs/i18n', '@pinia/nuxt', '@nuxtjs/tailwindcss'],
   css: [
-    'primeicons/primeicons.css',
     '~/assets/css/main.css'
   ],
   build: {
-    transpile: ['vue-echarts', 'primevue', '@primevue/themes']
+    transpile: ['vue-echarts']
   },
   app: {
     head: {
@@ -38,5 +37,8 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     strategy: 'no_prefix'
+  },
+  tailwindcss: {
+    configPath: 'tailwind.config.ts'
   }
 })

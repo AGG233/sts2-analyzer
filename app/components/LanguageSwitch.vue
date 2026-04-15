@@ -1,40 +1,55 @@
 <script setup lang="ts">
-import Button from 'primevue/button'
-import { ref } from 'vue'
+import AppButton from '~/components/shared/AppButton.vue'
 
 const { locale } = useI18n()
 
 const languages = [
-  { name: 'English', code: 'en', icon: 'pi pi-globe' },
-  { name: '中文', code: 'zh', icon: 'pi pi-globe' },
-  { name: '日本語', code: 'ja', icon: 'pi pi-globe' },
-  { name: '한국어', code: 'ko', icon: 'pi pi-globe' },
-  { name: 'Deutsch', code: 'de', icon: 'pi pi-globe' },
-  { name: 'Français', code: 'fr', icon: 'pi pi-globe' },
-  { name: 'Español', code: 'es', icon: 'pi pi-globe' },
-  { name: 'Italiano', code: 'it', icon: 'pi pi-globe' },
-  { name: 'Polski', code: 'pl', icon: 'pi pi-globe' },
-  { name: 'Português', code: 'pt', icon: 'pi pi-globe' },
-  { name: 'Русский', code: 'ru', icon: 'pi pi-globe' },
-  { name: 'Türkçe', code: 'tr', icon: 'pi pi-globe' },
-  { name: 'ไทย', code: 'th', icon: 'pi pi-globe' },
+  { name: 'English', code: 'en' },
+  { name: '中文', code: 'zh' },
+  { name: '日本語', code: 'ja' },
+  { name: '한국어', code: 'ko' },
+  { name: 'Deutsch', code: 'de' },
+  { name: 'Français', code: 'fr' },
+  { name: 'Español', code: 'es' },
+  { name: 'Italiano', code: 'it' },
+  { name: 'Polski', code: 'pl' },
+  { name: 'Português', code: 'pt' },
+  { name: 'Русский', code: 'ru' },
+  { name: 'Türkçe', code: 'tr' },
+  { name: 'ไทย', code: 'th' },
 ]
 
 const showDropdown = ref(false)
+
+function handleClickOutside(event: Event) {
+  const target = event.target as Element
+  if (!target.closest('.language-switch')) {
+    showDropdown.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
   <div class="language-switch">
-    <Button
-      icon="pi pi-globe"
-      text
+    <AppButton
+      variant="text"
+      size="small"
       @click="showDropdown = !showDropdown"
       class="lang-button"
-    />
+    >
+      🌐
+    </AppButton>
     <div
       v-if="showDropdown"
       class="lang-dropdown"
-      @click-outside="showDropdown = false"
     >
       <select
         v-model="locale"

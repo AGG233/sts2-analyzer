@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Button from 'primevue/button'
-import Message from 'primevue/message'
+import AppButton from '~/components/shared/AppButton.vue'
+import AppMessage from '~/components/shared/AppMessage.vue'
 import { onMounted, ref } from 'vue'
 import { batchParseRunFiles, filterRunFiles, scanDirectoryHandle } from '~/data/parser'
 import { useRunStore } from '~/stores/runStore'
@@ -128,40 +128,39 @@ onMounted(async () => {
   <div class="scanner">
     <div class="btn-group">
       <template v-if="supportsDirectoryPicker">
-        <Button
-          :label="scanning ? t('home.scanning') : (store.dirHandle ? t('home.changeDir') : t('home.selectDir'))"
-          icon="pi pi-folder-open"
+        <AppButton
           :loading="scanning"
           @click="onPickDirectory"
-        />
-        <Button
+        >
+          📁 {{ scanning ? t('home.scanning') : (store.dirHandle ? t('home.changeDir') : t('home.selectDir')) }}
+        </AppButton>
+        <AppButton
           v-if="store.dirHandle"
-          :label="t('home.update')"
-          icon="pi pi-refresh"
           variant="outlined"
           :loading="scanning"
           @click="onUpdate"
-        />
+        >
+          ↻ {{ t('home.update') }}
+        </AppButton>
       </template>
       <template v-else>
         <label class="fallback-label">
-          <Button
-            :label="scanning ? t('home.scanning') : t('home.selectDir')"
-            icon="pi pi-folder-open"
+          <AppButton
             :loading="scanning"
-            severity="secondary"
-          />
+          >
+            📁 {{ scanning ? t('home.scanning') : t('home.selectDir') }}
+          </AppButton>
           <input type="file" webkitdirectory :disabled="scanning" @change="onFallbackInput">
         </label>
       </template>
     </div>
 
-    <Message v-if="scanResult" severity="success" :closable="false" class="scan-message">
+    <AppMessage v-if="scanResult" severity="success" class="scan-message">
       {{ t('home.foundRuns', { count: scanResult.count }) }}
-    </Message>
-    <Message v-if="error" severity="error" :closable="false" class="scan-message">
+    </AppMessage>
+    <AppMessage v-if="error" severity="error" class="scan-message">
       {{ error }}
-    </Message>
+    </AppMessage>
   </div>
 </template>
 

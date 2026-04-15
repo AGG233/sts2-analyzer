@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Fieldset from 'primevue/fieldset'
+import AppDisclosure from '~/components/shared/AppDisclosure.vue'
 import DeckTags from './DeckTags.vue'
 import RelicTags from './RelicTags.vue'
 import type { SimDeckCard } from '~/data/analytics'
@@ -47,20 +47,20 @@ const groupedDeck = computed(() => {
 
 <template>
   <div class="player-detail">
-    <Fieldset class="card-fieldset" :legend="`${t('run.relics')}: ${floorRelics.length}`">
+    <AppDisclosure :legend="`${t('run.relics')}: ${floorRelics.length}`">
       <RelicTags
         :relics="floorRelics"
         :gained-ids="gainedIds"
         :removed-ids="removedIds"
       />
-    </Fieldset>
+    </AppDisclosure>
 
-    <Fieldset class="card-fieldset" :legend="`${t('run.deckSize')}: ${deck.length}`">
+    <AppDisclosure :legend="`${t('run.deckSize')}: ${deck.length}`">
       <DeckTags
         :groups="groupedDeck"
         :current-floor="currentFloor"
       />
-    </Fieldset>
+    </AppDisclosure>
   </div>
 </template>
 

@@ -1,0 +1,161 @@
+<script setup lang="ts">
+import type { Ref } from 'vue'
+
+interface Column {
+  field?: string
+  header: string
+  sortable?: boolean
+  body?: (data: any) => any
+  class?: string
+}
+
+interface Props {
+  value: any[]
+  sortMode?: 'single' | 'multiple'
+  removableSort?: boolean
+  rowHover?: boolean
+  paginator?: boolean
+  rows?: number
+  class?: string
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  sortMode: 'single',
+  removableSort: false,
+  rowHover: false,
+  paginator: false,
+  rows: 20,
+  class: '',
+})
+
+const emit = defineEmits<{
+  (e: 'row-click', data: { data: any }): void
+}>()
+
+const slots = defineSlots<{
+  default(props: { columns: Column[] }): any
+}>()
+
+const sortField = ref<string | null>(null)
+const sortOrder = ref<1 | -1>(1)
+const currentPage = ref(1)
+
+const sortedValue = computed(() => {
+  let result = [...props.value]
+  if (sortField.value) {
+    result.sort((a, b) => {
+      const aVal = a[sortField.value as keyof typeof a]
+      const bVal = b[sortField.value as keyof typeof b]
+      if (aVal < bVal) return sortOrder.value === 1 ? -1 : 1
+      if (aVal > bVal) return sortOrder.value === 1 ? 1 : -1
+      return 0
+    })
+  }
+  return result
+})
+
+const paginatedValue = computed(() => {
+  if (!props.paginator) return sortedValue.value
+  const start = (currentPage.value - 1) * props.rows
+  return sortedValue.value.slice(start, start + props.rows)
+})
+
+const totalPages = computed(() => {
+  if (!props.paginator) return 1
+  return Math.ceil(props.value.length / props.rows)
+})
+
+function toggleSort(field: string) {
+  if (sortField.value === field) {
+    if (sortOrder.value === 1) {
+      sortOrder.value = -1
+    }
+    else if (props.removableSort) {
+      sortField.value = null
+    }
+    else {
+      sortOrder.value = 1
+    }
+  }
+  else {
+    sortField.value = field
+    sortOrder.value = 1
+  }
+}
+
+function getSortIcon(field: string): string {
+  if (sortField.value !== field) return '↕'
+  return sortOrder.value === 1 ? '↑' : '↓'
+}
+</script>
+
+<template>
+  <div :class="['app-data-table', props.class]">
+    <div class="table-container overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="bg-white/5">
+            <slot name="header" />
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(row, idx) in paginatedValue"
+            :key="idx"
+            class="border-t border-white/5 transition-colors"
+            :class="{ 'hover:bg-white/5': rowHover, 'cursor-pointer': $emit('row-click') }"
+            @click="$emit('row-click', { data: row })"
+          >
+            <slot name="body" :data="row" :index="idx" />
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div v-if="paginator && totalPages > 1" class="paginator flex items-center justify-center gap-2 mt-4">
+      <button
+        :disabled="currentPage === 1"
+        @click="currentPage--"
+        class="px-3 py-1 rounded disabled:opacity-50"
+      >
+        ←
+      </button>
+      <span class="text-sm text-gray-400">
+        {{ currentPage }} / {{ totalPages }}
+      </span>
+      <button
+        :disabled="currentPage === totalPages"
+        @click="currentPage++"
+        class="px-3 py-1 rounded disabled:opacity-50"
+      >
+        →
+      </button>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.app-data-table {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+table {
+  font-size: 0.9rem;
+}
+
+thead th {
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e0e0e0;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 500;
+}
+
+tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: #e0e0e0;
+}
+</style>

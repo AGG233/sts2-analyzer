@@ -10,21 +10,23 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@esotericsoftware/spine-pixi-v8": "^4.2.39",
+    "@headlessui/vue": "^1.7.23",
     "@nuxtjs/i18n": "^10.2.4",
     "@pinia/nuxt": "^0.11.3",
-    "@primevue/themes": "^4.5.4",
+    "@vueuse/core": "^14.2.1",
+    "@vueuse/motion": "^3.0.3",
     "echarts": "^6.0.0",
     "nuxt": "^4.4.2",
     "pinia": "^3.0.4",
-    "@esotericsoftware/spine-pixi-v8": "^4.2.39",
     "pixi.js": "^8.0.1",
-    "primeicons": "^7.0.0",
-    "primevue": "^4.5.5",
     "vue": "^3.5.32",
     "vue-echarts": "^8.0.1",
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
-    "@types/node": "^25.6.0"
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@types/node": "^25.6.0",
+    "tailwindcss": "^3.4.19"
   }
 }

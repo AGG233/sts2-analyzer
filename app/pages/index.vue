@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import Column from 'primevue/column'
-import DataTable from 'primevue/datatable'
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 import { computed, ref } from 'vue'
 import DirectoryScanner from '~/components/DirectoryScanner.vue'
 import RunList from '~/components/RunList.vue'
-import CardPickRateChart from '~/components/CardPickRateChart.vue'
+import CardPickRateChart from '~/components/charts/CardPickRateChart.vue'
 import LanguageSwitch from '~/components/LanguageSwitch.vue'
 import { getWinRateByCharacter } from '~/data/analytics'
 import { useGameI18n } from '~/locales/lookup'
@@ -35,7 +33,7 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
     <aside class="left-panel">
       <div class="panel-header">
         <h1 class="app-title">
-          <i class="pi pi-chart-line" />
+          📈
           {{ t('app.title') }}
         </h1>
       </div>
@@ -47,22 +45,22 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
 
         <div v-if="store.runs.length > 0" class="stats-overview">
           <div class="stat-item">
-            <i class="pi pi-trophy" />
+            🏆
             <span class="stat-label">{{ t('home.total') }}</span>
             <span class="stat-value">{{ store.runs.length }}</span>
           </div>
           <div class="stat-item win">
-            <i class="pi pi-check" />
+            ✓
             <span class="stat-label">{{ t('home.wins') }}</span>
             <span class="stat-value">{{ store.wins }}</span>
           </div>
           <div class="stat-item loss">
-            <i class="pi pi-times" />
+            ✕
             <span class="stat-label">{{ t('home.losses') }}</span>
             <span class="stat-value">{{ store.losses }}</span>
           </div>
           <div class="stat-item rate">
-            <i class="pi pi-chart-pie" />
+            📊
             <span class="stat-label">{{ t('home.winRate') }}</span>
             <span class="stat-value">{{ (store.wins / store.runs.length * 100).toFixed(1) }}%</span>
           </div>
@@ -70,37 +68,36 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
 
         <div v-if="characterStats.length > 0" class="character-stats">
           <h2>{{ t('home.characterStats') }}</h2>
-          <DataTable
-            :value="characterStats"
-            sort-mode="single"
-            removable-sort
-            class="character-table"
-          >
-            <Column :header="t('home.character')">
-              <template #body="{ data }">
-                {{ characterName(data.character) }}
-              </template>
-            </Column>
-            <Column :header="t('home.wins')" field="wins" sortable>
-              <template #body="{ data }">
-                <Tag :value="data.wins" severity="success" />
-              </template>
-            </Column>
-            <Column :header="t('home.losses')" field="losses" sortable>
-              <template #body="{ data }">
-                <Tag :value="data.losses" severity="danger" />
-              </template>
-            </Column>
-            <Column :header="t('home.total')" field="total" sortable />
-            <Column :header="t('home.winRate')" field="winRate" sortable>
-              <template #body="{ data }">
-                <Tag
-                  :value="`${(data.winRate * 100).toFixed(1)}%`"
-                  :severity="getWinRateSeverity(data.winRate)"
-                />
-              </template>
-            </Column>
-          </DataTable>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead class="text-left bg-white/5">
+                <tr>
+                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.character') }}</th>
+                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.wins') }}</th>
+                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.losses') }}</th>
+                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.total') }}</th>
+                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.winRate') }}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/10">
+                <tr v-for="stat in characterStats" :key="stat.character" class="hover:bg-white/5 transition-colors">
+                  <td class="px-4 py-3">{{ characterName(stat.character) }}</td>
+                  <td class="px-4 py-3">
+                    <AppTag severity="success">{{ stat.wins }}</AppTag>
+                  </td>
+                  <td class="px-4 py-3">
+                    <AppTag severity="danger">{{ stat.losses }}</AppTag>
+                  </td>
+                  <td class="px-4 py-3">{{ stat.total }}</td>
+                  <td class="px-4 py-3">
+                    <AppTag :severity="getWinRateSeverity(stat.winRate)">
+                      {{ `${(stat.winRate * 100).toFixed(1)}%` }}
+                    </AppTag>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

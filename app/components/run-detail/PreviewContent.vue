@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import SelectButton from 'primevue/selectbutton'
-import CombinedTimelineChart from '~/components/CombinedTimelineChart.vue'
+import CombinedTimelineChart from '~/components/charts/CombinedTimelineChart.vue'
 import DeckRelicsSection from './DeckRelicsSection.vue'
 import type { HpPoint, GoldPoint, DeckChange } from '~/data/analytics'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Tag from 'primevue/tag'
+import AppTag from '~/components/shared/AppTag.vue'
 import type { FloorPlayerStats } from '~/data/types'
 import type { MergedCard, MergedRelic, MergedPotion } from './merge-utils'
 import { getCharacterColor } from '~/data/characters'
@@ -58,10 +58,10 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
           <span class="separator">/</span>
           <span class="value">{{ stats.max_hp }}</span>
         </span>
-        <Tag v-if="stats.damage_taken > 0" :value="`-${stats.damage_taken}`" severity="danger" class="change-tag" />
-        <Tag v-if="stats.hp_healed > 0" :value="`+${stats.hp_healed}`" severity="success" class="change-tag" />
-        <Tag v-if="stats.max_hp_gained > 0" :value="`+${stats.max_hp_gained}`" severity="success" class="change-tag" />
-        <Tag v-if="stats.max_hp_lost > 0" :value="`-${stats.max_hp_lost}`" severity="danger" class="change-tag" />
+        <AppTag v-if="stats.damage_taken > 0" severity="danger" class="change-tag">-{{ stats.damage_taken }}</AppTag>
+        <AppTag v-if="stats.hp_healed > 0" severity="success" class="change-tag">+{{ stats.hp_healed }}</AppTag>
+        <AppTag v-if="stats.max_hp_gained > 0" severity="success" class="change-tag">+{{ stats.max_hp_gained }}</AppTag>
+        <AppTag v-if="stats.max_hp_lost > 0" severity="danger" class="change-tag">-{{ stats.max_hp_lost }}</AppTag>
       </span>
 
       <!-- Gold -->
@@ -70,9 +70,9 @@ const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'wa
         <span class="stat-value-inline">
           <span class="value">{{ stats.current_gold }}g</span>
         </span>
-        <Tag v-if="stats.gold_gained > 0" :value="`+${stats.gold_gained}`" severity="success" class="change-tag" />
-        <Tag v-if="stats.gold_spent > 0" :value="`-${stats.gold_spent}`" severity="danger" class="change-tag" />
-        <Tag v-if="stats.gold_stolen > 0" :value="`-${stats.gold_stolen}`" severity="danger" class="change-tag" />
+        <AppTag v-if="stats.gold_gained > 0" severity="success" class="change-tag">+{{ stats.gold_gained }}</AppTag>
+        <AppTag v-if="stats.gold_spent > 0" severity="danger" class="change-tag">-{{ stats.gold_spent }}</AppTag>
+        <AppTag v-if="stats.gold_stolen > 0" severity="danger" class="change-tag">-{{ stats.gold_stolen }}</AppTag>
       </span>
 
       <!-- Potions -->
