@@ -52,25 +52,27 @@ const option = computed(() => {
 		}
 	} else if (props.data && props.data.length > 0) {
 		// 单玩家模式
-		series.push({
-			name: t("chart.gold"),
-			type: "line",
-			data: props.data.map((d) => d.gold),
-			itemStyle: { color: "#f9a825" },
-			areaStyle: { color: "rgba(249,168,37,0.1)" },
-		});
-		series.push({
-			name: t("chart.spent"),
-			type: "bar",
-			data: props.data.map((d) => d.spent),
-			itemStyle: { color: "rgba(229,57,53,0.6)" },
-		});
-		series.push({
-			name: t("chart.gained"),
-			type: "bar",
-			data: props.data.map((d) => d.gained),
-			itemStyle: { color: "rgba(46,125,50,0.6)" },
-		});
+		series.push(
+			{
+				name: t("chart.gold"),
+				type: "line",
+				data: props.data.map((d) => d.gold),
+				itemStyle: { color: "#f9a825" },
+				areaStyle: { color: "rgba(249,168,37,0.1)" },
+			},
+			{
+				name: t("chart.spent"),
+				type: "bar",
+				data: props.data.map((d) => d.spent),
+				itemStyle: { color: "rgba(229,57,53,0.6)" },
+			},
+			{
+				name: t("chart.gained"),
+				type: "bar",
+				data: props.data.map((d) => d.gained),
+				itemStyle: { color: "rgba(46,125,50,0.6)" },
+			},
+		);
 	}
 
 	return {
