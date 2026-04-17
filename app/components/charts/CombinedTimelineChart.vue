@@ -47,128 +47,146 @@ const chartTypeOptions = computed(() => [
 	{ label: t("chart.deckSize"), value: "deck" as const },
 ]);
 
-const option = computed(() => {
+// 提取X轴数据
+const getXAxisData = (type: "hp" | "gold" | "deck"): number[] => {
+	if (type === "hp") {
+		return props.allPlayersHpData?.length
+			? props.allPlayersHpData[0].map((d) => d.floor)
+			: (props.hpData?.map((d) => d.floor) ?? []);
+	} else if (type === "gold") {
+		return props.allPlayersGoldData?.length
+			? props.allPlayersGoldData[0].map((d) => d.floor)
+			: (props.goldData?.map((d) => d.floor) ?? []);
+	} else {
+		return props.allPlayersDeckData?.length
+			? props.allPlayersDeckData[0].map((d) => d.floor)
+			: (props.deckData?.map((d) => d.floor) ?? []);
+	}
+};
+
+// 提取HP图表配置
+const getHpChartSeries = () => {
 	const series = [];
 
-	if (chartType.value === "hp") {
-		// HP 图表
-		if (props.allPlayersHpData && props.allPlayersHpData.length > 0) {
-			for (let i = 0; i < props.allPlayersHpData.length; i++) {
-				const playerData = props.allPlayersHpData[i];
-				if (playerData.length > 0) {
-					series.push({
-						name: `P${i + 1} HP`,
-						type: "line",
-						data: playerData.map((d) => d.hp),
-						itemStyle: { color: playerColors[i % playerColors.length] },
-						showSymbol: true,
-						symbolSize: 4,
-					});
-				}
+	if (props.allPlayersHpData && props.allPlayersHpData.length > 0) {
+		for (let i = 0; i < props.allPlayersHpData.length; i++) {
+			const playerData = props.allPlayersHpData[i];
+			if (playerData.length > 0) {
+				series.push({
+					name: `P${i + 1} HP`,
+					type: "line",
+					data: playerData.map((d) => d.hp),
+					itemStyle: { color: playerColors[i % playerColors.length] },
+					showSymbol: true,
+					symbolSize: 4,
+				});
 			}
-		} else if (props.hpData && props.hpData.length > 0) {
-			series.push({
-				name: t("chart.hp"),
-				type: "line",
-				data: props.hpData.map((d) => d.hp),
-				itemStyle: { color: "#e53935" },
-				areaStyle: { color: "rgba(229,57,53,0.1)" },
-			});
-			series.push({
-				name: t("chart.maxHp"),
-				type: "line",
-				data: props.hpData.map((d) => d.maxHp),
-				itemStyle: { color: "#90a4ae" },
-				lineStyle: { type: "dashed" },
-			});
 		}
-	} else if (chartType.value === "gold") {
-		// 金币图表
-		if (props.allPlayersGoldData && props.allPlayersGoldData.length > 0) {
-			for (let i = 0; i < props.allPlayersGoldData.length; i++) {
-				const playerData = props.allPlayersGoldData[i];
-				if (playerData.length > 0) {
-					series.push({
-						name: `P${i + 1} Gold`,
-						type: "line",
-						data: playerData.map((d) => d.gold),
-						itemStyle: { color: playerColors[i % playerColors.length] },
-						showSymbol: true,
-						symbolSize: 4,
-					});
-				}
-			}
-		} else if (props.goldData && props.goldData.length > 0) {
-			series.push({
-				name: t("chart.gold"),
-				type: "line",
-				data: props.goldData.map((d) => d.gold),
-				itemStyle: { color: "#f9a825" },
-				areaStyle: { color: "rgba(249,168,37,0.1)" },
-			});
-			series.push({
-				name: t("chart.spent"),
-				type: "bar",
-				data: props.goldData.map((d) => d.spent),
-				itemStyle: { color: "rgba(229,57,53,0.6)" },
-			});
-			series.push({
-				name: t("chart.gained"),
-				type: "bar",
-				data: props.goldData.map((d) => d.gained),
-				itemStyle: { color: "rgba(46,125,50,0.6)" },
-			});
-		}
-	} else {
-		// 卡组数量图表
-		if (props.allPlayersDeckData && props.allPlayersDeckData.length > 1) {
-			for (let i = 0; i < props.allPlayersDeckData.length; i++) {
-				const playerData = props.allPlayersDeckData[i];
-				if (playerData.length > 0) {
-					series.push({
-						name: `P${i + 1}`,
-						type: "line",
-						data: playerData.map((d) => d.deckSize),
-						itemStyle: { color: playerColors[i % playerColors.length] },
-						showSymbol: true,
-						symbolSize: 4,
-						smooth: true,
-					});
-				}
-			}
-		} else if (props.deckData && props.deckData.length > 0) {
-			series.push({
-				name: t("chart.deckSize"),
-				type: "line",
-				data: props.deckData.map((d) => d.deckSize),
-				itemStyle: { color: "#42a5f5" },
-				areaStyle: { color: "rgba(66,165,245,0.1)" },
-				smooth: true,
-			});
-		}
+	} else if (props.hpData && props.hpData.length > 0) {
+		series.push({
+			name: t("chart.hp"),
+			type: "line",
+			data: props.hpData.map((d) => d.hp),
+			itemStyle: { color: "#e53935" },
+			areaStyle: { color: "rgba(229,57,53,0.1)" },
+		});
+		series.push({
+			name: t("chart.maxHp"),
+			type: "line",
+			data: props.hpData.map((d) => d.maxHp),
+			itemStyle: { color: "#90a4ae" },
+			lineStyle: { type: "dashed" },
+		});
 	}
 
-	// 确定 X 轴数据
-	let xAxisData: number[] = [];
-	if (chartType.value === "hp") {
-		if (props.allPlayersHpData && props.allPlayersHpData.length > 0) {
-			xAxisData = props.allPlayersHpData[0].map((d) => d.floor);
-		} else if (props.hpData) {
-			xAxisData = props.hpData.map((d) => d.floor);
+	return series;
+};
+
+// 提取金币图表配置
+const getGoldChartSeries = () => {
+	const series = [];
+
+	if (props.allPlayersGoldData && props.allPlayersGoldData.length > 0) {
+		for (let i = 0; i < props.allPlayersGoldData.length; i++) {
+			const playerData = props.allPlayersGoldData[i];
+			if (playerData.length > 0) {
+				series.push({
+					name: `P${i + 1} Gold`,
+					type: "line",
+					data: playerData.map((d) => d.gold),
+					itemStyle: { color: playerColors[i % playerColors.length] },
+					showSymbol: true,
+					symbolSize: 4,
+				});
+			}
 		}
-	} else if (chartType.value === "gold") {
-		if (props.allPlayersGoldData && props.allPlayersGoldData.length > 0) {
-			xAxisData = props.allPlayersGoldData[0].map((d) => d.floor);
-		} else if (props.goldData) {
-			xAxisData = props.goldData.map((d) => d.floor);
-		}
-	} else {
-		if (props.allPlayersDeckData && props.allPlayersDeckData.length > 0) {
-			xAxisData = props.allPlayersDeckData[0].map((d) => d.floor);
-		} else if (props.deckData) {
-			xAxisData = props.deckData.map((d) => d.floor);
-		}
+	} else if (props.goldData && props.goldData.length > 0) {
+		series.push({
+			name: t("chart.gold"),
+			type: "line",
+			data: props.goldData.map((d) => d.gold),
+			itemStyle: { color: "#f9a825" },
+			areaStyle: { color: "rgba(249,168,37,0.1)" },
+		});
+		series.push({
+			name: t("chart.spent"),
+			type: "bar",
+			data: props.goldData.map((d) => d.spent),
+			itemStyle: { color: "rgba(229,57,53,0.6)" },
+		});
+		series.push({
+			name: t("chart.gained"),
+			type: "bar",
+			data: props.goldData.map((d) => d.gained),
+			itemStyle: { color: "rgba(46,125,50,0.6)" },
+		});
 	}
+
+	return series;
+};
+
+// 提取卡组数量图表配置
+const getDeckChartSeries = () => {
+	const series = [];
+
+	if (props.allPlayersDeckData && props.allPlayersDeckData.length > 1) {
+		for (let i = 0; i < props.allPlayersDeckData.length; i++) {
+			const playerData = props.allPlayersDeckData[i];
+			if (playerData.length > 0) {
+				series.push({
+					name: `P${i + 1}`,
+					type: "line",
+					data: playerData.map((d) => d.deckSize),
+					itemStyle: { color: playerColors[i % playerColors.length] },
+					showSymbol: true,
+					symbolSize: 4,
+					smooth: true,
+				});
+			}
+		}
+	} else if (props.deckData && props.deckData.length > 0) {
+		series.push({
+			name: t("chart.deckSize"),
+			type: "line",
+			data: props.deckData.map((d) => d.deckSize),
+			itemStyle: { color: "#42a5f5" },
+			areaStyle: { color: "rgba(66,165,245,0.1)" },
+			smooth: true,
+		});
+	}
+
+	return series;
+};
+
+const option = computed(() => {
+	const series =
+		chartType.value === "hp"
+			? getHpChartSeries()
+			: chartType.value === "gold"
+				? getGoldChartSeries()
+				: getDeckChartSeries();
+
+	const xAxisData = getXAxisData(chartType.value);
 
 	const yAxisName =
 		chartType.value === "hp"
@@ -203,26 +221,12 @@ const option = computed(() => {
 	};
 });
 
-function _handleChartMouseOver(params: {
+function handleChartMouseOver(params: {
 	dataIndex?: number;
 	targetType?: string;
 }) {
 	if (params.targetType === "axis" && params.dataIndex !== undefined) {
-		// Get xAxis data for current chart type
-		let xAxisData: number[] = [];
-		if (chartType.value === "hp") {
-			xAxisData = props.allPlayersHpData?.length
-				? props.allPlayersHpData[0].map((d) => d.floor)
-				: (props.hpData?.map((d) => d.floor) ?? []);
-		} else if (chartType.value === "gold") {
-			xAxisData = props.allPlayersGoldData?.length
-				? props.allPlayersGoldData[0].map((d) => d.floor)
-				: (props.goldData?.map((d) => d.floor) ?? []);
-		} else {
-			xAxisData = props.allPlayersDeckData?.length
-				? props.allPlayersDeckData[0].map((d) => d.floor)
-				: (props.deckData?.map((d) => d.floor) ?? []);
-		}
+		const xAxisData = getXAxisData(chartType.value);
 		const floor = xAxisData[params.dataIndex];
 		if (floor !== undefined) {
 			emit("hoverFloor", floor);
@@ -230,7 +234,7 @@ function _handleChartMouseOver(params: {
 	}
 }
 
-function _handleChartMouseOut() {
+function handleChartMouseOut() {
 	emit("hoverFloor", null);
 }
 </script>

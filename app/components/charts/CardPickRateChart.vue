@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ArrowDown, ArrowUpDown, ArrowUp, CopyCheck, Filter, TrendingUp } from "@lucide/vue";
 import { computed, defineAsyncComponent, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import type { CardPickRateOptions } from "~/data/analytics";
@@ -196,10 +195,7 @@ function updateChartData() {
 	}
 
 	if (props.characterId) {
-		chartData.value = getCardPickRateByCharacter(
-			store.runs,
-			props.characterId,
-		);
+		chartData.value = getCardPickRateByCharacter(store.runs, props.characterId);
 	} else {
 		chartData.value = getCardPickRate(store.runs, pickRateOptions.value);
 	}

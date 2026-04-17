@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { FolderOpen, RefreshCw } from "@lucide/vue";
 import { onMounted, ref } from "vue";
 import {
 	batchParseRunFiles,

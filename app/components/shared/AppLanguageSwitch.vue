@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const { locale } = useI18n();
 
-import { Globe } from "@lucide/vue";
-
 const languages = [
 	{ name: "English", code: "en" },
 	{ name: "中文", code: "zh" },

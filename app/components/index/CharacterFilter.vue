@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import {
-	Combobox,
-	ComboboxButton,
-	ComboboxOption,
-	ComboboxOptions,
-} from "@headlessui/vue";
-import { ChevronDown } from "@lucide/vue";
 import { computed, ref } from "vue";
 import type { CharacterWinRate } from "~/data/analytics";
 import { useGameI18n } from "~/locales/lookup";
