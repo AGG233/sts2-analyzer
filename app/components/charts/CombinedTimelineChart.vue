@@ -13,6 +13,8 @@ import type { DeckChange, GoldPoint, HpPoint } from "~/data/analytics";
 // biome-ignore lint/suspicious/noExplicitAny: vue-echarts has complex dynamic import typing
 const VChart = defineAsyncComponent(() => import("vue-echarts" as any));
 
+type ChartType = "hp" | "gold" | "deck";
+
 const props = defineProps<{
 	hpData?: HpPoint[];
 	goldData?: GoldPoint[];
@@ -39,7 +41,7 @@ const { t } = useI18n();
 const playerColors = ["#42a5f5", "#66bb6a", "#ffa726", "#ab47bc"];
 
 // 图表类型切换
-const chartType = ref<"hp" | "gold" | "deck">("hp");
+const chartType = ref<ChartType>("hp");
 
 const chartTypeOptions = computed(() => [
 	{ label: t("chart.hp"), value: "hp" as const },
@@ -48,7 +50,7 @@ const chartTypeOptions = computed(() => [
 ]);
 
 // 提取X轴数据
-const getXAxisData = (type: "hp" | "gold" | "deck"): number[] => {
+const getXAxisData = (type: ChartType): number[] => {
 	switch (type) {
 		case "hp":
 			return getFloorData(props.allPlayersHpData, props.hpData);
@@ -72,13 +74,13 @@ const getFloorData = (
 	return [];
 };
 
-const getSeriesForChartType = (type: "hp" | "gold" | "deck") => {
+const getSeriesForChartType = (type: ChartType) => {
 	if (type === "hp") return getHpChartSeries();
 	if (type === "gold") return getGoldChartSeries();
 	return getDeckChartSeries();
 };
 
-const getYAxisName = (type: "hp" | "gold" | "deck") => {
+const getYAxisName = (type: ChartType) => {
 	if (type === "hp") return t("chart.hp");
 	if (type === "gold") return t("chart.gold");
 	return t("chart.deckSize");
