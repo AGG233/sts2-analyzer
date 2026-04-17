@@ -72,6 +72,18 @@ const getFloorData = (
 	return [];
 };
 
+const getSeriesForChartType = (type: "hp" | "gold" | "deck") => {
+	if (type === "hp") return getHpChartSeries();
+	if (type === "gold") return getGoldChartSeries();
+	return getDeckChartSeries();
+};
+
+const getYAxisName = (type: "hp" | "gold" | "deck") => {
+	if (type === "hp") return t("chart.hp");
+	if (type === "gold") return t("chart.gold");
+	return t("chart.deckSize");
+};
+
 // 提取HP图表配置
 const getHpChartSeries = () => {
 	const series = [];
@@ -187,21 +199,11 @@ const getDeckChartSeries = () => {
 };
 
 const option = computed(() => {
-	const series =
-		chartType.value === "hp"
-			? getHpChartSeries()
-			: chartType.value === "gold"
-				? getGoldChartSeries()
-				: getDeckChartSeries();
+	const series = getSeriesForChartType(chartType.value);
 
 	const xAxisData = getXAxisData(chartType.value);
 
-	const yAxisName =
-		chartType.value === "hp"
-			? t("chart.hp")
-			: chartType.value === "gold"
-				? t("chart.gold")
-				: t("chart.deckSize");
+	const yAxisName = getYAxisName(chartType.value);
 
 	return {
 		animation: true,

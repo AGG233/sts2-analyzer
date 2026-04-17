@@ -94,7 +94,9 @@ function _getSortIcon(
       <table class="w-full border-collapse">
         <thead>
           <tr class="bg-white/5">
+            <!-- SonarQube S5256: slot receives th elements from parent -->
             <slot name="header" />
+            <th v-if="!$slots.header" class="px-4 py-3 font-medium text-gray-200" scope="col" />
           </tr>
         </thead>
         <tbody>
