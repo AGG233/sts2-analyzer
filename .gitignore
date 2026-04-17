@@ -46,6 +46,9 @@ trace-*.json.gz
 # SonarQube configuration (local analysis)
 sonar-project.properties
 
+# Game resources (copyrighted content from Slay the Spire 2)
+public/spine/
+
 # Screenshots (exclude from repo except public/)
 *.png
 *.jpg
