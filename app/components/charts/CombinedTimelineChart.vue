@@ -49,19 +49,27 @@ const chartTypeOptions = computed(() => [
 
 // 提取X轴数据
 const getXAxisData = (type: "hp" | "gold" | "deck"): number[] => {
+	let data: number[] = [];
 	if (type === "hp") {
-		return props.allPlayersHpData?.length
-			? props.allPlayersHpData[0].map((d) => d.floor)
-			: (props.hpData?.map((d) => d.floor) ?? []);
+		if (props.allPlayersHpData && props.allPlayersHpData.length > 0) {
+			data = props.allPlayersHpData[0].map((d) => d.floor);
+		} else if (props.hpData) {
+			data = props.hpData.map((d) => d.floor);
+		}
 	} else if (type === "gold") {
-		return props.allPlayersGoldData?.length
-			? props.allPlayersGoldData[0].map((d) => d.floor)
-			: (props.goldData?.map((d) => d.floor) ?? []);
+		if (props.allPlayersGoldData && props.allPlayersGoldData.length > 0) {
+			data = props.allPlayersGoldData[0].map((d) => d.floor);
+		} else if (props.goldData) {
+			data = props.goldData.map((d) => d.floor);
+		}
 	} else {
-		return props.allPlayersDeckData?.length
-			? props.allPlayersDeckData[0].map((d) => d.floor)
-			: (props.deckData?.map((d) => d.floor) ?? []);
+		if (props.allPlayersDeckData && props.allPlayersDeckData.length > 0) {
+			data = props.allPlayersDeckData[0].map((d) => d.floor);
+		} else if (props.deckData) {
+			data = props.deckData.map((d) => d.floor);
+		}
 	}
+	return data;
 };
 
 // 提取HP图表配置
