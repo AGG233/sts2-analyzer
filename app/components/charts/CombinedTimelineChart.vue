@@ -49,27 +49,27 @@ const chartTypeOptions = computed(() => [
 
 // 提取X轴数据
 const getXAxisData = (type: "hp" | "gold" | "deck"): number[] => {
-	let data: number[] = [];
-	if (type === "hp") {
-		if (props.allPlayersHpData && props.allPlayersHpData.length > 0) {
-			data = props.allPlayersHpData[0].map((d) => d.floor);
-		} else if (props.hpData) {
-			data = props.hpData.map((d) => d.floor);
-		}
-	} else if (type === "gold") {
-		if (props.allPlayersGoldData && props.allPlayersGoldData.length > 0) {
-			data = props.allPlayersGoldData[0].map((d) => d.floor);
-		} else if (props.goldData) {
-			data = props.goldData.map((d) => d.floor);
-		}
-	} else {
-		if (props.allPlayersDeckData && props.allPlayersDeckData.length > 0) {
-			data = props.allPlayersDeckData[0].map((d) => d.floor);
-		} else if (props.deckData) {
-			data = props.deckData.map((d) => d.floor);
-		}
+	switch (type) {
+		case "hp":
+			return getFloorData(props.allPlayersHpData, props.hpData);
+		case "gold":
+			return getFloorData(props.allPlayersGoldData, props.goldData);
+		default:
+			return getFloorData(props.allPlayersDeckData, props.deckData);
 	}
-	return data;
+};
+
+const getFloorData = (
+	allData: HpPoint[][] | GoldPoint[][] | DeckChange[][] | undefined,
+	singleData: HpPoint[] | GoldPoint[] | DeckChange[] | undefined,
+): number[] => {
+	if (allData && allData.length > 0 && allData[0]) {
+		return allData[0].map((d) => d.floor);
+	}
+	if (singleData) {
+		return singleData.map((d) => d.floor);
+	}
+	return [];
 };
 
 // 提取HP图表配置
