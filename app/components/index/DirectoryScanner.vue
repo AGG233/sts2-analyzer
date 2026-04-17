@@ -14,7 +14,7 @@ const scanning = ref(false);
 const scanResult = ref<{ count: number } | null>(null);
 const error = ref<string | null>(null);
 const supportsDirectoryPicker =
-	import.meta.client && "showDirectoryPicker" in window;
+	import.meta.client && "showDirectoryPicker" in globalThis;
 
 async function onPickDirectory() {
 	if (!supportsDirectoryPicker) return;
@@ -24,7 +24,7 @@ async function onPickDirectory() {
 
 	try {
 		const dirHandle = await (
-			window as unknown as {
+			globalThis as unknown as {
 				showDirectoryPicker: () => Promise<FileSystemDirectoryHandle>;
 			}
 		).showDirectoryPicker();
@@ -34,7 +34,7 @@ async function onPickDirectory() {
 		await store.setDirHandle(dirHandle);
 		await store.addRuns(parsed.map((r) => r.data));
 		// 触发通知
-		window.dispatchEvent(
+		globalThis.dispatchEvent(
 			new CustomEvent("notification", {
 				detail: {
 					severity: "success",
@@ -62,7 +62,7 @@ async function onUpdate() {
 		const count = await store.rescan();
 		scanResult.value = { count };
 		// 触发通知
-		window.dispatchEvent(
+		globalThis.dispatchEvent(
 			new CustomEvent("notification", {
 				detail: {
 					severity: "success",
@@ -92,7 +92,7 @@ async function onFallbackInput(event: Event) {
 		scanResult.value = { count: parsed.length };
 		await store.addRuns(parsed.map((r) => r.data));
 		// 触发通知
-		window.dispatchEvent(
+		globalThis.dispatchEvent(
 			new CustomEvent("notification", {
 				detail: {
 					severity: "success",

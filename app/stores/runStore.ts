@@ -92,12 +92,12 @@ export const useRunStore = defineStore("runs", () => {
 		detail?: string,
 		life = 3000,
 	) {
-		// 创建一个全局事件发射器（使用 window 作为事件总线）
+		// 创建一个全局事件发射器（使用 globalThis 作为事件总线）
 		if (import.meta.client) {
 			const event = new CustomEvent("notification", {
 				detail: { severity, summary, detail, life },
 			});
-			window.dispatchEvent(event);
+			globalThis.dispatchEvent(event);
 		}
 	}
 

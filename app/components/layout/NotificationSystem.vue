@@ -55,11 +55,11 @@ function removeNotification(id: number) {
 }
 
 onMounted(() => {
-	window.addEventListener("notification", handleNotification);
+	globalThis.addEventListener("notification", handleNotification);
 });
 
 onUnmounted(() => {
-	window.removeEventListener("notification", handleNotification);
+	globalThis.removeEventListener("notification", handleNotification);
 });
 </script>
 
