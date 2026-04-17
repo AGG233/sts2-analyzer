@@ -43,8 +43,7 @@ GAME_SOURCE.md
 Trace-*.json.gz
 trace-*.json.gz
 
-# SonarQube configuration (local analysis)
-sonar-project.properties
+# SonarQube configuration (keep in repo for CI/CD)
 
 # Game resources (copyrighted content from Slay the Spire 2)
 public/spine/
