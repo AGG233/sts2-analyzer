@@ -17,7 +17,7 @@ const loadSpineBackground = async () => {
 		import("@esotericsoftware/spine-core"),
 	]);
 
-	const { Application, Container, Assets } = pixiModule;
+	const { Application, Assets } = pixiModule;
 	const { Spine, SpineTexture } = spinePixiModule;
 	const { SkeletonBinary, TextureAtlas, AtlasAttachmentLoader } =
 		spineCoreModule;
@@ -25,11 +25,11 @@ const loadSpineBackground = async () => {
 	// Initialize PixiJS Application with transparent background
 	app = new Application();
 	await app.init({
-		width: window.innerWidth,
-		height: window.innerHeight,
+		width: globalThis.innerWidth,
+		height: globalThis.innerHeight,
 		backgroundAlpha: 0,
 		antialias: true,
-		resolution: window.devicePixelRatio || 1,
+		resolution: globalThis.devicePixelRatio || 1,
 		autoDensity: true,
 	});
 
@@ -162,7 +162,7 @@ const loadSpineBackground = async () => {
 	// Handle resize
 	resizeObserver = new ResizeObserver(() => {
 		if (app) {
-			app.renderer.resize(window.innerWidth, window.innerHeight);
+			app.renderer.resize(globalThis.innerWidth, globalThis.innerHeight);
 			// Re-position spines after resize
 			stage.children.forEach((child: Container, index: number) => {
 				const layer = layers[index];
