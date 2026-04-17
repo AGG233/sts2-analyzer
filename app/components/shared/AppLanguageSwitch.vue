@@ -1,41 +1,40 @@
 <script setup lang="ts">
-import { Globe } from '@lucide/vue'
-import AppButton from '~/components/shared/AppButton.vue'
+const { locale } = useI18n();
 
-const { locale } = useI18n()
+import { Globe } from "@lucide/vue";
 
 const languages = [
-  { name: 'English', code: 'en' },
-  { name: '中文', code: 'zh' },
-  { name: '日本語', code: 'ja' },
-  { name: '한국어', code: 'ko' },
-  { name: 'Deutsch', code: 'de' },
-  { name: 'Français', code: 'fr' },
-  { name: 'Español', code: 'es' },
-  { name: 'Italiano', code: 'it' },
-  { name: 'Polski', code: 'pl' },
-  { name: 'Português', code: 'pt' },
-  { name: 'Русский', code: 'ru' },
-  { name: 'Türkçe', code: 'tr' },
-  { name: 'ไทย', code: 'th' },
-]
+	{ name: "English", code: "en" },
+	{ name: "中文", code: "zh" },
+	{ name: "日本語", code: "ja" },
+	{ name: "한국어", code: "ko" },
+	{ name: "Deutsch", code: "de" },
+	{ name: "Français", code: "fr" },
+	{ name: "Español", code: "es" },
+	{ name: "Italiano", code: "it" },
+	{ name: "Polski", code: "pl" },
+	{ name: "Português", code: "pt" },
+	{ name: "Русский", code: "ru" },
+	{ name: "Türkçe", code: "tr" },
+	{ name: "ไทย", code: "th" },
+];
 
-const showDropdown = ref(false)
+const showDropdown = ref(false);
 
 function handleClickOutside(event: Event) {
-  const target = event.target as Element
-  if (!target.closest('.language-switch')) {
-    showDropdown.value = false
-  }
+	const target = event.target as Element;
+	if (!target.closest(".language-switch")) {
+		showDropdown.value = false;
+	}
 }
 
 onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
+	document.addEventListener("click", handleClickOutside);
+});
 
 onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
+	document.removeEventListener("click", handleClickOutside);
+});
 </script>
 
 <template>

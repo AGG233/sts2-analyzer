@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useRunStore } from '~/stores/runStore'
+import { useRunStore } from "~/stores/runStore";
 
-const store = useRunStore()
-onMounted(() => store.init())
+const store = useRunStore();
+onMounted(() => store.init());
 </script>
 
 <template>

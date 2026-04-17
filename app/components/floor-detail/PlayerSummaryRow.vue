@@ -1,43 +1,42 @@
 <script setup lang="ts">
-import AppTag from '~/components/shared/AppTag.vue'
-import type { FloorPlayerStats } from '~/data/types'
-import type { MergedCard, MergedRelic, MergedPotion } from './merge-utils'
-import { getCharacterColor } from '~/data/characters'
-import { Heart, Coins, FlaskConical, Tent, Dices, Gem, Scroll } from '@lucide/vue'
+import type { FloorPlayerStats } from "~/data/types";
+import type { MergedCard, MergedPotion, MergedRelic } from "./merge-utils";
 
 interface Props {
-  stats: FloorPlayerStats
-  character: string
-  cards: MergedCard[]
-  relics: MergedRelic[]
-  potions: MergedPotion[]
+	stats: FloorPlayerStats;
+	character: string;
+	cards: MergedCard[];
+	relics: MergedRelic[];
+	potions: MergedPotion[];
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
-const { t } = useI18n()
-const { characterName, restSiteChoiceName } = useGameI18n()
+const { t } = useI18n();
+const { characterName, restSiteChoiceName } = useGameI18n();
 
-const getCardSeverity = (status: string): 'success' | 'secondary' | 'info' | 'warn' | 'danger' | undefined => {
-  switch (status) {
-    case 'choice-picked':
-      return 'success'
-    case 'choice-skipped':
-      return 'secondary'
-    case 'gained':
-      return 'success'
-    case 'transformed-from':
-      return 'danger'
-    case 'transformed-to':
-      return 'success'
-    case 'upgraded':
-      return 'warn'
-    case 'removed':
-      return 'danger'
-    default:
-      return undefined
-  }
-}
+const _getCardSeverity = (
+	status: string,
+): "success" | "secondary" | "info" | "warn" | "danger" | undefined => {
+	switch (status) {
+		case "choice-picked":
+			return "success";
+		case "choice-skipped":
+			return "secondary";
+		case "gained":
+			return "success";
+		case "transformed-from":
+			return "danger";
+		case "transformed-to":
+			return "success";
+		case "upgraded":
+			return "warn";
+		case "removed":
+			return "danger";
+		default:
+			return undefined;
+	}
+};
 </script>
 
 <template>

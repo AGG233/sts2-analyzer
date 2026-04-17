@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import FloorDetail from '~/components/floor-detail/FloorDetail.vue'
-import type { RunFile } from '~/data/types'
+import type { RunFile } from "~/data/types";
 
 const props = defineProps<{
-  run: RunFile
-  selectedFloor?: number
-}>()
+	run: RunFile;
+	selectedFloor?: number;
+}>();
 </script>
 
 <template>

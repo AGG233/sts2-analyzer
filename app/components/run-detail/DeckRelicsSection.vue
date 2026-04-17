@@ -1,55 +1,67 @@
 <script setup lang="ts">
-import AppTag from '~/components/shared/AppTag.vue'
-import type { SimDeckCard } from '~/data/analytics'
+import type { SimDeckCard } from "~/data/analytics";
+import { useGameI18n } from "~/locales/lookup";
 
 interface Props {
-  deck: SimDeckCard[]
-  relics: Array<{
-    id: string
-    floor_added_to_deck: number
-  }>
-  hoveredFloor?: number | null
+	deck: SimDeckCard[];
+	relics: Array<{
+		id: string;
+		floor_added_to_deck: number;
+	}>;
+	hoveredFloor?: number | null;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
-const { t } = useI18n()
-const { cardName, relicName } = useGameI18n()
+const { t } = useI18n();
+const { cardName, relicName } = useGameI18n();
 
 const groupedCurrentDeck = computed(() => {
-  const map = new Map<string, { name: string; upgraded: boolean; count: number }>()
-  for (const card of props.deck) {
-    const lvl = 'current_upgrade_level' in card ?
-      (card as { current_upgrade_level?: number }).current_upgrade_level ?? 0 : 0
-    const key = `${card.id}|${lvl}`
-    if (!map.has(key)) {
-      map.set(key, {
-        name: cardName(card.id),
-        upgraded: lvl > 0,
-        count: 1
-      })
-    } else {
-      map.get(key)!.count++
-    }
-  }
-  return Array.from(map.values())
-})
+	const map = new Map<
+		string,
+		{ name: string; upgraded: boolean; count: number }
+	>();
+	for (const card of props.deck) {
+		const lvl =
+			"current_upgrade_level" in card
+				? ((card as { current_upgrade_level?: number }).current_upgrade_level ??
+					0)
+				: 0;
+		const key = `${card.id}|${lvl}`;
+		if (!map.has(key)) {
+			map.set(key, {
+				name: cardName(card.id),
+				upgraded: lvl > 0,
+				count: 1,
+			});
+		} else {
+			const entry = map.get(key);
+			if (entry) {
+				entry.count++;
+			}
+		}
+	}
+	return Array.from(map.values());
+});
 
 const groupedCurrentRelics = computed(() => {
-  const map = new Map<string, { name: string; count: number; floor: number }>()
-  for (const relic of props.relics) {
-    if (!map.has(relic.id)) {
-      map.set(relic.id, {
-        name: relicName(relic.id),
-        count: 1,
-        floor: relic.floor_added_to_deck ?? 1
-      })
-    } else {
-      map.get(relic.id)!.count++
-    }
-  }
-  return Array.from(map.values())
-})
+	const map = new Map<string, { name: string; count: number; floor: number }>();
+	for (const relic of props.relics) {
+		if (!map.has(relic.id)) {
+			map.set(relic.id, {
+				name: relicName(relic.id),
+				count: 1,
+				floor: relic.floor_added_to_deck ?? 1,
+			});
+		} else {
+			const entry = map.get(relic.id);
+			if (entry) {
+				entry.count++;
+			}
+		}
+	}
+	return Array.from(map.values());
+});
 </script>
 
 <template>

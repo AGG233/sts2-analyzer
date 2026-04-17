@@ -1,24 +1,22 @@
 <script setup lang="ts">
-import AppTag from '~/components/shared/AppTag.vue'
-
 interface Props {
-  relics: Array<{
-    id: string
-    name: string
-    floor: number
-  }>
-  gainedIds: Set<string>
-  removedIds: Set<string>
+	relics: Array<{
+		id: string;
+		name: string;
+		floor: number;
+	}>;
+	gainedIds: Set<string>;
+	removedIds: Set<string>;
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
 function isRelicGained(relicId: string): boolean {
-  return props.gainedIds.has(relicId)
+	return props.gainedIds.has(relicId);
 }
 
 function isRelicRemoved(relicId: string): boolean {
-  return props.removedIds.has(relicId)
+	return props.removedIds.has(relicId);
 }
 </script>
 

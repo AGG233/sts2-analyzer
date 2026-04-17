@@ -88,8 +88,20 @@
     "spent": "Spent",
     "gained": "Gained",
     "floorAxis": "Floor",
-    "deckSize": "Deck Size",
-    "cardsAdded": "Cards Added",
-    "cardsRemoved": "Cards Removed"
+    "deckSize": "덱 크기",
+    "cardsAdded": "얻은 카드",
+    "cardsRemoved": "제거된 카드",
+    "cardPickRate": "카드 선택률",
+    "cardPickRateByCharacter": "카드 선택률 - {character}",
+    "cardTypes": "카드 종류",
+    "avgPickRate": "평균 선택률",
+    "topPicked": "최다 선택",
+    "sortByCount": "횟수순",
+    "sortByRate": "선택률순",
+    "showAll": "전체 보기",
+    "deduplicate": "중복 제외",
+    "floorAll": "전체",
+    "noData": "데이터가 없습니다. 게임 세이브를 먼저 가져오세요.",
+    "noMatchingCards": "필터 조건에 맞는 카드가 없습니다."
   }
 }

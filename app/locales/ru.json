@@ -16,7 +16,8 @@
     "runs": "runs",
     "loading": "Loading...",
     "character": "Character",
-    "characterStats": "Character Statistics"
+    "characterStats": "Character Statistics",
+    "cardAnalysis": "Card Analysis"
   },
   "run": {
     "back": "← Back",
@@ -90,7 +91,26 @@
     "floorAxis": "Floor",
     "deckSize": "Deck Size",
     "cardsAdded": "Cards Added",
-    "cardsRemoved": "Cards Removed"
+    "cardsRemoved": "Cards Removed",
+    "cardPickRate": "Card Pick Rate",
+    "cardPickRateByCharacter": "Card Pick Rate - {character}",
+    "cardTypes": "Card Types",
+    "avgPickRate": "Avg Pick Rate",
+    "topPicked": "Top Picked",
+    "sortByCount": "By Count",
+    "sortByRate": "By Rate",
+    "showAll": "Show All",
+    "deduplicate": "Deduplicate",
+    "floorAll": "All",
+    "noData": "No data yet. Import your game saves first.",
+    "noMatchingCards": "No cards match the current filters.",
+    "picked": "Picked",
+    "skipped": "Skipped",
+    "total": "Total",
+    "pickRateLabel": "Pick Rate",
+    "count": "Count",
+    "sortDesc": "Descending",
+    "sortAsc": "Ascending"
   },
   "ui": {
     "app": {
@@ -110,7 +130,8 @@
       "runs": "runs",
       "loading": "Loading...",
       "character": "Character",
-      "characterStats": "Character Statistics"
+      "characterStats": "Character Statistics",
+      "cardAnalysis": "Card Analysis"
     },
     "run": {
       "back": "← Back",

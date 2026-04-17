@@ -1,40 +1,37 @@
 <script setup lang="ts">
 interface Option {
-  label: string
-  value: any
+	label: string;
+	value: unknown;
 }
 
 interface Props {
-  modelValue: any
-  options: Option[]
-  allowEmpty?: boolean
-  size?: 'small' | 'medium' | 'large'
-  class?: string
+	modelValue: unknown;
+	options: Option[];
+	allowEmpty?: boolean;
+	size?: "small" | "medium" | "large";
+	class?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  allowEmpty: false,
-  size: 'medium',
-  class: '',
-})
+	allowEmpty: false,
+	size: "medium",
+	class: "",
+});
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: any): void
-}>()
+const emit = defineEmits<(e: "update:modelValue", value: unknown) => void>();
 
-const sizeClasses: Record<string, string> = {
-  small: 'text-xs px-2 py-1',
-  medium: 'text-sm px-3 py-1.5',
-  large: 'text-base px-4 py-2',
-}
+const _sizeClasses: Record<string, string> = {
+	small: "text-xs px-2 py-1",
+	medium: "text-sm px-3 py-1.5",
+	large: "text-base px-4 py-2",
+};
 
 function selectOption(option: Option) {
-  if (props.modelValue === option.value && props.allowEmpty) {
-    emit('update:modelValue', null)
-  }
-  else {
-    emit('update:modelValue', option.value)
-  }
+	if (props.modelValue === option.value && props.allowEmpty) {
+		emit("update:modelValue", null);
+	} else {
+		emit("update:modelValue", option.value);
+	}
 }
 </script>
 

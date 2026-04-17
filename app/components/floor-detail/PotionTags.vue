@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import AppTag from '~/components/shared/AppTag.vue'
-import type { MergedPotion } from './merge-utils'
+import type { MergedPotion } from "./merge-utils";
 
 interface Props {
-  potions: MergedPotion[]
+	potions: MergedPotion[];
 }
 
-const props = defineProps<Props>()
+const props = defineProps<Props>();
 
-const getPotionSeverity = (status: string): 'success' | 'secondary' | undefined => {
-  switch (status) {
-    case 'choice-picked':
-      return 'success'
-    case 'used':
-      return 'secondary'
-    default:
-      return undefined
-  }
-}
+const getPotionSeverity = (
+	status: string,
+): "success" | "secondary" | undefined => {
+	switch (status) {
+		case "choice-picked":
+			return "success";
+		case "used":
+			return "secondary";
+		default:
+			return undefined;
+	}
+};
 </script>
 
 <template>

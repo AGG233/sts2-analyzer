@@ -1,92 +1,90 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-import { ArrowUpDown, ArrowUp, ArrowDown, ChevronLeft, ChevronRight } from '@lucide/vue'
+import { ArrowDown, ArrowUp, ArrowUpDown } from "@lucide/vue";
+
+type RowData = Record<string, unknown>;
 
 interface Column {
-  field?: string
-  header: string
-  sortable?: boolean
-  body?: (data: any) => any
-  class?: string
+	field?: string;
+	header: string;
+	sortable?: boolean;
+	body?: (data: RowData) => unknown;
+	class?: string;
 }
 
 interface Props {
-  value: any[]
-  sortMode?: 'single' | 'multiple'
-  removableSort?: boolean
-  rowHover?: boolean
-  paginator?: boolean
-  rows?: number
-  class?: string
+	value: RowData[];
+	sortMode?: "single" | "multiple";
+	removableSort?: boolean;
+	rowHover?: boolean;
+	paginator?: boolean;
+	rows?: number;
+	class?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  sortMode: 'single',
-  removableSort: false,
-  rowHover: false,
-  paginator: false,
-  rows: 20,
-  class: '',
-})
+	sortMode: "single",
+	removableSort: false,
+	rowHover: false,
+	paginator: false,
+	rows: 20,
+	class: "",
+});
 
-const emit = defineEmits<{
-  (e: 'row-click', data: { data: any }): void
-}>()
+const emit = defineEmits<(e: "row-click", data: { data: RowData }) => void>();
 
-const slots = defineSlots<{
-  default(props: { columns: Column[] }): any
-}>()
+const _slots = defineSlots<{
+	default(props: { columns: Column[] }): unknown;
+}>();
 
-const sortField = ref<string | null>(null)
-const sortOrder = ref<1 | -1>(1)
-const currentPage = ref(1)
+const sortField = ref<string | null>(null);
+const sortOrder = ref<1 | -1>(1);
+const currentPage = ref(1);
 
 const sortedValue = computed(() => {
-  let result = [...props.value]
-  if (sortField.value) {
-    result.sort((a, b) => {
-      const aVal = a[sortField.value as keyof typeof a]
-      const bVal = b[sortField.value as keyof typeof b]
-      if (aVal < bVal) return sortOrder.value === 1 ? -1 : 1
-      if (aVal > bVal) return sortOrder.value === 1 ? 1 : -1
-      return 0
-    })
-  }
-  return result
-})
+	let result = [...props.value];
+	if (sortField.value) {
+		result.sort((a, b) => {
+			const aVal = a[sortField.value as keyof typeof a];
+			const bVal = b[sortField.value as keyof typeof b];
+			if (aVal < bVal) return sortOrder.value === 1 ? -1 : 1;
+			if (aVal > bVal) return sortOrder.value === 1 ? 1 : -1;
+			return 0;
+		});
+	}
+	return result;
+});
 
 const paginatedValue = computed(() => {
-  if (!props.paginator) return sortedValue.value
-  const start = (currentPage.value - 1) * props.rows
-  return sortedValue.value.slice(start, start + props.rows)
-})
+	if (!props.paginator) return sortedValue.value;
+	const start = (currentPage.value - 1) * props.rows;
+	return sortedValue.value.slice(start, start + props.rows);
+});
 
 const totalPages = computed(() => {
-  if (!props.paginator) return 1
-  return Math.ceil(props.value.length / props.rows)
-})
+	if (!props.paginator) return 1;
+	return Math.ceil(props.value.length / props.rows);
+});
 
-function toggleSort(field: string) {
-  if (sortField.value === field) {
-    if (sortOrder.value === 1) {
-      sortOrder.value = -1
-    }
-    else if (props.removableSort) {
-      sortField.value = null
-    }
-    else {
-      sortOrder.value = 1
-    }
-  }
-  else {
-    sortField.value = field
-    sortOrder.value = 1
-  }
+function _toggleSort(field: string) {
+	if (sortField.value === field) {
+		if (sortOrder.value === 1) {
+			sortOrder.value = -1;
+		} else if (props.removableSort) {
+			sortField.value = null;
+		} else {
+			sortOrder.value = 1;
+		}
+	} else {
+		sortField.value = field;
+		sortOrder.value = 1;
+	}
 }
 
-function getSortIcon(field: string): any {
-  if (sortField.value !== field) return ArrowUpDown
-  return sortOrder.value === 1 ? ArrowUp : ArrowDown
+function _getSortIcon(
+	field: string,
+): typeof ArrowUpDown | typeof ArrowUp | typeof ArrowDown {
+	if (sortField.value !== field) return ArrowUpDown;
+	return sortOrder.value === 1 ? ArrowUp : ArrowDown;
 }
 </script>
 

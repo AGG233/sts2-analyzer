@@ -92,7 +92,17 @@
     "cardsAdded": "Cards Added",
     "cardsRemoved": "Cards Removed",
     "cardPickRate": "Card Pick Rate",
-    "cardPickRateByCharacter": "Card Pick Rate - {character}"
+    "cardPickRateByCharacter": "Card Pick Rate - {character}",
+    "cardTypes": "Card Types",
+    "avgPickRate": "Avg Pick Rate",
+    "topPicked": "Top Picked",
+    "sortByCount": "By Count",
+    "sortByRate": "By Rate",
+    "showAll": "Show All",
+    "deduplicate": "Deduplicate",
+    "floorAll": "All",
+    "noData": "No data yet. Import your game saves first.",
+    "noMatchingCards": "No cards match the current filters."
   },
   "notification": {
     "scanComplete": "Scan complete"

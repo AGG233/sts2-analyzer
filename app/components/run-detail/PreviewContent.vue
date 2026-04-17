@@ -1,32 +1,38 @@
 <script setup lang="ts">
-import CombinedTimelineChart from '~/components/charts/CombinedTimelineChart.vue'
-import DeckRelicsSection from './DeckRelicsSection.vue'
-import type { HpPoint, GoldPoint, DeckChange } from '~/data/analytics'
+import type {
+	DeckChange,
+	GoldPoint,
+	HpPoint,
+	SimDeckCard,
+} from "~/data/analytics";
 
-const props = defineProps<{
-  hpData: HpPoint[]
-  goldData: GoldPoint[]
-  deckData: DeckChange[]
-  allPlayersHpData: HpPoint[][]
-  allPlayersGoldData: GoldPoint[][]
-  allPlayersDeckData: DeckChange[][]
-  playerCount: number
-  currentDeck: any[]
-  currentRelics: any[]
-}>()
+interface RelicInfo {
+	id: string;
+	name: string;
+}
 
-const emit = defineEmits<{
-  (e: 'hoverFloor', floor: number | null): void
-}>()
+const _props = defineProps<{
+	hpData: HpPoint[];
+	goldData: GoldPoint[];
+	deckData: DeckChange[];
+	allPlayersHpData: HpPoint[][];
+	allPlayersGoldData: GoldPoint[][];
+	allPlayersDeckData: DeckChange[][];
+	playerCount: number;
+	currentDeck: SimDeckCard[];
+	currentRelics: RelicInfo[];
+}>();
 
-const { t } = useI18n()
+const emit = defineEmits<(e: "hoverFloor", floor: number | null) => void>();
 
-const hoveredFloor = ref<number | null>(null)
+const { t } = useI18n();
+
+const hoveredFloor = ref<number | null>(null);
 
 const handleHoverFloor = (floor: number | null) => {
-  hoveredFloor.value = floor
-  emit('hoverFloor', floor)
-}
+	hoveredFloor.value = floor;
+	emit("hoverFloor", floor);
+};
 </script>
 
 <template>

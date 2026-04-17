@@ -25,14 +25,26 @@ logs
 
 # Dot-directories and dot-files
 .claude/
-.nuxt/
 .playwright-mcp/
-.vscode/
 .worktrees/
 
-# Non-project docs
+# IDE configuration (exclude SonarQube-specific settings, keep extensions)
+.vscode/settings.json
+# .vscode/extensions.json  # Uncomment to also exclude extensions recommendations
+
+# Agent/AI specific documentation (internal use only)
+CLAUDE.md
+docs/
+
+# Game source reference (contains potentially proprietary info)
 GAME_SOURCE.md
-home-view-primevue.png
+
+# Trace files (performance traces, can be large)
+Trace-*.json.gz
+trace-*.json.gz
+
+# SonarQube configuration (local analysis)
+sonar-project.properties
 
 # Screenshots (exclude from repo except public/)
 *.png

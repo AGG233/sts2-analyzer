@@ -1,66 +1,66 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
-import { Check, Info, TriangleAlert, X, CircleAlert } from '@lucide/vue'
+import { Check, CircleAlert, Info, TriangleAlert, X } from "@lucide/vue";
+import { onMounted, onUnmounted } from "vue";
 
 interface Notification {
-  id: number
-  severity: 'success' | 'info' | 'warn' | 'error'
-  summary: string
-  detail?: string
-  life: number
+	id: number;
+	severity: "success" | "info" | "warn" | "error";
+	summary: string;
+	detail?: string;
+	life: number;
 }
 
-const notifications = ref<Notification[]>([])
-let nextId = 1
+const notifications = ref<Notification[]>([]);
+let nextId = 1;
 
 const severityClasses: Record<string, string> = {
-  success: 'bg-green-500/90 border-green-400',
-  info: 'bg-blue-500/90 border-blue-400',
-  warn: 'bg-yellow-500/90 border-yellow-400',
-  error: 'bg-red-500/90 border-red-400',
-}
+	success: "bg-green-500/90 border-green-400",
+	info: "bg-blue-500/90 border-blue-400",
+	warn: "bg-yellow-500/90 border-yellow-400",
+	error: "bg-red-500/90 border-red-400",
+};
 
 const severityIcons = {
-  success: Check,
-  info: Info,
-  warn: TriangleAlert,
-  error: CircleAlert,
-}
+	success: Check,
+	info: Info,
+	warn: TriangleAlert,
+	error: CircleAlert,
+};
 
 const handleNotification = (event: Event) => {
-  const customEvent = event as CustomEvent<{
-    severity: 'success'|'info'|'warn'|'error',
-    summary: string,
-    detail?: string,
-    life?: number
-  }>
-  const notification: Notification = {
-    id: nextId++,
-    severity: customEvent.detail.severity,
-    summary: customEvent.detail.summary,
-    detail: customEvent.detail.detail,
-    life: customEvent.detail.life ?? 3000,
-  }
-  notifications.value.push(notification)
-  setTimeout(() => {
-    removeNotification(notification.id)
-  }, notification.life)
-}
+	const customEvent = event as CustomEvent<{
+		severity: "success" | "info" | "warn" | "error";
+		summary: string;
+		detail?: string;
+		life?: number;
+	}>;
+	const notification: Notification = {
+		id: nextId++,
+		severity: customEvent.detail.severity,
+		summary: customEvent.detail.summary,
+		detail: customEvent.detail.detail,
+		life: customEvent.detail.life ?? 3000,
+	};
+	notifications.value.push(notification);
+	setTimeout(() => {
+		removeNotification(notification.id);
+	}, notification.life);
+};
 
 function removeNotification(id: number) {
-  const idx = notifications.value.findIndex(n => n.id === id)
-  if (idx !== -1) {
-    notifications.value.splice(idx, 1)
-  }
+	const idx = notifications.value.findIndex((n) => n.id === id);
+	if (idx !== -1) {
+		notifications.value.splice(idx, 1);
+	}
 }
 
 onMounted(() => {
-  window.addEventListener('notification', handleNotification)
-})
+	window.addEventListener("notification", handleNotification);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('notification', handleNotification)
-})
+	window.removeEventListener("notification", handleNotification);
+});
 </script>
 
 <template>

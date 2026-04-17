@@ -1,28 +1,26 @@
 <script setup lang="ts">
-import { ArrowLeft } from '@lucide/vue'
-import AppButton from '~/components/shared/AppButton.vue'
-import AppTag from '~/components/shared/AppTag.vue'
-import type { RunFile } from '~/data/types'
-import { getRunSummary } from '~/data/analytics'
+import { getRunSummary } from "~/data/analytics";
+import type { RunFile } from "~/data/types";
+import { useGameI18n } from "~/locales/lookup";
 
 const props = defineProps<{
-  run: RunFile
-}>()
+	run: RunFile;
+}>();
 
-const { t } = useI18n()
-const { characterName, encounterName } = useGameI18n()
+const { t } = useI18n();
+const { characterName, encounterName } = useGameI18n();
 
-const summary = computed(() => getRunSummary(props.run))
+const summary = computed(() => getRunSummary(props.run));
 
 const formatTime = (seconds: number): string => {
-  const m = Math.floor(seconds / 60)
-  const s = seconds % 60
-  return `${m}m ${s}s`
-}
+	const m = Math.floor(seconds / 60);
+	const s = seconds % 60;
+	return `${m}m ${s}s`;
+};
 
 const formatDate = (ts: number): string => {
-  return new Date(ts * 1000).toLocaleDateString()
-}
+	return new Date(ts * 1000).toLocaleDateString();
+};
 </script>
 
 <template>

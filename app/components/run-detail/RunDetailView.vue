@@ -1,116 +1,135 @@
 <script setup lang="ts">
-import AppToggleButton from '~/components/shared/AppToggleButton.vue'
-import RunMap from '~/components/RunMap.vue'
-import TopBar from './TopBar.vue'
-import PreviewContent from './PreviewContent.vue'
-import DetailContent from './DetailContent.vue'
-import { getDeckAtFloor, getDeckEvolution, getGoldTimeline, getHpTimeline, getRelicsAtFloor, getRunSummary } from '~/data/analytics'
-import { useRunStore } from '~/stores/runStore'
-import { handleMainWheel } from './wheel-utils'
+import {
+	getDeckAtFloor,
+	getDeckEvolution,
+	getGoldTimeline,
+	getHpTimeline,
+	getRelicsAtFloor,
+	getRunSummary,
+} from "~/data/analytics";
+import { useRunStore } from "~/stores/runStore";
+import type RunMap from "./RunMap.vue";
 
 const props = defineProps<{
-  seed: string
-}>()
+	seed: string;
+}>();
 
-const store = useRunStore()
-const { t } = useI18n()
-const mapRef = ref<InstanceType<typeof RunMap> | null>(null)
+const store = useRunStore();
+const { t } = useI18n();
+const mapRef = ref<InstanceType<typeof RunMap> | null>(null);
 
-const run = computed(() => store.getRunBySeed(props.seed))
-const summary = computed(() => run.value ? getRunSummary(run.value) : null)
+const run = computed(() => store.getRunBySeed(props.seed));
+const summary = computed(() => (run.value ? getRunSummary(run.value) : null));
 
-const selectedPlayer = ref(0)
-const selectedFloor = ref<number | undefined>(undefined)
-const viewMode = ref<'preview' | 'detail'>('preview')
+const selectedPlayer = ref(0);
+const selectedFloor = ref<number | undefined>(undefined);
+const viewMode = ref<"preview" | "detail">("preview");
 
 // 玩家显示名
-const playerNames = ref<Map<string | number, string>>(new Map())
+const playerNames = ref<Map<string | number, string>>(new Map());
 
 const getPlayerDisplayName = (playerIndex: number): string => {
-  const s = summary.value
-  if (!s) return 'Unknown Player'
+	const s = summary.value;
+	if (!s) return "Unknown Player";
 
-  const player = s.players[playerIndex]
-  if (!player) return 'Unknown Player'
+	const player = s.players[playerIndex];
+	if (!player) return "Unknown Player";
 
-  return playerNames.value.get(player.playerId) || 'Unknown Player'
-}
+	return playerNames.value.get(player.playerId) || "Unknown Player";
+};
 
 const viewModeOptions = computed(() => [
-  { label: t('run.preview'), value: 'preview' },
-  { label: t('run.detail'), value: 'detail' },
-])
+	{ label: t("run.preview"), value: "preview" },
+	{ label: t("run.detail"), value: "detail" },
+]);
 
-watch(() => viewMode.value, (newMode, oldMode) => {
-  if (newMode === 'detail' && oldMode === 'preview' && selectedFloor.value === undefined) {
-    selectedFloor.value = 1
-  }
-})
+watch(
+	() => viewMode.value,
+	(newMode, oldMode) => {
+		if (
+			newMode === "detail" &&
+			oldMode === "preview" &&
+			selectedFloor.value === undefined
+		) {
+			selectedFloor.value = 1;
+		}
+	},
+);
 
 const handleSelectFloor = (floor: number) => {
-  selectedFloor.value = floor
-  if (viewMode.value === 'preview') {
-    viewMode.value = 'detail'
-  }
-}
+	selectedFloor.value = floor;
+	if (viewMode.value === "preview") {
+		viewMode.value = "detail";
+	}
+};
 
-const hoveredFloor = ref<number | null>(null)
+const hoveredFloor = ref<number | null>(null);
 
 const handleHoverFloor = (floor: number | null) => {
-  hoveredFloor.value = floor
-}
+	hoveredFloor.value = floor;
+};
 
 // 单个玩家数据
-const hpData = computed(() => run.value ? getHpTimeline(run.value, selectedPlayer.value) : [])
-const goldData = computed(() => run.value ? getGoldTimeline(run.value, selectedPlayer.value) : [])
-const deckData = computed(() => run.value ? getDeckEvolution(run.value, selectedPlayer.value) : [])
+const hpData = computed(() =>
+	run.value ? getHpTimeline(run.value, selectedPlayer.value) : [],
+);
+const goldData = computed(() =>
+	run.value ? getGoldTimeline(run.value, selectedPlayer.value) : [],
+);
+const deckData = computed(() =>
+	run.value ? getDeckEvolution(run.value, selectedPlayer.value) : [],
+);
 
 // 所有玩家数据（总览模式）
 const allPlayersHpData = computed(() => {
-  if (!run.value || !summary.value) return []
-  const data = []
-  for (let i = 0; i < summary.value.playerCount; i++) {
-    data.push(getHpTimeline(run.value, i))
-  }
-  return data
-})
+	if (!run.value || !summary.value) return [];
+	const data = [];
+	for (let i = 0; i < summary.value.playerCount; i++) {
+		data.push(getHpTimeline(run.value, i));
+	}
+	return data;
+});
 
 const allPlayersGoldData = computed(() => {
-  if (!run.value || !summary.value) return []
-  const data = []
-  for (let i = 0; i < summary.value.playerCount; i++) {
-    data.push(getGoldTimeline(run.value, i))
-  }
-  return data
-})
+	if (!run.value || !summary.value) return [];
+	const data = [];
+	for (let i = 0; i < summary.value.playerCount; i++) {
+		data.push(getGoldTimeline(run.value, i));
+	}
+	return data;
+});
 
 const allPlayersDeckData = computed(() => {
-  if (!run.value || !summary.value) return []
-  const data = []
-  for (let i = 0; i < summary.value.playerCount; i++) {
-    data.push(getDeckEvolution(run.value, i))
-  }
-  return data
-})
+	if (!run.value || !summary.value) return [];
+	const data = [];
+	for (let i = 0; i < summary.value.playerCount; i++) {
+		data.push(getDeckEvolution(run.value, i));
+	}
+	return data;
+});
 
 const currentDeck = computed(() => {
-  if (!run.value) return []
-  if (hoveredFloor.value !== null) {
-    return getDeckAtFloor(run.value, hoveredFloor.value, selectedPlayer.value)
-  }
-  return run.value.players[selectedPlayer.value]?.deck ?? []
-})
+	if (!run.value) return [];
+	if (hoveredFloor.value !== null) {
+		return getDeckAtFloor(run.value, hoveredFloor.value, selectedPlayer.value);
+	}
+	return run.value.players[selectedPlayer.value]?.deck ?? [];
+});
 
 const currentRelics = computed(() => {
-  if (!run.value) return []
-  if (hoveredFloor.value !== null) {
-    return getRelicsAtFloor(run.value, hoveredFloor.value, selectedPlayer.value).map(r => ({
-      id: r.id,
-      floor_added_to_deck: r.floor_added_to_deck
-    }))
-  }
-  return run.value.players[selectedPlayer.value]?.relics ?? []
-})
+	if (!run.value) return [];
+	if (hoveredFloor.value !== null) {
+		return getRelicsAtFloor(
+			run.value,
+			hoveredFloor.value,
+			selectedPlayer.value,
+		).map((r) => ({
+			id: r.id,
+			floor_added_to_deck: r.floor_added_to_deck,
+		}));
+	}
+	return run.value.players[selectedPlayer.value]?.relics ?? [];
+});
 </script>
 
 <template>

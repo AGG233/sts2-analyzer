@@ -88,8 +88,20 @@
     "spent": "Spent",
     "gained": "Gained",
     "floorAxis": "Floor",
-    "deckSize": "Deck Size",
-    "cardsAdded": "Cards Added",
-    "cardsRemoved": "Cards Removed"
+    "deckSize": "デッキサイズ",
+    "cardsAdded": "獲得カード",
+    "cardsRemoved": "除去カード",
+    "cardPickRate": "カード選択率",
+    "cardPickRateByCharacter": "カード選択率 - {character}",
+    "cardTypes": "カード種類",
+    "avgPickRate": "平均選択率",
+    "topPicked": "最多選択",
+    "sortByCount": "回数順",
+    "sortByRate": "選択率順",
+    "showAll": "すべて表示",
+    "deduplicate": "重複除外",
+    "floorAll": "全階層",
+    "noData": "データがありません。セーブデータをインポートしてください。",
+    "noMatchingCards": "フィルター条件に一致するカードがありません。"
   }
 }

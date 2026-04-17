@@ -16,7 +16,8 @@
     "runs": "局",
     "loading": "加载中...",
     "character": "角色",
-    "characterStats": "角色统计"
+    "characterStats": "角色统计",
+    "cardAnalysis": "卡牌分析"
   },
   "run": {
     "back": "← 返回",
@@ -90,7 +91,26 @@
     "floorAxis": "层",
     "deckSize": "卡组数量",
     "cardsAdded": "获得卡牌",
-    "cardsRemoved": "移除卡牌"
+    "cardsRemoved": "移除卡牌",
+    "cardPickRate": "卡牌选取率",
+    "cardPickRateByCharacter": "卡牌选取率 - {character}",
+    "cardTypes": "卡牌种类",
+    "avgPickRate": "平均选取率",
+    "topPicked": "最高选取",
+    "sortByCount": "按次数",
+    "sortByRate": "按选取率",
+    "showAll": "显示全部",
+    "deduplicate": "去重",
+    "floorAll": "全部",
+    "noData": "暂无数据，请先导入游戏存档",
+    "noMatchingCards": "没有符合筛选条件的卡牌数据",
+    "picked": "选取",
+    "skipped": "跳过",
+    "total": "总计",
+    "pickRateLabel": "选取率",
+    "count": "次数",
+    "sortDesc": "降序",
+    "sortAsc": "升序"
   },
   "ui": {
     "app": {
@@ -110,7 +130,8 @@
       "runs": "局",
       "loading": "加载中...",
       "character": "角色",
-      "characterStats": "角色统计"
+      "characterStats": "角色统计",
+      "cardAnalysis": "卡牌分析"
     },
     "run": {
       "back": "← 返回",
@@ -184,7 +205,9 @@
       "floorAxis": "层",
       "deckSize": "卡组数量",
       "cardsAdded": "获得卡牌",
-      "cardsRemoved": "移除卡牌"
+      "cardsRemoved": "移除卡牌",
+      "cardPickRate": "卡牌选取率",
+      "cardPickRateByCharacter": "卡牌选取率 - {character}"
     }
   },
   "game": {

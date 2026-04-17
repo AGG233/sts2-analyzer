@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-
 interface Props {
-  legend: string
-  class?: string
+	legend: string;
+	class?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  class: '',
-})
+	class: "",
+});
 </script>
 
 <template>

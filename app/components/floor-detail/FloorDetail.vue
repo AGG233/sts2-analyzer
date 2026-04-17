@@ -1,90 +1,100 @@
 <script setup lang="ts">
-import type { RunFile } from '~/data/types'
-import { computed, reactive, watch } from 'vue'
-import { getFloorTimeline, getDeckAtFloor, getRelicsAtFloor } from '~/data/analytics'
-import { useGameI18n } from '~/locales/lookup'
-import FloorHeader from './FloorHeader.vue'
-import PlayerCard from './PlayerCard.vue'
+import { computed, reactive, watch } from "vue";
+import type { SimDeckCard } from "~/data/analytics";
 import {
-  buildMergedCards,
-  buildMergedRelics,
-  buildMergedPotions,
-  groupDeck
-} from './merge-utils'
+	getDeckAtFloor,
+	getFloorTimeline,
+	getRelicsAtFloor,
+} from "~/data/analytics";
+import type { FloorPlayerStats, RunFile } from "~/data/types";
+import { useGameI18n } from "~/locales/lookup";
+import type { MergedCard, MergedPotion, MergedRelic } from "./merge-utils";
+import {
+	buildMergedCards,
+	buildMergedPotions,
+	buildMergedRelics,
+	groupDeck,
+} from "./merge-utils";
 
 const props = defineProps<{
-  run: RunFile
-  floor?: number
-}>()
+	run: RunFile;
+	floor?: number;
+}>();
 
-const { t } = useI18n()
-const {
-  cardName,
-  relicName,
-  potionName
-} = useGameI18n()
+const { t } = useI18n();
+const { cardName, relicName, potionName } = useGameI18n();
 
-const floors = computed(() => getFloorTimeline(props.run))
+const floors = computed(() => getFloorTimeline(props.run));
 
 const currentFloor = computed(() => {
-  if (props.floor === undefined) return null
-  return floors.value.find(f => f.globalFloor === props.floor) ?? null
-})
+	if (props.floor === undefined) return null;
+	return floors.value.find((f) => f.globalFloor === props.floor) ?? null;
+});
 
 interface PlayerDetail {
-  playerIndex: number
-  stats: any
-  character: string
-  cards: any[]
-  relics: any[]
-  potions: any[]
-  deck: any[]
-  groupedDeck: any[]
-  floorRelics: any[]
+	playerIndex: number;
+	stats: FloorPlayerStats;
+	character: string;
+	cards: MergedCard[];
+	relics: MergedRelic[];
+	potions: MergedPotion[];
+	deck: SimDeckCard[];
+	groupedDeck: {
+		name: string;
+		upgraded: number;
+		count: number;
+		floorAdded: number;
+	}[];
+	floorRelics: { id: string; name: string; floor: number }[];
 }
 
 const playerDetails = computed<PlayerDetail[]>(() => {
-  const f = currentFloor.value
-  if (!f) return []
+	const f = currentFloor.value;
+	if (!f) return [];
+	const floor = props.floor;
 
-  return f.playerStats
-    .map((stats, i) => {
-      const deck = getDeckAtFloor(props.run, props.floor!, i)
-      const relics = getRelicsAtFloor(props.run, props.floor!, i)
-      return {
-        playerIndex: i,
-        stats,
-        character: props.run.players[i]?.character ?? '',
-        cards: buildMergedCards(stats, cardName),
-        relics: buildMergedRelics(stats, relicName),
-        potions: buildMergedPotions(stats, potionName),
-        deck,
-        groupedDeck: groupDeck(deck, cardName),
-        floorRelics: relics.map(r => ({
-          id: r.id,
-          name: relicName(r.id),
-          floor: r.floor_added_to_deck
-        })),
-      }
-    })
-    .filter(d => d.stats)
-})
+	return f.playerStats
+		.map((stats, i) => {
+			const deck = getDeckAtFloor(props.run, floor, i);
+			const relics = getRelicsAtFloor(props.run, floor, i);
+			return {
+				playerIndex: i,
+				stats,
+				character: props.run.players[i]?.character ?? "",
+				cards: buildMergedCards(stats, cardName),
+				relics: buildMergedRelics(stats, relicName),
+				potions: buildMergedPotions(stats, potionName),
+				deck,
+				groupedDeck: groupDeck(deck, cardName),
+				floorRelics: relics.map((r) => ({
+					id: r.id,
+					name: relicName(r.id),
+					floor: r.floor_added_to_deck,
+				})),
+			};
+		})
+		.filter((d) => d.stats);
+});
 
-const expandedPlayers = reactive<Record<number, boolean>>({})
+const expandedPlayers = reactive<Record<number, boolean>>({});
 
 const togglePlayer = (playerIndex: number) => {
-  expandedPlayers[playerIndex] = !expandedPlayers[playerIndex]
-}
+	expandedPlayers[playerIndex] = !expandedPlayers[playerIndex];
+};
 
 const isPlayerExpanded = (playerIndex: number): boolean => {
-  return expandedPlayers[playerIndex] ?? false
-}
+	return expandedPlayers[playerIndex] ?? false;
+};
 
-watch(playerDetails, (details) => {
-  if (details.length === 1 && !expandedPlayers[0]) {
-    expandedPlayers[0] = true
-  }
-}, { immediate: true })
+watch(
+	playerDetails,
+	(details) => {
+		if (details.length === 1 && !expandedPlayers[0]) {
+			expandedPlayers[0] = true;
+		}
+	},
+	{ immediate: true },
+);
 </script>
 
 <template>

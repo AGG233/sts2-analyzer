@@ -1,96 +1,116 @@
 <script setup lang="ts">
-import type { FloorPlayerStats } from '~/data/types'
-import type { SimDeckCard } from '~/data/analytics'
-import AppTag from '~/components/shared/AppTag.vue'
-import { getCharacterColor } from '~/data/characters'
-import { useGameI18n } from '~/locales/lookup'
-import PlayerExpandedDetail from './PlayerExpandedDetail.vue'
-import { Heart, Coins, FlaskConical, Gift, ChevronUp, ChevronDown, ArrowUpRight, ArrowDownRight, X } from '@lucide/vue'
+import { ArrowDownRight, ArrowUpRight, X } from "@lucide/vue";
+import type { SimDeckCard } from "~/data/analytics";
+import { getCharacterColor } from "~/data/characters";
+import type { FloorPlayerStats } from "~/data/types";
+import { useGameI18n } from "~/locales/lookup";
+import type { MergedCard, MergedPotion, MergedRelic } from "./merge-utils";
 
 const props = defineProps<{
-  playerIndex: number
-  stats: FloorPlayerStats
-  character: string
-  cards: any[]
-  relics: any[]
-  potions: any[]
-  deck: SimDeckCard[]
-  floorRelics: any[]
-  isExpanded: boolean
-}>()
+	playerIndex: number;
+	stats: FloorPlayerStats;
+	character: string;
+	cards: MergedCard[];
+	relics: MergedRelic[];
+	potions: MergedPotion[];
+	deck: SimDeckCard[];
+	floorRelics: { id: string; name: string; floor: number }[];
+	isExpanded: boolean;
+}>();
 
-const emit = defineEmits<{
-  (e: 'toggle', playerIndex: number): void
-}>()
+const emit = defineEmits<(e: "toggle", playerIndex: number) => void>();
 
-const { t } = useI18n()
-const { characterName, restSiteChoiceName } = useGameI18n()
+const { characterName, restSiteChoiceName } = useGameI18n();
 
 function getPlayerColor(characterId: string): string {
-  return getCharacterColor(characterId)
+	return getCharacterColor(characterId);
 }
 
-function getCardSeverity(status: string): 'success' | 'secondary' | 'info' | 'warn' | 'danger' | undefined {
-  switch (status) {
-    case 'choice-picked': return 'success'
-    case 'choice-skipped': return 'secondary'
-    case 'gained': return 'success'
-    case 'transformed-from': return 'danger'
-    case 'transformed-to': return 'success'
-    case 'upgraded': return 'warn'
-    case 'removed': return 'danger'
-    default: return undefined
-  }
+function getCardSeverity(
+	status: string,
+): "success" | "secondary" | "info" | "warn" | "danger" | undefined {
+	switch (status) {
+		case "choice-picked":
+			return "success";
+		case "choice-skipped":
+			return "secondary";
+		case "gained":
+			return "success";
+		case "transformed-from":
+			return "danger";
+		case "transformed-to":
+			return "success";
+		case "upgraded":
+			return "warn";
+		case "removed":
+			return "danger";
+		default:
+			return undefined;
+	}
 }
 
-function getCardStatusPrefix(status: string): any | null {
-  switch (status) {
-    case 'transformed-from': return ArrowUpRight
-    case 'transformed-to': return ArrowDownRight
-    case 'removed': return X
-    default: return null
-  }
+function getCardStatusPrefix(
+	status: MergedCard["status"],
+): typeof ArrowUpRight | typeof ArrowDownRight | typeof X | null {
+	switch (status) {
+		case "transformed-from":
+			return ArrowUpRight;
+		case "transformed-to":
+			return ArrowDownRight;
+		case "removed":
+			return X;
+		default:
+			return null;
+	}
 }
 
-function getRelicStatusPrefix(status: string): any | null {
-  if (status === 'removed') return X
-  return null
+function getRelicStatusPrefix(status: MergedRelic["status"]): typeof X | null {
+	if (status === "removed") return X;
+	return null;
 }
 
 function onToggle() {
-  emit('toggle', props.playerIndex)
+	emit("toggle", props.playerIndex);
 }
 
 // Transition hooks for smooth height animation
 function onExpandEnter(el: Element, done: () => void) {
-  const htmlEl = el as HTMLElement
-  htmlEl.style.height = '0'
-  htmlEl.style.opacity = '0'
-  htmlEl.style.overflow = 'hidden'
-  htmlEl.offsetHeight // force reflow
-  htmlEl.style.transition = 'height 0.3s ease-out, opacity 0.3s ease-out'
-  htmlEl.style.height = `${htmlEl.scrollHeight}px`
-  htmlEl.style.opacity = '1'
-  htmlEl.addEventListener('transitionend', () => {
-    htmlEl.style.height = ''
-    htmlEl.style.overflow = ''
-    htmlEl.style.transition = ''
-    done()
-  }, { once: true })
+	const htmlEl = el as HTMLElement;
+	htmlEl.style.height = "0";
+	htmlEl.style.opacity = "0";
+	htmlEl.style.overflow = "hidden";
+	htmlEl.getBoundingClientRect(); // force reflow
+	htmlEl.style.transition = "height 0.3s ease-out, opacity 0.3s ease-out";
+	htmlEl.style.height = `${htmlEl.scrollHeight}px`;
+	htmlEl.style.opacity = "1";
+	htmlEl.addEventListener(
+		"transitionend",
+		() => {
+			htmlEl.style.height = "";
+			htmlEl.style.overflow = "";
+			htmlEl.style.transition = "";
+			done();
+		},
+		{ once: true },
+	);
 }
 
 function onExpandLeave(el: Element, done: () => void) {
-  const htmlEl = el as HTMLElement
-  htmlEl.style.height = `${htmlEl.scrollHeight}px`
-  htmlEl.style.overflow = 'hidden'
-  htmlEl.offsetHeight // force reflow
-  htmlEl.style.transition = 'height 0.25s ease-in, opacity 0.25s ease-in'
-  htmlEl.style.height = '0'
-  htmlEl.style.opacity = '0'
-  htmlEl.addEventListener('transitionend', () => {
-    htmlEl.style.transition = ''
-    done()
-  }, { once: true })
+	const htmlEl = el as HTMLElement;
+	htmlEl.style.height = `${htmlEl.scrollHeight}px`;
+	htmlEl.style.overflow = "hidden";
+	htmlEl.getBoundingClientRect(); // force reflow
+	htmlEl.style.transition = "height 0.25s ease-in, opacity 0.25s ease-in";
+	htmlEl.style.height = "0";
+	htmlEl.style.opacity = "0";
+	htmlEl.addEventListener(
+		"transitionend",
+		() => {
+			htmlEl.style.transition = "";
+			done();
+		},
+		{ once: true },
+	);
 }
 </script>
 

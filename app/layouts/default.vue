@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import AnimatedBackground from '~/components/AnimatedBackground.vue'
-import NotificationSystem from '~/components/NotificationSystem.vue'
 </script>
 
 <template>

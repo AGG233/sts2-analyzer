@@ -1,73 +1,72 @@
 <script setup lang="ts">
-import type { RunSummary } from '~/data/analytics'
-import AppButton from '~/components/shared/AppButton.vue'
-import AppTag from '~/components/shared/AppTag.vue'
-import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { useGameI18n } from '~/locales/lookup'
-import SeedCopyButton from '~/components/SeedCopyButton.vue'
+import { computed, ref } from "vue";
+import { useRouter } from "vue-router";
+import type { RunSummary } from "~/data/analytics";
+import { useGameI18n } from "~/locales/lookup";
 
-const props = defineProps<{ summaries: (RunSummary & { _run: unknown })[] }>()
+const props = defineProps<{
+	summaries: RunSummary[];
+	characterFilter?: string;
+}>();
 
-const { t } = useI18n()
-const { characterName } = useGameI18n()
-const router = useRouter()
+const { t } = useI18n();
+const { characterName } = useGameI18n();
+const router = useRouter();
 
 // Filtering
-const filterCharacter = ref<string>('')
-const filterResult = ref<string>('')
-const filterAscension = ref<string>('')
+const filterResult = ref<string>("");
+const filterAscension = ref<string>("");
 
 function resetFilters() {
-  filterCharacter.value = ''
-  filterResult.value = ''
-  filterAscension.value = ''
+	filterResult.value = "";
+	filterAscension.value = "";
 }
-
-// Get unique characters for filter
-const uniqueCharacters = computed(() => {
-  const chars = new Set<string>()
-  props.summaries.forEach(s => chars.add(s.character))
-  return Array.from(chars).map(c => ({ label: characterName(c), value: c }))
-})
 
 // Get unique ascension levels for filter
 const uniqueAscensions = computed(() => {
-  const levels = new Set<number>()
-  props.summaries.forEach(s => levels.add(s.ascension))
-  return Array.from(levels).sort((a, b) => a - b).map(a => ({ label: `A${a}`, value: String(a) }))
-})
+	const levels = new Set<number>();
+	for (const s of props.summaries) {
+		levels.add(s.ascension);
+	}
+	return Array.from(levels)
+		.sort((a, b) => a - b)
+		.map((a) => ({ label: `A${a}`, value: String(a) }));
+});
 
 // Filtered summaries
 const filteredSummaries = computed(() => {
-  let result = [...props.summaries]
+	let result = [...props.summaries];
 
-  if (filterCharacter.value)
-    result = result.filter(s => s.character === filterCharacter.value)
-  if (filterResult.value)
-    result = result.filter(s => (filterResult.value === 'win' ? s.win : !s.win))
-  if (filterAscension.value)
-    result = result.filter(s => s.ascension === Number.parseInt(filterAscension.value))
+	if (props.characterFilter)
+		result = result.filter((s) => s.character === props.characterFilter);
+	if (filterResult.value)
+		result = result.filter((s) =>
+			filterResult.value === "win" ? s.win : !s.win,
+		);
+	if (filterAscension.value)
+		result = result.filter(
+			(s) => s.ascension === Number.parseInt(filterAscension.value, 10),
+		);
 
-  return result
-})
+	return result;
+});
 
 function formatDate(ts: number): string {
-  return new Date(ts * 1000).toLocaleDateString()
+	return new Date(ts * 1000).toLocaleDateString();
 }
 
 function formatTime(seconds: number): string {
-  const m = Math.floor(seconds / 60)
-  const s = seconds % 60
-  return `${m}m ${s}s`
+	const m = Math.floor(seconds / 60);
+	const s = seconds % 60;
+	return `${m}m ${s}s`;
 }
 
-function getResultSeverity(win: boolean): 'success' | 'danger' {
-  return win ? 'success' : 'danger'
+function getResultSeverity(win: boolean): "success" | "danger" {
+	return win ? "success" : "danger";
 }
 
 function onRowClick(data: RunSummary) {
-  router.push(`/run/${data.seed}`)
+	router.push(`/run/${data.seed}`);
 }
 </script>
 
@@ -77,15 +76,6 @@ function onRowClick(data: RunSummary) {
 
     <!-- Filters -->
     <div class="filters">
-      <select v-model="filterCharacter" class="filter-select">
-        <option value="">
-          {{ t('run.allCharacters') }}
-        </option>
-        <option v-for="char in uniqueCharacters" :key="char.value" :value="char.value">
-          {{ char.label }}
-        </option>
-      </select>
-
       <select v-model="filterResult" class="filter-select">
         <option value="">
           {{ t('run.allResults') }}
@@ -146,7 +136,7 @@ function onRowClick(data: RunSummary) {
             </td>
             <td class="px-4 py-3">
               <code class="seed-code">{{ summary.seed }}</code>
-              <SeedCopyButton :seed="summary.seed" />
+              <AppSeedCopyButton :seed="summary.seed" @click.stop />
             </td>
             <td class="px-4 py-3">
               {{ summary.totalFloors }}
@@ -175,18 +165,19 @@ function onRowClick(data: RunSummary) {
 
 .filters {
   display: flex;
-  gap: $space-md;
+  gap: $space-sm;
   margin-bottom: $space-lg;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .filter-select {
-  padding: 0.4rem $space-md;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: $radius-md;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
   font-size: 0.85rem;
-  background: rgba(255, 255, 255, 0.08);
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.3);
   color: $text-primary;
   cursor: pointer;
 

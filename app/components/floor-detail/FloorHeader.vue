@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import type { FlatFloor } from '~/data/analytics'
-import AppTag from '~/components/shared/AppTag.vue'
-import { typeColors } from '~/data/map'
-import { useGameI18n } from '~/locales/lookup'
+import type { FlatFloor } from "~/data/analytics";
+import { typeColors } from "~/data/map";
+import { useGameI18n } from "~/locales/lookup";
 
 const props = defineProps<{
-  floor: FlatFloor
-}>()
+	floor: FlatFloor;
+}>();
 
-const { mapTypeName, modelIdName, monsterName } = useGameI18n()
+const { mapTypeName, modelIdName, monsterName } = useGameI18n();
 
 function typeColor(type: string): string {
-  return typeColors[type] ?? typeColors.unknown
+	return typeColors[type] ?? typeColors.unknown;
 }
 </script>
 

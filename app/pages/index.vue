@@ -1,31 +1,17 @@
 <script setup lang="ts">
-import { BarChart3, Trophy, Check, X, PieChart } from '@lucide/vue'
-import AppTag from '~/components/shared/AppTag.vue'
-import { computed, ref } from 'vue'
-import DirectoryScanner from '~/components/DirectoryScanner.vue'
-import RunList from '~/components/RunList.vue'
-import CardPickRateChart from '~/components/charts/CardPickRateChart.vue'
-import LanguageSwitch from '~/components/LanguageSwitch.vue'
-import { getWinRateByCharacter } from '~/data/analytics'
-import { useGameI18n } from '~/locales/lookup'
-import { useRunStore } from '~/stores/runStore'
+import { BarChart3 } from "@lucide/vue";
+import { computed, ref } from "vue";
+import { getWinRateByCharacter } from "~/data/analytics";
+import { useRunStore } from "~/stores/runStore";
 
-const store = useRunStore()
-const { t } = useI18n()
-const { characterName } = useGameI18n()
-const selectedCharacter = ref<string>('')
+const store = useRunStore();
+const { t } = useI18n();
+const selectedCharacter = ref<string>("");
+const rightTab = ref<"chart" | "list">("chart");
 
 const characterStats = computed(() => {
-  return getWinRateByCharacter(store.runs)
-})
-
-function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
-  if (rate >= 0.5)
-    return 'success'
-  if (rate >= 0.25)
-    return 'warn'
-  return 'danger'
-}
+	return getWinRateByCharacter(store.runs);
+});
 </script>
 
 <template>
@@ -41,100 +27,56 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
 
       <div class="panel-content">
         <ClientOnly fallback="Loading scanner...">
-          <DirectoryScanner />
+          <IndexDirectoryScanner />
         </ClientOnly>
 
-        <div v-if="store.runs.length > 0" class="stats-overview">
-          <div class="stat-item">
-            <Trophy class="w-5 h-5 mb-1" />
-            <span class="stat-label">{{ t('home.total') }}</span>
-            <span class="stat-value">{{ store.runs.length }}</span>
-          </div>
-          <div class="stat-item win">
-            <Check class="w-5 h-5 mb-1" />
-            <span class="stat-label">{{ t('home.wins') }}</span>
-            <span class="stat-value">{{ store.wins }}</span>
-          </div>
-          <div class="stat-item loss">
-            <X class="w-5 h-5 mb-1" />
-            <span class="stat-label">{{ t('home.losses') }}</span>
-            <span class="stat-value">{{ store.losses }}</span>
-          </div>
-          <div class="stat-item rate">
-            <PieChart class="w-5 h-5 mb-1" />
-            <span class="stat-label">{{ t('home.winRate') }}</span>
-            <span class="stat-value">{{ (store.wins / store.runs.length * 100).toFixed(1) }}%</span>
-          </div>
-        </div>
+        <IndexStatsOverview
+          v-if="store.runs.length > 0"
+          :total="store.runs.length"
+          :wins="store.wins"
+          :losses="store.losses"
+        />
 
-        <div v-if="characterStats.length > 0" class="character-stats">
-          <h2>{{ t('home.characterStats') }}</h2>
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead class="text-left bg-white/5">
-                <tr>
-                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.character') }}</th>
-                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.wins') }}</th>
-                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.losses') }}</th>
-                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.total') }}</th>
-                  <th class="px-4 py-3 font-medium text-gray-200">{{ t('home.winRate') }}</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-white/10">
-                <tr v-for="stat in characterStats" :key="stat.character" class="hover:bg-white/5 transition-colors">
-                  <td class="px-4 py-3">{{ characterName(stat.character) }}</td>
-                  <td class="px-4 py-3">
-                    <AppTag severity="success">{{ stat.wins }}</AppTag>
-                  </td>
-                  <td class="px-4 py-3">
-                    <AppTag severity="danger">{{ stat.losses }}</AppTag>
-                  </td>
-                  <td class="px-4 py-3">{{ stat.total }}</td>
-                  <td class="px-4 py-3">
-                    <AppTag :severity="getWinRateSeverity(stat.winRate)">
-                      {{ `${(stat.winRate * 100).toFixed(1)}%` }}
-                    </AppTag>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <IndexCharacterStatsTable
+          v-if="characterStats.length > 0"
+          :stats="characterStats"
+        />
       </div>
 
       <div class="panel-footer">
-        <LanguageSwitch />
+        <AppLanguageSwitch />
       </div>
     </aside>
 
     <!-- Right panel -->
     <main class="right-panel">
-      <div v-if="characterStats.length > 0" class="character-filter">
-        <label for="character-filter">{{ t('home.character') }}:</label>
-        <select
+      <!-- Header: character filter + tabs on one row -->
+      <div class="right-header" v-if="store.runs.length > 0 || characterStats.length > 0">
+        <IndexCharacterFilter
+          v-if="characterStats.length > 0"
           v-model="selectedCharacter"
-          id="character-filter"
-          class="filter-select"
-        >
-          <option value="">{{ t('run.allCharacters') }}</option>
-          <option
-            v-for="char in characterStats"
-            :key="char.character"
-            :value="char.character"
-          >
-            {{ characterName(char.character) }}
-          </option>
-        </select>
+          :character-stats="characterStats"
+        />
+
+        <IndexTabSwitcher
+          v-if="store.runs.length > 0"
+          v-model="rightTab"
+        />
       </div>
 
-      <div v-if="store.runs.length > 0" class="card-pick-section">
-        <h2>{{ selectedCharacter ? t('chart.cardPickRateByCharacter') : t('chart.cardPickRate') }}</h2>
-        <ClientOnly fallback="Loading chart...">
-          <CardPickRateChart :character-id="selectedCharacter" />
-        </ClientOnly>
-      </div>
+      <!-- Card Pick Analysis -->
+      <KeepAlive>
+        <div v-show="rightTab === 'chart' && store.runs.length > 0" class="card-pick-section">
+          <ChartsCardPickRateChart :character-id="selectedCharacter" />
+        </div>
+      </KeepAlive>
 
-      <RunList :summaries="store.summaries" />
+      <!-- Run List -->
+      <KeepAlive>
+        <div v-show="rightTab === 'list' && store.runs.length > 0" class="run-list-section">
+          <IndexRunList :summaries="store.summaries" :character-filter="selectedCharacter" />
+        </div>
+      </KeepAlive>
     </main>
   </div>
 </template>
@@ -142,23 +84,34 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
 <style scoped lang="scss">
 .home {
   display: flex;
-  gap: $space-2xl;
+  gap: 0;
   height: 100vh;
-  padding: $space-2xl;
-}
-
-.left-panel,
-.right-panel {
-  @include glass;
-  border-radius: $radius-xl;
-  padding: $space-xl;
+  overflow: hidden;
 }
 
 .left-panel {
-  flex: 0 0 30%;
-  max-width: 320px;
+  flex: 0 0 320px;
+  background: rgba(6, 13, 31, 0.92);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  padding: $space-xl;
   display: flex;
   flex-direction: column;
+}
+
+.right-panel {
+  flex: 1;
+  background: rgba(10, 22, 40, 0.75);
+  border-radius: 0;
+  padding: $space-xl;
+  overflow-y: auto;
+}
+
+.right-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-xl;
 }
 
 .panel-header {
@@ -184,78 +137,6 @@ function getWinRateSeverity(rate: number): 'success' | 'warn' | 'danger' {
   margin-top: auto;
   padding-top: $space-lg;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.right-panel {
-  flex: 1;
-  overflow-y: auto;
-}
-
-.stats-overview {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: $space-lg;
-  margin: $space-lg 0;
-  padding: $space-lg;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: $radius-lg;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: $space-md;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: $radius-md;
-
-  i {
-    font-size: 1.2rem;
-    margin-bottom: $space-xs;
-  }
-
-  &.win { color: $success; }
-  &.loss { color: $danger; }
-  &.rate { color: $warn; }
-}
-
-.stat-label {
-  font-size: 0.8rem;
-  margin-bottom: $space-xs;
-}
-
-.stat-value {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.character-stats {
-  h2 {
-    font-size: 1.1rem;
-    margin: $space-xl 0 $space-md;
-    color: $text-primary;
-  }
-}
-
-.character-table {
-  font-size: 0.9rem;
-}
-
-.character-filter {
-  margin-bottom: $space-xl;
-  display: flex;
-  align-items: center;
-  gap: $space-lg;
-}
-
-.filter-select {
-  padding: $space-sm $space-lg;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: $radius-md;
-  background: rgba(255, 255, 255, 0.08);
-  color: $text-primary;
-  cursor: pointer;
-  min-width: 200px;
 }
 
 .card-pick-section {
