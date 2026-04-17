@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { Container } from "pixi.js";
 import type { Spine } from "@esotericsoftware/spine-pixi-v8";
-import type { Application } from "pixi.js";
+import type { Application, Container } from "pixi.js";
 import { onMounted, onUnmounted, ref } from "vue";
 
 const containerRef = ref<HTMLDivElement | null>(null);

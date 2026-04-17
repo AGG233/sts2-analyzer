@@ -1,8 +1,8 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import {
+	type CardPickRateOptions,
 	getCardPickRate,
 	getCardPickRateByCharacter,
-	type CardPickRateOptions,
 } from "../../app/data/analytics";
 
 describe("Analytics functions", () => {

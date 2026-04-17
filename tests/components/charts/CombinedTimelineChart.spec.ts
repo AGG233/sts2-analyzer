@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 
 describe("CombinedTimelineChart", () => {
 	it("placeholder test for chart component", () => {
