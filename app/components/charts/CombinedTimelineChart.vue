@@ -105,20 +105,22 @@ const getHpChartSeries = () => {
 			}
 		}
 	} else if (props.hpData && props.hpData.length > 0) {
-		series.push({
-			name: t("chart.hp"),
-			type: "line",
-			data: props.hpData.map((d) => d.hp),
-			itemStyle: { color: "#e53935" },
-			areaStyle: { color: "rgba(229,57,53,0.1)" },
-		});
-		series.push({
-			name: t("chart.maxHp"),
-			type: "line",
-			data: props.hpData.map((d) => d.maxHp),
-			itemStyle: { color: "#90a4ae" },
-			lineStyle: { type: "dashed" },
-		});
+		series.push(
+			{
+				name: t("chart.hp"),
+				type: "line",
+				data: props.hpData.map((d) => d.hp),
+				itemStyle: { color: "#e53935" },
+				areaStyle: { color: "rgba(229,57,53,0.1)" },
+			},
+			{
+				name: t("chart.maxHp"),
+				type: "line",
+				data: props.hpData.map((d) => d.maxHp),
+				itemStyle: { color: "#90a4ae" },
+				lineStyle: { type: "dashed" },
+			},
+		);
 	}
 
 	return series;
@@ -143,25 +145,27 @@ const getGoldChartSeries = () => {
 			}
 		}
 	} else if (props.goldData && props.goldData.length > 0) {
-		series.push({
-			name: t("chart.gold"),
-			type: "line",
-			data: props.goldData.map((d) => d.gold),
-			itemStyle: { color: "#f9a825" },
-			areaStyle: { color: "rgba(249,168,37,0.1)" },
-		});
-		series.push({
-			name: t("chart.spent"),
-			type: "bar",
-			data: props.goldData.map((d) => d.spent),
-			itemStyle: { color: "rgba(229,57,53,0.6)" },
-		});
-		series.push({
-			name: t("chart.gained"),
-			type: "bar",
-			data: props.goldData.map((d) => d.gained),
-			itemStyle: { color: "rgba(46,125,50,0.6)" },
-		});
+		series.push(
+			{
+				name: t("chart.gold"),
+				type: "line",
+				data: props.goldData.map((d) => d.gold),
+				itemStyle: { color: "#f9a825" },
+				areaStyle: { color: "rgba(249,168,37,0.1)" },
+			},
+			{
+				name: t("chart.spent"),
+				type: "bar",
+				data: props.goldData.map((d) => d.spent),
+				itemStyle: { color: "rgba(229,57,53,0.6)" },
+			},
+			{
+				name: t("chart.gained"),
+				type: "bar",
+				data: props.goldData.map((d) => d.gained),
+				itemStyle: { color: "rgba(46,125,50,0.6)" },
+			},
+		);
 	}
 
 	return series;

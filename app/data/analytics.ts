@@ -287,7 +287,7 @@ export function getEncounterStats(
 export function getRunSummary(run: RunFile): RunSummary {
 	const player = run.players[0];
 	const floors = flattenFloors(run);
-	const lastFloor = floors[floors.length - 1];
+	const lastFloor = floors.at(-1);
 	const lastStats = lastFloor?.playerStats[0];
 
 	// Collect all players' data - use real Steam ID from first floor stats if available
