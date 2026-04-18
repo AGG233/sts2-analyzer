@@ -16,7 +16,8 @@
     "runs": "runs",
     "loading": "Loading...",
     "character": "Character",
-    "characterStats": "Character Statistics"
+    "characterStats": "Character Statistics",
+    "cardAnalysis": "Card Analysis"
   },
   "run": {
     "back": "← Back",
@@ -100,6 +101,8 @@
     "highestPickRate": "Highest Pick Rate",
     "sortByCount": "By Count",
     "sortByRate": "By Rate",
+    "sortDesc": "Descending",
+    "sortAsc": "Ascending",
     "showAll": "Show All",
     "deduplicate": "Deduplicate",
     "characterPoolOnly": "Character Pool Only",

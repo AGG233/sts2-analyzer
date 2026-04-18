@@ -16,7 +16,8 @@
     "runs": "局",
     "loading": "加载中...",
     "character": "角色",
-    "characterStats": "角色统计"
+    "characterStats": "角色统计",
+    "cardAnalysis": "卡牌分析"
   },
   "run": {
     "back": "← 返回",
@@ -100,6 +101,8 @@
     "highestPickRate": "选取率最高",
     "sortByCount": "按次数",
     "sortByRate": "按选取率",
+    "sortDesc": "降序",
+    "sortAsc": "升序",
     "showAll": "显示全部",
     "deduplicate": "去重",
     "characterPoolOnly": "仅角色卡池",
@@ -131,7 +134,8 @@
       "runs": "局",
       "loading": "加载中...",
       "character": "角色",
-      "characterStats": "角色统计"
+      "characterStats": "角色统计",
+      "cardAnalysis": "卡牌分析"
     },
     "run": {
       "back": "← 返回",
@@ -215,6 +219,8 @@
       "highestPickRate": "选取率最高",
       "sortByCount": "按次数",
       "sortByRate": "按选取率",
+      "sortDesc": "降序",
+      "sortAsc": "升序",
       "showAll": "显示全部",
       "deduplicate": "去重",
       "characterPoolOnly": "仅角色卡池",
