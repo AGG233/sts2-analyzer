@@ -364,44 +364,59 @@ function ensurePlayerMap(
 	return playerMap;
 }
 
+function removeCardById(deck: SimDeckCard[], id: string, floor: number): void {
+	const idx = deck.findIndex(
+		(c) => c.id === id && c.floorAdded === (floor || 1),
+	);
+	if (idx !== -1) deck.splice(idx, 1);
+}
+
+function replaceCardInDeck(
+	deck: SimDeckCard[],
+	oldId: string,
+	newId: string,
+	floor: number,
+): void {
+	const idx = deck.findIndex(
+		(c) => c.id === oldId && c.floorAdded === (floor || 1),
+	);
+	if (idx !== -1) {
+		deck[idx] = { id: newId, floorAdded: floor || 1, upgradeLevel: 0 };
+	}
+}
+
+function adjustUpgradeLevel(
+	deck: SimDeckCard[],
+	cardId: string,
+	delta: number,
+): void {
+	const match = deck.find((c) => c.id === cardId);
+	if (match) match.upgradeLevel = Math.max(0, match.upgradeLevel + delta);
+}
+
 function undoFloorChanges(
 	deck: SimDeckCard[],
 	stats: FloorPlayerStats,
 	globalFloor: number,
 ): void {
-	for (const cg of stats.cards_gained ?? []) {
-		const fa = cg.floor_added_to_deck ?? globalFloor;
-		const idx = deck.findIndex((c) => c.id === cg.id && c.floorAdded === fa);
-		if (idx !== -1) deck.splice(idx, 1);
-	}
-	for (const ct of stats.cards_transformed ?? []) {
-		const finalFa = ct.final_card.floor_added_to_deck ?? globalFloor;
-		const idx = deck.findIndex(
-			(c) => c.id === ct.final_card.id && c.floorAdded === finalFa,
+	for (const cg of stats.cards_gained ?? [])
+		removeCardById(deck, cg.id, cg.floor_added_to_deck ?? globalFloor);
+	for (const ct of stats.cards_transformed ?? [])
+		replaceCardInDeck(
+			deck,
+			ct.final_card.id,
+			ct.original_card.id,
+			ct.final_card.floor_added_to_deck ?? globalFloor,
 		);
-		if (idx !== -1) {
-			deck[idx] = {
-				id: ct.original_card.id,
-				floorAdded: ct.original_card.floor_added_to_deck ?? globalFloor,
-				upgradeLevel: 0,
-			};
-		}
-	}
-	for (const cr of stats.cards_removed ?? []) {
+	for (const cr of stats.cards_removed ?? [])
 		deck.push({
 			id: cr.id,
 			floorAdded: cr.floor_added_to_deck ?? globalFloor,
 			upgradeLevel: 0,
 		});
-	}
-	for (const uc of stats.upgraded_cards ?? []) {
-		const match = deck.find((c) => c.id === uc);
-		if (match) match.upgradeLevel = Math.max(0, match.upgradeLevel - 1);
-	}
-	for (const dc of stats.downgraded_cards ?? []) {
-		const match = deck.find((c) => c.id === dc);
-		if (match) match.upgradeLevel++;
-	}
+	for (const uc of stats.upgraded_cards ?? []) adjustUpgradeLevel(deck, uc, -1);
+	for (const dc of stats.downgraded_cards ?? [])
+		adjustUpgradeLevel(deck, dc, 1);
 }
 
 function applyFloorChanges(
@@ -409,39 +424,24 @@ function applyFloorChanges(
 	stats: FloorPlayerStats,
 	globalFloor: number,
 ): void {
-	for (const cr of stats.cards_removed ?? []) {
-		const fa = cr.floor_added_to_deck ?? globalFloor;
-		const idx = deck.findIndex((c) => c.id === cr.id && c.floorAdded === fa);
-		if (idx !== -1) deck.splice(idx, 1);
-	}
-	for (const ct of stats.cards_transformed ?? []) {
-		const origFa = ct.original_card.floor_added_to_deck ?? globalFloor;
-		const idx = deck.findIndex(
-			(c) => c.id === ct.original_card.id && c.floorAdded === origFa,
+	for (const cr of stats.cards_removed ?? [])
+		removeCardById(deck, cr.id, cr.floor_added_to_deck ?? globalFloor);
+	for (const ct of stats.cards_transformed ?? [])
+		replaceCardInDeck(
+			deck,
+			ct.original_card.id,
+			ct.final_card.id,
+			ct.original_card.floor_added_to_deck ?? globalFloor,
 		);
-		if (idx !== -1) {
-			deck[idx] = {
-				id: ct.final_card.id,
-				floorAdded: ct.final_card.floor_added_to_deck ?? globalFloor,
-				upgradeLevel: 0,
-			};
-		}
-	}
-	for (const cg of stats.cards_gained ?? []) {
+	for (const cg of stats.cards_gained ?? [])
 		deck.push({
 			id: cg.id,
 			floorAdded: cg.floor_added_to_deck ?? globalFloor,
 			upgradeLevel: cg.current_upgrade_level ?? 0,
 		});
-	}
-	for (const uc of stats.upgraded_cards ?? []) {
-		const match = deck.find((c) => c.id === uc);
-		if (match) match.upgradeLevel++;
-	}
-	for (const dc of stats.downgraded_cards ?? []) {
-		const match = deck.find((c) => c.id === dc);
-		if (match) match.upgradeLevel = Math.max(0, match.upgradeLevel - 1);
-	}
+	for (const uc of stats.upgraded_cards ?? []) adjustUpgradeLevel(deck, uc, 1);
+	for (const dc of stats.downgraded_cards ?? [])
+		adjustUpgradeLevel(deck, dc, -1);
 }
 
 /**
