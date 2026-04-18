@@ -579,6 +579,15 @@ function tallyChoice(
 	map.set(id, entry);
 }
 
+function isFloorInRange(
+	floor: number,
+	options?: CardPickRateOptions,
+): boolean {
+	if (options?.floorMin != null && floor < options.floorMin) return false;
+	if (options?.floorMax != null && floor > options.floorMax) return false;
+	return true;
+}
+
 function collectCardChoices(
 	run: RunFile,
 	options?: CardPickRateOptions,
@@ -587,17 +596,18 @@ function collectCardChoices(
 	let globalFloor = 1;
 	for (const act of run.map_point_history) {
 		for (const floor of act) {
-			const choices = floor.player_stats.flatMap((ps) => ps.card_choices ?? []);
-			for (const choice of choices) {
-				if (options?.floorMin != null && globalFloor < options.floorMin)
-					continue;
-				if (options?.floorMax != null && globalFloor > options.floorMax)
-					continue;
-				result.push({
-					id: choice.card.id,
-					wasPicked: choice.was_picked,
-					floor: globalFloor,
-				});
+			if (!isFloorInRange(globalFloor, options)) {
+				globalFloor++;
+				continue;
+			}
+			for (const ps of floor.player_stats) {
+				for (const choice of ps.card_choices ?? []) {
+					result.push({
+						id: choice.card.id,
+						wasPicked: choice.was_picked,
+						floor: globalFloor,
+					});
+				}
 			}
 			globalFloor++;
 		}
@@ -663,18 +673,28 @@ export function getDeathCauseStats(runs: RunFile[]): DeathCauseStat[] {
 		.sort((a, b) => b.count - a.count);
 }
 
+function collectRelicChoicesFromPlayerStats(
+	playerStats: FloorPlayerStats[],
+): { id: string; wasPicked: boolean }[] {
+	return playerStats.flatMap((ps) =>
+		(ps.relic_choices ?? []).map((c) => ({
+			id: c.choice,
+			wasPicked: c.was_picked,
+		})),
+	);
+}
+
+function collectRelicChoicesFromFloor(
+	floor: MapPoint,
+): { id: string; wasPicked: boolean }[] {
+	return collectRelicChoicesFromPlayerStats(floor.player_stats);
+}
+
 function collectRelicChoices(
 	run: RunFile,
 ): { id: string; wasPicked: boolean }[] {
 	return run.map_point_history.flatMap((act) =>
-		act.flatMap((floor) =>
-			floor.player_stats.flatMap((ps) =>
-				(ps.relic_choices ?? []).map((c) => ({
-					id: c.choice,
-					wasPicked: c.was_picked,
-				})),
-			),
-		),
+		act.flatMap(collectRelicChoicesFromFloor),
 	);
 }
 
