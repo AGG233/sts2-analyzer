@@ -76,6 +76,7 @@ const summaryStats = computed(() => {
 			totalCards: 0,
 			avgPickRate: 0,
 			mostPicked: null,
+			highestPickRate: null,
 			mostSkipped: null,
 		};
 	}
@@ -85,7 +86,8 @@ const summaryStats = computed(() => {
 		data.reduce((sum: number, d: { pickRate: number }) => sum + d.pickRate, 0) /
 		data.length;
 
-	const sortedByPickRate = [...data].sort((a, b) => b.pickRate - a.pickRate);
+	const sortedByTotal = [...data].sort((a, b) => b.total - a.total);
+	const sortedByPickRate = [...data].filter(d => d.total >= 5).sort((a, b) => b.pickRate - a.pickRate);
 	const sortedBySkipRate = [...data].sort(
 		(a, b) => b.skipped / b.total - a.skipped / a.total,
 	);
@@ -93,7 +95,8 @@ const summaryStats = computed(() => {
 	return {
 		totalCards: data.length,
 		avgPickRate,
-		mostPicked: sortedByPickRate[0],
+		mostPicked: sortedByTotal[0],
+		highestPickRate: sortedByPickRate[0] || null,
 		mostSkipped: sortedBySkipRate[0],
 	};
 });
@@ -225,9 +228,14 @@ updateChartData();
         <span class="stat-value">{{ (summaryStats.avgPickRate * 100).toFixed(1) }}%</span>
       </div>
       <div v-if="summaryStats.mostPicked" class="stat-pill highlight">
-        <span class="stat-label">{{ t('chart.topPicked') }}</span>
+        <span class="stat-label">{{ t('chart.mostPicked') }}</span>
         <span class="stat-value">{{ cardName(summaryStats.mostPicked.cardId) }}</span>
-        <span class="stat-rate">{{ (summaryStats.mostPicked.pickRate * 100).toFixed(0) }}%</span>
+        <span class="stat-rate">{{ summaryStats.mostPicked.total }}</span>
+      </div>
+      <div v-if="summaryStats.highestPickRate" class="stat-pill highlight">
+        <span class="stat-label">{{ t('chart.highestPickRate') }}</span>
+        <span class="stat-value">{{ cardName(summaryStats.highestPickRate.cardId) }}</span>
+        <span class="stat-rate">{{ (summaryStats.highestPickRate.pickRate * 100).toFixed(0) }}%</span>
       </div>
     </div>
 

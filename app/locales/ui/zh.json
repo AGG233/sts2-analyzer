@@ -96,6 +96,8 @@
     "cardTypes": "卡牌种类",
     "avgPickRate": "平均选取率",
     "topPicked": "最高选取",
+    "mostPicked": "选取最多",
+    "highestPickRate": "选取率最高",
     "sortByCount": "按次数",
     "sortByRate": "按选取率",
     "showAll": "显示全部",

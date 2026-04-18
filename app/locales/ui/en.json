@@ -96,6 +96,8 @@
     "cardTypes": "Card Types",
     "avgPickRate": "Avg Pick Rate",
     "topPicked": "Top Picked",
+    "mostPicked": "Most Picked",
+    "highestPickRate": "Highest Pick Rate",
     "sortByCount": "By Count",
     "sortByRate": "By Rate",
     "showAll": "Show All",

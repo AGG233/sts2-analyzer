@@ -76,6 +76,152 @@ describe("Aggregate Analytics", () => {
 		it("should return empty array when given empty runs", () => {
 			expect(getCardPickRateByCharacter([], "ironclad")).toEqual([]);
 		});
+
+		it("only counts card choices from the matching character in a multi-player run", () => {
+			const run = createRun({
+				players: [
+					{
+						id: 101,
+						character: "CHARACTER.REGENT",
+						deck: [],
+						relics: [],
+						potions: [],
+						max_potion_slot_count: 3,
+					},
+					{
+						id: 202,
+						character: "CHARACTER.IRONCLAD",
+						deck: [],
+						relics: [],
+						potions: [],
+						max_potion_slot_count: 3,
+					},
+				],
+				map_point_history: [
+					[
+						{
+							map_point_type: "monster",
+							player_stats: [
+								createFloorStats({
+									player_id: 202,
+									card_choices: [
+										{ card: { id: "BASH" }, was_picked: true },
+										{ card: { id: "ANGER" }, was_picked: true },
+									],
+								}),
+								createFloorStats({
+									player_id: 101,
+									card_choices: [
+										{ card: { id: "DEFEND" }, was_picked: true },
+										{ card: { id: "OUTMANEUVER" }, was_picked: false },
+									],
+								}),
+							],
+							rooms: [],
+						},
+					],
+				],
+			});
+
+			const regentStats = getCardPickRateByCharacter([run], "CHARACTER.REGENT");
+			expect(regentStats).toEqual([
+				{ cardId: "DEFEND", picked: 1, skipped: 0, total: 1, pickRate: 1 },
+				{ cardId: "OUTMANEUVER", picked: 0, skipped: 1, total: 1, pickRate: 0 },
+			]);
+
+			const ironcladStats = getCardPickRateByCharacter([run], "CHARACTER.IRONCLAD");
+			expect(ironcladStats).toEqual([
+				{ cardId: "BASH", picked: 1, skipped: 0, total: 1, pickRate: 1 },
+				{ cardId: "ANGER", picked: 1, skipped: 0, total: 1, pickRate: 1 },
+			]);
+		});
+
+		it("finds character at non-zero player index", () => {
+			const run = createRun({
+				players: [
+					{
+						id: 101,
+						character: "CHARACTER.IRONCLAD",
+						deck: [],
+						relics: [],
+						potions: [],
+						max_potion_slot_count: 3,
+					},
+					{
+						id: 202,
+						character: "CHARACTER.SILENT",
+						deck: [],
+						relics: [],
+						potions: [],
+						max_potion_slot_count: 3,
+					},
+				],
+				map_point_history: [
+					[
+						{
+							map_point_type: "monster",
+							player_stats: [
+								createFloorStats({
+									player_id: 101,
+									card_choices: [
+										{ card: { id: "BASH" }, was_picked: true },
+									],
+								}),
+								createFloorStats({
+									player_id: 202,
+									card_choices: [
+										{ card: { id: "BACKSTAB" }, was_picked: true },
+									],
+								}),
+							],
+							rooms: [],
+						},
+					],
+				],
+			});
+
+			const silentStats = getCardPickRateByCharacter([run], "CHARACTER.SILENT");
+			expect(silentStats).toEqual([
+				{ cardId: "BACKSTAB", picked: 1, skipped: 0, total: 1, pickRate: 1 },
+			]);
+		});
+
+		it("skips runs where the character is not present", () => {
+			const ironcladRun = createRun({
+				seed: "a",
+				players: [
+					{
+						id: 0,
+						character: "CHARACTER.IRONCLAD",
+						deck: [],
+						relics: [],
+						potions: [],
+						max_potion_slot_count: 3,
+					},
+				],
+				map_point_history: [
+					[
+						{
+							map_point_type: "monster",
+							player_stats: [
+								createFloorStats({
+									card_choices: [
+										{ card: { id: "BASH" }, was_picked: true },
+									],
+								}),
+							],
+							rooms: [],
+						},
+					],
+				],
+			});
+
+			const regentStats = getCardPickRateByCharacter(
+				[ironcladRun],
+				"CHARACTER.REGENT",
+			);
+			expect(regentStats).toEqual([]);
+		});
 	});
 
 	describe("getWinRateByCharacter", () => {

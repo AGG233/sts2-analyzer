@@ -201,28 +201,6 @@ function tallyRelicChoicesForRun(
 	for (const c of collectRelicChoices(run)) tallyChoice(map, c.id, c.wasPicked);
 }
 
-// ---- 角色专属卡牌分析 ----
-
-const CHARACTER_CARD_SUFFIXES: Record<string, string> = {
-	"CHARACTER.IRONCLAD": "IRONCLAD",
-	"CHARACTER.SILENT": "SILENT",
-	"CHARACTER.REGENT": "REGENT",
-	"CHARACTER.NECROBINDER": "NECROBINDER",
-	"CHARACTER.DEFECT": "DEFECT",
-};
-
-function isOtherCharacterCard(
-	cardId: string,
-	currentCharacterId: string,
-): boolean {
-	const currentSuffix = CHARACTER_CARD_SUFFIXES[currentCharacterId];
-	if (!currentSuffix) return false;
-
-	return Object.entries(CHARACTER_CARD_SUFFIXES)
-		.filter(([charId]) => charId !== currentCharacterId)
-		.some(([, suffix]) => cardId.endsWith(`_${suffix}`));
-}
-
 // ---- Public API ----
 
 export function getRunSummary(run: RunFile): RunSummary {
@@ -316,21 +294,34 @@ export function getCardPickRate(
 		.sort((a, b) => b.total - a.total);
 }
 
+export interface CardPickRateByCharacterOptions {
+	characterPoolOnly?: boolean;
+}
+
 export function getCardPickRateByCharacter(
 	runs: RunFile[],
 	characterId: string,
+	options: CardPickRateByCharacterOptions = {},
 ): CardPickStat[] {
 	const map = new Map<string, { picked: number; skipped: number }>();
 
 	for (const run of runs) {
-		if (run.players[0]?.character !== characterId) continue;
-		for (const c of collectCardChoices(run)) {
-			if (isOtherCharacterCard(c.id, characterId)) continue;
-			tallyChoice(map, c.id, c.wasPicked);
+		const playerIndex = run.players.findIndex(
+			(p) => p.character === characterId,
+		);
+		if (playerIndex === -1) continue;
+
+		const floors = flattenFloors(run);
+		for (const f of floors) {
+			const stats = getPlayerStatsForFloor(run, f, playerIndex);
+			if (!stats) continue;
+			for (const choice of stats.card_choices ?? []) {
+				tallyChoice(map, choice.card.id, choice.was_picked);
+			}
 		}
 	}
 
-	return Array.from(map.entries())
+	let stats = Array.from(map.entries())
 		.map(([cardId, { picked, skipped }]) => ({
 			cardId,
 			picked,
@@ -339,6 +330,12 @@ export function getCardPickRateByCharacter(
 			pickRate: picked + skipped > 0 ? picked / (picked + skipped) : 0,
 		}))
 		.sort((a, b) => b.total - a.total);
+
+	// Note: characterPoolOnly filtering requires card pool data from the database
+	// In the current implementation, we defer this filtering to the component level
+	// where it has access to the Drizzle DB instance
+
+	return stats;
 }
 
 export function getDeathCauseStats(runs: RunFile[]): DeathCauseStat[] {

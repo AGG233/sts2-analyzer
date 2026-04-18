@@ -40,6 +40,7 @@ export default defineNuxtConfig({
 		},
 		optimizeDeps: {
 			include: ["vue", "vue-router", "pinia"],
+			exclude: ["sql.js"],
 		},
 	},
 	nitro: {
