@@ -26,25 +26,27 @@ export type RoomType =
 	| "treasure"
 	| "rest_site";
 
-export type CharacterId =
+// ---- Known character IDs (used as narrowed type) ----
+export type KnownCharacterId =
 	| "CHARACTER.IRONCLAD"
 	| "CHARACTER.SILENT"
 	| "CHARACTER.REGENT"
 	| "CHARACTER.NECROBINDER"
-	| "CHARACTER.DEFECT"
-	| string; // NOSONAR (typescript:S6571) — intentional fallback for forward compatibility
+	| "CHARACTER.DEFECT";
 
-export type GameMode = "standard" | string; // NOSONAR (typescript:S6571) — intentional fallback for forward compatibility
+// Forward-compatible character ID: known IDs + arbitrary string
+// eslint-disable-next-line typescript:S6571
+export type CharacterId = KnownCharacterId | (string & {});
 
-export type PlatformType = "steam" | string; // NOSONAR (typescript:S6571) — intentional fallback for forward compatibility
+// eslint-disable-next-line typescript:S6571
+export type GameMode = "standard" | (string & {});
 
-export type RestSiteChoice =
-	| "HEAL"
-	| "UPGRADE"
-	| "DIG"
-	| "LIFT"
-	| "RECALL"
-	| string; // NOSONAR (typescript:S6571) — intentional fallback for forward compatibility
+// eslint-disable-next-line typescript:S6571
+export type PlatformType = "steam" | (string & {});
+
+// eslint-disable-next-line typescript:S6571
+export type RestSiteChoice = KnownRestSiteChoice | (string & {});
+export type KnownRestSiteChoice = "HEAL" | "UPGRADE" | "DIG" | "LIFT" | "RECALL";
 
 // ---- Card ----
 

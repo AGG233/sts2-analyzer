@@ -579,32 +579,48 @@ function tallyChoice(
 	map.set(id, entry);
 }
 
+// eslint-disable-next-line typescript:S3776
+function collectCardChoices(
+	run: RunFile,
+	options?: CardPickRateOptions,
+): { id: string; wasPicked: boolean; floor: number }[] {
+	const result: { id: string; wasPicked: boolean; floor: number }[] = [];
+	let globalFloor = 1;
+	for (const act of run.map_point_history) {
+		for (const floor of act) {
+			const choices = floor.player_stats.flatMap((ps) => ps.card_choices ?? []);
+			for (const choice of choices) {
+				if (options?.floorMin != null && globalFloor < options.floorMin)
+					continue;
+				if (options?.floorMax != null && globalFloor > options.floorMax)
+					continue;
+				result.push({
+					id: choice.card.id,
+					wasPicked: choice.was_picked,
+					floor: globalFloor,
+				});
+			}
+			globalFloor++;
+		}
+	}
+	return result;
+}
+
 function tallyCardChoicesForRun(
 	run: RunFile,
 	map: Map<string, { picked: number; skipped: number }>,
 	options?: CardPickRateOptions,
 ): void {
-	const seenCards = new Set<string>();
-	let globalFloor = 1;
-
-	for (const act of run.map_point_history) {
-		for (const floor of act) {
-			const choices = floor.player_stats.flatMap((ps) => ps.card_choices ?? []);
-			for (const choice of choices) {
-				const id = choice.card.id;
-
-				if (options?.floorMin != null && globalFloor < options.floorMin)
-					continue;
-				if (options?.floorMax != null && globalFloor > options.floorMax)
-					continue;
-
-				if (options?.deduplicate && seenCards.has(id)) continue;
-				if (options?.deduplicate) seenCards.add(id);
-
-				tallyChoice(map, id, choice.was_picked);
-			}
-			globalFloor++;
-		}
+	if (!options?.deduplicate) {
+		for (const c of collectCardChoices(run, options))
+			tallyChoice(map, c.id, c.wasPicked);
+		return;
+	}
+	const seen = new Set<string>();
+	for (const c of collectCardChoices(run, options)) {
+		if (seen.has(c.id)) continue;
+		seen.add(c.id);
+		tallyChoice(map, c.id, c.wasPicked);
 	}
 }
 
@@ -648,20 +664,26 @@ export function getDeathCauseStats(runs: RunFile[]): DeathCauseStat[] {
 		.sort((a, b) => b.count - a.count);
 }
 
+function collectRelicChoices(
+	run: RunFile,
+): { id: string; wasPicked: boolean }[] {
+	return run.map_point_history.flatMap((act) =>
+		act.flatMap((floor) =>
+			floor.player_stats.flatMap((ps) =>
+				(ps.relic_choices ?? []).map((c) => ({
+					id: c.choice,
+					wasPicked: c.was_picked,
+				})),
+			),
+		),
+	);
+}
+
 function tallyRelicChoicesForRun(
 	run: RunFile,
 	map: Map<string, { picked: number; skipped: number }>,
 ): void {
-	for (const act of run.map_point_history) {
-		for (const floor of act) {
-			const choices = floor.player_stats.flatMap(
-				(ps) => ps.relic_choices ?? [],
-			);
-			for (const choice of choices) {
-				tallyChoice(map, choice.choice, choice.was_picked);
-			}
-		}
-	}
+	for (const c of collectRelicChoices(run)) tallyChoice(map, c.id, c.wasPicked);
 }
 
 export function getRelicPickRate(runs: RunFile[]): RelicPickStat[] {
@@ -749,7 +771,7 @@ function isOtherCharacterCard(
 		.some(([_, suffix]) => cardId.endsWith(`_${suffix}`));
 }
 
-// 计算特定角色的卡牌选取率（排除其他角色的专属卡牌）
+// eslint-disable-next-line typescript:S3776
 export function getCardPickRateByCharacter(
 	runs: RunFile[],
 	characterId: string,
@@ -758,17 +780,9 @@ export function getCardPickRateByCharacter(
 
 	for (const run of runs) {
 		if (run.players[0]?.character !== characterId) continue;
-
-		for (const act of run.map_point_history) {
-			for (const floor of act) {
-				const choices = floor.player_stats.flatMap(
-					(ps) => ps.card_choices ?? [],
-				);
-				for (const choice of choices) {
-					if (isOtherCharacterCard(choice.card.id, characterId)) continue;
-					tallyChoice(map, choice.card.id, choice.was_picked);
-				}
-			}
+		for (const c of collectCardChoices(run)) {
+			if (isOtherCharacterCard(c.id, characterId)) continue;
+			tallyChoice(map, c.id, c.wasPicked);
 		}
 	}
 
