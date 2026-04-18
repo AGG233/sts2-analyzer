@@ -132,26 +132,54 @@ export function closeDB(): void {
 async function seedInitialData(sqlDb: initSqlJs.Database): Promise<void> {
   // Check if game_versions table exists and has data
   const gameVersionsResult = sqlDb.exec("SELECT COUNT(*) as count FROM game_versions;");
-  if (gameVersionsResult.length > 0 && gameVersionsResult[0].values[0][0] === 0) {
-    // Seed initial game version
+  let hasGameVersions = gameVersionsResult.length > 0 && gameVersionsResult[0].values[0][0] > 0;
+
+  // Check if card_pools has data
+  const cardPoolsResult = sqlDb.exec("SELECT COUNT(*) as count FROM card_pools;");
+  let hasCardPools = cardPoolsResult.length > 0 && cardPoolsResult[0].values[0][0] > 0;
+
+  // If we already have data, skip seeding
+  if (hasGameVersions && hasCardPools) {
+    return;
+  }
+
+  // Try to load and seed card pool data
+  try {
+    // In client context, try to fetch from public folder
+    if (typeof window !== "undefined") {
+      const response = await fetch("/card-pools-v0.15.json");
+      if (response.ok) {
+        const data = await response.json();
+
+        // Insert game version if needed
+        if (!hasGameVersions) {
+          sqlDb.run("INSERT INTO game_versions (version, display_name, notes) VALUES (?, ?, ?)",
+            [data.version, data.display_name, "Initial EA release"]);
+        }
+
+        // Insert card pools if needed
+        if (!hasCardPools && data.card_pools) {
+          const insertStmt = sqlDb.prepare("INSERT INTO card_pools (card_id, character_id, is_starter, game_version) VALUES (?, ?, ?, ?)");
+          for (const card of data.card_pools) {
+            insertStmt.run([card.card_id, card.character_id, card.is_starter ? 1 : 0, card.game_version]);
+          }
+          insertStmt.free();
+          console.log(`Seeded ${data.card_pools.length} card pool entries`);
+        }
+        return;
+      }
+    }
+  } catch (error) {
+    console.warn("Failed to seed card pool data from fetch:", error);
+  }
+
+  // Fallback: insert minimal data if fetch failed
+  if (!hasGameVersions) {
     sqlDb.run("INSERT INTO game_versions (version, display_name, notes) VALUES (?, ?, ?)",
       ["0.15", "Early Access 0.15", "Initial EA release"]);
   }
 
-  // Check if card_pools is empty
-  const cardPoolsResult = sqlDb.exec("SELECT COUNT(*) as count FROM card_pools;");
-  if (cardPoolsResult.length > 0 && cardPoolsResult[0].values[0][0] === 0) {
-    // Import card pools from data/card-pools-v0.15.json
-    try {
-      const cardPools = await import("~/data/card-pools-v0.15.json").then(m => m.default);
-      for (const pool of cardPools.card_pools) {
-        sqlDb.run(
-          "INSERT INTO card_pools (card_id, character_id, is_starter, game_version) VALUES (?, ?, ?, ?)",
-          [pool.card_id, pool.character_id, pool.is_starter ? 1 : 0, pool.game_version]
-        );
-      }
-    } catch (error) {
-      console.warn("Failed to seed initial card pools:", error);
-    }
+  if (!hasCardPools) {
+    console.warn("Card pool data not seeded - using empty database");
   }
 }

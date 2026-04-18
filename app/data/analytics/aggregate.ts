@@ -298,11 +298,11 @@ export interface CardPickRateByCharacterOptions {
 	characterPoolOnly?: boolean;
 }
 
-export function getCardPickRateByCharacter(
+export async function getCardPickRateByCharacter(
 	runs: RunFile[],
 	characterId: string,
 	options: CardPickRateByCharacterOptions = {},
-): CardPickStat[] {
+): Promise<CardPickStat[]> {
 	const map = new Map<string, { picked: number; skipped: number }>();
 
 	for (const run of runs) {
@@ -331,9 +331,22 @@ export function getCardPickRateByCharacter(
 		}))
 		.sort((a, b) => b.total - a.total);
 
-	// Note: characterPoolOnly filtering requires card pool data from the database
-	// In the current implementation, we defer this filtering to the component level
-	// where it has access to the Drizzle DB instance
+	// Filter to character pool if requested and database is available
+	if (options.characterPoolOnly) {
+		try {
+			// Dynamically import database dependencies only when needed
+			const { getDB } = await import("~/lib/db.client");
+			const { getCharacterCardIds } = await import("~/data/card-pools");
+
+			const db = await getDB();
+			const characterCardIds = await getCharacterCardIds(db, characterId);
+			const characterCardIdSet = new Set(characterCardIds);
+			stats = stats.filter(stat => characterCardIdSet.has(stat.cardId));
+		} catch (error) {
+			console.error("Failed to filter card pick rate by character pool:", error);
+			// If database access fails, return all cards without filtering
+		}
+	}
 
 	return stats;
 }

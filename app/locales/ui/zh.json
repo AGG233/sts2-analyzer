@@ -102,6 +102,8 @@
     "sortByRate": "按选取率",
     "showAll": "显示全部",
     "deduplicate": "去重",
+    "characterPoolOnly": "仅角色卡池",
+    "allCards": "所有卡牌",
     "floorAll": "全部",
     "noData": "暂无数据，请先导入游戏存档",
     "noMatchingCards": "没有符合筛选条件的卡牌数据",

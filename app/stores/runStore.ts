@@ -6,10 +6,11 @@ import type { RunFile } from "~/data/types";
 import {
 	clearAll,
 	loadDirHandle,
-	loadRuns,
 	saveDirHandle,
-	saveRuns,
 } from "~/lib/storage.client";
+import { initDB, getDB, saveDB } from "~/lib/db.client";
+import * as schema from "~/db/schema";
+import { eq } from "drizzle-orm";
 
 function notify(
 	severity: "success" | "info" | "warn" | "error",
@@ -31,6 +32,7 @@ export const useRunStore = defineStore("runs", () => {
 	const loading = ref(false);
 	const dirHandle = ref<FileSystemDirectoryHandle | null>(null);
 	const runsBySeed = ref<Map<string, RunFile>>(new Map());
+	const dbInitialized = ref(false);
 
 	// Computed
 	const summaries = computed(() => runs.value.map(getRunSummary));
@@ -50,13 +52,52 @@ export const useRunStore = defineStore("runs", () => {
 		| null = null;
 
 	// Actions
-	const addRuns = (newRuns: RunFile[]) => {
+	const addRuns = async (newRuns: RunFile[]) => {
 		runs.value = [...runs.value, ...newRuns];
 		for (const r of newRuns) {
 			runsBySeed.value.set(r.seed, r);
 		}
 		if (import.meta.client) {
-			saveRuns(runs.value);
+			// Save to SQLite
+			try {
+				const db = await getDB();
+				for (const run of newRuns) {
+					// Insert or replace run data
+					const existing = await db.query.runs.findFirst({
+						where: eq(schema.runs.seed, run.seed),
+					});
+
+					const runData = {
+						seed: run.seed,
+						gameVersion: "0.15", // Default version
+						characterId: run.players[0]?.character ?? "UNKNOWN",
+						ascension: run.ascension,
+						win: run.win ? 1 : 0,
+						wasAbandoned: run.was_abandoned ? 1 : 0,
+						buildId: run.build_id,
+						killedByEncounter: run.killed_by_encounter,
+						killedByEvent: run.killed_by_event,
+						startTime: run.start_time,
+						runTime: run.run_time,
+						totalFloors: run.floors.length,
+						rawJson: JSON.stringify(run),
+					};
+
+					if (existing) {
+						await db.update(schema.runs)
+							.set(runData)
+							.where(eq(schema.runs.seed, run.seed));
+					} else {
+						await db.insert(schema.runs)
+							.values(runData);
+					}
+				}
+
+				// Save the database
+				await saveDB();
+			} catch (error) {
+				console.error("Failed to save runs to SQLite:", error);
+			}
 		}
 	};
 
@@ -83,7 +124,43 @@ export const useRunStore = defineStore("runs", () => {
 			runs.value = parsed.map((p) => p.data);
 			runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
 			if (import.meta.client) {
-				await saveRuns(runs.value);
+				// Save to SQLite
+				try {
+					const db = await getDB();
+					for (const run of runs.value) {
+						const runData = {
+							seed: run.seed,
+							gameVersion: "0.15",
+							characterId: run.players[0]?.character ?? "UNKNOWN",
+							ascension: run.ascension,
+							win: run.win ? 1 : 0,
+							wasAbandoned: run.was_abandoned ? 1 : 0,
+							buildId: run.build_id,
+							killedByEncounter: run.killed_by_encounter,
+							killedByEvent: run.killed_by_event,
+							startTime: run.start_time,
+							runTime: run.run_time,
+							totalFloors: run.floors.length,
+							rawJson: JSON.stringify(run),
+						};
+
+						const existing = await db.query.runs.findFirst({
+							where: eq(schema.runs.seed, run.seed),
+						});
+
+						if (existing) {
+							await db.update(schema.runs)
+								.set(runData)
+								.where(eq(schema.runs.seed, run.seed));
+						} else {
+							await db.insert(schema.runs)
+								.values(runData);
+						}
+					}
+					await saveDB();
+				} catch (error) {
+					console.error("Failed to save runs to SQLite:", error);
+				}
 			}
 			// 触发扫描完成通知
 			notify(
@@ -99,11 +176,18 @@ export const useRunStore = defineStore("runs", () => {
 		}
 	};
 
-	const clear = () => {
+	const clear = async () => {
 		runs.value = [];
 		runsBySeed.value = new Map();
 		dirHandle.value = null;
 		if (import.meta.client) {
+			try {
+				const db = await getDB();
+				await db.delete(schema.runs);
+				await saveDB();
+			} catch (error) {
+				console.error("Failed to clear runs from SQLite:", error);
+			}
 			clearAll();
 		}
 	};
@@ -113,11 +197,25 @@ export const useRunStore = defineStore("runs", () => {
 		if (!import.meta.client) return;
 
 		try {
-			// Load runs from IndexedDB
-			const savedRuns = await loadRuns();
-			if (savedRuns.length > 0) {
-				runs.value = savedRuns;
+			// Initialize database
+			await initDB();
+			dbInitialized.value = true;
+
+			// Load runs from SQLite
+			const db = await getDB();
+			const dbRuns = await db.select().from(schema.runs);
+			if (dbRuns.length > 0) {
+				runs.value = dbRuns.map(r => JSON.parse(r.rawJson) as RunFile);
 				runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
+			} else {
+				// Fallback to IndexedDB if SQLite has no data
+				const savedRuns = await loadRuns();
+				if (savedRuns.length > 0) {
+					runs.value = savedRuns;
+					runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
+					// Save to SQLite for future use
+					await addRuns(savedRuns);
+				}
 			}
 
 			// Load directory handle
@@ -126,7 +224,7 @@ export const useRunStore = defineStore("runs", () => {
 				dirHandle.value = savedDirHandle;
 			}
 		} catch (error) {
-			console.error("Failed to load from storage:", error);
+			console.error("Failed to initialize store:", error);
 		}
 	};
 

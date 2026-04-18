@@ -26,6 +26,7 @@ const sortBy = ref<"total" | "pickRate">("total");
 const sortOrder = ref<"desc" | "asc">("desc");
 const showPickRateOnly = ref(false);
 const deduplicate = ref(false);
+const characterPoolOnly = ref(true);
 const floorRange = ref<{ min?: number; max?: number } | undefined>(undefined);
 
 type FloorRangeOption = { label: string; min?: number; max?: number };
@@ -199,14 +200,16 @@ watch(pickRateOptions, () => {
 	updateChartData();
 });
 
-function updateChartData() {
+async function updateChartData() {
 	if (!store.runs.length) {
 		chartData.value = [];
 		return;
 	}
 
 	if (props.characterId) {
-		chartData.value = getCardPickRateByCharacter(store.runs, props.characterId);
+		chartData.value = await getCardPickRateByCharacter(store.runs, props.characterId, {
+			characterPoolOnly: characterPoolOnly.value,
+		});
 	} else {
 		chartData.value = getCardPickRate(store.runs, pickRateOptions.value);
 	}
@@ -289,6 +292,14 @@ updateChartData();
       >
         <CopyCheck :size="14" />
         {{ t('chart.deduplicate') }}
+      </button>
+      <button
+        v-if="props.characterId"
+        :class="['control-btn', { active: characterPoolOnly }]"
+        @click="characterPoolOnly = !characterPoolOnly"
+      >
+        <Filter :size="14" />
+        {{ characterPoolOnly ? t('chart.characterPoolOnly') : t('chart.allCards') }}
       </button>
     </div>
 

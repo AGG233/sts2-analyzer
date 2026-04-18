@@ -102,6 +102,8 @@
     "sortByRate": "By Rate",
     "showAll": "Show All",
     "deduplicate": "Deduplicate",
+    "characterPoolOnly": "Character Pool Only",
+    "allCards": "All Cards",
     "floorAll": "All",
     "noData": "No data yet. Import your game saves first.",
     "noMatchingCards": "No cards match the current filters."

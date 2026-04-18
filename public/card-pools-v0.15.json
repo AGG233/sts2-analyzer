@@ -1,0 +1,3462 @@
+{
+  "version": "0.15",
+  "display_name": "Early Access 0.15",
+  "card_pools": [
+    {
+      "card_id": "AGGRESSION",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ANGER",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ARMAMENTS",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ASHEN_STRIKE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BARRICADE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BASH",
+      "character_id": "ironclad",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BATTLE_TRANCE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BLOOD_WALL",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BLOODLETTING",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BLUDGEON",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BODY_SLAM",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BRAND",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BREAK",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BREAKTHROUGH",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BULLY",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BURNING_PACT",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CASCADE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CINDER",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COLOSSUS",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CONFLAGRATION",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CORRUPTION",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CRIMSON_MANTLE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CRUELTY",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DARK_EMBRACE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFEND_IRONCLAD",
+      "character_id": "ironclad",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEMON_FORM",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEMONIC_SHIELD",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DISMANTLE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DOMINATE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DRUM_OF_BATTLE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "EVIL_EYE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "EXPECT_A_FIGHT",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FEED",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FEEL_NO_PAIN",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FIEND_FIRE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FIGHT_ME",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FLAME_BARRIER",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FORGOTTEN_RITUAL",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HAVOC",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HEADBUTT",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HELLRAISER",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HEMOKINESIS",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HOWL_FROM_BEYOND",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "IMPERVIOUS",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "INFERNAL_BLADE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "INFERNO",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "INFLAME",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "IRON_WAVE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "JUGGERNAUT",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "JUGGLING",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MANGLE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MOLTEN_FIST",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NOT_YET",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "OFFERING",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ONE_TWO_PUNCH",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PACTS_END",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PERFECTED_STRIKE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PILLAGE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "POMMEL_STRIKE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PRIMAL_FORCE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PYRE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RAGE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RAMPAGE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RUPTURE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SECOND_WIND",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SETUP_STRIKE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHRUG_IT_OFF",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPITE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STAMPEDE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STOKE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STOMP",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STONE_ARMOR",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STRIKE_IRONCLAD",
+      "character_id": "ironclad",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SWORD_BOOMERANG",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TANK",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TAUNT",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TEAR_ASUNDER",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THRASH",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THUNDERCLAP",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TREMBLE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TRUE_GRIT",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TWIN_STRIKE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "UNMOVABLE",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "UNRELENTING",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "UPPERCUT",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "VICIOUS",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WHIRLWIND",
+      "character_id": "ironclad",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ABRASIVE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ACCELERANT",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ACCURACY",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ACROBATICS",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ADRENALINE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "AFTERIMAGE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ANTICIPATE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ASSASSINATE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BACKFLIP",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BACKSTAB",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BLADE_OF_INK",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BLADE_DANCE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BLUR",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BOUNCING_FLASK",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BUBBLE_BUBBLE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BULLET_TIME",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BURST",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CALCULATED_GAMBLE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CLOAK_AND_DAGGER",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CORROSIVE_WAVE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DAGGER_SPRAY",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DAGGER_THROW",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DASH",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEADLY_POISON",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFEND_SILENT",
+      "character_id": "silent",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFLECT",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DODGE_AND_ROLL",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ECHOING_SLASH",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ENVENOM",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ESCAPE_PLAN",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "EXPERTISE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "EXPOSE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FAN_OF_KNIVES",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FINISHER",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FLANKING",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FLECHETTES",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FLICK_FLACK",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FOLLOW_THROUGH",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FOOTWORK",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GRAND_FINALE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HAND_TRICK",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HAZE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HIDDEN_DAGGERS",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "INFINITE_BLADES",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "KNIFE_TRAP",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LEADING_STRIKE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LEG_SWEEP",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MALAISE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MASTER_PLANNER",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MEMENTO_MORI",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MIRAGE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MURDER",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NEUTRALIZE",
+      "character_id": "silent",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NIGHTMARE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NOXIOUS_FUMES",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "OUTBREAK",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PHANTOM_BLADES",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PIERCING_WAIL",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PINPOINT",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "POISONED_STAB",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "POUNCE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PRECISE_CUT",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PREDATOR",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PREPARED",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REFLEX",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RICOCHET",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SERPENT_FORM",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHADOW_STEP",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHADOWMELD",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SKEWER",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SLICE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SNAKEBITE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SNEAKY",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPEEDSTER",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STORM_OF_STEEL",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STRANGLE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STRIKE_SILENT",
+      "character_id": "silent",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SUCKER_PUNCH",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SUPPRESS",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SURVIVOR",
+      "character_id": "silent",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TACTICIAN",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THE_HUNT",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TOOLS_OF_THE_TRADE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TRACKING",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "UNTOUCHABLE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "UP_MY_SLEEVE",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WELL_LAID_PLANS",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WRAITH_FORM",
+      "character_id": "silent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ADAPTIVE_STRIKE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ALL_FOR_ONE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BALL_LIGHTNING",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BARRAGE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BEAM_CELL",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BIASED_COGNITION",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BOOST_AWAY",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BOOT_SEQUENCE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BUFFER",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BULK_UP",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CAPACITOR",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CHAOS",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CHARGE_BATTERY",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CHILL",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CLAW",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COLD_SNAP",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COMPACT",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COMPILE_DRIVER",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CONSUMING_SHADOW",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COOLANT",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COOLHEADED",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CREATIVE_AI",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DARKNESS",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFEND_DEFECT",
+      "character_id": "defect",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFRAGMENT",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DOUBLE_ENERGY",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DUALCAST",
+      "character_id": "defect",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ECHO_FORM",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ENERGY_SURGE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FERAL",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FIGHT_THROUGH",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FLAK_CANNON",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FOCUSED_STRIKE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FTL",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FUSION",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GENETIC_ALGORITHM",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GLACIER",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GLASSWORK",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GO_FOR_THE_EYES",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GUNK_UP",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HAILSTORM",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HELIX_DRILL",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HOLOGRAM",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HOTFIX",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HYPERBEAM",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ICE_LANCE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "IGNITION",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ITERATION",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LEAP",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LIGHTNING_ROD",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LOOP",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MACHINE_LEARNING",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "METEOR_STRIKE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MODDED",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MOMENTUM_STRIKE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MULTI_CAST",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NULL",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "OVERCLOCK",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "QUADCAST",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RAINBOW",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REBOOT",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REFRACT",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ROCKET_PUNCH",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SCAVENGE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SCRAPE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHADOW_SHIELD",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHATTER",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SIGNAL_BOOST",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SKIM",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SMOKESTACK",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPINNER",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STORM",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STRIKE_DEFECT",
+      "character_id": "defect",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SUBROUTINE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SUNDER",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SUPERCRITICAL",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SWEEPING_BEAM",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SYNCHRONIZE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SYNTHESIS",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TEMPEST",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TESLA_COIL",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THUNDER",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TRASH_TO_TREASURE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TURBO",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "UPROAR",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "VOLTAIC",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WHITE_NOISE",
+      "character_id": "defect",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ZAP",
+      "character_id": "defect",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ALIGNMENT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ARSENAL",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ASTRAL_PULSE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BEAT_INTO_SHAPE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BEGONE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BIG_BANG",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BLACK_HOLE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BOMBARDMENT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BULWARK",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BUNDLE_OF_JOY",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CELESTIAL_MIGHT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CHARGE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CHILD_OF_THE_STARS",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CLOAK_OF_STARS",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COLLISION_COURSE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COMET",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CONQUEROR",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CONVERGENCE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COSMIC_INDIFFERENCE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CRASH_LANDING",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CRESCENT_SPEAR",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CRUSH_UNDER",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DECISIONS_DECISIONS",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFEND_REGENT",
+      "character_id": "regent",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEVASTATE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DYING_STAR",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FALLING_STAR",
+      "character_id": "regent",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FOREGONE_CONCLUSION",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FURNACE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GAMMA_BLAST",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GATHER_LIGHT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GENESIS",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GLIMMER",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GLITTERSTREAM",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GLOW",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GUARDS",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GUIDING_STAR",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HAMMER_TIME",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HEAVENLY_DRILL",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HEGEMONY",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HEIRLOOM_HAMMER",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HIDDEN_CACHE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "I_AM_INVINCIBLE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "KINGLY_KICK",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "KINGLY_PUNCH",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "KNOCKOUT_BLOW",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "KNOW_THY_PLACE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LARGESSE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LUNAR_BLAST",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MAKE_IT_SO",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MANIFEST_AUTHORITY",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "METEOR_SHOWER",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MONARCHS_GAZE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MONOLOGUE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NEUTRON_AEGIS",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ORBIT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PALE_BLUE_DOT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PARRY",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PARTICLE_WALL",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PATTER",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PHOTON_CUT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PILLAR_OF_CREATION",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PROPHESIZE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "QUASAR",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RADIATE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REFINE_BLADE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REFLECT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RESONANCE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ROYAL_GAMBLE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ROYALTIES",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SEEKING_EDGE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SEVEN_STARS",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHINING_STRIKE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SOLAR_STRIKE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPECTRUM_SHIFT",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPOILS_OF_BATTLE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STARDUST",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STRIKE_REGENT",
+      "character_id": "regent",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SUMMON_FORTH",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SUPERMASSIVE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SWORD_SAGE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TERRAFORMING",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THE_SEALED_THRONE",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THE_SMITH",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TYRANNY",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "VENERATE",
+      "character_id": "regent",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "VOID_FORM",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WROUGHT_IN_WAR",
+      "character_id": "regent",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "AFTERLIFE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BANSHEES_CRY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BLIGHT_STRIKE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BODYGUARD",
+      "character_id": "necrobinder",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BONE_SHARDS",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BORROWED_TIME",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BURY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CALCIFY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CALL_OF_THE_VOID",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CAPTURE_SPIRIT",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CLEANSE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COUNTDOWN",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DANSE_MACABRE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEATH_MARCH",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEATHBRINGER",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEATHS_DOOR",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEBILITATE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFEND_NECROBINDER",
+      "character_id": "necrobinder",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFILE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEFY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DELAY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEMESNE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEVOUR_LIFE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DIRGE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DRAIN_POWER",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DREDGE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "EIDOLON",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "END_OF_DAYS",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ENFEEBLING_TOUCH",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ERADICATE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FEAR",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FETCH",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FLATTEN",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FORBIDDEN_GRIMOIRE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FRIENDSHIP",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GLIMPSE_BEYOND",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GRAVE_WARDEN",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GRAVEBLAST",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HANG",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HAUNT",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HIGH_FIVE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "INVOKE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LEGION_OF_BONE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LETHALITY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MELANCHOLY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MISERY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NECRO_MASTERY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NEGATIVE_PULSE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NEUROSURGE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NO_ESCAPE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "OBLIVION",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PAGESTORM",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PARSE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "POKE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PROTECTOR",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PULL_AGGRO",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PULL_FROM_BELOW",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PUTREFY",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RATTLE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REANIMATE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REAP",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REAPER_FORM",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REAVE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RIGHT_HAND_HAND",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SACRIFICE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SCOURGE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SCULPTING_STRIKE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SEANCE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SENTRY_MODE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SEVERANCE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHARED_FATE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHROUD",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SIC_EM",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SLEIGHT_OF_FLESH",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SNAP",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SOUL_STORM",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SOW",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPIRIT_OF_ASH",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPUR",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SQUEEZE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STRIKE_NECROBINDER",
+      "character_id": "necrobinder",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THE_SCYTHE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TIMES_UP",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TRANSFIGURE",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "UNDEATH",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "UNLEASH",
+      "character_id": "necrobinder",
+      "is_starter": true,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "VEILPIERCER",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WISP",
+      "character_id": "necrobinder",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ALCHEMIZE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ANOINTED",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "AUTOMATION",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BEACON_OF_HOPE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BEAT_DOWN",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BELIEVE_IN_YOU",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BOLAS",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CALAMITY",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CATASTROPHE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "COORDINATE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DARK_SHACKLES",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DISCOVERY",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DRAMATIC_ENTRANCE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ENTROPY",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "EQUILIBRIUM",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ETERNAL_ARMOR",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FASTEN",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FINESSE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FISTICUFFS",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FLASH_OF_STEEL",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GANG_UP",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GOLD_AXE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HAND_OF_GREED",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HIDDEN_GEM",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HUDDLE_UP",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "IMPATIENCE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "INTERCEPT",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "JACK_OF_ALL_TRADES",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "JACKPOT",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "KNOCKDOWN",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LIFT",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MASTER_OF_STRATEGY",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MAYHEM",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MIMIC",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MIND_BLAST",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NOSTALGIA",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "OMNISLICE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PANACHE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PANIC_BUTTON",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PREP_TIME",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PRODUCTION",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PROLONG",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PROWESS",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PURITY",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RALLY",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REND",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RESTLESSNESS",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ROLLING_BOULDER",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SALVO",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SCRAWL",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SECRET_TECHNIQUE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SECRET_WEAPON",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SEEKER_STRIKE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHOCKWAVE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPLASH",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STRATAGEM",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TAG_TEAM",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THE_BOMB",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THE_GAMBIT",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THINKING_AHEAD",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "THRUMMING_HATCHET",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ULTIMATE_DEFEND",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ULTIMATE_STRIKE",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "VOLLEY",
+      "character_id": "colorless",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ASCENDERS_BANE",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BAD_LUCK",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CLUMSY",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CURSE_OF_THE_BELL",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEBT",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DECAY",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DOUBT",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ENTHRALLED",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FOLLY",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GREED",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GUILTY",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "INJURY",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NORMALITY",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "POOR_SLEEP",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REGRET",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHAME",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPORE_MIND",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WRITHE",
+      "character_id": "curse",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BECKON",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BURN",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DAZED",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DEBRIS",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FRANTIC_ESCAPE",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "INFECTION",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SLIMED",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SOOT",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TOXIC",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "VOID",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WOUND",
+      "character_id": "status",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BYRDONIS_EGG",
+      "character_id": "quest",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LANTERN_KEY",
+      "character_id": "quest",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SPOILS_MAP",
+      "character_id": "quest",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DISINTEGRATION",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FUEL",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "GIANT_ROCK",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "LUMINESCE",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MIND_ROT",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MINION_DIVE_BOMB",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MINION_SACRIFICE",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MINION_STRIKE",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SHIV",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SLOTH",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SOUL",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SOVEREIGN_BLADE",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SWEEPING_GAZE",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WASTE_AWAY",
+      "character_id": "token",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "APOTHEOSIS",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "APPARITION",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BRIGHTEST_FLAME",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "BYRD_SWOOP",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CALTROPS",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "CLASH",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DISTRACTION",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "DUAL_WIELD",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ENLIGHTENMENT",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "ENTRENCH",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "EXTERMINATE",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "FEEDING_FRENZY",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "HELLO_WORLD",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MAD_SCIENCE",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "MAUL",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "METAMORPHOSIS",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "NEOWS_FURY",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "OUTMANEUVER",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "PECK",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "REBOUND",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RELAX",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "RIP_AND_TEAR",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "SQUASH",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "STACK",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "TORIC_TOUGHNESS",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WISH",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    },
+    {
+      "card_id": "WHISTLE",
+      "character_id": "event",
+      "is_starter": false,
+      "game_version": "0.15"
+    }
+  ]
+}

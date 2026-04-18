@@ -73,11 +73,11 @@ describe("Aggregate Analytics", () => {
 	});
 
 	describe("getCardPickRateByCharacter", () => {
-		it("should return empty array when given empty runs", () => {
-			expect(getCardPickRateByCharacter([], "ironclad")).toEqual([]);
+		it("should return empty array when given empty runs", async () => {
+			expect(await getCardPickRateByCharacter([], "ironclad")).toEqual([]);
 		});
 
-		it("only counts card choices from the matching character in a multi-player run", () => {
+		it("only counts card choices from the matching character in a multi-player run", async () => {
 			const run = createRun({
 				players: [
 					{
@@ -123,20 +123,20 @@ describe("Aggregate Analytics", () => {
 				],
 			});
 
-			const regentStats = getCardPickRateByCharacter([run], "CHARACTER.REGENT");
+			const regentStats = await getCardPickRateByCharacter([run], "CHARACTER.REGENT");
 			expect(regentStats).toEqual([
 				{ cardId: "DEFEND", picked: 1, skipped: 0, total: 1, pickRate: 1 },
 				{ cardId: "OUTMANEUVER", picked: 0, skipped: 1, total: 1, pickRate: 0 },
 			]);
 
-			const ironcladStats = getCardPickRateByCharacter([run], "CHARACTER.IRONCLAD");
+			const ironcladStats = await getCardPickRateByCharacter([run], "CHARACTER.IRONCLAD");
 			expect(ironcladStats).toEqual([
 				{ cardId: "BASH", picked: 1, skipped: 0, total: 1, pickRate: 1 },
 				{ cardId: "ANGER", picked: 1, skipped: 0, total: 1, pickRate: 1 },
 			]);
 		});
 
-		it("finds character at non-zero player index", () => {
+		it("finds character at non-zero player index", async () => {
 			const run = createRun({
 				players: [
 					{
@@ -180,13 +180,13 @@ describe("Aggregate Analytics", () => {
 				],
 			});
 
-			const silentStats = getCardPickRateByCharacter([run], "CHARACTER.SILENT");
+			const silentStats = await getCardPickRateByCharacter([run], "CHARACTER.SILENT");
 			expect(silentStats).toEqual([
 				{ cardId: "BACKSTAB", picked: 1, skipped: 0, total: 1, pickRate: 1 },
 			]);
 		});
 
-		it("skips runs where the character is not present", () => {
+		it("skips runs where the character is not present", async () => {
 			const ironcladRun = createRun({
 				seed: "a",
 				players: [
@@ -216,7 +216,7 @@ describe("Aggregate Analytics", () => {
 				],
 			});
 
-			const regentStats = getCardPickRateByCharacter(
+			const regentStats = await getCardPickRateByCharacter(
 				[ironcladRun],
 				"CHARACTER.REGENT",
 			);
