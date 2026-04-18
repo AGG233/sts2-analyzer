@@ -565,6 +565,20 @@ export function getWinRateByCharacter(runs: RunFile[]): CharacterWinRate[] {
 	}));
 }
 
+function tallyChoice(
+	map: Map<string, { picked: number; skipped: number }>,
+	id: string,
+	wasPicked: boolean,
+): void {
+	const entry = map.get(id) ?? { picked: 0, skipped: 0 };
+	if (wasPicked) {
+		entry.picked++;
+	} else {
+		entry.skipped++;
+	}
+	map.set(id, entry);
+}
+
 function tallyCardChoicesForRun(
 	run: RunFile,
 	map: Map<string, { picked: number; skipped: number }>,
@@ -575,26 +589,19 @@ function tallyCardChoicesForRun(
 
 	for (const act of run.map_point_history) {
 		for (const floor of act) {
-			for (const ps of floor.player_stats) {
-				for (const choice of ps.card_choices ?? []) {
-					const id = choice.card.id;
+			const choices = floor.player_stats.flatMap((ps) => ps.card_choices ?? []);
+			for (const choice of choices) {
+				const id = choice.card.id;
 
-					if (options?.floorMin != null && globalFloor < options.floorMin)
-						continue;
-					if (options?.floorMax != null && globalFloor > options.floorMax)
-						continue;
+				if (options?.floorMin != null && globalFloor < options.floorMin)
+					continue;
+				if (options?.floorMax != null && globalFloor > options.floorMax)
+					continue;
 
-					if (options?.deduplicate && seenCards.has(id)) continue;
-					if (options?.deduplicate) seenCards.add(id);
+				if (options?.deduplicate && seenCards.has(id)) continue;
+				if (options?.deduplicate) seenCards.add(id);
 
-					const entry = map.get(id) ?? { picked: 0, skipped: 0 };
-					if (choice.was_picked) {
-						entry.picked++;
-					} else {
-						entry.skipped++;
-					}
-					map.set(id, entry);
-				}
+				tallyChoice(map, id, choice.was_picked);
 			}
 			globalFloor++;
 		}
@@ -647,17 +654,11 @@ function tallyRelicChoicesForRun(
 ): void {
 	for (const act of run.map_point_history) {
 		for (const floor of act) {
-			for (const ps of floor.player_stats) {
-				for (const choice of ps.relic_choices ?? []) {
-					const id = choice.choice;
-					const entry = map.get(id) ?? { picked: 0, skipped: 0 };
-					if (choice.was_picked) {
-						entry.picked++;
-					} else {
-						entry.skipped++;
-					}
-					map.set(id, entry);
-				}
+			const choices = floor.player_stats.flatMap(
+				(ps) => ps.relic_choices ?? [],
+			);
+			for (const choice of choices) {
+				tallyChoice(map, choice.choice, choice.was_picked);
 			}
 		}
 	}
@@ -756,28 +757,16 @@ export function getCardPickRateByCharacter(
 	const map = new Map<string, { picked: number; skipped: number }>();
 
 	for (const run of runs) {
-		// 只统计该角色的run
 		if (run.players[0]?.character !== characterId) continue;
 
 		for (const act of run.map_point_history) {
 			for (const floor of act) {
-				for (const ps of floor.player_stats) {
-					for (const choice of ps.card_choices ?? []) {
-						const id = choice.card.id;
-
-						// 排除其他角色的专属卡牌
-						if (isOtherCharacterCard(id, characterId)) {
-							continue;
-						}
-
-						const entry = map.get(id) ?? { picked: 0, skipped: 0 };
-						if (choice.was_picked) {
-							entry.picked++;
-						} else {
-							entry.skipped++;
-						}
-						map.set(id, entry);
-					}
+				const choices = floor.player_stats.flatMap(
+					(ps) => ps.card_choices ?? [],
+				);
+				for (const choice of choices) {
+					if (isOtherCharacterCard(choice.card.id, characterId)) continue;
+					tallyChoice(map, choice.card.id, choice.was_picked);
 				}
 			}
 		}
