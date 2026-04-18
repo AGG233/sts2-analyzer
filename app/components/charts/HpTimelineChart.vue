@@ -10,7 +10,6 @@ import { CanvasRenderer } from "echarts/renderers";
 import { computed, defineAsyncComponent } from "vue";
 import type { HpPoint } from "~/data/analytics";
 
-// biome-ignore lint/suspicious/noExplicitAny: vue-echarts has complex dynamic import typing
 const VChart = defineAsyncComponent(() => import("vue-echarts" as any));
 
 const props = defineProps<{

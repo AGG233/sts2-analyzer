@@ -35,16 +35,12 @@ export type KnownCharacterId =
 	| "CHARACTER.DEFECT";
 
 // Forward-compatible character ID: known IDs + arbitrary string
-// eslint-disable-next-line typescript:S6571
 export type CharacterId = KnownCharacterId | (string & {});
 
-// eslint-disable-next-line typescript:S6571
 export type GameMode = "standard" | (string & {});
 
-// eslint-disable-next-line typescript:S6571
 export type PlatformType = "steam" | (string & {});
 
-// eslint-disable-next-line typescript:S6571
 export type RestSiteChoice = KnownRestSiteChoice | (string & {});
 export type KnownRestSiteChoice = "HEAL" | "UPGRADE" | "DIG" | "LIFT" | "RECALL";
 

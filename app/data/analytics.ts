@@ -579,7 +579,6 @@ function tallyChoice(
 	map.set(id, entry);
 }
 
-// eslint-disable-next-line typescript:S3776
 function collectCardChoices(
 	run: RunFile,
 	options?: CardPickRateOptions,
@@ -771,7 +770,6 @@ function isOtherCharacterCard(
 		.some(([_, suffix]) => cardId.endsWith(`_${suffix}`));
 }
 
-// eslint-disable-next-line typescript:S3776
 export function getCardPickRateByCharacter(
 	runs: RunFile[],
 	characterId: string,

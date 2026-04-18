@@ -10,7 +10,6 @@ import { CanvasRenderer } from "echarts/renderers";
 import { computed, defineAsyncComponent, ref } from "vue";
 import type { DeckChange, GoldPoint, HpPoint } from "~/data/analytics";
 
-// biome-ignore lint/suspicious/noExplicitAny: vue-echarts has complex dynamic import typing
 const VChart = defineAsyncComponent(() => import("vue-echarts" as any));
 
 type ChartType = "hp" | "gold" | "deck";
