@@ -1,6 +1,5 @@
 import initSqlJs from "sql.js";
 import { drizzle } from "drizzle-orm/sqlite-proxy";
-import type { SQLiteBindParams } from "sql.js";
 import * as schema from "~/db/schema";
 
 // Types
@@ -9,7 +8,7 @@ type BatchQuery = { sql: string; params: any[]; method: 'all' | 'run' | 'get' | 
 type BatchResult = QueryResult[];
 
 // SQL.js singleton promise
-let sqlDbPromise: Promise<initSqlJs.Database | null> | null = null;
+let sqlDbPromise: Promise<initSqlJs.SqlJsDatabase | null> | null = null;
 
 // Drizzle ORM instance (proxy wrapper around sql.js)
 let dbInstance: any = null;
@@ -49,10 +48,10 @@ export async function initDB(): Promise<any> {
     async (sqlQuery: string, params: any[], method: string): Promise<QueryResult> => {
       try {
         if (method === "run") {
-          sqlDb.run(sqlQuery, params as SQLiteBindParams);
+          sqlDb.run(sqlQuery, params as any);
           return { rows: [] };
         }
-        const result = sqlDb.exec(sqlQuery, params as SQLiteBindParams);
+        const result = sqlDb.exec(sqlQuery, params as any);
         if (!result.length) return { rows: [] };
         const cols = result[0].columns;
         const vals = result[0].values;
@@ -71,10 +70,10 @@ export async function initDB(): Promise<any> {
       for (const { sql, params, method } of queries) {
         const result = await (async () => {
           if (method === "run") {
-            sqlDb.run(sql, params as SQLiteBindParams);
+            sqlDb.run(sql, params as any);
             return { rows: [] };
           }
-          const result = sqlDb.exec(sql, params as SQLiteBindParams);
+          const result = sqlDb.exec(sql, params as any);
           if (!result.length) return { rows: [] };
           const cols = result[0].columns;
           const vals = result[0].values;
@@ -129,7 +128,7 @@ export function closeDB(): void {
 }
 
 // Seed initial data
-async function seedInitialData(sqlDb: initSqlJs.Database): Promise<void> {
+async function seedInitialData(sqlDb: any): Promise<void> {
   // Check if game_versions table exists and has data
   const gameVersionsResult = sqlDb.exec("SELECT COUNT(*) as count FROM game_versions;");
   let hasGameVersions = gameVersionsResult.length > 0 && gameVersionsResult[0].values[0][0] > 0;
