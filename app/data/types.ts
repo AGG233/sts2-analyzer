@@ -42,7 +42,12 @@ export type GameMode = "standard" | (string & {});
 export type PlatformType = "steam" | (string & {});
 
 export type RestSiteChoice = KnownRestSiteChoice | (string & {});
-export type KnownRestSiteChoice = "HEAL" | "UPGRADE" | "DIG" | "LIFT" | "RECALL";
+export type KnownRestSiteChoice =
+	| "HEAL"
+	| "UPGRADE"
+	| "DIG"
+	| "LIFT"
+	| "RECALL";
 
 // ---- Card ----
 

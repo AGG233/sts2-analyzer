@@ -579,10 +579,7 @@ function tallyChoice(
 	map.set(id, entry);
 }
 
-function isFloorInRange(
-	floor: number,
-	options?: CardPickRateOptions,
-): boolean {
+function isFloorInRange(floor: number, options?: CardPickRateOptions): boolean {
 	if (options?.floorMin != null && floor < options.floorMin) return false;
 	if (options?.floorMax != null && floor > options.floorMax) return false;
 	return true;

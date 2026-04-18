@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BarChart3 } from "@lucide/vue";
 import { computed, ref } from "vue";
 import { getWinRateByCharacter } from "~/data/analytics";
 import { useRunStore } from "~/stores/runStore";

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Check, CircleAlert, Info, TriangleAlert } from "@lucide/vue";
+import { Check, CircleAlert, Info, TriangleAlert, X } from "@lucide/vue";
 import { onMounted, onUnmounted } from "vue";
 
 interface Notification {

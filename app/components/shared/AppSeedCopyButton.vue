@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Check, Copy } from "@lucide/vue";
+
 const props = defineProps<{ seed: string }>();
 const copied = ref(false);
 

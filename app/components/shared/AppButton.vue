@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Loader2 } from "@lucide/vue";
+
 interface Props {
 	variant?: "primary" | "secondary" | "outlined" | "text";
 	size?: "small" | "medium" | "large";

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Check, PieChart, Trophy, X } from "@lucide/vue";
 import { computed } from "vue";
 
 const props = defineProps<{

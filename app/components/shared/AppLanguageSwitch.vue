@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Globe } from "@lucide/vue";
+
 const { locale } = useI18n();
 
 const languages = [

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { BarChart2, List } from "@lucide/vue";
+
 defineProps<{
 	modelValue: "chart" | "list";
 }>();
