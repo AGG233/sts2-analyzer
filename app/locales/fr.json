@@ -16,8 +16,7 @@
     "runs": "runs",
     "loading": "Loading...",
     "character": "Character",
-    "characterStats": "Character Statistics",
-    "cardAnalysis": "Card Analysis"
+    "characterStats": "Character Statistics"
   },
   "run": {
     "back": "← Back",
@@ -97,20 +96,20 @@
     "cardTypes": "Card Types",
     "avgPickRate": "Avg Pick Rate",
     "topPicked": "Top Picked",
+    "mostPicked": "Most Picked",
+    "highestPickRate": "Highest Pick Rate",
     "sortByCount": "By Count",
     "sortByRate": "By Rate",
     "showAll": "Show All",
     "deduplicate": "Deduplicate",
+    "characterPoolOnly": "Character Pool Only",
+    "allCards": "All Cards",
     "floorAll": "All",
     "noData": "No data yet. Import your game saves first.",
-    "noMatchingCards": "No cards match the current filters.",
-    "picked": "Picked",
-    "skipped": "Skipped",
-    "total": "Total",
-    "pickRateLabel": "Pick Rate",
-    "count": "Count",
-    "sortDesc": "Descending",
-    "sortAsc": "Ascending"
+    "noMatchingCards": "No cards match the current filters."
+  },
+  "notification": {
+    "scanComplete": "Scan complete"
   },
   "ui": {
     "app": {
@@ -130,8 +129,7 @@
       "runs": "runs",
       "loading": "Loading...",
       "character": "Character",
-      "characterStats": "Character Statistics",
-      "cardAnalysis": "Card Analysis"
+      "characterStats": "Character Statistics"
     },
     "run": {
       "back": "← Back",
@@ -205,7 +203,26 @@
       "floorAxis": "Floor",
       "deckSize": "Deck Size",
       "cardsAdded": "Cards Added",
-      "cardsRemoved": "Cards Removed"
+      "cardsRemoved": "Cards Removed",
+      "cardPickRate": "Card Pick Rate",
+      "cardPickRateByCharacter": "Card Pick Rate - {character}",
+      "cardTypes": "Card Types",
+      "avgPickRate": "Avg Pick Rate",
+      "topPicked": "Top Picked",
+      "mostPicked": "Most Picked",
+      "highestPickRate": "Highest Pick Rate",
+      "sortByCount": "By Count",
+      "sortByRate": "By Rate",
+      "showAll": "Show All",
+      "deduplicate": "Deduplicate",
+      "characterPoolOnly": "Character Pool Only",
+      "allCards": "All Cards",
+      "floorAll": "All",
+      "noData": "No data yet. Import your game saves first.",
+      "noMatchingCards": "No cards match the current filters."
+    },
+    "notification": {
+      "scanComplete": "Scan complete"
     }
   },
   "game": {

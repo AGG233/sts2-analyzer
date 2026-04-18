@@ -1,16 +1,19 @@
 // stores/runStore.ts
+
+import { eq } from "drizzle-orm";
 import { defineStore } from "pinia";
 import { getRunSummary } from "~/data/analytics";
+import { getTotalFloorCount } from "~/data/analytics/floors";
 import { batchParseRunFiles, scanDirectoryHandle } from "~/data/parser";
 import type { RunFile } from "~/data/types";
+import * as schema from "~/db/schema";
+import { getDB, initDB, saveDB } from "~/lib/db.client";
 import {
 	clearAll,
 	loadDirHandle,
+	loadRuns,
 	saveDirHandle,
 } from "~/lib/storage.client";
-import { initDB, getDB, saveDB } from "~/lib/db.client";
-import * as schema from "~/db/schema";
-import { eq } from "drizzle-orm";
 
 function notify(
 	severity: "success" | "info" | "warn" | "error",
@@ -79,17 +82,17 @@ export const useRunStore = defineStore("runs", () => {
 						killedByEvent: run.killed_by_event,
 						startTime: run.start_time,
 						runTime: run.run_time,
-						totalFloors: run.floors.length,
+						totalFloors: getTotalFloorCount(run),
 						rawJson: JSON.stringify(run),
 					};
 
 					if (existing) {
-						await db.update(schema.runs)
+						await db
+							.update(schema.runs)
 							.set(runData)
 							.where(eq(schema.runs.seed, run.seed));
 					} else {
-						await db.insert(schema.runs)
-							.values(runData);
+						await db.insert(schema.runs).values(runData);
 					}
 				}
 
@@ -140,7 +143,7 @@ export const useRunStore = defineStore("runs", () => {
 							killedByEvent: run.killed_by_event,
 							startTime: run.start_time,
 							runTime: run.run_time,
-							totalFloors: run.floors.length,
+							totalFloors: getTotalFloorCount(run),
 							rawJson: JSON.stringify(run),
 						};
 
@@ -149,12 +152,12 @@ export const useRunStore = defineStore("runs", () => {
 						});
 
 						if (existing) {
-							await db.update(schema.runs)
+							await db
+								.update(schema.runs)
 								.set(runData)
 								.where(eq(schema.runs.seed, run.seed));
 						} else {
-							await db.insert(schema.runs)
-								.values(runData);
+							await db.insert(schema.runs).values(runData);
 						}
 					}
 					await saveDB();
@@ -205,7 +208,7 @@ export const useRunStore = defineStore("runs", () => {
 			const db = await getDB();
 			const dbRuns = await db.select().from(schema.runs);
 			if (dbRuns.length > 0) {
-				runs.value = dbRuns.map(r => JSON.parse(r.rawJson) as RunFile);
+				runs.value = dbRuns.map((r) => JSON.parse(r.rawJson) as RunFile);
 				runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
 			} else {
 				// Fallback to IndexedDB if SQLite has no data

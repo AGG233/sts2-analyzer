@@ -341,9 +341,12 @@ export async function getCardPickRateByCharacter(
 			const db = await getDB();
 			const characterCardIds = await getCharacterCardIds(db, characterId);
 			const characterCardIdSet = new Set(characterCardIds);
-			stats = stats.filter(stat => characterCardIdSet.has(stat.cardId));
+			stats = stats.filter((stat) => characterCardIdSet.has(stat.cardId));
 		} catch (error) {
-			console.error("Failed to filter card pick rate by character pool:", error);
+			console.error(
+				"Failed to filter card pick rate by character pool:",
+				error,
+			);
 			// If database access fails, return all cards without filtering
 		}
 	}

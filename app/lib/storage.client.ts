@@ -53,10 +53,11 @@ export const saveDirHandle = async (
 	await dbPut(DIR_HANDLE_KEY, dirHandle);
 };
 
-export const loadDirHandle = async (): Promise<FileSystemDirectoryHandle | null> => {
-	const handle = await dbGet(DIR_HANDLE_KEY);
-	return (handle as FileSystemDirectoryHandle | null) ?? null;
-};
+export const loadDirHandle =
+	async (): Promise<FileSystemDirectoryHandle | null> => {
+		const handle = await dbGet(DIR_HANDLE_KEY);
+		return (handle as FileSystemDirectoryHandle | null) ?? null;
+	};
 
 // SQLite DB storage
 export const saveSqliteDB = async (dbBuffer: Uint8Array): Promise<void> => {

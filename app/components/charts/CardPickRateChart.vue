@@ -88,7 +88,9 @@ const summaryStats = computed(() => {
 		data.length;
 
 	const sortedByTotal = [...data].sort((a, b) => b.total - a.total);
-	const sortedByPickRate = [...data].filter(d => d.total >= 5).sort((a, b) => b.pickRate - a.pickRate);
+	const sortedByPickRate = [...data]
+		.filter((d) => d.total >= 5)
+		.sort((a, b) => b.pickRate - a.pickRate);
 	const sortedBySkipRate = [...data].sort(
 		(a, b) => b.skipped / b.total - a.skipped / a.total,
 	);
@@ -207,9 +209,13 @@ async function updateChartData() {
 	}
 
 	if (props.characterId) {
-		chartData.value = await getCardPickRateByCharacter(store.runs, props.characterId, {
-			characterPoolOnly: characterPoolOnly.value,
-		});
+		chartData.value = await getCardPickRateByCharacter(
+			store.runs,
+			props.characterId,
+			{
+				characterPoolOnly: characterPoolOnly.value,
+			},
+		);
 	} else {
 		chartData.value = getCardPickRate(store.runs, pickRateOptions.value);
 	}

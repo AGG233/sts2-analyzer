@@ -123,13 +123,19 @@ describe("Aggregate Analytics", () => {
 				],
 			});
 
-			const regentStats = await getCardPickRateByCharacter([run], "CHARACTER.REGENT");
+			const regentStats = await getCardPickRateByCharacter(
+				[run],
+				"CHARACTER.REGENT",
+			);
 			expect(regentStats).toEqual([
 				{ cardId: "DEFEND", picked: 1, skipped: 0, total: 1, pickRate: 1 },
 				{ cardId: "OUTMANEUVER", picked: 0, skipped: 1, total: 1, pickRate: 0 },
 			]);
 
-			const ironcladStats = await getCardPickRateByCharacter([run], "CHARACTER.IRONCLAD");
+			const ironcladStats = await getCardPickRateByCharacter(
+				[run],
+				"CHARACTER.IRONCLAD",
+			);
 			expect(ironcladStats).toEqual([
 				{ cardId: "BASH", picked: 1, skipped: 0, total: 1, pickRate: 1 },
 				{ cardId: "ANGER", picked: 1, skipped: 0, total: 1, pickRate: 1 },
@@ -163,9 +169,7 @@ describe("Aggregate Analytics", () => {
 							player_stats: [
 								createFloorStats({
 									player_id: 101,
-									card_choices: [
-										{ card: { id: "BASH" }, was_picked: true },
-									],
+									card_choices: [{ card: { id: "BASH" }, was_picked: true }],
 								}),
 								createFloorStats({
 									player_id: 202,
@@ -180,7 +184,10 @@ describe("Aggregate Analytics", () => {
 				],
 			});
 
-			const silentStats = await getCardPickRateByCharacter([run], "CHARACTER.SILENT");
+			const silentStats = await getCardPickRateByCharacter(
+				[run],
+				"CHARACTER.SILENT",
+			);
 			expect(silentStats).toEqual([
 				{ cardId: "BACKSTAB", picked: 1, skipped: 0, total: 1, pickRate: 1 },
 			]);
@@ -205,9 +212,7 @@ describe("Aggregate Analytics", () => {
 							map_point_type: "monster",
 							player_stats: [
 								createFloorStats({
-									card_choices: [
-										{ card: { id: "BASH" }, was_picked: true },
-									],
+									card_choices: [{ card: { id: "BASH" }, was_picked: true }],
 								}),
 							],
 							rooms: [],
