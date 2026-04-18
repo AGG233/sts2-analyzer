@@ -1,6 +1,7 @@
 // lib/migrate.ts
 // IndexedDB → SQLite migration utilities
 
+import { getTotalFloorCount } from "~/data/analytics/floors";
 import * as schema from "~/db/schema";
 import { getDB, saveDB } from "~/lib/db.client";
 import { loadRuns } from "~/lib/storage.client";
@@ -52,7 +53,7 @@ export async function migrateRunsFromIndexedDB(): Promise<number> {
 				killedByEvent: run.killed_by_event,
 				startTime: run.start_time,
 				runTime: run.run_time,
-				totalFloors: run.floors.length,
+				totalFloors: getTotalFloorCount(run),
 				rawJson: JSON.stringify(run),
 			};
 
