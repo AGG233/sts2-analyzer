@@ -38,7 +38,7 @@ export function parseRunFile(json: unknown): RunFile {
 		throw new ParseError("Run file root must be a JSON object");
 	}
 
-	const obj = json as Record<string, unknown>;
+	const obj = json;
 
 	// Validate required fields
 	const requiredStrings = [
@@ -98,7 +98,7 @@ export function parseProgressFile(json: unknown): ProgressFile {
 		throw new ParseError("Progress file root must be a JSON object");
 	}
 
-	const obj = json as Record<string, unknown>;
+	const obj = json;
 
 	if (!hasNumber(obj, "schema_version")) {
 		throw new ParseError("Missing schema_version");

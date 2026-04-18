@@ -27,18 +27,16 @@ const groupedDeck = computed(() => {
 	>();
 	for (const card of props.deck) {
 		const key = `${card.id}|${card.upgradeLevel}`;
-		if (!map.has(key)) {
+		if (map.has(key)) {
+			const entry = map.get(key);
+			if (entry) entry.count++;
+		} else {
 			map.set(key, {
 				name: cardName(card.id),
 				upgraded: card.upgradeLevel,
 				count: 1,
 				floorAdded: card.floorAdded,
 			});
-		} else {
-			const entry = map.get(key);
-			if (entry) {
-				entry.count++;
-			}
 		}
 	}
 	return Array.from(map.values());

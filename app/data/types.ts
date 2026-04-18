@@ -32,11 +32,11 @@ export type CharacterId =
 	| "CHARACTER.REGENT"
 	| "CHARACTER.NECROBINDER"
 	| "CHARACTER.DEFECT"
-	| string;
+	| string; // NOSONAR (typescript:S6571) — intentional fallback for forward compatibility
 
-export type GameMode = "standard" | string;
+export type GameMode = "standard" | string; // NOSONAR (typescript:S6571) — intentional fallback for forward compatibility
 
-export type PlatformType = "steam" | string;
+export type PlatformType = "steam" | string; // NOSONAR (typescript:S6571) — intentional fallback for forward compatibility
 
 export type RestSiteChoice =
 	| "HEAL"
@@ -44,7 +44,7 @@ export type RestSiteChoice =
 	| "DIG"
 	| "LIFT"
 	| "RECALL"
-	| string;
+	| string; // NOSONAR (typescript:S6571) — intentional fallback for forward compatibility
 
 // ---- Card ----
 

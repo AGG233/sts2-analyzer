@@ -28,17 +28,15 @@ const groupedCurrentDeck = computed(() => {
 					0)
 				: 0;
 		const key = `${card.id}|${lvl}`;
-		if (!map.has(key)) {
+		if (map.has(key)) {
+			const entry = map.get(key);
+			if (entry) entry.count++;
+		} else {
 			map.set(key, {
 				name: cardName(card.id),
 				upgraded: lvl > 0,
 				count: 1,
 			});
-		} else {
-			const entry = map.get(key);
-			if (entry) {
-				entry.count++;
-			}
 		}
 	}
 	return Array.from(map.values());
@@ -47,17 +45,15 @@ const groupedCurrentDeck = computed(() => {
 const groupedCurrentRelics = computed(() => {
 	const map = new Map<string, { name: string; count: number; floor: number }>();
 	for (const relic of props.relics) {
-		if (!map.has(relic.id)) {
+		if (map.has(relic.id)) {
+			const entry = map.get(relic.id);
+			if (entry) entry.count++;
+		} else {
 			map.set(relic.id, {
 				name: relicName(relic.id),
 				count: 1,
 				floor: relic.floor_added_to_deck ?? 1,
 			});
-		} else {
-			const entry = map.get(relic.id);
-			if (entry) {
-				entry.count++;
-			}
 		}
 	}
 	return Array.from(map.values());

@@ -353,6 +353,97 @@ export function getDeckAtFloor(
 	return history.get(floor) ?? [];
 }
 
+function ensurePlayerMap(
+	run: RunFile,
+): Map<number, Map<number, SimDeckCard[]>> {
+	let playerMap = deckHistoryCache.get(run);
+	if (!playerMap) {
+		playerMap = new Map();
+		deckHistoryCache.set(run, playerMap);
+	}
+	return playerMap;
+}
+
+function undoFloorChanges(
+	deck: SimDeckCard[],
+	stats: FloorPlayerStats,
+	globalFloor: number,
+): void {
+	for (const cg of stats.cards_gained ?? []) {
+		const fa = cg.floor_added_to_deck ?? globalFloor;
+		const idx = deck.findIndex((c) => c.id === cg.id && c.floorAdded === fa);
+		if (idx !== -1) deck.splice(idx, 1);
+	}
+	for (const ct of stats.cards_transformed ?? []) {
+		const finalFa = ct.final_card.floor_added_to_deck ?? globalFloor;
+		const idx = deck.findIndex(
+			(c) => c.id === ct.final_card.id && c.floorAdded === finalFa,
+		);
+		if (idx !== -1) {
+			deck[idx] = {
+				id: ct.original_card.id,
+				floorAdded: ct.original_card.floor_added_to_deck ?? globalFloor,
+				upgradeLevel: 0,
+			};
+		}
+	}
+	for (const cr of stats.cards_removed ?? []) {
+		deck.push({
+			id: cr.id,
+			floorAdded: cr.floor_added_to_deck ?? globalFloor,
+			upgradeLevel: 0,
+		});
+	}
+	for (const uc of stats.upgraded_cards ?? []) {
+		const match = deck.find((c) => c.id === uc);
+		if (match) match.upgradeLevel = Math.max(0, match.upgradeLevel - 1);
+	}
+	for (const dc of stats.downgraded_cards ?? []) {
+		const match = deck.find((c) => c.id === dc);
+		if (match) match.upgradeLevel++;
+	}
+}
+
+function applyFloorChanges(
+	deck: SimDeckCard[],
+	stats: FloorPlayerStats,
+	globalFloor: number,
+): void {
+	for (const cr of stats.cards_removed ?? []) {
+		const fa = cr.floor_added_to_deck ?? globalFloor;
+		const idx = deck.findIndex((c) => c.id === cr.id && c.floorAdded === fa);
+		if (idx !== -1) deck.splice(idx, 1);
+	}
+	for (const ct of stats.cards_transformed ?? []) {
+		const origFa = ct.original_card.floor_added_to_deck ?? globalFloor;
+		const idx = deck.findIndex(
+			(c) => c.id === ct.original_card.id && c.floorAdded === origFa,
+		);
+		if (idx !== -1) {
+			deck[idx] = {
+				id: ct.final_card.id,
+				floorAdded: ct.final_card.floor_added_to_deck ?? globalFloor,
+				upgradeLevel: 0,
+			};
+		}
+	}
+	for (const cg of stats.cards_gained ?? []) {
+		deck.push({
+			id: cg.id,
+			floorAdded: cg.floor_added_to_deck ?? globalFloor,
+			upgradeLevel: cg.current_upgrade_level ?? 0,
+		});
+	}
+	for (const uc of stats.upgraded_cards ?? []) {
+		const match = deck.find((c) => c.id === uc);
+		if (match) match.upgradeLevel++;
+	}
+	for (const dc of stats.downgraded_cards ?? []) {
+		const match = deck.find((c) => c.id === dc);
+		if (match) match.upgradeLevel = Math.max(0, match.upgradeLevel - 1);
+	}
+}
+
 /**
  * Reconstruct the full deck at every floor via reverse + forward simulation.
  *
@@ -367,19 +458,13 @@ export function getDeckHistory(
 	run: RunFile,
 	playerIndex: number = 0,
 ): Map<number, SimDeckCard[]> {
-	let playerMap = deckHistoryCache.get(run);
-	if (playerMap?.has(playerIndex)) {
-		const result = playerMap.get(playerIndex);
-		if (result !== undefined) return result;
-	}
+	const playerMap = ensurePlayerMap(run);
+	const cached = playerMap.get(playerIndex);
+	if (cached !== undefined) return cached;
 
 	const player = run.players[playerIndex];
 	if (!player) {
 		const empty = new Map<number, SimDeckCard[]>();
-		if (!playerMap) {
-			playerMap = new Map();
-			deckHistoryCache.set(run, playerMap);
-		}
 		playerMap.set(playerIndex, empty);
 		return empty;
 	}
@@ -387,91 +472,27 @@ export function getDeckHistory(
 	const floors = flattenFloors(run);
 	if (floors.length === 0) {
 		const empty = new Map<number, SimDeckCard[]>();
-		if (!playerMap) {
-			playerMap = new Map();
-			deckHistoryCache.set(run, playerMap);
-		}
 		playerMap.set(playerIndex, empty);
 		return empty;
 	}
 
 	// --- Phase 1: Reverse simulation from final deck to initial deck ---
-
-	// Build mutable deck from final state
 	const reversedDeck: SimDeckCard[] = player.deck.map((c) => ({
 		id: c.id,
 		floorAdded: c.floor_added_to_deck ?? 1,
 		upgradeLevel: c.current_upgrade_level ?? 0,
 	}));
 
-	// Walk floors in reverse, undoing changes
 	for (let i = floors.length - 1; i >= 0; i--) {
 		const f = floors[i];
 		if (!f) continue;
 		const stats = f.playerStats[playerIndex];
 		if (!stats) continue;
-
-		// Undo cards_gained: remove cards added on this floor
-		if (stats.cards_gained) {
-			for (const cg of stats.cards_gained) {
-				const fa = cg.floor_added_to_deck ?? f.globalFloor;
-				const idx = reversedDeck.findIndex(
-					(c) => c.id === cg.id && c.floorAdded === fa,
-				);
-				if (idx !== -1) reversedDeck.splice(idx, 1);
-			}
-		}
-
-		// Undo cards_transformed: replace final_card back with original_card
-		if (stats.cards_transformed) {
-			for (const ct of stats.cards_transformed) {
-				const finalFa = ct.final_card.floor_added_to_deck ?? f.globalFloor;
-				const idx = reversedDeck.findIndex(
-					(c) => c.id === ct.final_card.id && c.floorAdded === finalFa,
-				);
-				if (idx !== -1) {
-					reversedDeck[idx] = {
-						id: ct.original_card.id,
-						floorAdded: ct.original_card.floor_added_to_deck ?? f.globalFloor,
-						upgradeLevel: 0,
-					};
-				}
-			}
-		}
-
-		// Undo cards_removed: add them back
-		if (stats.cards_removed) {
-			for (const cr of stats.cards_removed) {
-				reversedDeck.push({
-					id: cr.id,
-					floorAdded: cr.floor_added_to_deck ?? f.globalFloor,
-					upgradeLevel: 0,
-				});
-			}
-		}
-
-		// Undo upgraded_cards: downgrade
-		if (stats.upgraded_cards) {
-			for (const uc of stats.upgraded_cards) {
-				const match = reversedDeck.find((c) => c.id === uc);
-				if (match) match.upgradeLevel = Math.max(0, match.upgradeLevel - 1);
-			}
-		}
-
-		// Undo downgraded_cards: re-upgrade
-		if (stats.downgraded_cards) {
-			for (const dc of stats.downgraded_cards) {
-				const match = reversedDeck.find((c) => c.id === dc);
-				if (match) match.upgradeLevel++;
-			}
-		}
+		undoFloorChanges(reversedDeck, stats, f.globalFloor);
 	}
 
 	// --- Phase 2: Forward simulation from initial deck ---
-
 	const result = new Map<number, SimDeckCard[]>();
-
-	// Snapshot at floor 0 (initial deck before any changes)
 	const deck: SimDeckCard[] = reversedDeck.map((c) => ({ ...c }));
 	result.set(
 		0,
@@ -487,73 +508,13 @@ export function getDeckHistory(
 			);
 			continue;
 		}
-
-		// Apply cards_removed
-		if (stats.cards_removed) {
-			for (const cr of stats.cards_removed) {
-				const fa = cr.floor_added_to_deck ?? f.globalFloor;
-				const idx = deck.findIndex(
-					(c) => c.id === cr.id && c.floorAdded === fa,
-				);
-				if (idx !== -1) deck.splice(idx, 1);
-			}
-		}
-
-		// Apply cards_transformed: replace original → final
-		if (stats.cards_transformed) {
-			for (const ct of stats.cards_transformed) {
-				const origFa = ct.original_card.floor_added_to_deck ?? f.globalFloor;
-				const idx = deck.findIndex(
-					(c) => c.id === ct.original_card.id && c.floorAdded === origFa,
-				);
-				if (idx !== -1) {
-					deck[idx] = {
-						id: ct.final_card.id,
-						floorAdded: ct.final_card.floor_added_to_deck ?? f.globalFloor,
-						upgradeLevel: 0,
-					};
-				}
-			}
-		}
-
-		// Apply cards_gained
-		if (stats.cards_gained) {
-			for (const cg of stats.cards_gained) {
-				deck.push({
-					id: cg.id,
-					floorAdded: cg.floor_added_to_deck ?? f.globalFloor,
-					upgradeLevel: cg.current_upgrade_level ?? 0,
-				});
-			}
-		}
-
-		// Apply upgraded_cards
-		if (stats.upgraded_cards) {
-			for (const uc of stats.upgraded_cards) {
-				const match = deck.find((c) => c.id === uc);
-				if (match) match.upgradeLevel++;
-			}
-		}
-
-		// Apply downgraded_cards
-		if (stats.downgraded_cards) {
-			for (const dc of stats.downgraded_cards) {
-				const match = deck.find((c) => c.id === dc);
-				if (match) match.upgradeLevel = Math.max(0, match.upgradeLevel - 1);
-			}
-		}
-
-		// Snapshot after this floor
+		applyFloorChanges(deck, stats, f.globalFloor);
 		result.set(
 			f.globalFloor,
 			deck.map((c) => ({ ...c })),
 		);
 	}
 
-	if (!playerMap) {
-		playerMap = new Map();
-		deckHistoryCache.set(run, playerMap);
-	}
 	playerMap.set(playerIndex, result);
 	return result;
 }
@@ -604,6 +565,42 @@ export function getWinRateByCharacter(runs: RunFile[]): CharacterWinRate[] {
 	}));
 }
 
+function tallyCardChoicesForRun(
+	run: RunFile,
+	map: Map<string, { picked: number; skipped: number }>,
+	options?: CardPickRateOptions,
+): void {
+	const seenCards = new Set<string>();
+	let globalFloor = 1;
+
+	for (const act of run.map_point_history) {
+		for (const floor of act) {
+			for (const ps of floor.player_stats) {
+				for (const choice of ps.card_choices ?? []) {
+					const id = choice.card.id;
+
+					if (options?.floorMin != null && globalFloor < options.floorMin)
+						continue;
+					if (options?.floorMax != null && globalFloor > options.floorMax)
+						continue;
+
+					if (options?.deduplicate && seenCards.has(id)) continue;
+					if (options?.deduplicate) seenCards.add(id);
+
+					const entry = map.get(id) ?? { picked: 0, skipped: 0 };
+					if (choice.was_picked) {
+						entry.picked++;
+					} else {
+						entry.skipped++;
+					}
+					map.set(id, entry);
+				}
+			}
+			globalFloor++;
+		}
+	}
+}
+
 export function getCardPickRate(
 	runs: RunFile[],
 	options?: CardPickRateOptions,
@@ -611,37 +608,7 @@ export function getCardPickRate(
 	const map = new Map<string, { picked: number; skipped: number }>();
 
 	for (const run of runs) {
-		const seenCards = new Set<string>();
-		let globalFloor = 1;
-
-		for (const act of run.map_point_history) {
-			for (const floor of act) {
-				for (const ps of floor.player_stats) {
-					for (const choice of ps.card_choices ?? []) {
-						const id = choice.card.id;
-
-						// Floor range filter
-						if (options?.floorMin != null && globalFloor < options.floorMin)
-							continue;
-						if (options?.floorMax != null && globalFloor > options.floorMax)
-							continue;
-
-						// Deduplicate within a single run
-						if (options?.deduplicate && seenCards.has(id)) continue;
-						if (options?.deduplicate) seenCards.add(id);
-
-						const entry = map.get(id) ?? { picked: 0, skipped: 0 };
-						if (choice.was_picked) {
-							entry.picked++;
-						} else {
-							entry.skipped++;
-						}
-						map.set(id, entry);
-					}
-				}
-				globalFloor++;
-			}
-		}
+		tallyCardChoicesForRun(run, map, options);
 	}
 
 	return Array.from(map.entries())
@@ -655,11 +622,15 @@ export function getCardPickRate(
 		.sort((a, b) => b.total - a.total);
 }
 
+function isRelevantDeath(run: RunFile): boolean {
+	return !run.win && run.killed_by_encounter !== "NONE.NONE";
+}
+
 export function getDeathCauseStats(runs: RunFile[]): DeathCauseStat[] {
 	const map = new Map<string, number>();
 
 	for (const run of runs) {
-		if (!run.win && run.killed_by_encounter !== "NONE.NONE") {
+		if (isRelevantDeath(run)) {
 			const count = map.get(run.killed_by_encounter) ?? 0;
 			map.set(run.killed_by_encounter, count + 1);
 		}
@@ -670,26 +641,33 @@ export function getDeathCauseStats(runs: RunFile[]): DeathCauseStat[] {
 		.sort((a, b) => b.count - a.count);
 }
 
+function tallyRelicChoicesForRun(
+	run: RunFile,
+	map: Map<string, { picked: number; skipped: number }>,
+): void {
+	for (const act of run.map_point_history) {
+		for (const floor of act) {
+			for (const ps of floor.player_stats) {
+				for (const choice of ps.relic_choices ?? []) {
+					const id = choice.choice;
+					const entry = map.get(id) ?? { picked: 0, skipped: 0 };
+					if (choice.was_picked) {
+						entry.picked++;
+					} else {
+						entry.skipped++;
+					}
+					map.set(id, entry);
+				}
+			}
+		}
+	}
+}
+
 export function getRelicPickRate(runs: RunFile[]): RelicPickStat[] {
 	const map = new Map<string, { picked: number; skipped: number }>();
 
 	for (const run of runs) {
-		for (const act of run.map_point_history) {
-			for (const floor of act) {
-				for (const ps of floor.player_stats) {
-					for (const choice of ps.relic_choices ?? []) {
-						const id = choice.choice;
-						const entry = map.get(id) ?? { picked: 0, skipped: 0 };
-						if (choice.was_picked) {
-							entry.picked++;
-						} else {
-							entry.skipped++;
-						}
-						map.set(id, entry);
-					}
-				}
-			}
-		}
+		tallyRelicChoicesForRun(run, map);
 	}
 
 	return Array.from(map.entries())

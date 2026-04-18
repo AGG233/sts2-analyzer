@@ -11,6 +11,20 @@ import {
 	saveRuns,
 } from "~/lib/storage.client";
 
+function notify(
+	severity: "success" | "info" | "warn" | "error",
+	summary: string,
+	detail?: string,
+	life = 3000,
+) {
+	if (import.meta.client) {
+		const event = new CustomEvent("notification", {
+			detail: { severity, summary, detail, life },
+		});
+		globalThis.dispatchEvent(event);
+	}
+}
+
 export const useRunStore = defineStore("runs", () => {
 	// State
 	const runs = ref<RunFile[]>([]);
@@ -84,22 +98,6 @@ export const useRunStore = defineStore("runs", () => {
 			loading.value = false;
 		}
 	};
-
-	// 通知方法
-	function notify(
-		severity: "success" | "info" | "warn" | "error",
-		summary: string,
-		detail?: string,
-		life = 3000,
-	) {
-		// 创建一个全局事件发射器（使用 globalThis 作为事件总线）
-		if (import.meta.client) {
-			const event = new CustomEvent("notification", {
-				detail: { severity, summary, detail, life },
-			});
-			globalThis.dispatchEvent(event);
-		}
-	}
 
 	const clear = () => {
 		runs.value = [];

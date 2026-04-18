@@ -56,16 +56,18 @@ export function buildMergedCards(
 	}
 
 	for (const ct of stats.cards_transformed ?? []) {
-		result.push({
-			id: ct.original_card.id,
-			name: cardName(ct.original_card.id),
-			status: "transformed-from",
-		});
-		result.push({
-			id: ct.final_card.id,
-			name: cardName(ct.final_card.id),
-			status: "transformed-to",
-		});
+		result.push(
+			{
+				id: ct.original_card.id,
+				name: cardName(ct.original_card.id),
+				status: "transformed-from",
+			},
+			{
+				id: ct.final_card.id,
+				name: cardName(ct.final_card.id),
+				status: "transformed-to",
+			},
+		);
 	}
 
 	for (const cardId of stats.upgraded_cards ?? []) {
@@ -158,18 +160,16 @@ export function groupDeck(
 	>();
 	for (const card of deck) {
 		const key = `${card.id}|${card.upgradeLevel}`;
-		if (!map.has(key)) {
+		if (map.has(key)) {
+			const entry = map.get(key);
+			if (entry) entry.count++;
+		} else {
 			map.set(key, {
 				name: cardName(card.id),
 				upgraded: card.upgradeLevel,
 				count: 1,
 				floorAdded: card.floorAdded,
 			});
-		} else {
-			const entry = map.get(key);
-			if (entry) {
-				entry.count++;
-			}
 		}
 	}
 	return Array.from(map.values());
