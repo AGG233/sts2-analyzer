@@ -69,44 +69,47 @@ const handleHoverFloor = (floor: number | null) => {
 	hoveredFloor.value = floor;
 };
 
+const playerAnalytics = computed(() => {
+	if (!run.value || !summary.value) return [];
+
+	const data: {
+		hp: ReturnType<typeof getHpTimeline>;
+		gold: ReturnType<typeof getGoldTimeline>;
+		deck: ReturnType<typeof getDeckEvolution>;
+	}[] = [];
+
+	for (let i = 0; i < summary.value.playerCount; i++) {
+		data.push({
+			hp: getHpTimeline(run.value, i),
+			gold: getGoldTimeline(run.value, i),
+			deck: getDeckEvolution(run.value, i),
+		});
+	}
+
+	return data;
+});
+
 // 单个玩家数据
-const hpData = computed(() =>
-	run.value ? getHpTimeline(run.value, selectedPlayer.value) : [],
+const hpData = computed(
+	() => playerAnalytics.value[selectedPlayer.value]?.hp ?? [],
 );
-const goldData = computed(() =>
-	run.value ? getGoldTimeline(run.value, selectedPlayer.value) : [],
+const goldData = computed(
+	() => playerAnalytics.value[selectedPlayer.value]?.gold ?? [],
 );
-const deckData = computed(() =>
-	run.value ? getDeckEvolution(run.value, selectedPlayer.value) : [],
+const deckData = computed(
+	() => playerAnalytics.value[selectedPlayer.value]?.deck ?? [],
 );
 
 // 所有玩家数据（总览模式）
-const allPlayersHpData = computed(() => {
-	if (!run.value || !summary.value) return [];
-	const data = [];
-	for (let i = 0; i < summary.value.playerCount; i++) {
-		data.push(getHpTimeline(run.value, i));
-	}
-	return data;
-});
-
-const allPlayersGoldData = computed(() => {
-	if (!run.value || !summary.value) return [];
-	const data = [];
-	for (let i = 0; i < summary.value.playerCount; i++) {
-		data.push(getGoldTimeline(run.value, i));
-	}
-	return data;
-});
-
-const allPlayersDeckData = computed(() => {
-	if (!run.value || !summary.value) return [];
-	const data = [];
-	for (let i = 0; i < summary.value.playerCount; i++) {
-		data.push(getDeckEvolution(run.value, i));
-	}
-	return data;
-});
+const allPlayersHpData = computed(() =>
+	playerAnalytics.value.map((player) => player.hp),
+);
+const allPlayersGoldData = computed(() =>
+	playerAnalytics.value.map((player) => player.gold),
+);
+const allPlayersDeckData = computed(() =>
+	playerAnalytics.value.map((player) => player.deck),
+);
 
 const currentDeck = computed(() => {
 	if (!run.value) return [];
