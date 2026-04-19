@@ -6,22 +6,22 @@ import * as schema from "~/db/schema";
 import { loadSqliteDB, saveSqliteDB } from "~/lib/storage.client";
 
 // Types
-type QueryResult = { rows: any[] };
+type QueryResult = { rows: unknown[] };
 type BatchQuery = {
 	sql: string;
-	params: any[];
+	params: unknown[];
 	method: "all" | "run" | "get" | "values";
 };
 type BatchResult = QueryResult[];
 
 // SQL.js singleton promise
-let sqlDbPromise: Promise<initSqlJs.SqlJsDatabase | null> | null = null;
+let sqlDbPromise: Promise<unknown | null> | null = null;
 
 // Drizzle ORM instance (proxy wrapper around sql.js)
-let dbInstance: any = null;
+let dbInstance: unknown = null;
 
 // Re-export type for consumers (card-pools.ts, etc.)
-export type DrizzleDB = any;
+export type DrizzleDB = unknown;
 
 // Debounced save timer
 let saveTimer: ReturnType<typeof setTimeout> | null = null;
@@ -53,7 +53,10 @@ export async function initDB(): Promise<DrizzleDB> {
 		})();
 	}
 
-	const sqlDb = await sqlDbPromise;
+	const sqlDb = (await sqlDbPromise) as {
+		exec: (sql: string, params?: unknown[]) => { values: unknown[][] }[];
+		run: (sql: string, params?: unknown[]) => void;
+	} | null;
 	if (!sqlDb) {
 		throw new Error("Failed to initialize SQL.js");
 	}
@@ -66,7 +69,7 @@ export async function initDB(): Promise<DrizzleDB> {
 			: 0;
 
 	for (let i = userVersion; i < migrations.length; i++) {
-		runMigration(sqlDb, migrations[i]);
+		runMigration(sqlDb, migrations[i] as string);
 	}
 	sqlDb.run(`PRAGMA user_version = ${migrations.length}`);
 
@@ -79,15 +82,15 @@ export async function initDB(): Promise<DrizzleDB> {
 	const db = drizzle(
 		async (
 			sqlQuery: string,
-			params: any[],
+			params: unknown[],
 			method: string,
 		): Promise<QueryResult> => {
 			try {
 				if (method === "run") {
-					sqlDb.run(sqlQuery, params as any);
+					sqlDb.run(sqlQuery, params);
 					return { rows: [] };
 				}
-				const result = sqlDb.exec(sqlQuery, params as any);
+				const result = sqlDb.exec(sqlQuery, params);
 				if (!result.length) return { rows: [] };
 				return { rows: result[0].values };
 			} catch (error) {
@@ -100,10 +103,10 @@ export async function initDB(): Promise<DrizzleDB> {
 			for (const { sql, params, method } of queries) {
 				const result = await (async () => {
 					if (method === "run") {
-						sqlDb.run(sql, params as any);
+						sqlDb.run(sql, params);
 						return { rows: [] };
 					}
-					const result = sqlDb.exec(sql, params as any);
+					const result = sqlDb.exec(sql, params);
 					if (!result.length) return { rows: [] };
 					return { rows: result[0].values };
 				})();
@@ -168,7 +171,13 @@ export function closeDB(): void {
 
 // Split SQL by statement breakpoints and execute each, tolerating
 // ALTER TABLE ADD COLUMN on columns that already exist
-function runMigration(sqlDb: any, sql: string): void {
+function runMigration(
+	sqlDb: {
+		exec: (sql: string, params?: unknown[]) => { values: unknown[][] }[];
+		run: (sql: string, params?: unknown[]) => void;
+	},
+	sql: string,
+): void {
 	const statements = sql.split("--> statement-breakpoint");
 	for (const stmt of statements) {
 		const trimmed = stmt.trim();
@@ -178,7 +187,10 @@ function runMigration(sqlDb: any, sql: string): void {
 		} catch (e) {
 			// ALTER TABLE ADD COLUMN fails if column exists — safe to ignore
 			if (trimmed.includes("ADD COLUMN")) {
-				console.warn("Migration step skipped (column may exist):", trimmed.split("\n")[0]);
+				console.warn(
+					"Migration step skipped (column may exist):",
+					trimmed.split("\n")[0],
+				);
 			} else {
 				throw e;
 			}
@@ -187,7 +199,14 @@ function runMigration(sqlDb: any, sql: string): void {
 }
 
 // Seed initial data
-async function seedInitialData(sqlDb: any): Promise<void> {
+async function seedInitialData(sqlDb: {
+	exec: (sql: string, params?: unknown[]) => { values: unknown[][] }[];
+	run: (sql: string, params?: unknown[]) => void;
+	prepare: (sql: string) => {
+		run: (params: unknown[]) => void;
+		free: () => void;
+	};
+}): Promise<void> {
 	// Check if game_versions table exists and has data
 	const gameVersionsResult = sqlDb.exec(
 		"SELECT COUNT(*) as count FROM game_versions;",

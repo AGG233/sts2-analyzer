@@ -132,7 +132,11 @@ const chartOption = computed(() => {
 			},
 		},
 		legend: {
-			data: [sortBy.value === "pickRate" ? t("chart.pickRateLabel") : t("chart.count")],
+			data: [
+				sortBy.value === "pickRate"
+					? t("chart.pickRateLabel")
+					: t("chart.count"),
+			],
 			bottom: 0,
 			textStyle: { color: "#9ca3af" },
 		},
@@ -145,11 +149,14 @@ const chartOption = computed(() => {
 		},
 		xAxis: {
 			type: "value",
-			name: sortBy.value === "pickRate" ? t("chart.pickRateLabel") : t("chart.count"),
+			name:
+				sortBy.value === "pickRate"
+					? t("chart.pickRateLabel")
+					: t("chart.count"),
 			axisLabel: {
-					color: "#9ca3af",
-					formatter: sortBy.value === "pickRate" ? "{value}%" : undefined,
-				},
+				color: "#9ca3af",
+				formatter: sortBy.value === "pickRate" ? "{value}%" : undefined,
+			},
 			axisLine: { lineStyle: { color: "#4b5563" } },
 			splitLine: { lineStyle: { color: "#374151" } },
 		},
@@ -166,9 +173,13 @@ const chartOption = computed(() => {
 		},
 		series: [
 			{
-				name: sortBy.value === "pickRate" ? t("chart.pickRateLabel") : t("chart.count"),
+				name:
+					sortBy.value === "pickRate"
+						? t("chart.pickRateLabel")
+						: t("chart.count"),
 				type: "bar",
-				data: sortBy.value === "pickRate"
+				data:
+					sortBy.value === "pickRate"
 						? data.map((c) => +(c.pickRate * 100).toFixed(1))
 						: data.map((c) => c.picked),
 				itemStyle: { color: "#22c55e" },

@@ -134,7 +134,9 @@ export const useRunStore = defineStore("runs", () => {
 
 			// Load runs from SQLite
 			const db = await getDB();
-			const dbRuns = (await db.select().from(schema.runs)) as any[];
+			const dbRuns = (await db.select().from(schema.runs)) as {
+				rawJson: string;
+			}[];
 			if (dbRuns.length > 0) {
 				runs.value = dbRuns.map((r) => JSON.parse(r.rawJson) as RunFile);
 				runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
@@ -220,7 +222,7 @@ async function insertRunToDB(
 	// Insert players
 	for (let i = 0; i < run.players.length; i++) {
 		const player = run.players[i];
-			if (!player) continue;
+		if (!player) continue;
 		await db
 			.insert(schema.runPlayers)
 			.values({
@@ -234,10 +236,7 @@ async function insertRunToDB(
 				maxPotionSlotCount: player.max_potion_slot_count,
 			})
 			.onConflictDoUpdate({
-				target: [
-					schema.runPlayers.runSeed,
-					schema.runPlayers.playerIndex,
-				],
+				target: [schema.runPlayers.runSeed, schema.runPlayers.playerIndex],
 				set: {
 					playerId: player.id,
 					characterId: player.character,
@@ -254,7 +253,7 @@ async function insertRunToDB(
 	for (const act of run.map_point_history) {
 		for (let floorIdx = 0; floorIdx < act.length; floorIdx++) {
 			const point = act[floorIdx];
-				if (!point) continue;
+			if (!point) continue;
 			await db
 				.insert(schema.runFloors)
 				.values({
@@ -267,10 +266,7 @@ async function insertRunToDB(
 					roomsJson: JSON.stringify(point.rooms),
 				})
 				.onConflictDoUpdate({
-					target: [
-						schema.runFloors.runSeed,
-						schema.runFloors.globalFloor,
-					],
+					target: [schema.runFloors.runSeed, schema.runFloors.globalFloor],
 					set: {
 						mapPointType: point.map_point_type,
 						playerStatsJson: JSON.stringify(point.player_stats),
