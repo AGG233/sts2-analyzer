@@ -5,7 +5,7 @@ const DB_NAME = "Sts2Analyzer";
 const STORE_NAME = "runs";
 const DIR_HANDLE_KEY = "dirHandle";
 const SQLITE_DB_KEY = "sqliteDb";
-const DB_VERSION = 2;
+const DB_VERSION = 3;
 
 // Open IndexedDB for metadata storage
 const openDB = (): Promise<IDBDatabase> => {

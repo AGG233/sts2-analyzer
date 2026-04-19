@@ -5,6 +5,14 @@ import type { DrizzleDB } from "~/lib/db.client";
 const characterCardIdCache = new Map<string, string[]>();
 const characterCardIdSetCache = new Map<string, Set<string>>();
 
+// Normalize "CHARACTER.IRONCLAD" → "ironclad" for DB lookup
+function normalizeCharacterId(id: string): string {
+	if (id.startsWith("CHARACTER.")) {
+		return id.slice(10).toLowerCase();
+	}
+	return id.toLowerCase();
+}
+
 function getCardIdSet(cacheKey: string): Set<string> {
 	return characterCardIdSetCache.get(cacheKey) ?? new Set<string>();
 }
@@ -14,7 +22,8 @@ export async function getCharacterCardIds(
 	characterId: string,
 	version?: string,
 ): Promise<string[]> {
-	const cacheKey = `${characterId}:${version || "latest"}`;
+	const normalizedId = normalizeCharacterId(characterId);
+	const cacheKey = `${normalizedId}:${version || "latest"}`;
 	const cached = characterCardIdCache.get(cacheKey);
 	if (cached) return cached;
 
@@ -25,7 +34,7 @@ export async function getCharacterCardIds(
 			.from(schema.cardPools)
 			.where(
 				and(
-					eq(schema.cardPools.characterId, characterId),
+					eq(schema.cardPools.characterId, normalizedId),
 					eq(schema.cardPools.gameVersion, version),
 				),
 			);
@@ -33,7 +42,7 @@ export async function getCharacterCardIds(
 		results = await db
 			.select({ cardId: schema.cardPools.cardId })
 			.from(schema.cardPools)
-			.where(eq(schema.cardPools.characterId, characterId));
+			.where(eq(schema.cardPools.characterId, normalizedId));
 	}
 
 	const cardIds = results.map((r) => r.cardId);
@@ -49,7 +58,8 @@ export async function isCharacterCard(
 	characterId: string,
 	version?: string,
 ): Promise<boolean> {
-	const cacheKey = `${characterId}:${version || "latest"}`;
+	const normalizedId = normalizeCharacterId(characterId);
+	const cacheKey = `${normalizedId}:${version || "latest"}`;
 	if (!characterCardIdSetCache.has(cacheKey)) {
 		await getCharacterCardIds(db, characterId, version);
 	}

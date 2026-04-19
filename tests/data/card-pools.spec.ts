@@ -84,6 +84,14 @@ describe("Card Pools", () => {
 			const result = await getCharacterCardIds(db, "nonexistent");
 			expect(result).toEqual([]);
 		});
+
+			it("normalizes CHARACTER.IRONCLAD to ironclad for DB lookup", async () => {
+				const db = createMockDb({
+					ironclad: ["STRIKE_IRONCLAD", "BASH"],
+				});
+				const result = await getCharacterCardIds(db, "CHARACTER.IRONCLAD");
+				expect(result).toEqual(["STRIKE_IRONCLAD", "BASH"]);
+			});
 	});
 
 	describe("isCharacterCard", () => {

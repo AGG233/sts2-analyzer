@@ -1,4 +1,4 @@
-CREATE TABLE `card_choices` (
+CREATE TABLE IF NOT EXISTS `card_choices` (
 	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	`run_seed` text NOT NULL,
 	`character_id` text NOT NULL,
@@ -8,7 +8,7 @@ CREATE TABLE `card_choices` (
 	FOREIGN KEY (`run_seed`) REFERENCES `runs`(`seed`) ON UPDATE no action ON DELETE no action
 );
 --> statement-breakpoint
-CREATE TABLE `card_pools` (
+CREATE TABLE IF NOT EXISTS `card_pools` (
 	`card_id` text NOT NULL,
 	`character_id` text DEFAULT '' NOT NULL,
 	`is_starter` integer DEFAULT 0 NOT NULL,
@@ -17,14 +17,14 @@ CREATE TABLE `card_pools` (
 	FOREIGN KEY (`game_version`) REFERENCES `game_versions`(`version`) ON UPDATE no action ON DELETE no action
 );
 --> statement-breakpoint
-CREATE TABLE `game_versions` (
+CREATE TABLE IF NOT EXISTS `game_versions` (
 	`version` text PRIMARY KEY NOT NULL,
 	`display_name` text DEFAULT '' NOT NULL,
 	`added_at` text DEFAULT 'datetime(''now'')' NOT NULL,
 	`notes` text DEFAULT '' NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE `runs` (
+CREATE TABLE IF NOT EXISTS `runs` (
 	`seed` text PRIMARY KEY NOT NULL,
 	`game_version` text DEFAULT '' NOT NULL,
 	`character_id` text NOT NULL,

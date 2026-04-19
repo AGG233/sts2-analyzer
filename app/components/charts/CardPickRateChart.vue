@@ -59,7 +59,7 @@ const filteredData = computed(() => {
 			);
 	} else {
 		data = data.sort((a, b) =>
-			sortOrder.value === "desc" ? a.total - b.total : b.total - a.total,
+			sortOrder.value === "desc" ? a.picked - b.picked : b.picked - a.picked,
 		);
 	}
 
@@ -125,8 +125,6 @@ const chartOption = computed(() => {
 				return `
           <div style="font-weight: bold; margin-bottom: 4px;">${cardName(card.cardId)}</div>
           <div>${t("chart.picked")}: <span style="color: #66bb6a">${card.picked}</span></div>
-          <div>${t("chart.skipped")}: <span style="color: #ef5350">${card.skipped}</span></div>
-          <div>${t("chart.total")}: ${card.total}</div>
           <div style="margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 4px;">
             ${t("chart.pickRateLabel")}: <span style="color: #f9a825">${(card.pickRate * 100).toFixed(1)}%</span>
           </div>
@@ -134,7 +132,7 @@ const chartOption = computed(() => {
 			},
 		},
 		legend: {
-			data: [t("chart.picked"), t("chart.skipped")],
+			data: [sortBy.value === "pickRate" ? t("chart.pickRateLabel") : t("chart.count")],
 			bottom: 0,
 			textStyle: { color: "#9ca3af" },
 		},
@@ -147,8 +145,11 @@ const chartOption = computed(() => {
 		},
 		xAxis: {
 			type: "value",
-			name: t("chart.count"),
-			axisLabel: { color: "#9ca3af" },
+			name: sortBy.value === "pickRate" ? t("chart.pickRateLabel") : t("chart.count"),
+			axisLabel: {
+					color: "#9ca3af",
+					formatter: sortBy.value === "pickRate" ? "{value}%" : undefined,
+				},
 			axisLine: { lineStyle: { color: "#4b5563" } },
 			splitLine: { lineStyle: { color: "#374151" } },
 		},
@@ -165,19 +166,13 @@ const chartOption = computed(() => {
 		},
 		series: [
 			{
-				name: t("chart.picked"),
+				name: sortBy.value === "pickRate" ? t("chart.pickRateLabel") : t("chart.count"),
 				type: "bar",
-				stack: "total",
-				data: data.map((c) => c.picked),
+				data: sortBy.value === "pickRate"
+						? data.map((c) => +(c.pickRate * 100).toFixed(1))
+						: data.map((c) => c.picked),
 				itemStyle: { color: "#22c55e" },
 				barWidth: "60%",
-			},
-			{
-				name: t("chart.skipped"),
-				type: "bar",
-				stack: "total",
-				data: data.map((c) => c.skipped),
-				itemStyle: { color: "#ef4444" },
 			},
 		],
 	};

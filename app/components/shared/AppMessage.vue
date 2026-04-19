@@ -17,7 +17,7 @@ const emit = defineEmits<(e: "close") => void>();
 
 const visible = ref(true);
 
-const _severityClasses: Record<string, string> = {
+const severityClasses: Record<string, string> = {
 	success: "bg-green-500/20 border-green-500/30 text-green-200",
 	info: "bg-blue-500/20 border-blue-500/30 text-blue-200",
 	warn: "bg-yellow-500/20 border-yellow-500/30 text-yellow-200",

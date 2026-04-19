@@ -1,6 +1,9 @@
 import { drizzle } from "drizzle-orm/sqlite-proxy";
 import initSqlJs from "sql.js";
+import { migration0000 } from "~/db/migrations/0000_swift_ultimatum";
+import { migration0001 } from "~/db/migrations/0001_normalized_tables";
 import * as schema from "~/db/schema";
+import { loadSqliteDB, saveSqliteDB } from "~/lib/storage.client";
 
 // Types
 type QueryResult = { rows: any[] };
@@ -17,8 +20,17 @@ let sqlDbPromise: Promise<initSqlJs.SqlJsDatabase | null> | null = null;
 // Drizzle ORM instance (proxy wrapper around sql.js)
 let dbInstance: any = null;
 
+// Re-export type for consumers (card-pools.ts, etc.)
+export type DrizzleDB = any;
+
+// Debounced save timer
+let saveTimer: ReturnType<typeof setTimeout> | null = null;
+
+// Migration SQL in version order
+const migrations = [migration0000, migration0001];
+
 // Initialize SQL.js WASM
-export async function initDB(): Promise<any> {
+export async function initDB(): Promise<DrizzleDB> {
 	if (dbInstance) return dbInstance;
 
 	if (!sqlDbPromise) {
@@ -27,6 +39,12 @@ export async function initDB(): Promise<any> {
 				const SQL = await initSqlJs({
 					locateFile: () => "/sql-wasm.wasm",
 				});
+
+				// Try to load persisted database from IndexedDB
+				const savedBuffer = await loadSqliteDB();
+				if (savedBuffer) {
+					return new SQL.Database(savedBuffer);
+				}
 				return new SQL.Database();
 			} catch (error) {
 				console.error("Failed to initialize SQL.js:", error);
@@ -40,16 +58,24 @@ export async function initDB(): Promise<any> {
 		throw new Error("Failed to initialize SQL.js");
 	}
 
-	// Initialize schema
-	const migrationSql = await import(
-		"~/db/migrations/0000_swift_ultimatum.sql?raw"
-	).then((m) => m.default);
-	sqlDb.exec(migrationSql);
+	// Run pending migrations
+	const versionResult = sqlDb.exec("PRAGMA user_version");
+	const userVersion =
+		versionResult.length > 0 && versionResult[0].values.length > 0
+			? (versionResult[0].values[0][0] as number)
+			: 0;
+
+	for (let i = userVersion; i < migrations.length; i++) {
+		runMigration(sqlDb, migrations[i]);
+	}
+	sqlDb.run(`PRAGMA user_version = ${migrations.length}`);
 
 	// Seed initial version and card pools if not already present
 	await seedInitialData(sqlDb);
 
 	// Create drizzle instance with proxy callbacks
+	// Drizzle's sqlite-proxy accesses rows by column INDEX (row[0], row[1]),
+	// so we must return sql.js values (arrays) directly, not objects.
 	const db = drizzle(
 		async (
 			sqlQuery: string,
@@ -63,13 +89,7 @@ export async function initDB(): Promise<any> {
 				}
 				const result = sqlDb.exec(sqlQuery, params as any);
 				if (!result.length) return { rows: [] };
-				const cols = result[0].columns;
-				const vals = result[0].values;
-				return {
-					rows: vals.map((row) =>
-						cols.reduce((obj, col, idx) => ({ ...obj, [col]: row[idx] }), {}),
-					),
-				};
+				return { rows: result[0].values };
 			} catch (error) {
 				console.error("SQL error:", error, "SQL:", sqlQuery, "Params:", params);
 				throw error;
@@ -85,13 +105,7 @@ export async function initDB(): Promise<any> {
 					}
 					const result = sqlDb.exec(sql, params as any);
 					if (!result.length) return { rows: [] };
-					const cols = result[0].columns;
-					const vals = result[0].values;
-					return {
-						rows: vals.map((row) =>
-							cols.reduce((obj, col, idx) => ({ ...obj, [col]: row[idx] }), {}),
-						),
-					};
+					return { rows: result[0].values };
 				})();
 				results.push(result);
 			}
@@ -105,24 +119,26 @@ export async function initDB(): Promise<any> {
 }
 
 // Get current DB instance
-export function getDB(): any {
+export function getDB(): DrizzleDB {
 	if (!dbInstance) {
 		throw new Error("Database not initialized. Call initDB() first.");
 	}
 	return dbInstance;
 }
 
-// Save database
-export function saveDB(): Promise<Uint8Array> {
+// Save database to IndexedDB
+export async function saveDB(): Promise<Uint8Array> {
 	return new Promise((resolve, reject) => {
 		try {
 			if (!sqlDbPromise) {
 				return reject(new Error("DB not initialized"));
 			}
 			sqlDbPromise
-				.then((sqlDb) => {
+				.then(async (sqlDb) => {
 					if (!sqlDb) return reject(new Error("DB not initialized"));
-					resolve(sqlDb.export());
+					const buffer = sqlDb.export();
+					await saveSqliteDB(buffer);
+					resolve(buffer);
 				})
 				.catch((err) => reject(err));
 		} catch (error) {
@@ -131,10 +147,43 @@ export function saveDB(): Promise<Uint8Array> {
 	});
 }
 
+// Debounced save — avoids serializing on every row insert during batch ops
+export function scheduleSave(delayMs = 2000): void {
+	if (saveTimer) clearTimeout(saveTimer);
+	saveTimer = setTimeout(async () => {
+		try {
+			await saveDB();
+		} catch (e) {
+			console.error("Failed to save DB:", e);
+		}
+		saveTimer = null;
+	}, delayMs);
+}
+
 // Close database
 export function closeDB(): void {
 	dbInstance = null;
 	sqlDbPromise = null;
+}
+
+// Split SQL by statement breakpoints and execute each, tolerating
+// ALTER TABLE ADD COLUMN on columns that already exist
+function runMigration(sqlDb: any, sql: string): void {
+	const statements = sql.split("--> statement-breakpoint");
+	for (const stmt of statements) {
+		const trimmed = stmt.trim();
+		if (!trimmed) continue;
+		try {
+			sqlDb.exec(trimmed);
+		} catch (e) {
+			// ALTER TABLE ADD COLUMN fails if column exists — safe to ignore
+			if (trimmed.includes("ADD COLUMN")) {
+				console.warn("Migration step skipped (column may exist):", trimmed.split("\n")[0]);
+			} else {
+				throw e;
+			}
+		}
+	}
 }
 
 // Seed initial data

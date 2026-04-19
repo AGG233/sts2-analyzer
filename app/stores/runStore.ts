@@ -7,7 +7,7 @@ import { getTotalFloorCount } from "~/data/analytics/floors";
 import { batchParseRunFiles, scanDirectoryHandle } from "~/data/parser";
 import type { RunFile } from "~/data/types";
 import * as schema from "~/db/schema";
-import { getDB, initDB, saveDB } from "~/lib/db.client";
+import { getDB, initDB, saveDB, scheduleSave } from "~/lib/db.client";
 import {
 	clearAll,
 	loadDirHandle,
@@ -44,60 +44,21 @@ export const useRunStore = defineStore("runs", () => {
 
 	const losses = computed(() => summaries.value.filter((s) => !s.win).length);
 
-	// Action: Notification emitter (local reference for use within store)
-	const _notifyEmitter:
-		| ((
-				severity: "success" | "info" | "warn" | "error",
-				summary: string,
-				detail?: string,
-				life?: number,
-		  ) => void)
-		| null = null;
-
 	// Actions
 	const addRuns = async (newRuns: RunFile[]) => {
-		runs.value = [...runs.value, ...newRuns];
-		for (const r of newRuns) {
+		const existingSeeds = new Set(runs.value.map((r) => r.seed));
+		const unique = newRuns.filter((r) => !existingSeeds.has(r.seed));
+		runs.value = [...runs.value, ...unique];
+		for (const r of unique) {
 			runsBySeed.value.set(r.seed, r);
 		}
 		if (import.meta.client) {
-			// Save to SQLite
 			try {
 				const db = await getDB();
-				for (const run of newRuns) {
-					// Insert or replace run data
-					const existing = await db.query.runs.findFirst({
-						where: eq(schema.runs.seed, run.seed),
-					});
-
-					const runData = {
-						seed: run.seed,
-						gameVersion: "0.15", // Default version
-						characterId: run.players[0]?.character ?? "UNKNOWN",
-						ascension: run.ascension,
-						win: run.win ? 1 : 0,
-						wasAbandoned: run.was_abandoned ? 1 : 0,
-						buildId: run.build_id,
-						killedByEncounter: run.killed_by_encounter,
-						killedByEvent: run.killed_by_event,
-						startTime: run.start_time,
-						runTime: run.run_time,
-						totalFloors: getTotalFloorCount(run),
-						rawJson: JSON.stringify(run),
-					};
-
-					if (existing) {
-						await db
-							.update(schema.runs)
-							.set(runData)
-							.where(eq(schema.runs.seed, run.seed));
-					} else {
-						await db.insert(schema.runs).values(runData);
-					}
+				for (const run of unique) {
+					await insertRunToDB(db, run);
 				}
-
-				// Save the database
-				await saveDB();
+				scheduleSave();
 			} catch (error) {
 				console.error("Failed to save runs to SQLite:", error);
 			}
@@ -118,7 +79,7 @@ export const useRunStore = defineStore("runs", () => {
 	};
 
 	const rescan = async () => {
-		if (!dirHandle.value) return;
+		if (!dirHandle.value) return 0;
 
 		loading.value = true;
 		try {
@@ -127,53 +88,20 @@ export const useRunStore = defineStore("runs", () => {
 			runs.value = parsed.map((p) => p.data);
 			runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
 			if (import.meta.client) {
-				// Save to SQLite
 				try {
 					const db = await getDB();
 					for (const run of runs.value) {
-						const runData = {
-							seed: run.seed,
-							gameVersion: "0.15",
-							characterId: run.players[0]?.character ?? "UNKNOWN",
-							ascension: run.ascension,
-							win: run.win ? 1 : 0,
-							wasAbandoned: run.was_abandoned ? 1 : 0,
-							buildId: run.build_id,
-							killedByEncounter: run.killed_by_encounter,
-							killedByEvent: run.killed_by_event,
-							startTime: run.start_time,
-							runTime: run.run_time,
-							totalFloors: getTotalFloorCount(run),
-							rawJson: JSON.stringify(run),
-						};
-
-						const existing = await db.query.runs.findFirst({
-							where: eq(schema.runs.seed, run.seed),
-						});
-
-						if (existing) {
-							await db
-								.update(schema.runs)
-								.set(runData)
-								.where(eq(schema.runs.seed, run.seed));
-						} else {
-							await db.insert(schema.runs).values(runData);
-						}
+						await insertRunToDB(db, run);
 					}
-					await saveDB();
+					scheduleSave();
 				} catch (error) {
 					console.error("Failed to save runs to SQLite:", error);
 				}
 			}
-			// 触发扫描完成通知
-			notify(
-				"success",
-				"扫描完成",
-				`找到 ${runs.value.length} 个存档文件`,
-				3000,
-			);
+			return runs.value.length;
 		} catch (error) {
 			console.error("Rescan failed:", error);
+			return 0;
 		} finally {
 			loading.value = false;
 		}
@@ -200,23 +128,22 @@ export const useRunStore = defineStore("runs", () => {
 		if (!import.meta.client) return;
 
 		try {
-			// Initialize database
+			// Initialize database (now loads from IndexedDB if available)
 			await initDB();
 			dbInitialized.value = true;
 
 			// Load runs from SQLite
 			const db = await getDB();
-			const dbRuns = await db.select().from(schema.runs);
+			const dbRuns = (await db.select().from(schema.runs)) as any[];
 			if (dbRuns.length > 0) {
 				runs.value = dbRuns.map((r) => JSON.parse(r.rawJson) as RunFile);
 				runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
 			} else {
-				// Fallback to IndexedDB if SQLite has no data
+				// Fallback: migrate from legacy IndexedDB JSON format
 				const savedRuns = await loadRuns();
 				if (savedRuns.length > 0) {
 					runs.value = savedRuns;
 					runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
-					// Save to SQLite for future use
 					await addRuns(savedRuns);
 				}
 			}
@@ -251,3 +178,112 @@ export const useRunStore = defineStore("runs", () => {
 		init,
 	};
 });
+
+// Shared helper to insert/upsert a run into SQLite
+async function insertRunToDB(
+	db: Awaited<ReturnType<typeof getDB>>,
+	run: RunFile,
+): Promise<void> {
+	const runData = {
+		seed: run.seed,
+		gameVersion: deriveGameVersion(run),
+		playerCount: run.players.length,
+		characterId: run.players[0]?.character ?? "UNKNOWN",
+		ascension: run.ascension,
+		win: run.win ? 1 : 0,
+		wasAbandoned: run.was_abandoned ? 1 : 0,
+		buildId: run.build_id,
+		gameMode: run.game_mode,
+		platformType: run.platform_type ?? "",
+		killedByEncounter: run.killed_by_encounter,
+		killedByEvent: run.killed_by_event,
+		startTime: run.start_time,
+		runTime: run.run_time,
+		totalFloors: getTotalFloorCount(run),
+		gameSchemaVersion: run.schema_version,
+		rawJson: JSON.stringify(run),
+	};
+
+	const existing = await db.query.runs.findFirst({
+		where: eq(schema.runs.seed, run.seed),
+	});
+
+	if (existing) {
+		await db
+			.update(schema.runs)
+			.set(runData)
+			.where(eq(schema.runs.seed, run.seed));
+	} else {
+		await db.insert(schema.runs).values(runData);
+	}
+
+	// Insert players
+	for (let i = 0; i < run.players.length; i++) {
+		const player = run.players[i];
+			if (!player) continue;
+		await db
+			.insert(schema.runPlayers)
+			.values({
+				runSeed: run.seed,
+				playerIndex: i,
+				playerId: player.id,
+				characterId: player.character,
+				deckJson: JSON.stringify(player.deck),
+				relicsJson: JSON.stringify(player.relics),
+				potionsJson: JSON.stringify(player.potions),
+				maxPotionSlotCount: player.max_potion_slot_count,
+			})
+			.onConflictDoUpdate({
+				target: [
+					schema.runPlayers.runSeed,
+					schema.runPlayers.playerIndex,
+				],
+				set: {
+					playerId: player.id,
+					characterId: player.character,
+					deckJson: JSON.stringify(player.deck),
+					relicsJson: JSON.stringify(player.relics),
+					potionsJson: JSON.stringify(player.potions),
+					maxPotionSlotCount: player.max_potion_slot_count,
+				},
+			});
+	}
+
+	// Insert floors
+	let globalFloor = 1;
+	for (const act of run.map_point_history) {
+		for (let floorIdx = 0; floorIdx < act.length; floorIdx++) {
+			const point = act[floorIdx];
+				if (!point) continue;
+			await db
+				.insert(schema.runFloors)
+				.values({
+					runSeed: run.seed,
+					globalFloor,
+					actIndex: run.map_point_history.indexOf(act),
+					localFloor: floorIdx,
+					mapPointType: point.map_point_type,
+					playerStatsJson: JSON.stringify(point.player_stats),
+					roomsJson: JSON.stringify(point.rooms),
+				})
+				.onConflictDoUpdate({
+					target: [
+						schema.runFloors.runSeed,
+						schema.runFloors.globalFloor,
+					],
+					set: {
+						mapPointType: point.map_point_type,
+						playerStatsJson: JSON.stringify(point.player_stats),
+						roomsJson: JSON.stringify(point.rooms),
+					},
+				});
+			globalFloor++;
+		}
+	}
+}
+
+function deriveGameVersion(run: RunFile): string {
+	if (run.build_id.includes("0.15")) return "0.15";
+	if (run.build_id.includes("0.16")) return "0.16";
+	return run.build_id || "unknown";
+}

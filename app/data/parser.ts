@@ -6,7 +6,7 @@ import type { PrefsFile, ProgressFile, RunFile, SettingsFile } from "./types";
 
 // ---- Supported schema versions ----
 
-const SUPPORTED_RUN_SCHEMA_VERSIONS = new Set([8]);
+const SUPPORTED_RUN_SCHEMA_VERSIONS = new Set([8, 9]);
 const SUPPORTED_PROGRESS_SCHEMA_VERSIONS = new Set([2]);
 
 // ---- Generic validation helpers ----
