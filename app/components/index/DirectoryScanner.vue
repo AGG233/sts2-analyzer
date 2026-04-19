@@ -3,6 +3,7 @@ import {
 	AlertTriangle,
 	CheckCircle2,
 	FolderOpen,
+	Info,
 	RefreshCw,
 } from "@lucide/vue";
 import { onMounted, ref } from "vue";
@@ -237,7 +238,7 @@ onMounted(async () => {
 }
 
 .path-code {
-  font-family: $font-mono;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 0.75rem;
   color: $accent;
   background: rgba(0, 0, 0, 0.3);

@@ -59,7 +59,6 @@ export const runs = sqliteTable("runs", {
 export const runPlayers = sqliteTable(
 	"run_players",
 	{
-		id: integer("id").primaryKey({ autoIncrement: true }),
 		runSeed: text("run_seed")
 			.notNull()
 			.references(() => runs.seed, { onDelete: "cascade" }),
@@ -81,7 +80,6 @@ export const runPlayers = sqliteTable(
 export const runFloors = sqliteTable(
 	"run_floors",
 	{
-		id: integer("id").primaryKey({ autoIncrement: true }),
 		runSeed: text("run_seed")
 			.notNull()
 			.references(() => runs.seed, { onDelete: "cascade" }),

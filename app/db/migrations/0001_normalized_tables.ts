@@ -1,5 +1,4 @@
 export const migration0001 = `CREATE TABLE run_players (
-	id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	run_seed text NOT NULL,
 	player_index integer NOT NULL,
 	player_id integer DEFAULT 0 NOT NULL,
@@ -13,7 +12,6 @@ export const migration0001 = `CREATE TABLE run_players (
 );
 --> statement-breakpoint
 CREATE TABLE run_floors (
-	id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
 	run_seed text NOT NULL,
 	global_floor integer NOT NULL,
 	act_index integer NOT NULL,
