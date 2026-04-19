@@ -1,7 +1,5 @@
 import { drizzle } from "drizzle-orm/sqlite-proxy";
 import initSqlJs from "sql.js";
-import { migration0000 } from "~/db/migrations/0000_swift_ultimatum";
-import { migration0001 } from "~/db/migrations/0001_normalized_tables";
 import * as schema from "~/db/schema";
 import { loadSqliteDB, saveSqliteDB } from "~/lib/storage.client";
 
@@ -18,16 +16,27 @@ type BatchResult = QueryResult[];
 let sqlDbPromise: Promise<unknown | null> | null = null;
 
 // Drizzle ORM instance (proxy wrapper around sql.js)
-let dbInstance: unknown = null;
+let dbInstance: DrizzleDB | null = null;
 
-// Re-export type for consumers (card-pools.ts, etc.)
-export type DrizzleDB = unknown;
+// Infer the proper Drizzle DB type from the schema
+const _typedDb = drizzle(
+	async () => ({}) as QueryResult,
+	async () => [] as BatchResult,
+	{ schema },
+);
+export type DrizzleDB = typeof _typedDb;
 
 // Debounced save timer
 let saveTimer: ReturnType<typeof setTimeout> | null = null;
 
-// Migration SQL in version order
-const migrations = [migration0000, migration0001];
+// Auto-discover migration SQL files via Vite glob (sorted by filename for order)
+const migrationModules = import.meta.glob<{ default: string }>(
+	"../db/migrations/*.sql",
+	{ query: "?raw", eager: true },
+);
+const migrations = Object.entries(migrationModules)
+	.sort(([a], [b]) => a.localeCompare(b))
+	.map(([, mod]) => mod.default);
 
 // Initialize SQL.js WASM
 export async function initDB(): Promise<DrizzleDB> {
@@ -117,7 +126,7 @@ export async function initDB(): Promise<DrizzleDB> {
 		{ schema },
 	);
 
-	dbInstance = db;
+	dbInstance = db as DrizzleDB;
 	return db;
 }
 
@@ -170,7 +179,7 @@ export function closeDB(): void {
 }
 
 // Split SQL by statement breakpoints and execute each, tolerating
-// ALTER TABLE ADD COLUMN on columns that already exist
+// idempotent operations on columns/tables that already exist
 function runMigration(
 	sqlDb: {
 		exec: (sql: string, params?: unknown[]) => { values: unknown[][] }[];
@@ -184,15 +193,15 @@ function runMigration(
 		if (!trimmed) continue;
 		try {
 			sqlDb.exec(trimmed);
-		} catch (e) {
-			// ALTER TABLE ADD COLUMN fails if column exists — safe to ignore
-			if (trimmed.includes("ADD COLUMN")) {
+		} catch (_e) {
+			const upper = trimmed.toUpperCase();
+			if (upper.includes("ADD COLUMN") || upper.includes("CREATE TABLE")) {
 				console.warn(
-					"Migration step skipped (column may exist):",
+					"Migration step skipped (already exists):",
 					trimmed.split("\n")[0],
 				);
 			} else {
-				throw e;
+				throw _e;
 			}
 		}
 	}

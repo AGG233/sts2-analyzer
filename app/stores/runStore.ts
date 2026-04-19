@@ -1,6 +1,5 @@
 // stores/runStore.ts
 
-import { eq } from "drizzle-orm";
 import { defineStore } from "pinia";
 import { getRunSummary } from "~/data/analytics";
 import { getTotalFloorCount } from "~/data/analytics/floors";
@@ -54,10 +53,7 @@ export const useRunStore = defineStore("runs", () => {
 		}
 		if (import.meta.client) {
 			try {
-				const db = await getDB();
-				for (const run of unique) {
-					await insertRunToDB(db, run);
-				}
+				await insertRunsToDB(unique);
 				scheduleSave();
 			} catch (error) {
 				console.error("Failed to save runs to SQLite:", error);
@@ -89,10 +85,7 @@ export const useRunStore = defineStore("runs", () => {
 			runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
 			if (import.meta.client) {
 				try {
-					const db = await getDB();
-					for (const run of runs.value) {
-						await insertRunToDB(db, run);
-					}
+					await insertRunsToDB(runs.value);
 					scheduleSave();
 				} catch (error) {
 					console.error("Failed to save runs to SQLite:", error);
@@ -181,11 +174,12 @@ export const useRunStore = defineStore("runs", () => {
 	};
 });
 
-// Shared helper to insert/upsert a run into SQLite
-async function insertRunToDB(
-	db: Awaited<ReturnType<typeof getDB>>,
-	run: RunFile,
-): Promise<void> {
+type DB = Awaited<ReturnType<typeof getDB>>;
+
+// Build all prepared queries for a single run (upsert: INSERT ON CONFLICT DO UPDATE)
+function buildRunQueries(db: DB, run: RunFile) {
+	const queries = [];
+
 	const runData = {
 		seed: run.seed,
 		gameVersion: deriveGameVersion(run),
@@ -206,75 +200,94 @@ async function insertRunToDB(
 		rawJson: JSON.stringify(run),
 	};
 
-	const existing = await db.query.runs.findFirst({
-		where: eq(schema.runs.seed, run.seed),
-	});
+	// Upsert run
+	queries.push(
+		db.insert(schema.runs).values(runData).onConflictDoUpdate({
+			target: schema.runs.seed,
+			set: runData,
+		}),
+	);
 
-	if (existing) {
-		await db
-			.update(schema.runs)
-			.set(runData)
-			.where(eq(schema.runs.seed, run.seed));
-	} else {
-		await db.insert(schema.runs).values(runData);
-	}
-
-	// Insert players
+	// Upsert players
 	for (let i = 0; i < run.players.length; i++) {
 		const player = run.players[i];
 		if (!player) continue;
-		await db
-			.insert(schema.runPlayers)
-			.values({
-				runSeed: run.seed,
-				playerIndex: i,
-				playerId: player.id,
-				characterId: player.character,
-				deckJson: JSON.stringify(player.deck),
-				relicsJson: JSON.stringify(player.relics),
-				potionsJson: JSON.stringify(player.potions),
-				maxPotionSlotCount: player.max_potion_slot_count,
-			})
-			.onConflictDoUpdate({
-				target: [schema.runPlayers.runSeed, schema.runPlayers.playerIndex],
-				set: {
+		queries.push(
+			db
+				.insert(schema.runPlayers)
+				.values({
+					runSeed: run.seed,
+					playerIndex: i,
 					playerId: player.id,
 					characterId: player.character,
 					deckJson: JSON.stringify(player.deck),
 					relicsJson: JSON.stringify(player.relics),
 					potionsJson: JSON.stringify(player.potions),
 					maxPotionSlotCount: player.max_potion_slot_count,
-				},
-			});
+				})
+				.onConflictDoUpdate({
+					target: [schema.runPlayers.runSeed, schema.runPlayers.playerIndex],
+					set: {
+						playerId: player.id,
+						characterId: player.character,
+						deckJson: JSON.stringify(player.deck),
+						relicsJson: JSON.stringify(player.relics),
+						potionsJson: JSON.stringify(player.potions),
+						maxPotionSlotCount: player.max_potion_slot_count,
+					},
+				}),
+		);
 	}
 
-	// Insert floors
+	// Upsert floors
 	let globalFloor = 1;
-	for (const act of run.map_point_history) {
+	for (let actIdx = 0; actIdx < run.map_point_history.length; actIdx++) {
+		const act = run.map_point_history[actIdx];
+		if (!act) continue;
 		for (let floorIdx = 0; floorIdx < act.length; floorIdx++) {
 			const point = act[floorIdx];
 			if (!point) continue;
-			await db
-				.insert(schema.runFloors)
-				.values({
-					runSeed: run.seed,
-					globalFloor,
-					actIndex: run.map_point_history.indexOf(act),
-					localFloor: floorIdx,
-					mapPointType: point.map_point_type,
-					playerStatsJson: JSON.stringify(point.player_stats),
-					roomsJson: JSON.stringify(point.rooms),
-				})
-				.onConflictDoUpdate({
-					target: [schema.runFloors.runSeed, schema.runFloors.globalFloor],
-					set: {
+			queries.push(
+				db
+					.insert(schema.runFloors)
+					.values({
+						runSeed: run.seed,
+						globalFloor,
+						actIndex: actIdx,
+						localFloor: floorIdx,
 						mapPointType: point.map_point_type,
 						playerStatsJson: JSON.stringify(point.player_stats),
 						roomsJson: JSON.stringify(point.rooms),
-					},
-				});
+					})
+					.onConflictDoUpdate({
+						target: [schema.runFloors.runSeed, schema.runFloors.globalFloor],
+						set: {
+							mapPointType: point.map_point_type,
+							playerStatsJson: JSON.stringify(point.player_stats),
+							roomsJson: JSON.stringify(point.rooms),
+						},
+					}),
+			);
 			globalFloor++;
 		}
+	}
+
+	return queries;
+}
+
+// Insert multiple runs via db.batch() with concurrent execution
+async function insertRunsToDB(runs: RunFile[]): Promise<void> {
+	const db = await getDB();
+	const CONCURRENCY = 8;
+	for (let i = 0; i < runs.length; i += CONCURRENCY) {
+		const chunk = runs.slice(i, i + CONCURRENCY);
+		await Promise.all(
+			chunk.map((run) => {
+				const queries = buildRunQueries(db, run);
+				// batch() expects BatchItem[] — queries array is inferred from drizzle ops
+				return db.batch(queries as unknown as Parameters<typeof db.batch>[0]);
+			}),
+		);
 	}
 }
 

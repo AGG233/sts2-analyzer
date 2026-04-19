@@ -13,7 +13,8 @@
     "lint:fix:unsafe": "biome check --write --unsafe .",
     "test": "vitest",
     "test:run": "vitest run",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
     "@esotericsoftware/spine-pixi-v8": "^4.2.39",

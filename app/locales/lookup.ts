@@ -107,6 +107,12 @@ export function useGameI18n() {
 		return bare;
 	}
 
+	function cardDescription(id: string): string {
+		const bare = id.replace("CARD.", "");
+		const path = `game.cards.${bare}.description`;
+		return t(path, "");
+	}
+
 	return {
 		t,
 		te,
@@ -115,6 +121,7 @@ export function useGameI18n() {
 			t(`game.characters.${characterKey(id)}`, id.replace("CHARACTER.", "")),
 		cardName: (id: string) =>
 			t(`game.cards.${cardKey(id)}`, id.replace("CARD.", "")),
+		cardDescription,
 		relicName: (id: string) =>
 			t(`game.relics.${relicKey(id)}`, id.replace("RELIC.", "")),
 		encounterName: (id: string) =>

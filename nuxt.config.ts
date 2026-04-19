@@ -8,6 +8,8 @@ export default defineNuxtConfig({
 	components: [
 		{ path: "~/components/shared", pathPrefix: false },
 		{ path: "~/components/layout", pathPrefix: false },
+		{ path: "~/components/run-detail", pathPrefix: false },
+		{ path: "~/components/charts", pathPrefix: false },
 		"~/components",
 	],
 	experimental: {},

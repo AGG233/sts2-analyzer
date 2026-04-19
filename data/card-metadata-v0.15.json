@@ -1,0 +1,5282 @@
+{
+  "version": "0.15",
+  "cards": {
+    "ABRASIVE": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "ACCELERANT": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "ACCURACY": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "ACROBATICS": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "ADAPTIVE_STRIKE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "ADRENALINE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "AFTERIMAGE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "AFTERLIFE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "AGGRESSION": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "ALCHEMIZE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "ALIGNMENT": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "ALL_FOR_ONE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "ANGER": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "ANOINTED": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "ANTICIPATE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "APOTHEOSIS": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "APPARITION": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "ARMAMENTS": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "ARSENAL": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "ASCENDERS_BANE": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "ASHEN_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "ASSASSINATE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "ASTRAL_PULSE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "AUTOMATION": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "BACKFLIP": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BACKSTAB": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BAD_LUCK": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "BALL_LIGHTNING": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "BANSHEES_CRY": {
+      "cost": 9,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "BARRAGE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "BARRICADE": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BASH": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": true
+    },
+    "BATTLE_TRANCE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BEACON_OF_HOPE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "BEAM_CELL": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "BEAT_DOWN": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "RandomEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "BEAT_INTO_SHAPE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "BECKON": {
+      "cost": 1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "BEGONE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "BELIEVE_IN_YOU": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyAlly",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "BIASED_COGNITION": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "BIG_BANG": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "BLACK_HOLE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "BLADE_DANCE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BLADE_OF_INK": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BLIGHT_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "BLOOD_WALL": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BLOODLETTING": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BLUDGEON": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BLUR": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BODY_SLAM": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BODYGUARD": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": true
+    },
+    "BOLAS": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "BOMBARDMENT": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "BONE_SHARDS": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "BOOST_AWAY": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "BOOT_SEQUENCE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "BORROWED_TIME": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "BOUNCING_FLASK": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "RandomEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BRAND": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BREAK": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Ancient",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BREAKTHROUGH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BRIGHTEST_FLAME": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "BUBBLE_BUBBLE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BUFFER": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "BULK_UP": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "BULLET_TIME": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BULLY": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BULWARK": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "BUNDLE_OF_JOY": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "BURN": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "BURNING_PACT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "BURST": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "BURY": {
+      "cost": 4,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "BYRD_SWOOP": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Event",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "BYRDONIS_EGG": {
+      "cost": -1,
+      "type": "Quest",
+      "rarity": "Quest",
+      "target": "None",
+      "tags": [],
+      "character_id": "quest",
+      "is_starter": false
+    },
+    "CALAMITY": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "CALCIFY": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "CALCULATED_GAMBLE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "CALL_OF_THE_VOID": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "CALTROPS": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "CAPACITOR": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "CAPTURE_SPIRIT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "CASCADE": {
+      "cost": -1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "CATASTROPHE": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "CELESTIAL_MIGHT": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "CHAOS": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "CHARGE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "CHARGE_BATTERY": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "CHILD_OF_THE_STARS": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "CHILL": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "CINDER": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "CLASH": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Event",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "CLAW": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "CLEANSE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "CLOAK_AND_DAGGER": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "CLOAK_OF_STARS": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "CLUMSY": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "COLD_SNAP": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "COLLISION_COURSE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "COLOSSUS": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "COMET": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "COMPACT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "COMPILE_DRIVER": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "CONFLAGRATION": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "CONQUEROR": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "CONSUMING_SHADOW": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "CONVERGENCE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "COOLANT": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "COOLHEADED": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "COORDINATE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyAlly",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "CORROSIVE_WAVE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "CORRUPTION": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "COSMIC_INDIFFERENCE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "COUNTDOWN": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "CRASH_LANDING": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "CREATIVE_AI": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "CRESCENT_SPEAR": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "CRIMSON_MANTLE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "CRUELTY": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "CRUSH_UNDER": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "CURSE_OF_THE_BELL": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "DAGGER_SPRAY": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "DAGGER_THROW": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "DANSE_MACABRE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DARK_EMBRACE": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "DARK_SHACKLES": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "DARKNESS": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "DASH": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "DAZED": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "DEADLY_POISON": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "DEATH_MARCH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DEATHBRINGER": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DEATHS_DOOR": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DEBILITATE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DEBRIS": {
+      "cost": 1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "DEBT": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "DECAY": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "DECISIONS_DECISIONS": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "DEFEND_DEFECT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [
+        "Defend"
+      ],
+      "character_id": "defect",
+      "is_starter": true
+    },
+    "DEFEND_IRONCLAD": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [
+        "Defend"
+      ],
+      "character_id": "ironclad",
+      "is_starter": true
+    },
+    "DEFEND_NECROBINDER": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [
+        "Defend"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": true
+    },
+    "DEFEND_REGENT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [
+        "Defend"
+      ],
+      "character_id": "regent",
+      "is_starter": true
+    },
+    "DEFEND_SILENT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [
+        "Defend"
+      ],
+      "character_id": "silent",
+      "is_starter": true
+    },
+    "DEFILE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DEFLECT": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "DEFRAGMENT": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "DEFY": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DELAY": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DEMESNE": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DEMON_FORM": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "DEMONIC_SHIELD": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyAlly",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "DEVASTATE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "DEVOUR_LIFE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DIRGE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DISCOVERY": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "DISINTEGRATION": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "DISMANTLE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "DISTRACTION": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "DODGE_AND_ROLL": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "DOMINATE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "DOUBLE_ENERGY": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "DOUBT": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "DRAIN_POWER": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DRAMATIC_ENTRANCE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "DREDGE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "DRUM_OF_BATTLE": {
+      "cost": 0,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "DUAL_WIELD": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "DUALCAST": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": true
+    },
+    "DYING_STAR": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "ECHO_FORM": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "ECHOING_SLASH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "EIDOLON": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "END_OF_DAYS": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "ENERGY_SURGE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AllAllies",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "ENFEEBLING_TOUCH": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "ENLIGHTENMENT": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "ENTHRALLED": {
+      "cost": 2,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "ENTRENCH": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "ENTROPY": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "ENVENOM": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "EQUILIBRIUM": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "ERADICATE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "ESCAPE_PLAN": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "ETERNAL_ARMOR": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "EVIL_EYE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "EXPECT_A_FIGHT": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "EXPERTISE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "EXPOSE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "EXTERMINATE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Event",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "FALLING_STAR": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": true
+    },
+    "FAN_OF_KNIVES": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "FASTEN": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [
+        "Defend"
+      ],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "FEAR": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "FEED": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "FEEDING_FRENZY": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "FEEL_NO_PAIN": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "FERAL": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "FETCH": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "FIEND_FIRE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "FIGHT_ME": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "FIGHT_THROUGH": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "FINESSE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "FINISHER": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "FISTICUFFS": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "FLAK_CANNON": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "RandomEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "FLAME_BARRIER": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "FLANKING": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "FLASH_OF_STEEL": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "FLATTEN": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "FLECHETTES": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "FLICK_FLACK": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "FOCUSED_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "FOLLOW_THROUGH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "FOLLY": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "FOOTWORK": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "FORBIDDEN_GRIMOIRE": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "FOREGONE_CONCLUSION": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "FORGOTTEN_RITUAL": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "FRANTIC_ESCAPE": {
+      "cost": 1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "Self",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "FRIENDSHIP": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "FTL": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "FUEL": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Token",
+      "target": "Self",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "FURNACE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "FUSION": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "GAMMA_BLAST": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "GANG_UP": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "GATHER_LIGHT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "GENESIS": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "GENETIC_ALGORITHM": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "GIANT_ROCK": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Token",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "GLACIER": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "GLASSWORK": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "GLIMMER": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "GLIMPSE_BEYOND": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AllAllies",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "GLITTERSTREAM": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "GLOW": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "GO_FOR_THE_EYES": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "GOLD_AXE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "GRAND_FINALE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "GRAVE_WARDEN": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "GRAVEBLAST": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "GREED": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "GUARDS": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "GUIDING_STAR": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "GUILTY": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "GUNK_UP": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "HAILSTORM": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "HAMMER_TIME": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "HAND_OF_GREED": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "HAND_TRICK": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "HANG": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "HAUNT": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "HAVOC": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "HAZE": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "HEADBUTT": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "HEAVENLY_DRILL": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "HEGEMONY": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "HEIRLOOM_HAMMER": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "HELIX_DRILL": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "HELLO_WORLD": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "HELLRAISER": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "HEMOKINESIS": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "HIDDEN_CACHE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "HIDDEN_DAGGERS": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "HIDDEN_GEM": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "HIGH_FIVE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "HOLOGRAM": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "HOTFIX": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "HOWL_FROM_BEYOND": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "HUDDLE_UP": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AllAllies",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "HYPERBEAM": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "I_AM_INVINCIBLE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "ICE_LANCE": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "IGNITION": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AnyAlly",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "IMPATIENCE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "IMPERVIOUS": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "INFECTION": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "INFERNAL_BLADE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "INFERNO": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "INFINITE_BLADES": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "INFLAME": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "INJURY": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "INTERCEPT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyAlly",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "INVOKE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "IRON_WAVE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "ITERATION": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "JACK_OF_ALL_TRADES": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "JACKPOT": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "JUGGERNAUT": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "JUGGLING": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "KINGLY_KICK": {
+      "cost": 4,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "KINGLY_PUNCH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "KNIFE_TRAP": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [
+        "Shiv"
+      ],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "KNOCKDOWN": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "KNOCKOUT_BLOW": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "KNOW_THY_PLACE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "LANTERN_KEY": {
+      "cost": -1,
+      "type": "Quest",
+      "rarity": "Quest",
+      "target": "Self",
+      "tags": [],
+      "character_id": "quest",
+      "is_starter": false
+    },
+    "LARGESSE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyAlly",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "LEADING_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "LEAP": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "LEG_SWEEP": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "LEGION_OF_BONE": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AllAllies",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "LETHALITY": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "LIFT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyAlly",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "LIGHTNING_ROD": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "LOOP": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "LUMINESCE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Token",
+      "target": "Self",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "LUNAR_BLAST": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "MACHINE_LEARNING": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "MAKE_IT_SO": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "MALAISE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "MANGLE": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "MANIFEST_AUTHORITY": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "MASTER_OF_STRATEGY": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "MASTER_PLANNER": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "MAUL": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Ancient",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "MAYHEM": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "MELANCHOLY": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "MEMENTO_MORI": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "METAMORPHOSIS": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "METEOR_SHOWER": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Ancient",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "METEOR_STRIKE": {
+      "cost": 5,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "MIMIC": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AnyAlly",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "MIND_BLAST": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "MIND_ROT": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "MINION_DIVE_BOMB": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Token",
+      "target": "AnyEnemy",
+      "tags": [
+        "Minion"
+      ],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "MINION_SACRIFICE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Token",
+      "target": "Self",
+      "tags": [
+        "Minion"
+      ],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "MINION_STRIKE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Token",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike",
+        "Minion"
+      ],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "MIRAGE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "MISERY": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "MODDED": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "MOLTEN_FIST": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "MOMENTUM_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "MONARCHS_GAZE": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "MONOLOGUE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "MULTI_CAST": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "MURDER": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "NECRO_MASTERY": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "NEGATIVE_PULSE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "NEOWS_FURY": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Ancient",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "NEUROSURGE": {
+      "cost": 0,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "NEUTRALIZE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": true
+    },
+    "NEUTRON_AEGIS": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "NIGHTMARE": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "NO_ESCAPE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "NORMALITY": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "NOSTALGIA": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "NOT_YET": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "NOXIOUS_FUMES": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "NULL": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "OBLIVION": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "OFFERING": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "OMNISLICE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "ONE_TWO_PUNCH": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "ORBIT": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "OUTBREAK": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "OUTMANEUVER": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "OVERCLOCK": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "PACTS_END": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "PAGESTORM": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "PALE_BLUE_DOT": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "PANACHE": {
+      "cost": 0,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "PANIC_BUTTON": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "PARRY": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "PARSE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "PARTICLE_WALL": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "PATTER": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "PECK": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Event",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "PERFECTED_STRIKE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "PHANTOM_BLADES": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "PHOTON_CUT": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "PIERCING_WAIL": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "PILLAGE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "PILLAR_OF_CREATION": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "PINPOINT": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "POISONED_STAB": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "POKE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "POMMEL_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "POOR_SLEEP": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "POUNCE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "PRECISE_CUT": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "PREDATOR": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "PREP_TIME": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "PREPARED": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "PRIMAL_FORCE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "PRODUCTION": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "PROLONG": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "PROPHESIZE": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "PROTECTOR": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Ancient",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "PROWESS": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "PULL_AGGRO": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "PULL_FROM_BELOW": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "PURITY": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "PUTREFY": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "PYRE": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "QUADCAST": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "QUASAR": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "RADIATE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "RAGE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "RAINBOW": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "RALLY": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AllAllies",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "RAMPAGE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "RATTLE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "REANIMATE": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "REAP": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "REAPER_FORM": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "REAVE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "REBOOT": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "REBOUND": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Event",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "REFINE_BLADE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "REFLECT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "REFLEX": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "REFRACT": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "REGRET": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "RELAX": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "REND": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "RESONANCE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "RESTLESSNESS": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "RICOCHET": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "RandomEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "RIGHT_HAND_HAND": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "RIP_AND_TEAR": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Event",
+      "target": "RandomEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "ROCKET_PUNCH": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "ROLLING_BOULDER": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "ROYAL_GAMBLE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "ROYALTIES": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "RUPTURE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "SACRIFICE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SALVO": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "SCAVENGE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SCOURGE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SCRAPE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SCRAWL": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "SCULPTING_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SEANCE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SECOND_WIND": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "SECRET_TECHNIQUE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "SECRET_WEAPON": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "SEEKER_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "SEEKING_EDGE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SENTRY_MODE": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SERPENT_FORM": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SETUP_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "SEVEN_STARS": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SEVERANCE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SHADOW_SHIELD": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SHADOW_STEP": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SHADOWMELD": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SHAME": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "SHARED_FATE": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SHATTER": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SHINING_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SHIV": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Token",
+      "target": "AnyEnemy",
+      "tags": [
+        "Shiv"
+      ],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "SHOCKWAVE": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "SHROUD": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SHRUG_IT_OFF": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "SIC_EM": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SIGNAL_BOOST": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SKEWER": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SKIM": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SLEIGHT_OF_FLESH": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SLICE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SLIMED": {
+      "cost": 1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "SLOTH": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "SMOKESTACK": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SNAKEBITE": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SNAP": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SNEAKY": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SOLAR_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SOOT": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "SOUL": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Token",
+      "target": "Self",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "SOUL_STORM": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SOVEREIGN_BLADE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Token",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "SOW": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SPECTRUM_SHIFT": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SPEEDSTER": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SPINNER": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SPIRIT_OF_ASH": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SPITE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "SPLASH": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "SPOILS_MAP": {
+      "cost": -1,
+      "type": "Quest",
+      "rarity": "Quest",
+      "target": "Self",
+      "tags": [],
+      "character_id": "quest",
+      "is_starter": false
+    },
+    "SPOILS_OF_BATTLE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SPORE_MIND": {
+      "cost": 1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "SPUR": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "SQUASH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Event",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "SQUEEZE": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "STACK": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "STAMPEDE": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "STARDUST": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "RandomEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "STOKE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "STOMP": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "STONE_ARMOR": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "STORM": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "STORM_OF_STEEL": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "STRANGLE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "STRATAGEM": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "STRIKE_DEFECT": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "defect",
+      "is_starter": true
+    },
+    "STRIKE_IRONCLAD": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "ironclad",
+      "is_starter": true
+    },
+    "STRIKE_NECROBINDER": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": true
+    },
+    "STRIKE_REGENT": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "regent",
+      "is_starter": true
+    },
+    "STRIKE_SILENT": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "silent",
+      "is_starter": true
+    },
+    "SUBROUTINE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SUCKER_PUNCH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SUMMON_FORTH": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SUNDER": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SUPERCRITICAL": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SUPERMASSIVE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SUPPRESS": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Ancient",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "SURVIVOR": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": true
+    },
+    "SWEEPING_BEAM": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SWEEPING_GAZE": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Token",
+      "target": "RandomEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "SWORD_BOOMERANG": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "RandomEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "SWORD_SAGE": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "SYNCHRONIZE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "SYNTHESIS": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "TACTICIAN": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "TAG_TEAM": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "TANK": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "TAUNT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "TEAR_ASUNDER": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "TEMPEST": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "TERRAFORMING": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "TESLA_COIL": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "THE_BOMB": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "THE_GAMBIT": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "THE_HUNT": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "THE_SCYTHE": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "THE_SEALED_THRONE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "THE_SMITH": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "THINKING_AHEAD": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "THRASH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "THRUMMING_HATCHET": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "THUNDER": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "THUNDERCLAP": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "TIMES_UP": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Rare",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "TOOLS_OF_THE_TRADE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "TORIC_TOUGHNESS": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Event",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "TOXIC": {
+      "cost": 1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "TRACKING": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "TRANSFIGURE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "TRASH_TO_TREASURE": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "TREMBLE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "TRUE_GRIT": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "TURBO": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "TWIN_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "TYRANNY": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "ULTIMATE_DEFEND": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [
+        "Defend"
+      ],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "ULTIMATE_STRIKE": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [
+        "Strike"
+      ],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "UNDEATH": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "UNLEASH": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Basic",
+      "target": "AnyEnemy",
+      "tags": [
+        "OstyAttack"
+      ],
+      "character_id": "necrobinder",
+      "is_starter": true
+    },
+    "UNMOVABLE": {
+      "cost": 2,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "UNRELENTING": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "UNTOUCHABLE": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "UP_MY_SLEEVE": {
+      "cost": 2,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "UPPERCUT": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "UPROAR": {
+      "cost": 2,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "VEILPIERCER": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "VENERATE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": true
+    },
+    "VICIOUS": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "VOID": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "VOID_FORM": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "VOLLEY": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "RandomEnemy",
+      "tags": [],
+      "character_id": "colorless",
+      "is_starter": false
+    },
+    "VOLTAIC": {
+      "cost": 3,
+      "type": "Skill",
+      "rarity": "Rare",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "WASTE_AWAY": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "token",
+      "is_starter": false
+    },
+    "WELL_LAID_PLANS": {
+      "cost": 1,
+      "type": "Power",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "WHIRLWIND": {
+      "cost": 0,
+      "type": "Attack",
+      "rarity": "Uncommon",
+      "target": "AllEnemies",
+      "tags": [],
+      "character_id": "ironclad",
+      "is_starter": false
+    },
+    "WHISTLE": {
+      "cost": 3,
+      "type": "Attack",
+      "rarity": "Ancient",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "WHITE_NOISE": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Uncommon",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": false
+    },
+    "WISH": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    },
+    "WISP": {
+      "cost": 0,
+      "type": "Skill",
+      "rarity": "Common",
+      "target": "Self",
+      "tags": [],
+      "character_id": "necrobinder",
+      "is_starter": false
+    },
+    "WOUND": {
+      "cost": -1,
+      "type": "Status",
+      "rarity": "Status",
+      "target": "None",
+      "tags": [],
+      "character_id": "status",
+      "is_starter": false
+    },
+    "WRAITH_FORM": {
+      "cost": 3,
+      "type": "Power",
+      "rarity": "Ancient",
+      "target": "Self",
+      "tags": [],
+      "character_id": "silent",
+      "is_starter": false
+    },
+    "WRITHE": {
+      "cost": -1,
+      "type": "Curse",
+      "rarity": "Curse",
+      "target": "None",
+      "tags": [],
+      "character_id": "curse",
+      "is_starter": false
+    },
+    "WROUGHT_IN_WAR": {
+      "cost": 1,
+      "type": "Attack",
+      "rarity": "Common",
+      "target": "AnyEnemy",
+      "tags": [],
+      "character_id": "regent",
+      "is_starter": false
+    },
+    "ZAP": {
+      "cost": 1,
+      "type": "Skill",
+      "rarity": "Basic",
+      "target": "Self",
+      "tags": [],
+      "character_id": "defect",
+      "is_starter": true
+    },
+    "MAD_SCIENCE": {
+      "cost": -1,
+      "type": "Unknown",
+      "rarity": "Unknown",
+      "target": "None",
+      "tags": [],
+      "character_id": "event",
+      "is_starter": false
+    }
+  }
+}
