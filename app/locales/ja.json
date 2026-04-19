@@ -101,6 +101,9 @@
     "showAll": "すべて表示",
     "deduplicate": "重複除外",
     "floorAll": "全階層",
+    "floorPhase1": "フェーズ1",
+    "floorPhase2": "フェーズ2",
+    "floorPhase3": "フェーズ3",
     "noData": "データがありません。セーブデータをインポートしてください。",
     "noMatchingCards": "フィルター条件に一致するカードがありません。"
   },

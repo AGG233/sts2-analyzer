@@ -107,7 +107,10 @@
     "deduplicate": "Deduplicate",
     "characterPoolOnly": "Character Pool Only",
     "allCards": "All Cards",
-    "floorAll": "All",
+    "floorAll": "Alle",
+    "floorPhase1": "Phase 1",
+    "floorPhase2": "Phase 2",
+    "floorPhase3": "Phase 3",
     "noData": "No data yet. Import your game saves first.",
     "noMatchingCards": "No cards match the current filters."
   },

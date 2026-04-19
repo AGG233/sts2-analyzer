@@ -101,6 +101,9 @@
     "showAll": "전체 보기",
     "deduplicate": "중복 제외",
     "floorAll": "전체",
+    "floorPhase1": " phase 1",
+    "floorPhase2": " phase 2",
+    "floorPhase3": " phase 3",
     "noData": "데이터가 없습니다. 게임 세이브를 먼저 가져오세요.",
     "noMatchingCards": "필터 조건에 맞는 카드가 없습니다."
   },

@@ -32,9 +32,9 @@ const floorRange = ref<{ min?: number; max?: number } | undefined>(undefined);
 type FloorRangeOption = { label: string; min?: number; max?: number };
 const floorRangeOptions = computed<FloorRangeOption[]>(() => [
 	{ label: t("chart.floorAll"), min: undefined, max: undefined },
-	{ label: "1-17", min: 1, max: 17 },
-	{ label: "18-33", min: 18, max: 33 },
-	{ label: "34+", min: 34, max: undefined },
+	{ label: t("chart.floorPhase1"), min: 1, max: 17 },
+	{ label: t("chart.floorPhase2"), min: 18, max: 33 },
+	{ label: t("chart.floorPhase3"), min: 34, max: undefined },
 ]);
 
 const pickRateOptions = computed<CardPickRateOptions>(() => ({
