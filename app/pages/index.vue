@@ -67,7 +67,7 @@ const characterStats = computed(() => {
       <!-- Card Pick Analysis -->
       <KeepAlive>
         <div v-show="rightTab === 'chart' && store.runs.length > 0" class="card-pick-section">
-          <ChartsCardPickRateChart :character-id="selectedCharacter" />
+          <CardPickRateChart :character-id="selectedCharacter" />
         </div>
       </KeepAlive>
 

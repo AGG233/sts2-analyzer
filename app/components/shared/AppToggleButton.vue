@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<(e: "update:modelValue", value: unknown) => void>();
 
-const _sizeClasses: Record<string, string> = {
+const sizeClasses: Record<string, string> = {
 	small: "text-xs px-2 py-1",
 	medium: "text-sm px-3 py-1.5",
 	large: "text-base px-4 py-2",
@@ -42,7 +42,7 @@ function selectOption(option: Option) {
       :key="option.value"
       :class="[
         'rounded-md transition-all',
-        sizeClasses[size],
+        sizeClasses[props.size],
         modelValue === option.value
           ? 'bg-primary-400 text-surface-900 font-medium'
           : 'text-gray-300 hover:bg-white/10'

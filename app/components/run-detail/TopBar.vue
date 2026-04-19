@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ArrowLeft } from "@lucide/vue";
 import { getRunSummary } from "~/data/analytics";
 import type { RunFile } from "~/data/types";
 import { useGameI18n } from "~/locales/lookup";
