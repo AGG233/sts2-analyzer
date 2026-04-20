@@ -12,10 +12,7 @@ const GAME_SRC =
 	(HOME ? path.join(HOME, "src/Slay the Spire 2") : "~/src/Slay the Spire 2");
 const VERSION = process.argv[3] || "0.15";
 
-const CARD_DIR = path.join(
-	GAME_SRC,
-	"src/MegaCrit.Sts2.Core.Models.Cards",
-);
+const CARD_DIR = path.join(GAME_SRC, "src/MegaCrit.Sts2.Core.Models.Cards");
 const CARD_POOLS_PATH = path.join(
 	import.meta.dirname ?? ".",
 	"..",
@@ -73,10 +70,11 @@ function extractMetadata(content: string): {
 function extractTags(content: string): string[] {
 	const tags: string[] = [];
 	const tagRegex = /CardTag\.(\w+)/g;
-	let match;
-	while ((match = tagRegex.exec(content)) !== null) {
+	let match: RegExpExecArray | null = tagRegex.exec(content);
+	while (match !== null) {
 		const tag = match[1];
 		if (!tags.includes(tag)) tags.push(tag);
+		match = tagRegex.exec(content);
 	}
 	return tags;
 }
@@ -94,7 +92,10 @@ function main() {
 		console.warn(`SKIP: ${CARD_POOLS_PATH} not found`);
 	}
 
-	const poolMap = new Map<string, { character_id: string; is_starter: boolean }>();
+	const poolMap = new Map<
+		string,
+		{ character_id: string; is_starter: boolean }
+	>();
 	for (const entry of poolEntries) {
 		poolMap.set(entry.card_id, {
 			character_id: entry.character_id,
@@ -131,7 +132,10 @@ function main() {
 			...meta,
 			tags,
 			...(poolInfo
-				? { character_id: poolInfo.character_id, is_starter: poolInfo.is_starter }
+				? {
+						character_id: poolInfo.character_id,
+						is_starter: poolInfo.is_starter,
+					}
 				: {}),
 		};
 		matched++;

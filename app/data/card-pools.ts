@@ -27,23 +27,20 @@ export async function getCharacterCardIds(
 	const cached = characterCardIdCache.get(cacheKey);
 	if (cached) return cached;
 
-	let results;
-	if (version) {
-		results = await db
-			.select({ cardId: schema.cardPools.cardId })
-			.from(schema.cardPools)
-			.where(
-				and(
-					eq(schema.cardPools.characterId, normalizedId),
-					eq(schema.cardPools.gameVersion, version),
-				),
-			);
-	} else {
-		results = await db
-			.select({ cardId: schema.cardPools.cardId })
-			.from(schema.cardPools)
-			.where(eq(schema.cardPools.characterId, normalizedId));
-	}
+	const results = version
+		? await db
+				.select({ cardId: schema.cardPools.cardId })
+				.from(schema.cardPools)
+				.where(
+					and(
+						eq(schema.cardPools.characterId, normalizedId),
+						eq(schema.cardPools.gameVersion, version),
+					),
+				)
+		: await db
+				.select({ cardId: schema.cardPools.cardId })
+				.from(schema.cardPools)
+				.where(eq(schema.cardPools.characterId, normalizedId));
 
 	const cardIds = results.map((r) => r.cardId);
 	characterCardIdCache.set(cacheKey, cardIds);

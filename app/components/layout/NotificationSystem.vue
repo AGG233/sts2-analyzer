@@ -1,17 +1,8 @@
 <script setup lang="ts">
 import { Check, CircleAlert, Info, TriangleAlert, X } from "@lucide/vue";
-import { onMounted, onUnmounted } from "vue";
+import { useNotificationBus } from "~/lib/notifications";
 
-interface Notification {
-	id: number;
-	severity: "success" | "info" | "warn" | "error";
-	summary: string;
-	detail?: string;
-	life: number;
-}
-
-const notifications = ref<Notification[]>([]);
-let nextId = 1;
+const { notifications, removeNotification } = useNotificationBus();
 
 const severityClasses: Record<string, string> = {
 	success: "bg-green-500/90 border-green-400",
@@ -26,41 +17,6 @@ const severityIcons = {
 	warn: TriangleAlert,
 	error: CircleAlert,
 };
-
-const handleNotification = (event: Event) => {
-	const customEvent = event as CustomEvent<{
-		severity: "success" | "info" | "warn" | "error";
-		summary: string;
-		detail?: string;
-		life?: number;
-	}>;
-	const notification: Notification = {
-		id: nextId++,
-		severity: customEvent.detail.severity,
-		summary: customEvent.detail.summary,
-		detail: customEvent.detail.detail,
-		life: customEvent.detail.life ?? 3000,
-	};
-	notifications.value.push(notification);
-	setTimeout(() => {
-		removeNotification(notification.id);
-	}, notification.life);
-};
-
-function removeNotification(id: number) {
-	const idx = notifications.value.findIndex((n) => n.id === id);
-	if (idx !== -1) {
-		notifications.value.splice(idx, 1);
-	}
-}
-
-onMounted(() => {
-	globalThis.addEventListener("notification", handleNotification);
-});
-
-onUnmounted(() => {
-	globalThis.removeEventListener("notification", handleNotification);
-});
 </script>
 
 <template>

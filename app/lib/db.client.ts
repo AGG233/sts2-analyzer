@@ -17,6 +17,7 @@ let sqlDbPromise: Promise<unknown | null> | null = null;
 
 // Drizzle ORM instance (proxy wrapper around sql.js)
 let dbInstance: DrizzleDB | null = null;
+let flushHandlersRegistered = false;
 
 // Infer the proper Drizzle DB type from the schema
 const _typedDb = drizzle(
@@ -127,6 +128,7 @@ export async function initDB(): Promise<DrizzleDB> {
 	);
 
 	dbInstance = db as DrizzleDB;
+	registerFlushHandlers();
 	return db;
 }
 
@@ -172,10 +174,38 @@ export function scheduleSave(delayMs = 2000): void {
 	}, delayMs);
 }
 
+export async function flushScheduledSave(): Promise<void> {
+	if (saveTimer) {
+		clearTimeout(saveTimer);
+		saveTimer = null;
+	}
+	await saveDB();
+}
+
 // Close database
 export function closeDB(): void {
+	if (saveTimer) {
+		clearTimeout(saveTimer);
+		saveTimer = null;
+	}
 	dbInstance = null;
 	sqlDbPromise = null;
+}
+
+function registerFlushHandlers(): void {
+	if (flushHandlersRegistered || typeof window === "undefined") {
+		return;
+	}
+
+	const flush = () => {
+		void flushScheduledSave().catch((error) => {
+			console.error("Failed to flush DB before page exit:", error);
+		});
+	};
+
+	window.addEventListener("beforeunload", flush);
+	window.addEventListener("pagehide", flush);
+	flushHandlersRegistered = true;
 }
 
 // Split SQL by statement breakpoints and execute each, tolerating

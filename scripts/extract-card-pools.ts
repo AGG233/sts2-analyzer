@@ -54,9 +54,10 @@ function extractCardsFromPool(filePath: string): string[] {
 	const content = fs.readFileSync(filePath, "utf-8");
 	const regex = /ModelDb\.Card<(\w+)>\(\)/g;
 	const cards: string[] = [];
-	let match;
-	while ((match = regex.exec(content)) !== null) {
+	let match: RegExpExecArray | null = regex.exec(content);
+	while (match !== null) {
 		cards.push(match[1]);
+		match = regex.exec(content);
 	}
 	return cards;
 }
@@ -68,10 +69,11 @@ function extractStarterCards(filePath: string): Map<string, number> {
 
 	const regex = /ModelDb\.Card<(\w+)>\(\)/g;
 	const counts = new Map<string, number>();
-	let match;
-	while ((match = regex.exec(deckMatch[1])) !== null) {
+	let match: RegExpExecArray | null = regex.exec(deckMatch[1]);
+	while (match !== null) {
 		const cardType = match[1];
 		counts.set(cardType, (counts.get(cardType) || 0) + 1);
+		match = regex.exec(deckMatch[1]);
 	}
 	return counts;
 }

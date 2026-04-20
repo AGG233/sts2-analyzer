@@ -1,6 +1,10 @@
 import { describe, expect, it, vi } from "vitest";
+import type { RunFile } from "~/data/types";
 
-function createMockRun(seed: string, character = "CHARACTER.IRONCLAD") {
+function createMockRun(
+	seed: string,
+	character = "CHARACTER.IRONCLAD",
+): RunFile {
 	return {
 		seed,
 		players: [
@@ -13,41 +17,48 @@ function createMockRun(seed: string, character = "CHARACTER.IRONCLAD") {
 				max_potion_slot_count: 3,
 			},
 		],
+		acts: ["ACT.OVERGROWTH"],
 		ascension: 0,
-		win: false,
-		was_abandoned: false,
-		build_id: "test",
+		build_id: "test-build-0.15",
+		game_mode: "standard",
 		killed_by_encounter: "NONE.NONE",
 		killed_by_event: "",
-		start_time: 1000,
-		run_time: 60,
 		map_point_history: [],
-		acts: ["act1"],
-	} as any;
+		modifiers: [],
+		platform_type: "steam",
+		run_time: 60,
+		schema_version: 9,
+		start_time: 1000,
+		was_abandoned: false,
+		win: false,
+	};
 }
 
-// Top-level mocks (vi.mock is hoisted)
 vi.mock("~/lib/storage.client", () => ({
 	loadRuns: vi.fn().mockResolvedValue([]),
 }));
 
 vi.mock("~/lib/db.client", () => ({
-	getDB: vi.fn().mockResolvedValue({
+	getDB: vi.fn().mockReturnValue({
 		select: vi.fn().mockReturnValue({
 			from: vi.fn().mockResolvedValue([]),
 		}),
 	}),
-	saveDB: vi.fn().mockResolvedValue(new Uint8Array()),
 }));
 
 vi.mock("~/db/schema", () => ({
 	runs: {},
 }));
 
+vi.mock("~/repositories/runRepository", () => ({
+	upsertRunsInRepository: vi.fn().mockResolvedValue(undefined),
+}));
+
 const { needsMigration, migrateRunsFromIndexedDB, checkAndMigrate } =
 	await import("~/lib/migrate");
 const { loadRuns } = await import("~/lib/storage.client");
 const { getDB } = await import("~/lib/db.client");
+const { upsertRunsInRepository } = await import("~/repositories/runRepository");
 
 describe("Migration Utilities", () => {
 	describe("needsMigration", () => {
@@ -58,7 +69,7 @@ describe("Migration Utilities", () => {
 
 		it("returns false when SQLite already has data", async () => {
 			vi.mocked(loadRuns).mockResolvedValue([createMockRun("a")]);
-			vi.mocked(getDB).mockResolvedValue({
+			vi.mocked(getDB).mockReturnValue({
 				select: vi.fn().mockReturnValue({
 					from: vi.fn().mockResolvedValue([{ seed: "a" }]),
 				}),
@@ -68,7 +79,7 @@ describe("Migration Utilities", () => {
 
 		it("returns true when IndexedDB has data but SQLite is empty", async () => {
 			vi.mocked(loadRuns).mockResolvedValue([createMockRun("a")]);
-			vi.mocked(getDB).mockResolvedValue({
+			vi.mocked(getDB).mockReturnValue({
 				select: vi.fn().mockReturnValue({
 					from: vi.fn().mockResolvedValue([]),
 				}),
@@ -88,19 +99,27 @@ describe("Migration Utilities", () => {
 			expect(await migrateRunsFromIndexedDB()).toBe(0);
 		});
 
-		it("inserts runs from IndexedDB into SQLite", async () => {
-			const onConflictDoNothing = vi.fn().mockResolvedValue(undefined);
-			const values = vi.fn().mockReturnValue({ onConflictDoNothing });
-			const insert = vi.fn().mockReturnValue({ values });
+		it("persists runs through the shared repository path", async () => {
 			vi.mocked(loadRuns).mockResolvedValue([
 				createMockRun("seed-a"),
 				createMockRun("seed-b"),
 			]);
-			vi.mocked(getDB).mockResolvedValue({ insert });
+
 			const count = await migrateRunsFromIndexedDB();
+
 			expect(count).toBe(2);
-			expect(insert).toHaveBeenCalledTimes(2);
-			expect(onConflictDoNothing).toHaveBeenCalledTimes(2);
+			expect(upsertRunsInRepository).toHaveBeenCalledTimes(1);
+			expect(upsertRunsInRepository).toHaveBeenCalledWith(
+				expect.arrayContaining([
+					expect.objectContaining({
+						run: expect.objectContaining({ seed: "seed-a" }),
+					}),
+					expect.objectContaining({
+						run: expect.objectContaining({ seed: "seed-b" }),
+					}),
+				]),
+				{ saveStrategy: "immediate" },
+			);
 		});
 
 		it("throws and logs error when migration fails", async () => {
@@ -108,11 +127,13 @@ describe("Migration Utilities", () => {
 			const consoleSpy = vi
 				.spyOn(console, "error")
 				.mockImplementation(() => {});
+
 			await expect(migrateRunsFromIndexedDB()).rejects.toThrow("Read error");
 			expect(consoleSpy).toHaveBeenCalledWith(
 				"Migration failed:",
 				expect.any(Error),
 			);
+
 			consoleSpy.mockRestore();
 		});
 	});

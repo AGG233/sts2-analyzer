@@ -8,12 +8,8 @@ import {
 } from "echarts/components";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
-import { computed, defineAsyncComponent, ref } from "vue";
+import { computed, ref } from "vue";
 import type { DeckChange, GoldPoint, HpPoint } from "~/data/analytics";
-
-const VChart = defineAsyncComponent(() =>
-	import("vue-echarts").then((module) => module.default),
-);
 
 type ChartType = "hp" | "gold" | "deck";
 type TimelinePoint = HpPoint | GoldPoint | DeckChange;
@@ -252,7 +248,7 @@ function handleChartMouseOut() {
       size="small"
       class="chart-switcher"
     />
-    <VChart :option="option" style="height: 300px; width: 100%" autoresize @mouseover="handleChartMouseOver" @mouseout="handleChartMouseOut" />
+    <AppChart :option="option" @mouseover="handleChartMouseOver" @mouseout="handleChartMouseOut" />
   </div>
 </template>
 

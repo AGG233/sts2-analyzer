@@ -1,0 +1,1 @@
+ALTER TABLE `runs` ADD COLUMN `source_path` text DEFAULT '' NOT NULL;

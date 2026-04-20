@@ -6,23 +6,19 @@ import {
 	Info,
 	RefreshCw,
 } from "@lucide/vue";
-import { onMounted, ref } from "vue";
-import {
-	batchParseRunFiles,
-	filterRunFiles,
-	scanDirectoryHandle,
-} from "~/data/parser";
+import { computed, onMounted, ref } from "vue";
+import { notifyApp } from "~/lib/notifications";
 import { detectPlatform, getSavePathHint } from "~/lib/save-paths";
 import { useRunStore } from "~/stores/runStore";
 
 const { t } = useI18n();
 const store = useRunStore();
 
-const scanning = ref(false);
 const scanResult = ref<{ count: number } | null>(null);
 const error = ref<string | null>(null);
 const supportsDirectoryPicker =
 	import.meta.client && "showDirectoryPicker" in globalThis;
+const scanning = computed(() => store.loading);
 
 const platform = detectPlatform();
 const savePathHint = getSavePathHint(platform);
@@ -32,7 +28,6 @@ const permissionStatus = ref<PermStatus>(null);
 
 async function onPickDirectory() {
 	if (!supportsDirectoryPicker) return;
-	scanning.value = true;
 	error.value = null;
 	scanResult.value = null;
 
@@ -48,51 +43,35 @@ async function onPickDirectory() {
 			id: "sts2-saves",
 			startIn: store.dirHandle ?? "documents",
 		});
-		const files = await scanDirectoryHandle(dirHandle);
-		const parsed = await batchParseRunFiles(files);
-		scanResult.value = { count: parsed.length };
+		const result = await store.selectDirectory(dirHandle);
+		scanResult.value = { count: result.importedCount };
 		permissionStatus.value = "granted";
-		await store.setDirHandle(dirHandle);
-		await store.addRuns(parsed.map((r) => r.data));
-		globalThis.dispatchEvent(
-			new CustomEvent("notification", {
-				detail: {
-					severity: "success",
-					summary: t("home.scanComplete"),
-					detail: t("home.foundRuns", { count: parsed.length }),
-					life: 3000,
-				},
-			}),
-		);
+		notifyApp({
+			severity: "success",
+			summary: t("home.scanComplete"),
+			detail: t("home.foundRuns", { count: result.importedCount }),
+			life: 3000,
+		});
 	} catch (e) {
 		if ((e as DOMException)?.name === "AbortError") return;
 		error.value = e instanceof Error ? e.message : String(e);
-	} finally {
-		scanning.value = false;
 	}
 }
 
 async function onUpdate() {
-	scanning.value = true;
 	error.value = null;
 	try {
-		const count = await store.rescan();
-		scanResult.value = { count };
+		const result = await store.rescan();
+		scanResult.value = { count: result.importedCount };
 		permissionStatus.value = "granted";
-		globalThis.dispatchEvent(
-			new CustomEvent("notification", {
-				detail: {
-					severity: "success",
-					summary: t("home.scanComplete"),
-					detail: t("home.foundRuns", { count }),
-					life: 3000,
-				},
-			}),
-		);
+		notifyApp({
+			severity: "success",
+			summary: t("home.scanComplete"),
+			detail: t("home.foundRuns", { count: result.importedCount }),
+			life: 3000,
+		});
 	} catch (e) {
 		error.value = e instanceof Error ? e.message : String(e);
-	} finally {
-		scanning.value = false;
 	}
 }
 
@@ -100,28 +79,19 @@ async function onFallbackInput(event: Event) {
 	const input = event.target as HTMLInputElement;
 	if (!input.files) return;
 
-	scanning.value = true;
 	error.value = null;
 
 	try {
-		const files = filterRunFiles(Array.from(input.files));
-		const parsed = await batchParseRunFiles(files);
-		scanResult.value = { count: parsed.length };
-		await store.addRuns(parsed.map((r) => r.data));
-		globalThis.dispatchEvent(
-			new CustomEvent("notification", {
-				detail: {
-					severity: "success",
-					summary: t("home.scanComplete"),
-					detail: t("home.foundRuns", { count: parsed.length }),
-					life: 3000,
-				},
-			}),
-		);
+		const result = await store.importFiles(Array.from(input.files));
+		scanResult.value = { count: result.importedCount };
+		notifyApp({
+			severity: "success",
+			summary: t("home.scanComplete"),
+			detail: t("home.foundRuns", { count: result.importedCount }),
+			life: 3000,
+		});
 	} catch (e) {
 		error.value = e instanceof Error ? e.message : String(e);
-	} finally {
-		scanning.value = false;
 	}
 }
 

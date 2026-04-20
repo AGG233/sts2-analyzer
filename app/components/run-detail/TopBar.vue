@@ -27,12 +27,12 @@ const formatDate = (ts: number): string => {
 <template>
   <div class="top-bar">
     <div class="top-bar-left">
-      <router-link to="/" class="back-link">
+      <NuxtLink to="/" class="back-link">
         <AppButton variant="text" size="small">
           <ArrowLeft class="w-4 h-4" />
           {{ t('run.back') }}
         </AppButton>
-      </router-link>
+      </NuxtLink>
     </div>
 
     <div class="top-summary">

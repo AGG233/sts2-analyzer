@@ -12,11 +12,16 @@
   }
 
   html {
-    overflow: hidden;
+    height: 100%;
   }
 
   body {
+    min-height: 100%;
     @apply m-0 p-0 font-sans bg-surface-500 text-gray-200;
+  }
+
+  #__nuxt {
+    min-height: 100%;
   }
 
   a {

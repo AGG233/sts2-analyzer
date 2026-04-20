@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useRouter } from "vue-router";
 import type { RunSummary } from "~/data/analytics";
 import { useGameI18n } from "~/locales/lookup";
 

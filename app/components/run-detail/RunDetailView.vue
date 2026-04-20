@@ -188,9 +188,9 @@ const currentRelics = computed(() => {
 
   <div v-else class="not-found">
     <p>
-      {{ t('run.runNotFound') }} <router-link to="/">
+      {{ t('run.runNotFound') }} <NuxtLink to="/">
         {{ t('run.goBack') }}
-      </router-link>
+      </NuxtLink>
     </p>
   </div>
 </template>

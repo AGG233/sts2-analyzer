@@ -4,6 +4,17 @@
 
 import type { PrefsFile, ProgressFile, RunFile, SettingsFile } from "./types";
 
+export interface RunSourceFile {
+	file: File;
+	path: string;
+	lastModified: number;
+}
+
+export interface ParsedRunFile {
+	data: RunFile;
+	source: RunSourceFile;
+}
+
 // ---- Supported schema versions ----
 
 const SUPPORTED_RUN_SCHEMA_VERSIONS = new Set([8, 9]);
@@ -140,20 +151,20 @@ export function parseSettingsFile(json: unknown): SettingsFile {
 // ---- Batch parsing ----
 
 export async function batchParseRunFiles(
-	files: File[],
-): Promise<{ data: RunFile; file: File }[]> {
-	const results: { data: RunFile; file: File }[] = [];
+	files: RunSourceFile[],
+): Promise<ParsedRunFile[]> {
+	const results: ParsedRunFile[] = [];
 	const errors: { file: string; error: string }[] = [];
 
-	for (const file of files) {
+	for (const source of files) {
 		try {
-			const text = await file.text();
+			const text = await source.file.text();
 			const json = JSON.parse(text);
 			const data = parseRunFile(json);
-			results.push({ data, file });
+			results.push({ data, source });
 		} catch (e) {
 			errors.push({
-				file: file.name,
+				file: source.path,
 				error: e instanceof Error ? e.message : String(e),
 			});
 		}
@@ -170,22 +181,35 @@ export async function batchParseRunFiles(
 
 export async function scanDirectoryHandle(
 	dirHandle: FileSystemDirectoryHandle,
-): Promise<File[]> {
-	const runFiles: File[] = [];
+	currentPath = "",
+): Promise<RunSourceFile[]> {
+	const runFiles: RunSourceFile[] = [];
 	for await (const entry of dirHandle.values()) {
+		const entryPath = currentPath ? `${currentPath}/${entry.name}` : entry.name;
+
 		if (entry.kind === "file" && entry.name.endsWith(".run")) {
 			const file = await entry.getFile();
-			runFiles.push(file);
+			runFiles.push({
+				file,
+				path: entryPath,
+				lastModified: file.lastModified,
+			});
 		} else if (entry.kind === "directory") {
-			const subFiles = await scanDirectoryHandle(entry);
+			const subFiles = await scanDirectoryHandle(entry, entryPath);
 			runFiles.push(...subFiles);
 		}
 	}
 	return runFiles;
 }
 
-export function filterRunFiles(files: File[]): File[] {
-	return files.filter((f) => f.name.endsWith(".run"));
+export function filterRunFiles(files: File[]): RunSourceFile[] {
+	return files
+		.filter((file) => file.name.endsWith(".run"))
+		.map((file) => ({
+			file,
+			path: file.webkitRelativePath || file.name,
+			lastModified: file.lastModified,
+		}));
 }
 
 // ---- Error class ----

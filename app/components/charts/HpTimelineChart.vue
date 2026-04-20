@@ -7,10 +7,8 @@ import {
 } from "echarts/components";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
-import { computed, defineAsyncComponent } from "vue";
+import { computed } from "vue";
 import type { HpPoint } from "~/data/analytics";
-
-const VChart = defineAsyncComponent(() => import("vue-echarts" as any));
 
 const props = defineProps<{
 	data: HpPoint[];
@@ -32,7 +30,7 @@ const { t } = useI18n();
 const playerColors = ["#42a5f5", "#66bb6a", "#ffa726", "#ab47bc"];
 
 const option = computed(() => {
-	const series = [];
+	const series: Record<string, unknown>[] = [];
 
 	if (props.allPlayersData && props.allPlayersData.length > 0) {
 		// 总览模式：显示所有玩家的 HP 和 Max HP
@@ -93,5 +91,5 @@ const option = computed(() => {
 </script>
 
 <template>
-  <VChart :option="option" style="height: 300px; width: 100%" autoresize />
+  <AppChart :option="option" />
 </template>

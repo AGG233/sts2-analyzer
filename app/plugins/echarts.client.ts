@@ -7,9 +7,8 @@ import {
 } from "echarts/components";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
-import VChart from "vue-echarts";
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
 	// Register ECharts components
 	use([
 		CanvasRenderer,
@@ -21,7 +20,4 @@ export default defineNuxtPlugin((nuxtApp) => {
 		TooltipComponent,
 		DataZoomComponent,
 	]);
-
-	// Register VChart component globally
-	nuxtApp.vueApp.component("VChart", VChart);
 });

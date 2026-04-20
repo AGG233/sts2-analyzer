@@ -7,15 +7,13 @@ import {
 	Filter,
 	TrendingUp,
 } from "@lucide/vue";
-import { computed, defineAsyncComponent, onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
-import type { CardPickRateOptions } from "~/data/analytics";
+import type { CardPickRateOptions, CardPickStat } from "~/data/analytics";
 import { getCardPickRate, getCardPickRateByCharacter } from "~/data/analytics";
 import { getAllCardMetadata } from "~/data/card-metadata";
 import { useGameI18n } from "~/locales/lookup";
 import { useRunStore } from "~/stores/runStore";
-
-const VChart = defineAsyncComponent(() => import("vue-echarts"));
 
 const props = defineProps<{ characterId?: string }>();
 const store = useRunStore();
@@ -23,7 +21,9 @@ const { cardName } = useGameI18n();
 const { t } = useI18n();
 
 // 卡牌元数据缓存：cardId -> { rarity, type }
-const cardMetaMap = ref<Map<string, { rarity: string; type: string }>>(new Map());
+const cardMetaMap = ref<Map<string, { rarity: string; type: string }>>(
+	new Map(),
+);
 
 onMounted(async () => {
 	const meta = await getAllCardMetadata();
@@ -44,7 +44,7 @@ function getCardType(cardId: string): string {
 	return cardMetaMap.value.get(bare)?.type ?? "";
 }
 
-const chartData = ref();
+const chartData = ref<CardPickStat[]>([]);
 const sortBy = ref<"total" | "pickRate">("total");
 const sortOrder = ref<"desc" | "asc">("desc");
 const showPickRateOnly = ref(false);
@@ -116,19 +116,21 @@ const filteredData = computed(() => {
 	return sortOrder.value === "desc" ? data.slice(-25) : data.slice(0, 25);
 });
 
-	const summaryStats = computed(() => {
-		if (!chartData.value || chartData.value.length === 0) {
-			return { mostPicked: null, highestPickRate: null };
-		}
+const summaryStats = computed(() => {
+	if (!chartData.value.length) {
+		return { mostPicked: null, highestPickRate: null };
+	}
 
-		const data = chartData.value;
-		const sortedByTotal = [...data].sort((a, b) => b.total - a.total);
-		const sortedByPickRate = [...data]
-			.filter((d) => d.total >= 5)
-			.sort((a, b) => b.pickRate - a.pickRate);
+	const sortedByTotal = [...chartData.value].sort((a, b) => b.total - a.total);
+	const sortedByPickRate = [...chartData.value]
+		.filter((entry) => entry.total >= 5)
+		.sort((a, b) => b.pickRate - a.pickRate);
 
-		return { mostPicked: sortedByTotal[0], highestPickRate: sortedByPickRate[0] || null };
-	});
+	return {
+		mostPicked: sortedByTotal[0] ?? null,
+		highestPickRate: sortedByPickRate[0] ?? null,
+	};
+});
 
 const chartOption = computed(() => {
 	if (!filteredData.value || filteredData.value.length === 0) return null;
@@ -389,10 +391,10 @@ updateChartData();
 
     <!-- 图表 -->
     <div class="chart-container">
-      <VChart
+      <AppChart
         v-if="chartOption"
         :option="chartOption"
-        autoresize
+        height="720px"
         class="chart"
       />
       <div v-else class="chart-empty">

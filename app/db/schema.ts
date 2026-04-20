@@ -53,6 +53,7 @@ export const runs = sqliteTable("runs", {
 	gameSchemaVersion: int("game_schema_version").notNull().default(0),
 	rawJson: text("raw_json").notNull(),
 	fileTimestamp: int("file_timestamp").notNull().default(0),
+	sourcePath: text("source_path").notNull().default(""),
 	importedAt: text("imported_at").notNull().default("datetime('now')"),
 });
 

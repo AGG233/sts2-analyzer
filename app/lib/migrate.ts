@@ -1,23 +1,24 @@
-// lib/migrate.ts
-// IndexedDB → SQLite migration utilities
-
-import { getTotalFloorCount } from "~/data/analytics/floors";
+import type { RunFile } from "~/data/types";
 import * as schema from "~/db/schema";
-import { getDB, saveDB } from "~/lib/db.client";
+import { getDB } from "~/lib/db.client";
 import { loadRuns } from "~/lib/storage.client";
+import {
+	type PersistedRunInput,
+	upsertRunsInRepository,
+} from "~/repositories/runRepository";
 
-/**
- * Check if migration from IndexedDB is needed
- * Returns true if IndexedDB has data and SQLite is empty
- */
+async function loadLegacyRuns(): Promise<RunFile[]> {
+	return loadRuns();
+}
+
 export async function needsMigration(): Promise<boolean> {
 	try {
-		const indexedDbRuns = await loadRuns();
+		const indexedDbRuns = await loadLegacyRuns();
 		if (indexedDbRuns.length === 0) {
 			return false;
 		}
 
-		const db = await getDB();
+		const db = getDB();
 		const sqliteRuns = await db.select().from(schema.runs);
 
 		return sqliteRuns.length === 0;
@@ -26,41 +27,23 @@ export async function needsMigration(): Promise<boolean> {
 	}
 }
 
-/**
- * Migrate runs from IndexedDB to SQLite
- * Returns the number of migrated runs
- */
 export async function migrateRunsFromIndexedDB(): Promise<number> {
 	try {
-		const runs = await loadRuns();
+		const runs = await loadLegacyRuns();
 		if (runs.length === 0) {
 			return 0;
 		}
 
-		const db = await getDB();
+		const importedAt = new Date().toISOString();
+		const payload: PersistedRunInput[] = runs.map((run) => ({
+			run,
+			importedAt,
+		}));
 
-		// Insert all runs into SQLite
-		for (const run of runs) {
-			const runData = {
-				seed: run.seed,
-				gameVersion: "0.15",
-				characterId: run.players[0]?.character ?? "UNKNOWN",
-				ascension: run.ascension,
-				win: run.win ? 1 : 0,
-				wasAbandoned: run.was_abandoned ? 1 : 0,
-				buildId: run.build_id,
-				killedByEncounter: run.killed_by_encounter,
-				killedByEvent: run.killed_by_event,
-				startTime: run.start_time,
-				runTime: run.run_time,
-				totalFloors: getTotalFloorCount(run),
-				rawJson: JSON.stringify(run),
-			};
+		await upsertRunsInRepository(payload, {
+			saveStrategy: "immediate",
+		});
 
-			await db.insert(schema.runs).values(runData).onConflictDoNothing(); // Skip if already exists
-		}
-
-		await saveDB();
 		return runs.length;
 	} catch (error) {
 		console.error("Migration failed:", error);
@@ -68,16 +51,13 @@ export async function migrateRunsFromIndexedDB(): Promise<number> {
 	}
 }
 
-/**
- * Check and perform migration if needed
- */
 export async function checkAndMigrate(): Promise<number> {
 	if (!import.meta.client) {
 		return 0;
 	}
 
-	const needed = await needsMigration();
-	if (!needed) {
+	const migrationRequired = await needsMigration();
+	if (!migrationRequired) {
 		return 0;
 	}
 
