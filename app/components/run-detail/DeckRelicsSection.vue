@@ -17,7 +17,7 @@ interface Props {
 const props = defineProps<Props>();
 
 const { t } = useI18n();
-const { cardName, relicName } = useGameI18n();
+const { cardName, cardDescription, relicName } = useGameI18n();
 
 // 预加载所有卡牌 metadata
 const metadataMap = ref(new Map<string, CardMetadataEntry>());
