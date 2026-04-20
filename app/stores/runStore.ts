@@ -1,7 +1,6 @@
 // stores/runStore.ts
 
 import { defineStore } from "pinia";
-import { getRunSummary } from "~/data/analytics";
 import { getTotalFloorCount } from "~/data/analytics/floors";
 import { batchParseRunFiles, scanDirectoryHandle } from "~/data/parser";
 import type { RunFile } from "~/data/types";
@@ -28,6 +27,9 @@ function notify(
 	}
 }
 
+// 防止 init 并发调用
+let initPromise: Promise<void> | null = null;
+
 export const useRunStore = defineStore("runs", () => {
 	// State
 	const runs = ref<RunFile[]>([]);
@@ -36,12 +38,23 @@ export const useRunStore = defineStore("runs", () => {
 	const runsBySeed = ref<Map<string, RunFile>>(new Map());
 	const dbInitialized = ref(false);
 
-	// Computed
-	const summaries = computed(() => runs.value.map(getRunSummary));
+	// Computed — 只取 UI 需要的字段，避免冷缓存时全量计算
+	const summaries = computed(() =>
+		runs.value.map((r) => ({
+			seed: r.seed,
+			win: r.win,
+			character: r.players[0]?.character ?? "UNKNOWN",
+			ascension: r.ascension,
+		})),
+	);
 
 	const wins = computed(() => summaries.value.filter((s) => s.win).length);
 
 	const losses = computed(() => summaries.value.filter((s) => !s.win).length);
+
+	const syncMap = () => {
+		runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
+	};
 
 	// Actions
 	const addRuns = async (newRuns: RunFile[]) => {
@@ -75,26 +88,29 @@ export const useRunStore = defineStore("runs", () => {
 	};
 
 	const rescan = async () => {
-		if (!dirHandle.value) return 0;
+		if (!dirHandle.value || loading.value) return 0;
 
 		loading.value = true;
 		try {
 			const files = await scanDirectoryHandle(dirHandle.value);
 			const parsed = await batchParseRunFiles(files);
-			runs.value = parsed.map((p) => p.data);
-			runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
+			const newRuns = parsed.map((p) => p.data);
+
+			// 合并已有数据，不覆盖历史存档
+			const merged = new Map(runs.value.map((r) => [r.seed, r]));
+			for (const r of newRuns) merged.set(r.seed, r);
+			runs.value = Array.from(merged.values());
+			syncMap();
+
 			if (import.meta.client) {
 				try {
-					await insertRunsToDB(runs.value);
+					await insertRunsToDB(newRuns);
 					scheduleSave();
 				} catch (error) {
 					console.error("Failed to save runs to SQLite:", error);
 				}
 			}
-			return runs.value.length;
-		} catch (error) {
-			console.error("Rescan failed:", error);
-			return 0;
+			return newRuns.length;
 		} finally {
 			loading.value = false;
 		}
@@ -116,41 +132,42 @@ export const useRunStore = defineStore("runs", () => {
 		}
 	};
 
-	// Initialize (client only)
+	// Initialize (client only) — initPromise 锁防止并发重入
 	const init = async () => {
 		if (!import.meta.client) return;
+		if (initPromise) return initPromise;
 
-		try {
-			// Initialize database (now loads from IndexedDB if available)
-			await initDB();
-			dbInitialized.value = true;
-
-			// Load runs from SQLite
-			const db = await getDB();
-			const dbRuns = (await db.select().from(schema.runs)) as {
-				rawJson: string;
-			}[];
-			if (dbRuns.length > 0) {
-				runs.value = dbRuns.map((r) => JSON.parse(r.rawJson) as RunFile);
-				runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
-			} else {
-				// Fallback: migrate from legacy IndexedDB JSON format
-				const savedRuns = await loadRuns();
-				if (savedRuns.length > 0) {
-					runs.value = savedRuns;
-					runsBySeed.value = new Map(runs.value.map((r) => [r.seed, r]));
-					await addRuns(savedRuns);
+		initPromise = (async () => {
+			try {
+				await initDB();
+				const db = await getDB();
+				const dbRuns = (await db.select().from(schema.runs)) as {
+					rawJson: string;
+				}[];
+				if (dbRuns.length > 0) {
+					runs.value = dbRuns.map((r) => JSON.parse(r.rawJson) as RunFile);
+					syncMap();
+				} else {
+					const savedRuns = await loadRuns();
+					if (savedRuns.length > 0) {
+						runs.value = savedRuns;
+						syncMap();
+						await addRuns(savedRuns);
+					}
 				}
-			}
 
-			// Load directory handle
-			const savedDirHandle = await loadDirHandle();
-			if (savedDirHandle) {
-				dirHandle.value = savedDirHandle;
+				const savedDirHandle = await loadDirHandle();
+				if (savedDirHandle) {
+					dirHandle.value = savedDirHandle;
+				}
+				dbInitialized.value = true;
+			} catch (error) {
+				initPromise = null; // 失败后允许重试
+				console.error("Failed to initialize store:", error);
 			}
-		} catch (error) {
-			console.error("Failed to initialize store:", error);
-		}
+		})();
+
+		return initPromise;
 	};
 
 	return {
@@ -275,24 +292,28 @@ function buildRunQueries(db: DB, run: RunFile) {
 	return queries;
 }
 
-// Insert multiple runs via db.batch() with concurrent execution
+// Insert runs using db.transaction — 一个 run 作为一个事务，确保持久化原子性
 async function insertRunsToDB(runs: RunFile[]): Promise<void> {
 	const db = await getDB();
-	const CONCURRENCY = 8;
-	for (let i = 0; i < runs.length; i += CONCURRENCY) {
-		const chunk = runs.slice(i, i + CONCURRENCY);
-		await Promise.all(
-			chunk.map((run) => {
-				const queries = buildRunQueries(db, run);
-				// batch() expects BatchItem[] — queries array is inferred from drizzle ops
-				return db.batch(queries as unknown as Parameters<typeof db.batch>[0]);
-			}),
-		);
+	for (const run of runs) {
+		try {
+			await db.transaction(async (tx) => {
+				const queries = buildRunQueries(tx as unknown as DB, run);
+				for (const query of queries) {
+					await query;
+				}
+			});
+			// 每个 run 处理完后让出主线程，保持 UI 响应
+			await new Promise<void>((r) => setTimeout(r, 0));
+		} catch (e) {
+			console.error(`Failed to insert run ${run.seed}:`, e);
+		}
 	}
 }
 
 function deriveGameVersion(run: RunFile): string {
-	if (run.build_id.includes("0.15")) return "0.15";
-	if (run.build_id.includes("0.16")) return "0.16";
-	return run.build_id || "unknown";
+	if (!run.build_id) return "unknown";
+	// 支持 X.XX 或 X.XX.XX 格式
+	const match = run.build_id.match(/\d+\.\d+(?:\.\d+)?/);
+	return match ? match[0] : run.build_id;
 }

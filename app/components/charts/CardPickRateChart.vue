@@ -7,10 +7,11 @@ import {
 	Filter,
 	TrendingUp,
 } from "@lucide/vue";
-import { computed, defineAsyncComponent, ref, watch } from "vue";
+import { computed, defineAsyncComponent, onMounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import type { CardPickRateOptions } from "~/data/analytics";
 import { getCardPickRate, getCardPickRateByCharacter } from "~/data/analytics";
+import { getAllCardMetadata } from "~/data/card-metadata";
 import { useGameI18n } from "~/locales/lookup";
 import { useRunStore } from "~/stores/runStore";
 
@@ -21,6 +22,28 @@ const store = useRunStore();
 const { cardName } = useGameI18n();
 const { t } = useI18n();
 
+// 卡牌元数据缓存：cardId -> { rarity, type }
+const cardMetaMap = ref<Map<string, { rarity: string; type: string }>>(new Map());
+
+onMounted(async () => {
+	const meta = await getAllCardMetadata();
+	const map = new Map<string, { rarity: string; type: string }>();
+	for (const [id, entry] of Object.entries(meta.cards)) {
+		map.set(id, { rarity: entry.rarity, type: entry.type });
+	}
+	cardMetaMap.value = map;
+});
+
+function getCardRarity(cardId: string): string {
+	const bare = cardId.replace("CARD.", "");
+	return cardMetaMap.value.get(bare)?.rarity ?? "Unknown";
+}
+
+function getCardType(cardId: string): string {
+	const bare = cardId.replace("CARD.", "");
+	return cardMetaMap.value.get(bare)?.type ?? "";
+}
+
 const chartData = ref();
 const sortBy = ref<"total" | "pickRate">("total");
 const sortOrder = ref<"desc" | "asc">("desc");
@@ -28,6 +51,18 @@ const showPickRateOnly = ref(false);
 const deduplicate = ref(false);
 const characterPoolOnly = ref(true);
 const floorRange = ref<{ min?: number; max?: number } | undefined>(undefined);
+const selectedRarity = ref<string | undefined>(undefined);
+const selectedType = ref<string | undefined>(undefined);
+
+const RARITY_FILTER_OPTIONS = [
+	"Common",
+	"Uncommon",
+	"Rare",
+	"Ancient",
+	"Event",
+] as const;
+
+const TYPE_FILTER_OPTIONS = ["Attack", "Skill", "Power"] as const;
 
 type FloorRangeOption = { label: string; min?: number; max?: number };
 const floorRangeOptions = computed<FloorRangeOption[]>(() => [
@@ -47,6 +82,16 @@ const filteredData = computed(() => {
 	if (!chartData.value) return [];
 
 	let data = [...chartData.value];
+
+	// 稀有度筛选
+	if (selectedRarity.value) {
+		data = data.filter((d) => getCardRarity(d.cardId) === selectedRarity.value);
+	}
+
+	// 卡牌种类筛选
+	if (selectedType.value) {
+		data = data.filter((d) => getCardType(d.cardId) === selectedType.value);
+	}
 
 	// 排序（ECharts Y轴从下往上渲染，数组末尾=图表顶部）
 	if (sortBy.value === "pickRate") {
@@ -71,38 +116,19 @@ const filteredData = computed(() => {
 	return sortOrder.value === "desc" ? data.slice(-25) : data.slice(0, 25);
 });
 
-const summaryStats = computed(() => {
-	if (!chartData.value || chartData.value.length === 0) {
-		return {
-			totalCards: 0,
-			avgPickRate: 0,
-			mostPicked: null,
-			highestPickRate: null,
-			mostSkipped: null,
-		};
-	}
+	const summaryStats = computed(() => {
+		if (!chartData.value || chartData.value.length === 0) {
+			return { mostPicked: null, highestPickRate: null };
+		}
 
-	const data = chartData.value;
-	const avgPickRate =
-		data.reduce((sum: number, d: { pickRate: number }) => sum + d.pickRate, 0) /
-		data.length;
+		const data = chartData.value;
+		const sortedByTotal = [...data].sort((a, b) => b.total - a.total);
+		const sortedByPickRate = [...data]
+			.filter((d) => d.total >= 5)
+			.sort((a, b) => b.pickRate - a.pickRate);
 
-	const sortedByTotal = [...data].sort((a, b) => b.total - a.total);
-	const sortedByPickRate = [...data]
-		.filter((d) => d.total >= 5)
-		.sort((a, b) => b.pickRate - a.pickRate);
-	const sortedBySkipRate = [...data].sort(
-		(a, b) => b.skipped / b.total - a.skipped / a.total,
-	);
-
-	return {
-		totalCards: data.length,
-		avgPickRate,
-		mostPicked: sortedByTotal[0],
-		highestPickRate: sortedByPickRate[0] || null,
-		mostSkipped: sortedBySkipRate[0],
-	};
-});
+		return { mostPicked: sortedByTotal[0], highestPickRate: sortedByPickRate[0] || null };
+	});
 
 const chartOption = computed(() => {
 	if (!filteredData.value || filteredData.value.length === 0) return null;
@@ -233,15 +259,7 @@ updateChartData();
 <template>
   <div class="card-pick-chart">
     <!-- 统计摘要 -->
-    <div v-if="summaryStats.totalCards > 0" class="chart-summary">
-      <div class="stat-pill">
-        <span class="stat-label">{{ t('chart.cardTypes') }}</span>
-        <span class="stat-value">{{ summaryStats.totalCards }}</span>
-      </div>
-      <div class="stat-pill">
-        <span class="stat-label">{{ t('chart.avgPickRate') }}</span>
-        <span class="stat-value">{{ (summaryStats.avgPickRate * 100).toFixed(1) }}%</span>
-      </div>
+    <div v-if="summaryStats.mostPicked || summaryStats.highestPickRate" class="chart-summary">
       <div v-if="summaryStats.mostPicked" class="stat-pill highlight">
         <span class="stat-label">{{ t('chart.mostPicked') }}</span>
         <span class="stat-value">{{ cardName(summaryStats.mostPicked.cardId) }}</span>
@@ -325,6 +343,48 @@ updateChartData();
       >
         {{ opt.label }}
       </button>
+    </div>
+
+    <!-- 稀有度筛选 -->
+    <div class="filter-row">
+      <span class="filter-label">{{ t('chart.rarity') }}</span>
+      <div class="filter-buttons">
+        <button
+          :class="['floor-range-btn', { active: selectedRarity === undefined }]"
+          @click="selectedRarity = undefined"
+        >
+          {{ t('chart.rarityAll') }}
+        </button>
+        <button
+          v-for="r in RARITY_FILTER_OPTIONS"
+          :key="r"
+          :class="['floor-range-btn', { active: selectedRarity === r }]"
+          @click="selectedRarity = selectedRarity === r ? undefined : r"
+        >
+          {{ t(`chart.rarity${r}`) }}
+        </button>
+      </div>
+    </div>
+
+    <!-- 卡牌种类筛选 -->
+    <div class="filter-row">
+      <span class="filter-label">{{ t('chart.cardType') }}</span>
+      <div class="filter-buttons">
+        <button
+          :class="['floor-range-btn', { active: selectedType === undefined }]"
+          @click="selectedType = undefined"
+        >
+          {{ t('chart.typeAll') }}
+        </button>
+        <button
+          v-for="tp in TYPE_FILTER_OPTIONS"
+          :key="tp"
+          :class="['floor-range-btn', { active: selectedType === tp }]"
+          @click="selectedType = selectedType === tp ? undefined : tp"
+        >
+          {{ t(`chart.type${tp}`) }}
+        </button>
+      </div>
     </div>
 
     <!-- 图表 -->
@@ -413,7 +473,27 @@ updateChartData();
 .floor-range-controls {
   display: flex;
   gap: $space-sm;
-  margin-bottom: $space-lg;
+  margin-bottom: $space-md;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  margin-bottom: $space-md;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  color: $text-secondary;
+  font-size: 0.8rem;
+  min-width: 3rem;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: $space-sm;
+  flex-wrap: wrap;
 }
 
 .floor-range-btn {

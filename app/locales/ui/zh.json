@@ -112,12 +112,27 @@
     "characterPoolOnly": "仅角色卡池",
     "allCards": "所有卡牌",
     "floorAll": "全部",
+    "floorPhase1": "第一阶段",
+    "floorPhase2": "第二阶段",
+    "floorPhase3": "第三阶段",
     "noData": "暂无数据，请先导入游戏存档",
     "noMatchingCards": "没有符合筛选条件的卡牌数据",
     "picked": "选取",
     "skipped": "跳过",
     "total": "总计",
     "pickRateLabel": "选取率",
-    "count": "次数"
+    "count": "次数",
+    "rarity": "稀有度",
+    "cardType": "种类",
+    "rarityAll": "全部稀有度",
+    "typeAll": "全部种类",
+    "rarityCommon": "普通",
+    "rarityUncommon": "罕见",
+    "rarityRare": "稀有",
+    "rarityAncient": "远古",
+    "rarityEvent": "事件",
+    "typeAttack": "攻击",
+    "typeSkill": "技能",
+    "typePower": "能力"
   }
 }

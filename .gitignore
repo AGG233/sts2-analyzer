@@ -47,6 +47,7 @@ trace-*.json.gz
 
 # Game resources (copyrighted content from Slay the Spire 2)
 public/spine/
+public/cards/
 
 # Screenshots (exclude from repo except public/)
 *.png

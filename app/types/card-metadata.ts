@@ -10,5 +10,5 @@ export interface CardMetadataEntry {
 
 export interface CardMetadataRaw {
 	version: string;
-	cards: Record&lt;string, CardMetadataEntry&gt;;
+	cards: Record<string, CardMetadataEntry>;
 }

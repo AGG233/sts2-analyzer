@@ -1,6 +1,7 @@
 // 清理游戏源码中的模板语法，生成可显示的卡牌描述
 
-templateRegex: {Var:diff()}/g, "X");
+export function cleanCardDescription(text: string): string {
+	// 移除带参数模板 {Var:diff()}/g, "X");
 	// 移除能量前缀图标 {energyPrefix:energyIcons(N)}
 	text = text.replace(/{energyPrefix:energyIcons\(\d+\)}/g, "");
 	// 移除剩余的 {XXX:xxx()} 模板调用

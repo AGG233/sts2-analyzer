@@ -11,31 +11,31 @@ async function loadMetadata(): Promise<CardMetadataRaw> {
 
 export async function getCardMetadata(
 	cardId: string,
-): Promise&lt;CardMetadataRaw["cards"][string] | undefined&gt; {
+): Promise<CardMetadataRaw["cards"][string] | undefined> {
 	const bare = cardId.replace("CARD.", "");
 	const data = await loadMetadata();
 	return data.cards[bare];
 }
 
-export async function getAllCardMetadata(): Promise&lt;CardMetadataRaw&gt; {
+export async function getAllCardMetadata(): Promise<CardMetadataRaw> {
 	return loadMetadata();
 }
 
 // 类型配置：图标字符 + 颜色
-export const CARD_TYPE_CONFIG: Record&lt;
+export const CARD_TYPE_CONFIG: Record<
 	string,
 	{ icon: string; color: string; label: string }
-&gt; = {
-	Attack: { icon: "\u2694", color: "#e74c3c", label: "Attack" },
-	Skill: { icon: "\uD83D\uDEE1", color: "#3498db", label: "Skill" },
-	Power: { icon: "\u26A1", color: "#f39c12", label: "Power" },
-	Status: { icon: "\u2B22", color: "#95a5a6", label: "Status" },
-	Curse: { icon: "\uD83D\uDD31", color: "#8e44ad", label: "Curse" },
-	Quest: { icon: "\u2753", color: "#2ecc71", label: "Quest" },
+> = {
+	Attack: { icon: "⚔", color: "#e74c3c", label: "Attack" },
+	Skill: { icon: "🛡", color: "#3498db", label: "Skill" },
+	Power: { icon: "⚡", color: "#f39c12", label: "Power" },
+	Status: { icon: "⬢", color: "#95a5a6", label: "Status" },
+	Curse: { icon: "🔒", color: "#8e44ad", label: "Curse" },
+	Quest: { icon: "❓", color: "#2ecc71", label: "Quest" },
 };
 
 // 稀有度边框颜色
-export const RARITY_CONFIG: Record&lt;string, { color: string; label: string }&gt; = {
+export const RARITY_CONFIG: Record<string, { color: string; label: string }> = {
 	Basic: { color: "#bdc3c7", label: "Basic" },
 	Common: { color: "#95a5a6", label: "Common" },
 	Uncommon: { color: "#2ecc71", label: "Uncommon" },
@@ -49,7 +49,7 @@ export const RARITY_CONFIG: Record&lt;string, { color: string; label: string }&g
 };
 
 // 角色边框颜色
-export const CHARACTER_FRAME_COLORS: Record&lt;string, string&gt; = {
+export const CHARACTER_FRAME_COLORS: Record<string, string> = {
 	ironclad: "#e74c3c",
 	silent: "#2ecc71",
 	defect: "#3498db",
