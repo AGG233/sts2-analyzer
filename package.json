@@ -11,13 +11,14 @@
     "lint": "pnpm lint:biome && pnpm lint:eslint",
     "lint:biome": "biome check .",
     "lint:eslint": "eslint \"app/**/*.vue\"",
-    "typecheck": "nuxt typecheck",
+    "typecheck": "nuxt prepare && tsc --noEmit -p .nuxt/tsconfig.json",
     "lint:fix": "biome check --write .",
     "lint:fix:unsafe": "biome check --write --unsafe .",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "bundle:check": "node scripts/check-bundle.mjs"
   },
   "dependencies": {
     "@esotericsoftware/spine-core": "^4.2.110",

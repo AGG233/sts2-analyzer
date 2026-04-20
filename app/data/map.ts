@@ -135,7 +135,7 @@ function getGlobalFloorNumber(
 ): number {
 	let total = 0;
 	for (let i = 0; i < actIndex; i++) {
-		total += run.map_point_history[i]?.length;
+		total += run.map_point_history[i]?.length ?? 0;
 	}
 	return total + floorIndex + 1;
 }

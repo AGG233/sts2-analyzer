@@ -45,7 +45,8 @@ export async function loadRunBySeedFromRepository(
 		return null;
 	}
 
-	return JSON.parse(rows[0].rawJson) as RunFile;
+	const firstRow = rows[0];
+	return firstRow ? (JSON.parse(firstRow.rawJson) as RunFile) : null;
 }
 
 export async function getRunImportMetadataMap(): Promise<
@@ -78,8 +79,6 @@ export async function upsertRunsInRepository(
 	const db = getDB();
 
 	for (const input of runs) {
-		const run = input.run;
-
 		await db.transaction(async (tx) => {
 			const queries = buildRunQueries(tx as unknown as DB, input);
 			for (const query of queries) {

@@ -1,4 +1,27 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const i18nConfig = {
+	locales: [
+		{ code: "en", name: "English", file: "en.ts" },
+		{ code: "zh", name: "中文", file: "zh.ts" },
+		{ code: "ja", name: "日本語", file: "ja.ts" },
+		{ code: "ko", name: "한국어", file: "ko.ts" },
+		{ code: "de", name: "Deutsch", file: "de.ts" },
+		{ code: "fr", name: "Français", file: "fr.ts" },
+		{ code: "es", name: "Español", file: "es.ts" },
+		{ code: "it", name: "Italiano", file: "it.ts" },
+		{ code: "pl", name: "Polski", file: "pl.ts" },
+		{ code: "pt", name: "Português", file: "pt.ts" },
+		{ code: "ru", name: "Русский", file: "ru.ts" },
+		{ code: "tr", name: "Türkçe", file: "tr.ts" },
+		{ code: "th", name: "ไทย", file: "th.ts" },
+	],
+	lazy: true,
+	langDir: "./locales",
+	defaultLocale: "en",
+	strategy: "no_prefix",
+	vueI18n: "./i18n/i18n.config.ts",
+} as unknown as NonNullable<Parameters<typeof defineNuxtConfig>[0]["i18n"]>;
+
 export default defineNuxtConfig({
 	compatibilityDate: "2024-04-03",
 	devtools: { enabled: false },
@@ -67,28 +90,7 @@ export default defineNuxtConfig({
 			],
 		},
 	},
-	i18n: {
-		locales: [
-			{ code: "en", name: "English", file: "en.json" },
-			{ code: "zh", name: "中文", file: "zh.json" },
-			{ code: "ja", name: "日本語", file: "ja.json" },
-			{ code: "ko", name: "한국어", file: "ko.json" },
-			{ code: "de", name: "Deutsch", file: "de.json" },
-			{ code: "fr", name: "Français", file: "fr.json" },
-			{ code: "es", name: "Español", file: "es.json" },
-			{ code: "it", name: "Italiano", file: "it.json" },
-			{ code: "pl", name: "Polski", file: "pl.json" },
-			{ code: "pt", name: "Português", file: "pt.json" },
-			{ code: "ru", name: "Русский", file: "ru.json" },
-			{ code: "tr", name: "Türkçe", file: "tr.json" },
-			{ code: "th", name: "ไทย", file: "th.json" },
-		],
-		lazy: true,
-		langDir: "app/locales",
-		defaultLocale: "en",
-		strategy: "no_prefix",
-		vueI18n: "./i18n/i18n.config.ts",
-	},
+	i18n: i18nConfig,
 	tailwindcss: {
 		configPath: "tailwind.config.ts",
 	},

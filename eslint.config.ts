@@ -28,16 +28,23 @@ export default defineConfig([
 		},
 	},
 	tseslint.configs.recommended,
-	{
+	...pluginVue.configs["flat/essential"].map((config) => ({
+		...config,
 		files: ["**/*.vue"],
-		...pluginVue.configs["flat/essential"],
-		languageOptions: { parserOptions: { parser: tseslint.parser } },
+		languageOptions: {
+			...config.languageOptions,
+			parserOptions: {
+				...(config.languageOptions?.parserOptions ?? {}),
+				parser: tseslint.parser,
+			},
+		},
 		rules: {
+			...(config.rules ?? {}),
 			"no-undef": "off",
 			"vue/multi-word-component-names": "off",
 			"@typescript-eslint/no-unused-vars": "off",
 		},
-	},
+	})),
 	{
 		files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
 		rules: {

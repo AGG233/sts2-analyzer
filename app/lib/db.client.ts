@@ -1,31 +1,35 @@
 import { drizzle } from "drizzle-orm/sqlite-proxy";
+import type { Database, Statement } from "sql.js";
 import initSqlJs from "sql.js";
 import * as schema from "~/db/schema";
 import { loadSqliteDB, saveSqliteDB } from "~/lib/storage.client";
 
 // Types
 type QueryResult = { rows: unknown[] };
+type SqlJsQueryResult = { values: unknown[][] };
+type SqlJsParams = Parameters<SqlJsDatabase["exec"]>[1];
 type BatchQuery = {
 	sql: string;
-	params: unknown[];
+	params: SqlJsParams;
 	method: "all" | "run" | "get" | "values";
 };
 type BatchResult = QueryResult[];
+type SqlJsDatabase = Database;
 
 // SQL.js singleton promise
-let sqlDbPromise: Promise<unknown | null> | null = null;
+let sqlDbPromise: Promise<SqlJsDatabase | null> | null = null;
 
 // Drizzle ORM instance (proxy wrapper around sql.js)
 let dbInstance: DrizzleDB | null = null;
 let flushHandlersRegistered = false;
 
 // Infer the proper Drizzle DB type from the schema
-const _typedDb = drizzle(
+export const drizzleTypeTemplate = drizzle(
 	async () => ({}) as QueryResult,
 	async () => [] as BatchResult,
 	{ schema },
 );
-export type DrizzleDB = typeof _typedDb;
+export type DrizzleDB = typeof drizzleTypeTemplate;
 
 // Debounced save timer
 let saveTimer: ReturnType<typeof setTimeout> | null = null;
@@ -63,20 +67,14 @@ export async function initDB(): Promise<DrizzleDB> {
 		})();
 	}
 
-	const sqlDb = (await sqlDbPromise) as {
-		exec: (sql: string, params?: unknown[]) => { values: unknown[][] }[];
-		run: (sql: string, params?: unknown[]) => void;
-	} | null;
+	const sqlDb = await sqlDbPromise;
 	if (!sqlDb) {
 		throw new Error("Failed to initialize SQL.js");
 	}
 
 	// Run pending migrations
 	const versionResult = sqlDb.exec("PRAGMA user_version");
-	const userVersion =
-		versionResult.length > 0 && versionResult[0].values.length > 0
-			? (versionResult[0].values[0][0] as number)
-			: 0;
+	const userVersion = getNumericCell(versionResult);
 
 	for (let i = userVersion; i < migrations.length; i++) {
 		runMigration(sqlDb, migrations[i] as string);
@@ -92,7 +90,7 @@ export async function initDB(): Promise<DrizzleDB> {
 	const db = drizzle(
 		async (
 			sqlQuery: string,
-			params: unknown[],
+			params: SqlJsParams,
 			method: string,
 		): Promise<QueryResult> => {
 			try {
@@ -101,8 +99,7 @@ export async function initDB(): Promise<DrizzleDB> {
 					return { rows: [] };
 				}
 				const result = sqlDb.exec(sqlQuery, params);
-				if (!result.length) return { rows: [] };
-				return { rows: result[0].values };
+				return { rows: getExecRows(result) };
 			} catch (error) {
 				console.error("SQL error:", error, "SQL:", sqlQuery, "Params:", params);
 				throw error;
@@ -117,8 +114,7 @@ export async function initDB(): Promise<DrizzleDB> {
 						return { rows: [] };
 					}
 					const result = sqlDb.exec(sql, params);
-					if (!result.length) return { rows: [] };
-					return { rows: result[0].values };
+					return { rows: getExecRows(result) };
 				})();
 				results.push(result);
 			}
@@ -210,13 +206,7 @@ function registerFlushHandlers(): void {
 
 // Split SQL by statement breakpoints and execute each, tolerating
 // idempotent operations on columns/tables that already exist
-function runMigration(
-	sqlDb: {
-		exec: (sql: string, params?: unknown[]) => { values: unknown[][] }[];
-		run: (sql: string, params?: unknown[]) => void;
-	},
-	sql: string,
-): void {
+function runMigration(sqlDb: SqlJsDatabase, sql: string): void {
 	const statements = sql.split("--> statement-breakpoint");
 	for (const stmt of statements) {
 		const trimmed = stmt.trim();
@@ -239,26 +229,21 @@ function runMigration(
 
 // Seed initial data
 async function seedInitialData(sqlDb: {
-	exec: (sql: string, params?: unknown[]) => { values: unknown[][] }[];
-	run: (sql: string, params?: unknown[]) => void;
-	prepare: (sql: string) => {
-		run: (params: unknown[]) => void;
-		free: () => void;
-	};
+	exec: (sql: string, params?: SqlJsParams) => SqlJsQueryResult[];
+	run: (sql: string, params?: SqlJsParams) => Database;
+	prepare: (sql: string) => Statement;
 }): Promise<void> {
 	// Check if game_versions table exists and has data
 	const gameVersionsResult = sqlDb.exec(
 		"SELECT COUNT(*) as count FROM game_versions;",
 	);
-	const hasGameVersions =
-		gameVersionsResult.length > 0 && gameVersionsResult[0].values[0][0] > 0;
+	const hasGameVersions = getNumericCell(gameVersionsResult) > 0;
 
 	// Check if card_pools has data
 	const cardPoolsResult = sqlDb.exec(
 		"SELECT COUNT(*) as count FROM card_pools;",
 	);
-	const hasCardPools =
-		cardPoolsResult.length > 0 && cardPoolsResult[0].values[0][0] > 0;
+	const hasCardPools = getNumericCell(cardPoolsResult) > 0;
 
 	// If we already have data, skip seeding
 	if (hasGameVersions && hasCardPools) {
@@ -271,7 +256,16 @@ async function seedInitialData(sqlDb: {
 		if (typeof window !== "undefined") {
 			const response = await fetch("/card-pools-v0.15.json");
 			if (response.ok) {
-				const data = await response.json();
+				const data = (await response.json()) as {
+					version: string;
+					display_name: string;
+					card_pools?: Array<{
+						card_id: string;
+						character_id: string;
+						is_starter: boolean;
+						game_version: string;
+					}>;
+				};
 
 				// Insert game version if needed
 				if (!hasGameVersions) {
@@ -315,4 +309,13 @@ async function seedInitialData(sqlDb: {
 	if (!hasCardPools) {
 		console.warn("Card pool data not seeded - using empty database");
 	}
+}
+
+function getExecRows(results: SqlJsQueryResult[]): unknown[] {
+	return results[0]?.values ?? [];
+}
+
+function getNumericCell(results: SqlJsQueryResult[]): number {
+	const value = results[0]?.values[0]?.[0];
+	return typeof value === "number" ? value : 0;
 }
