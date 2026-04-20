@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { SimDeckCard } from "~/data/analytics";
 import { getCardMetadata } from "~/data/card-metadata";
+import { cleanCardDescription } from "~/lib/card-description";
 import { useGameI18n } from "~/locales/lookup";
 import type { CardMetadataEntry } from "~/types/card-metadata";
 
@@ -43,6 +44,7 @@ interface GroupedCard {
 	type: string;
 	rarity: string;
 	characterId: string;
+	description: string;
 }
 
 const groupedCurrentDeck = computed<GroupedCard[]>(() => {
@@ -64,6 +66,7 @@ const groupedCurrentDeck = computed<GroupedCard[]>(() => {
 				type: meta?.type ?? "Attack",
 				rarity: meta?.rarity ?? "Common",
 				characterId: meta?.character_id ?? "colorless",
+				description: cleanCardDescription(cardDescription(card.id)),
 			});
 		}
 	}
@@ -114,6 +117,7 @@ const groupedCurrentRelics = computed(() => {
 					:character-id="group.characterId"
 					:upgraded="group.upgraded"
 					:count="group.count > 1 ? group.count : undefined"
+					:description="group.description"
 				/>
 			</div>
 		</div>

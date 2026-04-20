@@ -16,6 +16,7 @@ interface Props {
 	characterId: string;
 	upgraded: boolean;
 	count?: number;
+	description?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -87,7 +88,13 @@ const bannerFilter = computed(() => {
 		/>
 		<!-- z-7: 费用数字 -->
 		<span class="card-cost">{{ cost }}</span>
-		<!-- z-8: 数量角标 -->
+		<!-- z-9: 卡牌描述（居中） -->
+		<div v-if="description" class="card-desc-area">
+			<span class="card-desc">{{ description }}</span>
+		</div>
+		<!-- z-10: 卡牌类型标签 -->
+		<span class="card-type">{{ type }}</span>
+		<!-- z-11: 数量角标 -->
 		<span v-if="count && count > 1" class="card-count">x{{ count }}</span>
 	</div>
 </template>
@@ -95,9 +102,9 @@ const bannerFilter = computed(() => {
 <style scoped lang="scss">
 .game-card {
 	position: relative;
-	width: 90px;
-	height: 126px;
-	border-radius: 6px;
+	width: clamp(100px, 10vw, 180px);
+	aspect-ratio: 108 / 180;
+	border-radius: clamp(5px, 0.6vw, 10px);
 	overflow: hidden;
 	flex-shrink: 0;
 	filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
@@ -139,11 +146,10 @@ const bannerFilter = computed(() => {
 	top: 12%;
 	left: 8%;
 	width: 84%;
-	height: 42%;
+	height: 30%;
 	object-fit: cover;
 	object-position: center 10%;
 	z-index: 4;
-	// 肖像圆角裁切
 	border-radius: 3px;
 }
 
@@ -155,7 +161,7 @@ const bannerFilter = computed(() => {
 	transform: translateX(-50%);
 	width: 70%;
 	text-align: center;
-	font-size: 6.5px;
+	font-size: clamp(8px, 1vw, 15px);
 	font-weight: 700;
 	color: #ffe5c8;
 	z-index: 5;
@@ -175,8 +181,8 @@ const bannerFilter = computed(() => {
 	position: absolute;
 	top: 0;
 	left: 1%;
-	width: 15px;
-	height: 15px;
+	width: clamp(15px, 1.8vw, 28px);
+	height: clamp(15px, 1.8vw, 28px);
 	z-index: 6;
 }
 
@@ -185,30 +191,68 @@ const bannerFilter = computed(() => {
 	position: absolute;
 	top: 0;
 	left: 1%;
-	width: 15px;
-	height: 15px;
+	width: clamp(15px, 1.8vw, 28px);
+	height: clamp(15px, 1.8vw, 28px);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 8px;
+	font-size: clamp(8px, 1vw, 15px);
 	font-weight: 900;
 	color: #4eff4e;
 	z-index: 7;
 	text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
 }
 
-// z-8: 数量角标
+// z-9: 卡牌描述区域（居中）
+.card-desc-area {
+	position: absolute;
+	top: 46%;
+	bottom: 12%;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 clamp(8px, 1vw, 16px);
+	z-index: 9;
+}
+
+.card-desc {
+	text-align: center;
+	font-size: clamp(7px, 0.85vw, 14px);
+	line-height: 1.6;
+	color: #d4cfc0;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+	word-break: break-word;
+}
+
+// z-10: 卡牌类型标签
+.card-type {
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	font-size: clamp(5px, 0.65vw, 10px);
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.5);
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	white-space: nowrap;
+}
+
+// z-11: 数量角标
 .card-count {
 	position: absolute;
 	top: 1px;
 	right: 3px;
-	font-size: 8px;
+	font-size: clamp(7px, 0.85vw, 13px);
 	font-weight: 700;
 	color: #fff;
 	background: rgba(0, 0, 0, 0.6);
 	padding: 1px 4px;
 	border-radius: 3px;
-	z-index: 8;
+	z-index: 11;
 	line-height: 1.2;
 }
 </style>
