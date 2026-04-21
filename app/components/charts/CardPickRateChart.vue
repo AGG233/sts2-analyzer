@@ -257,7 +257,9 @@ async function updateChartData() {
 	}
 }
 
-await updateChartData();
+onMounted(async () => {
+	await updateChartData();
+});
 </script>
 
 <template>
