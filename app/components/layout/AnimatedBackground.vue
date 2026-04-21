@@ -49,10 +49,7 @@ const loadSpineBackground = async () => {
 	containerRef.value.appendChild(canvas);
 
 	// Spine asset paths
-	const spineBasePath = new URL(
-		"spine/mainmenu",
-		globalThis.location?.href ?? "/",
-	).href;
+	const spineBasePath = `${import.meta.env.BASE_URL}spine/mainmenu`;
 	const layers = [
 		{ dir: "bottom", name: "main_menu_bottom", scale: 0.66 },
 		{ dir: "top", name: "main_menu_top", scale: 0.66 },
@@ -69,10 +66,20 @@ const loadSpineBackground = async () => {
 	): Promise<Spine> => {
 		const basePath = `${spineBasePath}/${dir}`;
 
-		const [skelBuffer, atlasText] = await Promise.all([
-			fetch(`${basePath}/${name}.skel`).then((r) => r.arrayBuffer()),
-			fetch(`${basePath}/${name}.atlas`).then((r) => r.text()),
-		]);
+		const skelResponse = await fetch(`${basePath}/${name}.skel`);
+		const atlasResponse = await fetch(`${basePath}/${name}.atlas`);
+		if (!skelResponse.ok) {
+			throw new Error(
+				`Failed to load spine skeleton ${name}: ${skelResponse.status}`,
+			);
+		}
+		if (!atlasResponse.ok) {
+			throw new Error(
+				`Failed to load spine atlas ${name}: ${atlasResponse.status}`,
+			);
+		}
+		const skelBuffer = await skelResponse.arrayBuffer();
+		const atlasText = await atlasResponse.text();
 
 		// Parse atlas (constructor only takes one arg — texture binding done separately)
 		const atlas = new TextureAtlas(atlasText);

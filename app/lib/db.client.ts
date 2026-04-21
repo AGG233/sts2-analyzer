@@ -56,8 +56,7 @@ export async function initDB(): Promise<DrizzleDB> {
 				sqlDbPromise = (async () => {
 					try {
 						const SQL = await initSqlJs({
-							locateFile: () =>
-								new URL("sql-wasm.wasm", globalThis.location?.href ?? "/").href,
+							locateFile: () => `${import.meta.env.BASE_URL}sql-wasm.wasm`,
 						});
 
 						// Try to load persisted database from IndexedDB
@@ -284,7 +283,7 @@ async function seedInitialData(sqlDb: {
 		}
 
 		if (typeof globalThis.window !== "undefined") {
-			const baseURL = new URL(".", globalThis.location?.href ?? "/").href;
+			const baseURL = import.meta.env.BASE_URL;
 
 			if (!hasGameVersions || !hasCardPools) {
 				const poolResponse = await fetch(`${baseURL}card-pools-v0.15.json`);

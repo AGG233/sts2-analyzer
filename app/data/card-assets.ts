@@ -1,4 +1,4 @@
-const BASE = new URL("cards", globalThis.location?.href ?? "/").href;
+const BASE = `${import.meta.env.BASE_URL}cards`;
 
 export function getPortraitPath(
 	characterId: string,
