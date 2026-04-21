@@ -2,7 +2,7 @@
 import type { SimDeckCard } from "~/data/analytics";
 import { getCardMetadata } from "~/data/card-metadata";
 import { getCardVarData } from "~/data/card-vars";
-import { getDB } from "~/lib/db.client";
+import { getDB, initDB } from "~/lib/db.client";
 import type { Segment } from "~/lib/template-renderer";
 import { renderSegments } from "~/lib/template-renderer";
 import { useGameI18n } from "~/locales/lookup";
@@ -28,6 +28,7 @@ const varDataMap = ref(
 );
 
 onMounted(async () => {
+	await initDB();
 	const db = getDB();
 	const uniqueIds = [...new Set(props.deck.map((c) => c.id))];
 	const entries = await Promise.all(
