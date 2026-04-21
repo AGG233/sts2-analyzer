@@ -1,4 +1,4 @@
-const BASE = "/cards";
+const BASE = `${import.meta.env.BASE_URL}cards`;
 
 export function getPortraitPath(
 	characterId: string,
