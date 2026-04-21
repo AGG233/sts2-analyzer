@@ -27,7 +27,7 @@ export default defineNuxtConfig({
 	devtools: { enabled: false },
 	modules: ["@nuxtjs/i18n", "@pinia/nuxt", "@nuxtjs/tailwindcss"],
 	css: ["~/assets/css/main.css"],
-	ssr: true,
+	ssr: false,
 	components: [
 		{ path: "~/components/shared", pathPrefix: false },
 		{ path: "~/components/layout", pathPrefix: false },
@@ -68,6 +68,7 @@ export default defineNuxtConfig({
 		},
 	},
 	nitro: {
+		preset: "github-pages",
 		compressPublicAssets: true,
 		minify: true,
 		prerender: {
@@ -78,6 +79,7 @@ export default defineNuxtConfig({
 		"/": { prerender: true },
 	},
 	app: {
+		baseURL: "/sts2-analyzer/",
 		head: {
 			title: "STS2 Analyzer",
 			meta: [
