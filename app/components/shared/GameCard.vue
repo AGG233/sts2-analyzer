@@ -6,6 +6,7 @@ import {
 	getPortraitPath,
 } from "~/data/card-assets";
 import { CHARACTER_FRAME_COLORS } from "~/data/card-metadata";
+import type { Segment } from "~/lib/template-renderer";
 
 interface Props {
 	cardId: string;
@@ -16,7 +17,7 @@ interface Props {
 	characterId: string;
 	upgraded: boolean;
 	count?: number;
-	description?: string;
+	descriptionSegments?: Segment[];
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -89,8 +90,8 @@ const bannerFilter = computed(() => {
 		<!-- z-7: 费用数字 -->
 		<span class="card-cost">{{ cost }}</span>
 		<!-- z-9: 卡牌描述（居中） -->
-		<div v-if="description" class="card-desc-area">
-			<span class="card-desc">{{ description }}</span>
+		<div v-if="descriptionSegments" class="card-desc-area">
+			<GameDescription class="card-desc" :segments="descriptionSegments" />
 		</div>
 		<!-- z-10: 卡牌类型标签 -->
 		<span class="card-type">{{ type }}</span>

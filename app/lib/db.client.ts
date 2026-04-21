@@ -51,7 +51,8 @@ export async function initDB(): Promise<DrizzleDB> {
 		sqlDbPromise = (async () => {
 			try {
 				const SQL = await initSqlJs({
-					locateFile: () => `${import.meta.env.BASE_URL}sql-wasm.wasm`,
+					locateFile: () =>
+						new URL("sql-wasm.wasm", globalThis.location?.href ?? "/").href,
 				});
 
 				// Try to load persisted database from IndexedDB
@@ -233,81 +234,185 @@ async function seedInitialData(sqlDb: {
 	run: (sql: string, params?: SqlJsParams) => Database;
 	prepare: (sql: string) => Statement;
 }): Promise<void> {
-	// Check if game_versions table exists and has data
+	// Check which tables already have data
 	const gameVersionsResult = sqlDb.exec(
 		"SELECT COUNT(*) as count FROM game_versions;",
 	);
 	const hasGameVersions = getNumericCell(gameVersionsResult) > 0;
 
-	// Check if card_pools has data
 	const cardPoolsResult = sqlDb.exec(
 		"SELECT COUNT(*) as count FROM card_pools;",
 	);
 	const hasCardPools = getNumericCell(cardPoolsResult) > 0;
 
-	// If we already have data, skip seeding
-	if (hasGameVersions && hasCardPools) {
+	const cardMetadataResult = sqlDb.exec(
+		"SELECT COUNT(*) as count FROM card_metadata;",
+	);
+	const hasCardMetadata = getNumericCell(cardMetadataResult) > 0;
+
+	const cardVarsResult = sqlDb.exec("SELECT COUNT(*) as count FROM card_vars;");
+	const hasCardVars = getNumericCell(cardVarsResult) > 0;
+
+	if (hasGameVersions && hasCardPools && hasCardMetadata && hasCardVars) {
 		return;
 	}
 
-	// Try to load and seed card pool data
 	try {
-		// In client context, try to fetch from public folder
 		if (typeof window !== "undefined") {
-			const response = await fetch(`${import.meta.env.BASE_URL}card-pools-v0.15.json`);
-			if (response.ok) {
-				const data = (await response.json()) as {
-					version: string;
-					display_name: string;
-					card_pools?: Array<{
-						card_id: string;
-						character_id: string;
-						is_starter: boolean;
-						game_version: string;
-					}>;
-				};
+			const baseURL = import.meta.env.BASE_URL;
 
-				// Insert game version if needed
-				if (!hasGameVersions) {
-					sqlDb.run(
-						"INSERT INTO game_versions (version, display_name, notes) VALUES (?, ?, ?)",
-						[data.version, data.display_name, "Initial EA release"],
-					);
+			if (!hasGameVersions || !hasCardPools) {
+				const poolResponse = await fetch(`${baseURL}card-pools-v0.15.json`);
+				if (poolResponse.ok) {
+					const poolData = (await poolResponse.json()) as {
+						version: string;
+						display_name: string;
+						card_pools?: Array<{
+							card_id: string;
+							character_id: string;
+							is_starter: boolean;
+							game_version: string;
+						}>;
+					};
+
+					if (!hasGameVersions) {
+						sqlDb.run(
+							"INSERT INTO game_versions (version, display_name, notes) VALUES (?, ?, ?)",
+							[poolData.version, poolData.display_name, "Initial EA release"],
+						);
+					}
+
+					if (!hasCardPools && poolData.card_pools) {
+						const insertStmt = sqlDb.prepare(
+							"INSERT INTO card_pools (card_id, character_id, is_starter, game_version) VALUES (?, ?, ?, ?)",
+						);
+						for (const card of poolData.card_pools) {
+							insertStmt.run([
+								card.card_id,
+								card.character_id,
+								card.is_starter ? 1 : 0,
+								card.game_version,
+							]);
+						}
+						insertStmt.free();
+						console.log(
+							`Seeded ${poolData.card_pools.length} card pool entries`,
+						);
+					}
 				}
+			}
 
-				// Insert card pools if needed
-				if (!hasCardPools && data.card_pools) {
+			if (!hasCardMetadata) {
+				const metaResponse = await fetch(`${baseURL}card-metadata-v0.15.json`);
+				if (metaResponse.ok) {
+					const metaData = (await metaResponse.json()) as {
+						version: string;
+						cards: Record<
+							string,
+							{
+								cost: number;
+								type: string;
+								rarity: string;
+								target: string;
+								tags: string[];
+								character_id?: string;
+								is_starter?: boolean;
+							}
+						>;
+					};
+
 					const insertStmt = sqlDb.prepare(
-						"INSERT INTO card_pools (card_id, character_id, is_starter, game_version) VALUES (?, ?, ?, ?)",
+						"INSERT INTO card_metadata (card_id, game_version, cost, type, rarity, target, tags_json, character_id, is_starter) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
 					);
-					for (const card of data.card_pools) {
+					for (const [cardId, meta] of Object.entries(metaData.cards)) {
 						insertStmt.run([
-							card.card_id,
-							card.character_id,
-							card.is_starter ? 1 : 0,
-							card.game_version,
+							cardId,
+							metaData.version,
+							meta.cost,
+							meta.type,
+							meta.rarity,
+							meta.target,
+							JSON.stringify(meta.tags),
+							meta.character_id ?? "",
+							meta.is_starter ? 1 : 0,
 						]);
 					}
 					insertStmt.free();
-					console.log(`Seeded ${data.card_pools.length} card pool entries`);
+					console.log(
+						`Seeded ${Object.keys(metaData.cards).length} card metadata entries`,
+					);
 				}
-				return;
 			}
+
+			if (!hasCardVars) {
+				const varsResponse = await fetch(`${baseURL}card-vars-v0.15.json`);
+				if (varsResponse.ok) {
+					const varsData = (await varsResponse.json()) as {
+						version: string;
+						cards: Record<
+							string,
+							{
+								vars: Array<{
+									name: string;
+									type: string;
+									base_value: number;
+								}>;
+								upgrades: Record<string, number>;
+								energy_upgrade?: number;
+							}
+						>;
+						relics: Record<
+							string,
+							{
+								vars: Array<{
+									name: string;
+									type: string;
+									base_value: number;
+								}>;
+								upgrades: Record<string, number>;
+							}
+						>;
+					};
+
+					const insertStmt = sqlDb.prepare(
+						"INSERT INTO card_vars (entity_id, entity_type, game_version, data_json) VALUES (?, ?, ?, ?)",
+					);
+
+					for (const [cardId, entry] of Object.entries(varsData.cards)) {
+						insertStmt.run([
+							cardId,
+							"card",
+							varsData.version,
+							JSON.stringify(entry),
+						]);
+					}
+					for (const [relicId, entry] of Object.entries(varsData.relics)) {
+						insertStmt.run([
+							relicId,
+							"relic",
+							varsData.version,
+							JSON.stringify(entry),
+						]);
+					}
+
+					insertStmt.free();
+					console.log(
+						`Seeded ${Object.keys(varsData.cards).length} card vars + ${Object.keys(varsData.relics).length} relic vars entries`,
+					);
+				}
+			}
+
+			return;
 		}
 	} catch (error) {
-		console.warn("Failed to seed card pool data from fetch:", error);
+		console.warn("Failed to seed data from fetch:", error);
 	}
 
-	// Fallback: insert minimal data if fetch failed
 	if (!hasGameVersions) {
 		sqlDb.run(
 			"INSERT INTO game_versions (version, display_name, notes) VALUES (?, ?, ?)",
 			["0.15", "Early Access 0.15", "Initial EA release"],
 		);
-	}
-
-	if (!hasCardPools) {
-		console.warn("Card pool data not seeded - using empty database");
 	}
 }
 

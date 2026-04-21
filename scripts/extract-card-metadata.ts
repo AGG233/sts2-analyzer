@@ -1,16 +1,17 @@
 // Extract card metadata (cost, type, rarity, target, tags) from decompiled C# source.
 // Usage: npx tsx scripts/extract-card-metadata.ts [game-src-dir] [version]
 // Default game-src-dir: ~/src/Slay the Spire 2
-// Default version: 0.15
+// Default version: auto-detected from release_info.json or v0.15
 
 import * as fs from "node:fs";
 import * as path from "node:path";
+import { detectBuildVersion } from "./lib/version-extract";
 
 const HOME = process.env.HOME;
 const GAME_SRC =
 	process.argv[2] ||
 	(HOME ? path.join(HOME, "src/Slay the Spire 2") : "~/src/Slay the Spire 2");
-const VERSION = process.argv[3] || "0.15";
+const VERSION = detectBuildVersion(GAME_SRC, process.argv[3]);
 
 const CARD_DIR = path.join(GAME_SRC, "src/MegaCrit.Sts2.Core.Models.Cards");
 const CARD_POOLS_PATH = path.join(

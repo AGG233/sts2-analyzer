@@ -1,0 +1,9636 @@
+{
+  "version": "0.15",
+  "cards": {
+    "ABRASIVE": {
+      "vars": [
+        {
+          "name": "ThornsPower",
+          "type": "PowerVar",
+          "base_value": 4
+        },
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "ThornsPower": 2
+      }
+    },
+    "ACCELERANT": {
+      "vars": [
+        {
+          "name": "Accelerant",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Accelerant": 1
+      }
+    },
+    "ACCURACY": {
+      "vars": [
+        {
+          "name": "AccuracyPower",
+          "type": "PowerVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "AccuracyPower": 2
+      }
+    },
+    "ACROBATICS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "ADAPTIVE_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 18
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "ADRENALINE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "AFTERIMAGE": {
+      "vars": [
+        {
+          "name": "AfterimagePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "AFTERLIFE": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Summon": 3
+      }
+    },
+    "ALIGNMENT": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "ALL_FOR_ONE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "ANGER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "ANTICIPATE": {
+      "vars": [
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Dexterity": 1
+      }
+    },
+    "APPARITION": {
+      "vars": [
+        {
+          "name": "IntangiblePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "ARMAMENTS": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "ARSENAL": {
+      "vars": [
+        {
+          "name": "ArsenalPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "ASHEN_STRIKE": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 6
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "ExtraDamage": 1
+      }
+    },
+    "ASSASSINATE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 3,
+        "Vulnerable": 1
+      }
+    },
+    "ASTRAL_PULSE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 14
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "AUTOMATION": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "BACKFLIP": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "BACKSTAB": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "BAD_LUCK": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 13
+        }
+      ],
+      "upgrades": {}
+    },
+    "BALL_LIGHTNING": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "BANSHEES_CRY": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 33
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -2
+    },
+    "BARRAGE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "BASH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Vulnerable": 1
+      }
+    },
+    "BATTLE_TRANCE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "BEAM_CELL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Vulnerable": 1
+      }
+    },
+    "BEAT_DOWN": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "BEAT_INTO_SHAPE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculatedForge",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "CalculationBase": 2,
+        "CalculationExtra": 2
+      }
+    },
+    "BECKON": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "BELIEVE_IN_YOU": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "BIASED_COGNITION": {
+      "vars": [
+        {
+          "name": "FocusPower",
+          "type": "PowerVar",
+          "base_value": 4
+        },
+        {
+          "name": "BiasedCognitionPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "FocusPower": 1
+      }
+    },
+    "BIG_BANG": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 1
+        },
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "BLACK_HOLE": {
+      "vars": [
+        {
+          "name": "BlackHolePower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "BlackHolePower": 1
+      }
+    },
+    "BLADE_DANCE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "BLADE_OF_INK": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "BLIGHT_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "BLOOD_WALL": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 2
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 16
+        }
+      ],
+      "upgrades": {
+        "Block": 4
+      }
+    },
+    "BLOODLETTING": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 3
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "BLUDGEON": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 32
+        }
+      ],
+      "upgrades": {
+        "Damage": 10
+      }
+    },
+    "BLUR": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        },
+        {
+          "name": "Blur",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "BODY_SLAM": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "BODYGUARD": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Summon": 2
+      }
+    },
+    "BOLAS": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 1
+      }
+    },
+    "BOMBARDMENT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 18
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "BONE_SHARDS": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 3,
+        "Block": 3
+      }
+    },
+    "BOOST_AWAY": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "BOOT_SEQUENCE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "BORROWED_TIME": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 4
+        },
+        {
+          "name": "ExtraCost",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Energy": 2
+      }
+    },
+    "BOUNCING_FLASK": {
+      "vars": [
+        {
+          "name": "PoisonPower",
+          "type": "PowerVar",
+          "base_value": 3
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "BRAND": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 1
+        },
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Strength": 1
+      }
+    },
+    "BREAK": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 20
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Damage": 10,
+        "Vulnerable": 2
+      }
+    },
+    "BREAKTHROUGH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "BRIGHTEST_FLAME": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 1
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1,
+        "Cards": 1
+      }
+    },
+    "BUBBLE_BUBBLE": {
+      "vars": [
+        {
+          "name": "PoisonPower",
+          "type": "PowerVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Poison": 3
+      }
+    },
+    "BUFFER": {
+      "vars": [
+        {
+          "name": "BufferPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "BufferPower": 1
+      }
+    },
+    "BULK_UP": {
+      "vars": [
+        {
+          "name": "OrbSlots",
+          "type": "DynamicVar",
+          "base_value": 1
+        },
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Strength": 1,
+        "Dexterity": 1
+      }
+    },
+    "BULLY": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 4
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 2
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "ExtraDamage": 1
+      }
+    },
+    "BULWARK": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 13
+        },
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Block": 3,
+        "Forge": 3
+      }
+    },
+    "BUNDLE_OF_JOY": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "BURNING_PACT": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "BURST": {
+      "vars": [
+        {
+          "name": "Skills",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Skills": 1
+      }
+    },
+    "BURY": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 52
+        }
+      ],
+      "upgrades": {
+        "Damage": 11
+      }
+    },
+    "BYRD_SWOOP": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 14
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "CALCIFY": {
+      "vars": [
+        {
+          "name": "CalcifyPower",
+          "type": "PowerVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "CalcifyPower": 2
+      }
+    },
+    "CALL_OF_THE_VOID": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "CALTROPS": {
+      "vars": [
+        {
+          "name": "ThornsPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "ThornsPower": 2
+      }
+    },
+    "CAPACITOR": {
+      "vars": [
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "CAPTURE_SPIRIT": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Cards": 1
+      }
+    },
+    "CATASTROPHE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "CELESTIAL_MIGHT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "CHAOS": {
+      "vars": [
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "CHARGE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "CHARGE_BATTERY": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "CHILD_OF_THE_STARS": {
+      "vars": [
+        {
+          "name": "BlockForStars",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "BlockForStars": 1
+      }
+    },
+    "CINDER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 18
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "CLASH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 14
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "CLAW": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "Increase",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Increase": 1
+      }
+    },
+    "CLEANSE": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Summon": 2
+      }
+    },
+    "CLOAK_AND_DAGGER": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "CLOAK_OF_STARS": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "COLD_SNAP": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "COLLISION_COURSE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "COLOSSUS": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        },
+        {
+          "name": "Colossus",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "COMET": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 33
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 3
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 11
+      }
+    },
+    "COMPACT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Block": 1
+      }
+    },
+    "COMPILE_DRIVER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedCards",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "CONFLAGRATION": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 8
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 2
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 1,
+        "ExtraDamage": 1
+      }
+    },
+    "CONQUEROR": {
+      "vars": [
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Forge": 2
+      }
+    },
+    "CONSUMING_SHADOW": {
+      "vars": [
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 2
+        },
+        {
+          "name": "ConsumingShadowPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "CONVERGENCE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Stars": 1
+      }
+    },
+    "COOLANT": {
+      "vars": [
+        {
+          "name": "CoolantPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "CoolantPower": 1
+      }
+    },
+    "COOLHEADED": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "COORDINATE": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Strength": 3
+      }
+    },
+    "CORROSIVE_WAVE": {
+      "vars": [
+        {
+          "name": "CorrosiveWave",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "CorrosiveWave": 1
+      }
+    },
+    "CORRUPTION": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "COSMIC_INDIFFERENCE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "COUNTDOWN": {
+      "vars": [
+        {
+          "name": "CountdownPower",
+          "type": "PowerVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "CountdownPower": 3
+      }
+    },
+    "CRASH_LANDING": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 21
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "CREATIVE_AI": {
+      "vars": [
+        {
+          "name": "CreativeAi",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "CRESCENT_SPEAR": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 6
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 2
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "ExtraDamage": 1
+      }
+    },
+    "CRIMSON_MANTLE": {
+      "vars": [
+        {
+          "name": "CrimsonMantlePower",
+          "type": "PowerVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "CrimsonMantlePower": 2
+      }
+    },
+    "CRUELTY": {
+      "vars": [
+        {
+          "name": "CrueltyPower",
+          "type": "PowerVar",
+          "base_value": 25
+        }
+      ],
+      "upgrades": {
+        "CrueltyPower": 25
+      }
+    },
+    "CRUSH_UNDER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "StrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "StrengthLoss": 1
+      }
+    },
+    "DAGGER_SPRAY": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "DAGGER_THROW": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "DANSE_MACABRE": {
+      "vars": [
+        {
+          "name": "DanseMacabrePower",
+          "type": "PowerVar",
+          "base_value": 4
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "DanseMacabrePower": 2
+      }
+    },
+    "DARK_SHACKLES": {
+      "vars": [
+        {
+          "name": "StrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "StrengthLoss": 6
+      }
+    },
+    "DASH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 3,
+        "Block": 3
+      }
+    },
+    "DEADLY_POISON": {
+      "vars": [
+        {
+          "name": "PoisonPower",
+          "type": "PowerVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Poison": 2
+      }
+    },
+    "DEATH_MARCH": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 8
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 1,
+        "ExtraDamage": 1
+      }
+    },
+    "DEATHBRINGER": {
+      "vars": [
+        {
+          "name": "DoomPower",
+          "type": "PowerVar",
+          "base_value": 21
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Doom": 5
+      }
+    },
+    "DEATHS_DOOR": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Block": 1
+      }
+    },
+    "DEBILITATE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "DebilitatePower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "DebilitatePower": 1
+      }
+    },
+    "DEBT": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {}
+    },
+    "DECISIONS_DECISIONS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 2
+      }
+    },
+    "DEFEND_DEFECT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "DEFEND_IRONCLAD": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "DEFEND_NECROBINDER": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "DEFEND_REGENT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "DEFEND_SILENT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "DEFILE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 13
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "DEFLECT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "DEFRAGMENT": {
+      "vars": [
+        {
+          "name": "FocusPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "FocusPower": 1
+      }
+    },
+    "DEFY": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "DELAY": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 11
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 2,
+        "Energy": 1
+      }
+    },
+    "DEMESNE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "DEMON_FORM": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "StrengthPower": 1
+      }
+    },
+    "DEMONIC_SHIELD": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedBlock",
+          "type": "CalculatedBlockVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "DEVASTATE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 30
+        }
+      ],
+      "upgrades": {
+        "Damage": 10
+      }
+    },
+    "DEVOUR_LIFE": {
+      "vars": [
+        {
+          "name": "DevourLifePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "DevourLifePower": 1
+      }
+    },
+    "DIRGE": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Summon": 1
+      }
+    },
+    "DISINTEGRATION": {
+      "vars": [
+        {
+          "name": "DisintegrationPower",
+          "type": "PowerVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "DISMANTLE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "DODGE_AND_ROLL": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Block": 2
+      }
+    },
+    "DOMINATE": {
+      "vars": [
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        },
+        {
+          "name": "StrengthPerVulnerable",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "VulnerablePower": 1
+      }
+    },
+    "DOUBT": {
+      "vars": [
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "DRAIN_POWER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Cards": 1
+      }
+    },
+    "DRAMATIC_ENTRANCE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "DREDGE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "DRUM_OF_BATTLE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        },
+        {
+          "name": "DrumOfBattlePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "DUAL_WIELD": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "DYING_STAR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "StrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "StrengthLoss": 2
+      }
+    },
+    "ECHO_FORM": {
+      "vars": [
+        {
+          "name": "EchoForm",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "ECHOING_SLASH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "END_OF_DAYS": {
+      "vars": [
+        {
+          "name": "DoomPower",
+          "type": "PowerVar",
+          "base_value": 29
+        }
+      ],
+      "upgrades": {
+        "Doom": 8
+      }
+    },
+    "ENERGY_SURGE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "ENFEEBLING_TOUCH": {
+      "vars": [
+        {
+          "name": "StrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "StrengthLoss": 3
+      }
+    },
+    "ENTROPY": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "ENVENOM": {
+      "vars": [
+        {
+          "name": "EnvenomPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "EnvenomPower": 1
+      }
+    },
+    "EQUILIBRIUM": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 13
+        },
+        {
+          "name": "Equilibrium",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "ERADICATE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "ESCAPE_PLAN": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Block": 2
+      }
+    },
+    "ETERNAL_ARMOR": {
+      "vars": [
+        {
+          "name": "PlatingPower",
+          "type": "PowerVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "PlatingPower": 3
+      }
+    },
+    "EVIL_EYE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "EXPECT_A_FIGHT": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedEnergy",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "EXPERTISE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "EXPOSE": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Power": 1
+      }
+    },
+    "EXTERMINATE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Damage": 1
+      }
+    },
+    "FALLING_STAR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "FAN_OF_KNIVES": {
+      "vars": [
+        {
+          "name": "Shivs",
+          "type": "CardsVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Shivs": 1
+      }
+    },
+    "FASTEN": {
+      "vars": [
+        {
+          "name": "ExtraBlock",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "ExtraBlock": 2
+      }
+    },
+    "FEAR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Vulnerable": 1
+      }
+    },
+    "FEED": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "MaxHp": 1
+      }
+    },
+    "FEEDING_FRENZY": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Strength": 2
+      }
+    },
+    "FEEL_NO_PAIN": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Power": 1
+      }
+    },
+    "FERAL": {
+      "vars": [
+        {
+          "name": "FeralPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "FETCH": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 3
+      }
+    },
+    "FIEND_FIRE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "FIGHT_ME": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 2
+        },
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 3
+        },
+        {
+          "name": "EnemyStrength",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Strength": 1
+      }
+    },
+    "FIGHT_THROUGH": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 13
+        }
+      ],
+      "upgrades": {
+        "Block": 4
+      }
+    },
+    "FINESSE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 4
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "FINISHER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "FISTICUFFS": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "FLAK_CANNON": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "FLAME_BARRIER": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 12
+        },
+        {
+          "name": "DamageBack",
+          "type": "DynamicVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Block": 4,
+        "DamageBack": 2
+      }
+    },
+    "FLASH_OF_STEEL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "FLATTEN": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 4
+      }
+    },
+    "FLECHETTES": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "FLICK_FLACK": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "FOCUSED_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "FocusPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "FocusPower": 1
+      }
+    },
+    "FOLLOW_THROUGH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "CardCount",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "FOOTWORK": {
+      "vars": [
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Dexterity": 1
+      }
+    },
+    "FOREGONE_CONCLUSION": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "FORGOTTEN_RITUAL": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "FRIENDSHIP": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "StrengthPower": -1
+      }
+    },
+    "FTL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "PlayMax",
+          "type": "IntVar",
+          "base_value": 3
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "PlayMax": 1
+      }
+    },
+    "FUEL": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "FURNACE": {
+      "vars": [
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Forge": 2
+      }
+    },
+    "GAMMA_BLAST": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 13
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "GANG_UP": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 5
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "ExtraDamage": 2
+      }
+    },
+    "GATHER_LIGHT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 8
+        },
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "GENESIS": {
+      "vars": [
+        {
+          "name": "StarsPerTurn",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "StarsPerTurn": 1
+      }
+    },
+    "GENETIC_ALGORITHM": {
+      "vars": [
+        {
+          "name": "Increase",
+          "type": "IntVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Increase": 1
+      }
+    },
+    "GIANT_ROCK": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 16
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "GLACIER": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "GLASSWORK": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "GLIMMER": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "PutBack",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "GLIMPSE_BEYOND": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "GLITTERSTREAM": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 11
+        },
+        {
+          "name": "BlockNextTurn",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 2,
+        "BlockNextTurn": 2
+      }
+    },
+    "GLOW": {
+      "vars": [
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 1
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Stars": 1
+      }
+    },
+    "GO_FOR_THE_EYES": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Weak": 1
+      }
+    },
+    "GOLD_AXE": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "GRAND_FINALE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 60
+        }
+      ],
+      "upgrades": {
+        "Damage": 15
+      }
+    },
+    "GRAVE_WARDEN": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 8
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "GRAVEBLAST": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "GUIDING_STAR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 12
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Cards": 1
+      }
+    },
+    "GUILTY": {
+      "vars": [
+        {
+          "name": "Combats",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "GUNK_UP": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 4
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 1
+      }
+    },
+    "HAILSTORM": {
+      "vars": [
+        {
+          "name": "HailstormPower",
+          "type": "PowerVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "HailstormPower": 2
+      }
+    },
+    "HAND_OF_GREED": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 20
+        },
+        {
+          "name": "Gold",
+          "type": "DynamicVar",
+          "base_value": 20
+        }
+      ],
+      "upgrades": {
+        "Damage": 5,
+        "Gold": 5
+      }
+    },
+    "HAND_TRICK": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "HANG": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "HAUNT": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "HpLoss": 2
+      }
+    },
+    "HAZE": {
+      "vars": [
+        {
+          "name": "PoisonPower",
+          "type": "PowerVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Poison": 2
+      }
+    },
+    "HEADBUTT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "HEAVENLY_DRILL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "HEGEMONY": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 15
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 3,
+        "Energy": 1
+      }
+    },
+    "HEIRLOOM_HAMMER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 20
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "HELIX_DRILL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "HEMOKINESIS": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 2
+        },
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 15
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "HIDDEN_CACHE": {
+      "vars": [
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 1
+        },
+        {
+          "name": "StarNextTurnPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "StarNextTurnPower": 1
+      }
+    },
+    "HIDDEN_DAGGERS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        },
+        {
+          "name": "Shivs",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "HIDDEN_GEM": {
+      "vars": [
+        {
+          "name": "Replay",
+          "type": "IntVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Replay": 1
+      }
+    },
+    "HIGH_FIVE": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 11
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 2,
+        "Vulnerable": 1
+      }
+    },
+    "HOLOGRAM": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Block": 2
+      }
+    },
+    "HOTFIX": {
+      "vars": [
+        {
+          "name": "FocusPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "HOWL_FROM_BEYOND": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 16
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "HUDDLE_UP": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "HYPERBEAM": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 26
+        },
+        {
+          "name": "FocusPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 8
+      }
+    },
+    "I_AM_INVINCIBLE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "ICE_LANCE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 19
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "IMPATIENCE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "IMPERVIOUS": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 30
+        }
+      ],
+      "upgrades": {
+        "Block": 10
+      }
+    },
+    "INFERNO": {
+      "vars": [
+        {
+          "name": "InfernoPower",
+          "type": "PowerVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "InfernoPower": 3
+      }
+    },
+    "INFLAME": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "StrengthPower": 1
+      }
+    },
+    "INTERCEPT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Block": 4
+      }
+    },
+    "INVOKE": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 2
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Summon": 1,
+        "Energy": 1
+      }
+    },
+    "IRON_WAVE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Block": 2
+      }
+    },
+    "ITERATION": {
+      "vars": [
+        {
+          "name": "IterationPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "IterationPower": 1
+      }
+    },
+    "JACK_OF_ALL_TRADES": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "JACKPOT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 25
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "JUGGERNAUT": {
+      "vars": [
+        {
+          "name": "JuggernautPower",
+          "type": "PowerVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "JuggernautPower": 2
+      }
+    },
+    "KINGLY_KICK": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 27
+        }
+      ],
+      "upgrades": {
+        "Damage": 8
+      }
+    },
+    "KINGLY_PUNCH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        },
+        {
+          "name": "Increase",
+          "type": "DynamicVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Increase": 2
+      }
+    },
+    "KNIFE_TRAP": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedShivs",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "KNOCKDOWN": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "KnockdownPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 4,
+        "KnockdownPower": 1
+      }
+    },
+    "KNOCKOUT_BLOW": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 30
+        },
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Damage": 8
+      }
+    },
+    "KNOW_THY_PLACE": {
+      "vars": [
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "LEADING_STRIKE": {
+      "vars": [
+        {
+          "name": "Shivs",
+          "type": "CardsVar",
+          "base_value": 2
+        },
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "LEAP": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "LEG_SWEEP": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 11
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Block": 3,
+        "Weak": 1
+      }
+    },
+    "LEGION_OF_BONE": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Summon": 2
+      }
+    },
+    "LETHALITY": {
+      "vars": [
+        {
+          "name": "LethalityPower",
+          "type": "PowerVar",
+          "base_value": 50
+        }
+      ],
+      "upgrades": {
+        "LethalityPower": 25
+      }
+    },
+    "LIFT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Block": 5
+      }
+    },
+    "LIGHTNING_ROD": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 4
+        },
+        {
+          "name": "LightningRodPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "LOOP": {
+      "vars": [
+        {
+          "name": "Loop",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Loop": 1
+      }
+    },
+    "LUMINESCE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "LUNAR_BLAST": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 4
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 1
+      }
+    },
+    "MACHINE_LEARNING": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "MAD_SCIENCE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 12
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 8
+        },
+        {
+          "name": "SappingWeak",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "SappingVulnerable",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "ViolenceHits",
+          "type": "DynamicVar",
+          "base_value": 3
+        },
+        {
+          "name": "ChokingDamage",
+          "type": "PowerVar",
+          "base_value": 6
+        },
+        {
+          "name": "EnergizedEnergy",
+          "type": "EnergyVar",
+          "base_value": 2
+        },
+        {
+          "name": "WisdomCards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "ExpertiseStrength",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "ExpertiseDexterity",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "CuriousReduction",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "MAKE_IT_SO": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "MANGLE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 15
+        },
+        {
+          "name": "StrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 5,
+        "StrengthLoss": 5
+      }
+    },
+    "MANIFEST_AUTHORITY": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Block": 1
+      }
+    },
+    "MASTER_OF_STRATEGY": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "MAUL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "Increase",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Increase": 1
+      }
+    },
+    "MELANCHOLY": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 13
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 4
+      }
+    },
+    "MEMENTO_MORI": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 9
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 4
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 2,
+        "ExtraDamage": 1
+      }
+    },
+    "METAMORPHOSIS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 2
+      }
+    },
+    "METEOR_SHOWER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 14
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 7
+      }
+    },
+    "METEOR_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 24
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "MIMIC": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedBlock",
+          "type": "CalculatedBlockVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "MIND_BLAST": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "MIND_ROT": {
+      "vars": [
+        {
+          "name": "MindRotPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "MINION_DIVE_BOMB": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 13
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "MINION_SACRIFICE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "MINION_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "MIRAGE": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedBlock",
+          "type": "CalculatedBlockVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "MISERY": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "MODDED": {
+      "vars": [
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 1
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "MOLTEN_FIST": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "MOMENTUM_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "MONARCHS_GAZE": {
+      "vars": [
+        {
+          "name": "StrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "MONOLOGUE": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "MURDER": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 1
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "NECRO_MASTERY": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Summon": 3
+      }
+    },
+    "NEGATIVE_PULSE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        },
+        {
+          "name": "DoomPower",
+          "type": "PowerVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Block": 1,
+        "Doom": 4
+      }
+    },
+    "NEOWS_FURY": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 4,
+        "Cards": 1
+      }
+    },
+    "NEUROSURGE": {
+      "vars": [
+        {
+          "name": "NeurosurgePower",
+          "type": "PowerVar",
+          "base_value": 3
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 3
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "NEUTRALIZE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Weak": 1
+      }
+    },
+    "NEUTRON_AEGIS": {
+      "vars": [
+        {
+          "name": "PlatingPower",
+          "type": "PowerVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "PlatingPower": 3
+      }
+    },
+    "NO_ESCAPE": {
+      "vars": [
+        {
+          "name": "DoomThreshold",
+          "type": "DynamicVar",
+          "base_value": 10
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 10
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculatedDoom",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 5
+      }
+    },
+    "NORMALITY": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 3
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": -1
+        },
+        {
+          "name": "CalculatedCards",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "NOT_YET": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Heal": 3
+      }
+    },
+    "NOXIOUS_FUMES": {
+      "vars": [
+        {
+          "name": "PoisonPerTurn",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "PoisonPerTurn": 1
+      }
+    },
+    "NULL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 3,
+        "Weak": 1
+      }
+    },
+    "OBLIVION": {
+      "vars": [
+        {
+          "name": "DoomPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Doom": 1
+      }
+    },
+    "OFFERING": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 6
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 2
+      }
+    },
+    "OMNISLICE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "ONE_TWO_PUNCH": {
+      "vars": [
+        {
+          "name": "Attacks",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Attacks": 1
+      }
+    },
+    "ORBIT": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "OUTBREAK": {
+      "vars": [
+        {
+          "name": "OutbreakPower",
+          "type": "PowerVar",
+          "base_value": 11
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "OutbreakPower": 4
+      }
+    },
+    "OUTMANEUVER": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "OVERCLOCK": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "PACTS_END": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 17
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "PAGESTORM": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "PALE_BLUE_DOT": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        },
+        {
+          "name": "CardPlay",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "PANACHE": {
+      "vars": [
+        {
+          "name": "PanacheDamage",
+          "type": "DynamicVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "PanacheDamage": 4
+      }
+    },
+    "PANIC_BUTTON": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 30
+        },
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Block": 10
+      }
+    },
+    "PARRY": {
+      "vars": [
+        {
+          "name": "ParryPower",
+          "type": "PowerVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "ParryPower": 4
+      }
+    },
+    "PARSE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "PARTICLE_WALL": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "PATTER": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 9
+        },
+        {
+          "name": "VigorPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Block": 2,
+        "VigorPower": 1
+      }
+    },
+    "PECK": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 2
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "PERFECTED_STRIKE": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 6
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 2
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "ExtraDamage": 1
+      }
+    },
+    "PHANTOM_BLADES": {
+      "vars": [
+        {
+          "name": "PhantomBladesPower",
+          "type": "PowerVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "PhantomBladesPower": 3
+      }
+    },
+    "PHOTON_CUT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        },
+        {
+          "name": "PutBack",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 3,
+        "Cards": 1
+      }
+    },
+    "PIERCING_WAIL": {
+      "vars": [
+        {
+          "name": "StrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "StrengthLoss": 2
+      }
+    },
+    "PILLAGE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "PILLAR_OF_CREATION": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Block": 1
+      }
+    },
+    "PINPOINT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 15
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "POISONED_STAB": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        },
+        {
+          "name": "PoisonPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Poison": 1
+      }
+    },
+    "POKE": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 3
+      }
+    },
+    "POMMEL_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Cards": 1
+      }
+    },
+    "POUNCE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "PRECISE_CUT": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 13
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 2
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 3
+      }
+    },
+    "PREDATOR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 15
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "PREP_TIME": {
+      "vars": [
+        {
+          "name": "PrepTimePower",
+          "type": "PowerVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "PrepTimePower": 2
+      }
+    },
+    "PREPARED": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "PRODUCTION": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "PROPHESIZE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Cards": 3
+      }
+    },
+    "PROTECTOR": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 10
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 5
+      },
+      "energy_upgrade": -1
+    },
+    "PROWESS": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        },
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Dexterity": 1,
+        "Strength": 1
+      }
+    },
+    "PULL_AGGRO": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 4
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Summon": 1,
+        "Block": 2
+      }
+    },
+    "PULL_FROM_BELOW": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "PURITY": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 2
+      }
+    },
+    "PUTREFY": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Power": 1
+      }
+    },
+    "PYRE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "QUADCAST": {
+      "vars": [
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "RADIATE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 1
+      }
+    },
+    "RAGE": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Power": 2
+      }
+    },
+    "RALLY": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {
+        "Block": 5
+      }
+    },
+    "RAMPAGE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "Increase",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Increase": 4
+      }
+    },
+    "RATTLE": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 2
+      }
+    },
+    "REANIMATE": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 20
+        }
+      ],
+      "upgrades": {
+        "Summon": 5
+      }
+    },
+    "REAP": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 27
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "REAVE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "REBOOT": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Cards": 2
+      }
+    },
+    "REBOUND": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "REFINE_BLADE": {
+      "vars": [
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 9
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Forge": 4
+      }
+    },
+    "REFLECT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 17
+        }
+      ],
+      "upgrades": {
+        "Block": 4
+      }
+    },
+    "REFLEX": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "REFRACT": {
+      "vars": [
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 2
+        },
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "RELAX": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 15
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Block": 2,
+        "Cards": 1,
+        "Energy": 1
+      }
+    },
+    "REND": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 15
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "ExtraDamage": 3,
+        "CalculationBase": 3
+      }
+    },
+    "RESONANCE": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "StrengthPower": 1
+      }
+    },
+    "RESTLESSNESS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1,
+        "Energy": 1
+      }
+    },
+    "RICOCHET": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "RIGHT_HAND_HAND": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 4
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 2
+      }
+    },
+    "RIP_AND_TEAR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "ROCKET_PUNCH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 13
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Cards": 1
+      }
+    },
+    "ROLLING_BOULDER": {
+      "vars": [
+        {
+          "name": "RollingBoulderPower",
+          "type": "PowerVar",
+          "base_value": 5
+        },
+        {
+          "name": "IncrementAmount",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "RollingBoulderPower": 5
+      }
+    },
+    "ROYAL_GAMBLE": {
+      "vars": [
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {}
+    },
+    "ROYALTIES": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 30
+        }
+      ],
+      "upgrades": {
+        "Gold": 5
+      }
+    },
+    "RUPTURE": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Strength": 1
+      }
+    },
+    "SALVO": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "SCAVENGE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "SCOURGE": {
+      "vars": [
+        {
+          "name": "DoomPower",
+          "type": "PowerVar",
+          "base_value": 13
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Doom": 3,
+        "Cards": 1
+      }
+    },
+    "SCRAPE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Damage": 3,
+        "Cards": 1
+      }
+    },
+    "SCULPTING_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "SEANCE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SECOND_WIND": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 2
+      }
+    },
+    "SEEKER_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "SEEKING_EDGE": {
+      "vars": [
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Forge": 4
+      }
+    },
+    "SENTRY_MODE": {
+      "vars": [
+        {
+          "name": "SentryModePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SERPENT_FORM": {
+      "vars": [
+        {
+          "name": "SerpentFormPower",
+          "type": "PowerVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "SerpentFormPower": 2
+      }
+    },
+    "SETUP_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Strength": 1
+      }
+    },
+    "SEVEN_STARS": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SEVERANCE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 13
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "SHADOW_SHIELD": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Block": 4
+      }
+    },
+    "SHADOW_STEP": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SHADOWMELD": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SHAME": {
+      "vars": [
+        {
+          "name": "Frail",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "SHARED_FATE": {
+      "vars": [
+        {
+          "name": "EnemyStrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 2
+        },
+        {
+          "name": "PlayerStrengthLoss",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "EnemyStrengthLoss": 1
+      }
+    },
+    "SHATTER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "SHINING_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        },
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "SHIV": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "SHOCKWAVE": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Power": 2
+      }
+    },
+    "SHROUD": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Block": 1
+      }
+    },
+    "SHRUG_IT_OFF": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 8
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "SIC_EM": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "SicEmPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 1,
+        "SicEmPower": 1
+      }
+    },
+    "SIGNAL_BOOST": {
+      "vars": [
+        {
+          "name": "SignalBoostPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SKEWER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "SKIM": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "SLEIGHT_OF_FLESH": {
+      "vars": [
+        {
+          "name": "SleightOfFleshPower",
+          "type": "PowerVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {
+        "SleightOfFleshPower": 4
+      }
+    },
+    "SLICE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "SLIMED": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "SLOTH": {
+      "vars": [
+        {
+          "name": "SlothPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "SMOKESTACK": {
+      "vars": [
+        {
+          "name": "SmokestackPower",
+          "type": "PowerVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "SmokestackPower": 2
+      }
+    },
+    "SNAKEBITE": {
+      "vars": [
+        {
+          "name": "PoisonPower",
+          "type": "PowerVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Poison": 3
+      }
+    },
+    "SNAP": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 3
+      }
+    },
+    "SNEAKY": {
+      "vars": [
+        {
+          "name": "SneakyPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "SneakyPower": 1
+      }
+    },
+    "SOLAR_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        },
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 1,
+        "Stars": 1
+      }
+    },
+    "SOUL": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "SOUL_STORM": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 9
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 2
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "ExtraDamage": 1
+      }
+    },
+    "SOVEREIGN_BLADE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "SeekingEdgeAmount",
+          "type": "CalculatedVar",
+          "base_value": 0
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SOW": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "SPECTRUM_SHIFT": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SPEEDSTER": {
+      "vars": [
+        {
+          "name": "SpeedsterPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "SPINNER": {
+      "vars": [
+        {
+          "name": "SpinnerPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "SPIRIT_OF_ASH": {
+      "vars": [
+        {
+          "name": "BlockOnExhaust",
+          "type": "DynamicVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "BlockOnExhaust": 1
+      }
+    },
+    "SPITE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "SPOILS_MAP": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 600
+        }
+      ],
+      "upgrades": {}
+    },
+    "SPOILS_OF_BATTLE": {
+      "vars": [
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 5
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Forge": 3
+      }
+    },
+    "SPUR": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 3
+        },
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Summon": 2,
+        "Heal": 2
+      }
+    },
+    "SQUASH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Vulnerable": 1
+      }
+    },
+    "SQUEEZE": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 25
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 5,
+        "ExtraDamage": 1
+      }
+    },
+    "STACK": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedBlock",
+          "type": "CalculatedBlockVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 3
+      }
+    },
+    "STAMPEDE": {
+      "vars": [
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "STARDUST": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "STOMP": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "STONE_ARMOR": {
+      "vars": [
+        {
+          "name": "PlatingPower",
+          "type": "PowerVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "PlatingPower": 2
+      }
+    },
+    "STORM": {
+      "vars": [
+        {
+          "name": "StormPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "StormPower": 1
+      }
+    },
+    "STRANGLE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        },
+        {
+          "name": "StranglePower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "StranglePower": 1
+      }
+    },
+    "STRIKE_DEFECT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "STRIKE_IRONCLAD": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "STRIKE_NECROBINDER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "STRIKE_REGENT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "STRIKE_SILENT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "SUCKER_PUNCH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Weak": 1
+      }
+    },
+    "SUMMON_FORTH": {
+      "vars": [
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "Forge": 3
+      }
+    },
+    "SUNDER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 24
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 8
+      }
+    },
+    "SUPERCRITICAL": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Energy": 2
+      }
+    },
+    "SUPERMASSIVE": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 5
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "ExtraDamage": 1
+      }
+    },
+    "SUPPRESS": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 11
+        },
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 6,
+        "Weak": 2
+      }
+    },
+    "SURVIVOR": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {
+        "Block": 3
+      }
+    },
+    "SWEEPING_BEAM": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "SWEEPING_GAZE": {
+      "vars": [
+        {
+          "name": "OstyDamage",
+          "type": "OstyDamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "OstyDamage": 5
+      }
+    },
+    "SWORD_BOOMERANG": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Repeat": 1
+      }
+    },
+    "SWORD_SAGE": {
+      "vars": [
+        {
+          "name": "SwordSagePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {},
+      "energy_upgrade": -1
+    },
+    "SYNCHRONIZE": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 2
+        },
+        {
+          "name": "CalculatedFocus",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "SYNTHESIS": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "TACTICIAN": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "TAG_TEAM": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "TAUNT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Block": 1,
+        "Vulnerable": 1
+      }
+    },
+    "TEAR_ASUNDER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        },
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedHits",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "TERRAFORMING": {
+      "vars": [
+        {
+          "name": "VigorPower",
+          "type": "PowerVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "VigorPower": 2
+      }
+    },
+    "TESLA_COIL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "THE_BOMB": {
+      "vars": [
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 3
+        },
+        {
+          "name": "BombDamage",
+          "type": "DynamicVar",
+          "base_value": 40
+        }
+      ],
+      "upgrades": {
+        "BombDamage": 10
+      }
+    },
+    "THE_GAMBIT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 50
+        }
+      ],
+      "upgrades": {
+        "Block": 25
+      }
+    },
+    "THE_HUNT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 5
+      }
+    },
+    "THE_SCYTHE": {
+      "vars": [
+        {
+          "name": "Increase",
+          "type": "IntVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Increase": 1
+      }
+    },
+    "THE_SMITH": {
+      "vars": [
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 30
+        }
+      ],
+      "upgrades": {
+        "Forge": 10
+      }
+    },
+    "THINKING_AHEAD": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "THRASH": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "THRUMMING_HATCHET": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "THUNDER": {
+      "vars": [
+        {
+          "name": "ThunderPower",
+          "type": "PowerVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "ThunderPower": 2
+      }
+    },
+    "THUNDERCLAP": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 4
+        },
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "TIMES_UP": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "TORIC_TOUGHNESS": {
+      "vars": [
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 2
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Block": 2
+      }
+    },
+    "TRANSFIGURE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "TREMBLE": {
+      "vars": [
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Vulnerable": 1
+      }
+    },
+    "TRUE_GRIT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Block": 2
+      }
+    },
+    "TURBO": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Energy": 1
+      }
+    },
+    "TWIN_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "ULTIMATE_DEFEND": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {
+        "Block": 4
+      }
+    },
+    "ULTIMATE_STRIKE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 14
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "UNDEATH": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Block": 2
+      }
+    },
+    "UNLEASH": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 6
+        },
+        {
+          "name": "ExtraDamage",
+          "type": "ExtraDamageVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedDamage",
+          "type": "CalculatedDamageVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {
+        "CalculationBase": 3
+      }
+    },
+    "UNRELENTING": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {
+        "Damage": 6
+      }
+    },
+    "UNTOUCHABLE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {
+        "Block": 2
+      }
+    },
+    "UP_MY_SLEEVE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "UPPERCUT": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 13
+        },
+        {
+          "name": "Power",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Power": 1
+      }
+    },
+    "UPROAR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Damage": 2
+      }
+    },
+    "VEILPIERCER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "VENERATE": {
+      "vars": [
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {
+        "Stars": 1
+      }
+    },
+    "VICIOUS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "Cards": 1
+      }
+    },
+    "VOID": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "VOID_FORM": {
+      "vars": [
+        {
+          "name": "VoidFormPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "VOLLEY": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {
+        "Damage": 4
+      }
+    },
+    "VOLTAIC": {
+      "vars": [
+        {
+          "name": "CalculationBase",
+          "type": "CalculationBaseVar",
+          "base_value": 0
+        },
+        {
+          "name": "CalculationExtra",
+          "type": "CalculationExtraVar",
+          "base_value": 1
+        },
+        {
+          "name": "CalculatedChannels",
+          "type": "CalculatedVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "WASTE_AWAY": {
+      "vars": [
+        {
+          "name": "WasteAwayPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "WELL_LAID_PLANS": {
+      "vars": [
+        {
+          "name": "RetainAmount",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "RetainAmount": 1
+      }
+    },
+    "WHIRLWIND": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {
+        "Damage": 3
+      }
+    },
+    "WHISTLE": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 33
+        }
+      ],
+      "upgrades": {
+        "Damage": 11
+      }
+    },
+    "WISP": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "WRAITH_FORM": {
+      "vars": [
+        {
+          "name": "IntangiblePower",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "WraithFormPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {
+        "IntangiblePower": 1
+      }
+    },
+    "WROUGHT_IN_WAR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 7
+        },
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {
+        "Damage": 2,
+        "Forge": 2
+      }
+    }
+  },
+  "relics": {
+    "AKABEKO": {
+      "vars": [
+        {
+          "name": "VigorPower",
+          "type": "PowerVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {}
+    },
+    "ALCHEMICAL_COFFER": {
+      "vars": [
+        {
+          "name": "PotionSlots",
+          "type": "DynamicVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "AMETHYST_AUBERGINE": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 15
+        }
+      ],
+      "upgrades": {}
+    },
+    "ANCHOR": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {}
+    },
+    "ARCANE_SCROLL": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "ARCHAIC_TOOTH": {
+      "vars": [
+        {
+          "name": "StarterCard",
+          "type": "StringVar",
+          "base_value": 0
+        },
+        {
+          "name": "AncientCard",
+          "type": "StringVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "ART_OF_WAR": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "ASTROLABE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "BAG_OF_MARBLES": {
+      "vars": [
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "BAG_OF_PREPARATION": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "BEATING_REMNANT": {
+      "vars": [
+        {
+          "name": "MaxHpLoss",
+          "type": "DynamicVar",
+          "base_value": 20
+        }
+      ],
+      "upgrades": {}
+    },
+    "BEAUTIFUL_BRACELET": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "Swift",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "BELT_BUCKLE": {
+      "vars": [
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "BIG_HAT": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "BIG_MUSHROOM": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 20
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "BIIIG_HUG": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "BLACK_BLOOD": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {}
+    },
+    "BLESSED_ANTLER": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "BLOOD_SOAKED_ROSE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "BLOOD_VIAL": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "BONE_FLUTE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "BOOK_OF_FIVE_RINGS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 5
+        },
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 20
+        }
+      ],
+      "upgrades": {}
+    },
+    "BOOK_REPAIR_KNIFE": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "BOOMING_CONCH": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "BOUND_PHYLACTERY": {
+      "vars": [
+        {
+          "name": "Summon",
+          "type": "SummonVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "BOWLER_HAT": {
+      "vars": [
+        {
+          "name": "GoldIncrease",
+          "type": "DynamicVar",
+          "base_value": 1.25
+        }
+      ],
+      "upgrades": {}
+    },
+    "BREAD": {
+      "vars": [
+        {
+          "name": "GainEnergy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "LoseEnergy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "BRILLIANT_SCARF": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "BRIMSTONE": {
+      "vars": [
+        {
+          "name": "SelfStrength",
+          "type": "PowerVar",
+          "base_value": 2
+        },
+        {
+          "name": "EnemyStrength",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "BRONZE_SCALES": {
+      "vars": [
+        {
+          "name": "ThornsPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "BURNING_BLOOD": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "CALLING_BELL": {
+      "vars": [
+        {
+          "name": "Relics",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "CANDELABRA": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "CAPTAINS_WHEEL": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 18
+        }
+      ],
+      "upgrades": {}
+    },
+    "CAULDRON": {
+      "vars": [
+        {
+          "name": "Potions",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "CENTENNIAL_PUZZLE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "CHANDELIER": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "CHARONS_ASHES": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "CHEMICAL_X": {
+      "vars": [
+        {
+          "name": "Increase",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "CHOICES_PARADOX": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "CHOSEN_CHEESE": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "CLAWS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "CLOAK_CLASP": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "CRACKED_CORE": {
+      "vars": [
+        {
+          "name": "Lightning",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "CURSED_PEARL": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 333
+        }
+      ],
+      "upgrades": {}
+    },
+    "DARKSTONE_PERIAPT": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "DATA_DISK": {
+      "vars": [
+        {
+          "name": "FocusPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "DAUGHTER_OF_THE_WIND": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "DIAMOND_DIADEM": {
+      "vars": [
+        {
+          "name": "CardThreshold",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "DISTINGUISHED_CAPE": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 9
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "DIVINE_DESTINY": {
+      "vars": [
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "DIVINE_RIGHT": {
+      "vars": [
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "DRAGON_FRUIT": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "DUSTY_TOME": {
+      "vars": [
+        {
+          "name": "AncientCard",
+          "type": "StringVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "ECTOPLASM": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "EMBER_TEA": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "EMPTY_CAGE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "ETERNAL_FEATHER": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 5
+        },
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "FAKE_ANCHOR": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "FAKE_BLOOD_VIAL": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "FAKE_HAPPY_FLOWER": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "FAKE_LEES_WAFFLE": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {}
+    },
+    "FAKE_MANGO": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "FAKE_ORICHALCUM": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "FAKE_STRIKE_DUMMY": {
+      "vars": [
+        {
+          "name": "ExtraDamage",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "FAKE_VENERABLE_TEA_SET": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "FENCING_MANUAL": {
+      "vars": [
+        {
+          "name": "Forge",
+          "type": "ForgeVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {}
+    },
+    "FESTIVE_POPPER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {}
+    },
+    "FIDDLE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "FORGOTTEN_SOUL": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "FRAGRANT_MUSHROOM": {
+      "vars": [
+        {
+          "name": "HpLoss",
+          "type": "HpLossVar",
+          "base_value": 15
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "FRESNEL_LENS": {
+      "vars": [
+        {
+          "name": "NimbleAmount",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "FUNERARY_MASK": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "FUR_COAT": {
+      "vars": [
+        {
+          "name": "Combats",
+          "type": "DynamicVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {}
+    },
+    "GALACTIC_DUST": {
+      "vars": [
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 10
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {}
+    },
+    "GAME_PIECE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "GNARLED_HAMMER": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "SharpAmount",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "GOLDEN_PEARL": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 150
+        }
+      ],
+      "upgrades": {}
+    },
+    "GORGET": {
+      "vars": [
+        {
+          "name": "PlatingPower",
+          "type": "PowerVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "GREMLIN_HORN": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "HAND_DRILL": {
+      "vars": [
+        {
+          "name": "VulnerablePower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "HAPPY_FLOWER": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "HEFTY_TABLET": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "HELICAL_DART": {
+      "vars": [
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "HORN_CLEAT": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 14
+        }
+      ],
+      "upgrades": {}
+    },
+    "INFUSED_CORE": {
+      "vars": [
+        {
+          "name": "Lightning",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "INTIMIDATING_HELMET": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 4
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "IRON_CLUB": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "IVORY_TILE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "EnergyThreshold",
+          "type": "EnergyVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "JOSS_PAPER": {
+      "vars": [
+        {
+          "name": "ExhaustAmount",
+          "type": "DynamicVar",
+          "base_value": 5
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "KIFUDA": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "KUNAI": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "KUSARIGAMA": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "LANTERN": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "LARGE_CAPSULE": {
+      "vars": [
+        {
+          "name": "Relics",
+          "type": "IntVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "LAVA_ROCK": {
+      "vars": [
+        {
+          "name": "Relics",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "LEAFY_POULTICE": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {}
+    },
+    "LEES_WAFFLE": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {}
+    },
+    "LETTER_OPENER": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "LIZARD_TAIL": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 50
+        }
+      ],
+      "upgrades": {}
+    },
+    "LOOMING_FRUIT": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 31
+        }
+      ],
+      "upgrades": {}
+    },
+    "LOST_WISP": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 8
+        }
+      ],
+      "upgrades": {}
+    },
+    "LUCKY_FYSH": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 15
+        }
+      ],
+      "upgrades": {}
+    },
+    "LUNAR_PASTRY": {
+      "vars": [
+        {
+          "name": "Stars",
+          "type": "StarsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "MANGO": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 14
+        }
+      ],
+      "upgrades": {}
+    },
+    "MAW_BANK": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {}
+    },
+    "MEAL_TICKET": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 15
+        }
+      ],
+      "upgrades": {}
+    },
+    "MEAT_ON_THE_BONE": {
+      "vars": [
+        {
+          "name": "HpThreshold",
+          "type": "DynamicVar",
+          "base_value": 50
+        },
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 12
+        }
+      ],
+      "upgrades": {}
+    },
+    "MEMBERSHIP_CARD": {
+      "vars": [
+        {
+          "name": "Discount",
+          "type": "DynamicVar",
+          "base_value": 50
+        }
+      ],
+      "upgrades": {}
+    },
+    "MERCURY_HOURGLASS": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "METRONOME": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 30
+        },
+        {
+          "name": "OrbCount",
+          "type": "DynamicVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {}
+    },
+    "MINI_REGENT": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "MINIATURE_CANNON": {
+      "vars": [
+        {
+          "name": "ExtraDamage",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "MYSTIC_LIGHTER": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 9
+        }
+      ],
+      "upgrades": {}
+    },
+    "NEOWS_BONES": {
+      "vars": [
+        {
+          "name": "Relics",
+          "type": "DynamicVar",
+          "base_value": 2
+        },
+        {
+          "name": "Curses",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "NEW_LEAF": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "NINJA_SCROLL": {
+      "vars": [
+        {
+          "name": "Shivs",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "NUNCHAKU": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 10
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "NUTRITIOUS_OYSTER": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 11
+        }
+      ],
+      "upgrades": {}
+    },
+    "ODDLY_SMOOTH_STONE": {
+      "vars": [
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "OLD_COIN": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 300
+        }
+      ],
+      "upgrades": {}
+    },
+    "ORANGE_DOUGH": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "ORICHALCUM": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "ORNAMENTAL_FAN": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "ORRERY": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "PAELS_BLOOD": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "PAELS_CLAW": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "PAELS_FLESH": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "PAELS_LEGION": {
+      "vars": [
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "PAELS_TEARS": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "PAELS_TOOTH": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 5
+        },
+        {
+          "name": "CardTitles",
+          "type": "StringVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "PAELS_WING": {
+      "vars": [
+        {
+          "name": "Sacrifices",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "PANTOGRAPH": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 25
+        }
+      ],
+      "upgrades": {}
+    },
+    "PARRYING_SHIELD": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 10
+        },
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "PEAR": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {}
+    },
+    "PENDULUM": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        },
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "PERMAFROST": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {}
+    },
+    "PHIAL_HOLSTER": {
+      "vars": [
+        {
+          "name": "PotionSlots",
+          "type": "DynamicVar",
+          "base_value": 1
+        },
+        {
+          "name": "Potions",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "PHILOSOPHERS_STONE": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "PHYLACTERY_UNBOUND": {
+      "vars": [
+        {
+          "name": "StartOfCombat",
+          "type": "SummonVar",
+          "base_value": 5
+        },
+        {
+          "name": "StartOfTurn",
+          "type": "SummonVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "PLANISPHERE": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "POCKETWATCH": {
+      "vars": [
+        {
+          "name": "CardThreshold",
+          "type": "DynamicVar",
+          "base_value": 3
+        },
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "POLLINOUS_CORE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        },
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "POMANDER": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "POTION_BELT": {
+      "vars": [
+        {
+          "name": "PotionSlots",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "POWER_CELL": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "PRECARIOUS_SHEARS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        },
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 16
+        }
+      ],
+      "upgrades": {}
+    },
+    "PRECISE_SCISSORS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "PRESERVED_FOG": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "PRISMATIC_GEM": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "PUMPKIN_CANDLE": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "PUNCH_DAGGER": {
+      "vars": [
+        {
+          "name": "Momentum",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "RADIANT_PEARL": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "RAINBOW_RING": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        },
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "RED_MASK": {
+      "vars": [
+        {
+          "name": "WeakPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "RED_SKULL": {
+      "vars": [
+        {
+          "name": "HpThreshold",
+          "type": "DynamicVar",
+          "base_value": 50
+        },
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "REGAL_PILLOW": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 15
+        }
+      ],
+      "upgrades": {}
+    },
+    "REGALITE": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "REPTILE_TRINKET": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "RING_OF_THE_DRAKE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        },
+        {
+          "name": "Turns",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "RING_OF_THE_SNAKE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "RIPPLE_BASIN": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "ROYAL_STAMP": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "RUNIC_CAPACITOR": {
+      "vars": [
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "SAI": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {}
+    },
+    "SAND_CASTLE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "SCREAMING_FLAGON": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 20
+        }
+      ],
+      "upgrades": {}
+    },
+    "SEA_GLASS": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 15
+        },
+        {
+          "name": "Character",
+          "type": "StringVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "SEAL_OF_GOLD": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        },
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "SELF_FORMING_CLAY": {
+      "vars": [
+        {
+          "name": "BlockNextTurn",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "SERE_TALON": {
+      "vars": [
+        {
+          "name": "Curses",
+          "type": "DynamicVar",
+          "base_value": 2
+        },
+        {
+          "name": "Wishes",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "SHURIKEN": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        },
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "SIGNET_RING": {
+      "vars": [
+        {
+          "name": "Gold",
+          "type": "GoldVar",
+          "base_value": 999
+        }
+      ],
+      "upgrades": {}
+    },
+    "SILVER_CRUCIBLE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "SLING_OF_COURAGE": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "SNECKO_EYE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "SNECKO_SKULL": {
+      "vars": [
+        {
+          "name": "PoisonPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "SOZU": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "SPARKLING_ROUGE": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        },
+        {
+          "name": "DexterityPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "SPIKED_GAUNTLETS": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "STONE_CALENDAR": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 52
+        },
+        {
+          "name": "DamageTurn",
+          "type": "DynamicVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {}
+    },
+    "STONE_CRACKER": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "STONE_HUMIDIFIER": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "STRAWBERRY": {
+      "vars": [
+        {
+          "name": "MaxHp",
+          "type": "MaxHpVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {}
+    },
+    "STRIKE_DUMMY": {
+      "vars": [
+        {
+          "name": "ExtraDamage",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "STURDY_CLAMP": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 10
+        }
+      ],
+      "upgrades": {}
+    },
+    "SWORD_OF_JADE": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "SWORD_OF_STONE": {
+      "vars": [
+        {
+          "name": "Elites",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "SYMBIOTIC_VIRUS": {
+      "vars": [
+        {
+          "name": "Dark",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "TEA_OF_DISCOURTESY": {
+      "vars": [
+        {
+          "name": "Heal",
+          "type": "HealVar",
+          "base_value": 1
+        },
+        {
+          "name": "DazedCount",
+          "type": "DynamicVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "THE_ABACUS": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 6
+        }
+      ],
+      "upgrades": {}
+    },
+    "THE_BOOT": {
+      "vars": [
+        {
+          "name": "DamageMinimum",
+          "type": "DynamicVar",
+          "base_value": 5
+        },
+        {
+          "name": "DamageThreshold",
+          "type": "DynamicVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "THE_COURIER": {
+      "vars": [
+        {
+          "name": "Discount",
+          "type": "DynamicVar",
+          "base_value": 20
+        }
+      ],
+      "upgrades": {}
+    },
+    "TINGSHA": {
+      "vars": [
+        {
+          "name": "Damage",
+          "type": "DamageVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "TOASTY_MITTENS": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "TOOLBOX": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "TOUCH_OF_OROBAS": {
+      "vars": [
+        {
+          "name": "StarterRelic",
+          "type": "StringVar",
+          "base_value": 0
+        },
+        {
+          "name": "UpgradedRelic",
+          "type": "StringVar",
+          "base_value": 0
+        }
+      ],
+      "upgrades": {}
+    },
+    "TOUGH_BANDAGES": {
+      "vars": [
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "TOY_BOX": {
+      "vars": [
+        {
+          "name": "Relics",
+          "type": "DynamicVar",
+          "base_value": 4
+        },
+        {
+          "name": "Combats",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "TRI_BOOMERANG": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "TUNGSTEN_ROD": {
+      "vars": [
+        {
+          "name": "HpLossReduction",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "TUNING_FORK": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 10
+        },
+        {
+          "name": "Block",
+          "type": "BlockVar",
+          "base_value": 7
+        }
+      ],
+      "upgrades": {}
+    },
+    "TWISTED_FUNNEL": {
+      "vars": [
+        {
+          "name": "PoisonPower",
+          "type": "PowerVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "UNDYING_SIGIL": {
+      "vars": [
+        {
+          "name": "DamageDecrease",
+          "type": "DynamicVar",
+          "base_value": 0.5
+        }
+      ],
+      "upgrades": {}
+    },
+    "VAJRA": {
+      "vars": [
+        {
+          "name": "StrengthPower",
+          "type": "PowerVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "VELVET_CHOKER": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 6
+        },
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "VENERABLE_TEA_SET": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "VERY_HOT_COCOA": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "WAR_HAMMER": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    },
+    "WAR_PAINT": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "WHETSTONE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 2
+        }
+      ],
+      "upgrades": {}
+    },
+    "WHISPERING_EARRING": {
+      "vars": [
+        {
+          "name": "Energy",
+          "type": "EnergyVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "WING_CHARM": {
+      "vars": [
+        {
+          "name": "SwiftAmount",
+          "type": "DynamicVar",
+          "base_value": 1
+        }
+      ],
+      "upgrades": {}
+    },
+    "WINGED_BOOTS": {
+      "vars": [
+        {
+          "name": "Rooms",
+          "type": "DynamicVar",
+          "base_value": 3
+        }
+      ],
+      "upgrades": {}
+    },
+    "WONGOS_MYSTERY_TICKET": {
+      "vars": [
+        {
+          "name": "Repeat",
+          "type": "RepeatVar",
+          "base_value": 3
+        },
+        {
+          "name": "RemainingCombats",
+          "type": "DynamicVar",
+          "base_value": 5
+        }
+      ],
+      "upgrades": {}
+    },
+    "YUMMY_COOKIE": {
+      "vars": [
+        {
+          "name": "Cards",
+          "type": "CardsVar",
+          "base_value": 4
+        }
+      ],
+      "upgrades": {}
+    }
+  }
+}

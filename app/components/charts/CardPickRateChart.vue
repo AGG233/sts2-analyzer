@@ -12,6 +12,7 @@ import { useI18n } from "vue-i18n";
 import type { CardPickRateOptions, CardPickStat } from "~/data/analytics";
 import { getCardPickRate, getCardPickRateByCharacter } from "~/data/analytics";
 import { getAllCardMetadata } from "~/data/card-metadata";
+import { getDB } from "~/lib/db.client";
 import { useGameI18n } from "~/locales/lookup";
 import { useRunStore } from "~/stores/runStore";
 
@@ -26,9 +27,10 @@ const cardMetaMap = ref<Map<string, { rarity: string; type: string }>>(
 );
 
 onMounted(async () => {
-	const meta = await getAllCardMetadata();
+	const db = getDB();
+	const meta = await getAllCardMetadata(db);
 	const map = new Map<string, { rarity: string; type: string }>();
-	for (const [id, entry] of Object.entries(meta.cards)) {
+	for (const [id, entry] of Object.entries(meta)) {
 		map.set(id, { rarity: entry.rarity, type: entry.type });
 	}
 	cardMetaMap.value = map;

@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import type { SimDeckCard } from "~/data/analytics";
 import { getCardMetadata } from "~/data/card-metadata";
-import { cleanCardDescription } from "~/lib/card-description";
+import { getCardVarData } from "~/data/card-vars";
+import { getDB } from "~/lib/db.client";
+import type { Segment } from "~/lib/template-renderer";
+import { renderSegments } from "~/lib/template-renderer";
 import { useGameI18n } from "~/locales/lookup";
 import type { CardMetadataEntry } from "~/types/card-metadata";
 
@@ -19,19 +22,26 @@ const props = defineProps<Props>();
 const { t } = useI18n();
 const { cardName, cardDescription, relicName } = useGameI18n();
 
-// 预加载所有卡牌 metadata
 const metadataMap = ref(new Map<string, CardMetadataEntry>());
+const varDataMap = ref(
+	new Map<string, Awaited<ReturnType<typeof getCardVarData>>>(),
+);
 
 onMounted(async () => {
+	const db = getDB();
 	const uniqueIds = [...new Set(props.deck.map((c) => c.id))];
 	const entries = await Promise.all(
 		uniqueIds.map(async (id) => {
-			const meta = await getCardMetadata(id);
-			return meta ? ([id, meta] as const) : null;
+			const meta = await getCardMetadata(db, id);
+			const varData = await getCardVarData(db, id);
+			return meta ? ([id, meta, varData] as const) : null;
 		}),
 	);
 	for (const entry of entries) {
-		if (entry) metadataMap.value.set(entry[0], entry[1]);
+		if (entry) {
+			metadataMap.value.set(entry[0], entry[1]);
+			if (entry[2]) varDataMap.value.set(entry[0], entry[2]);
+		}
 	}
 });
 
@@ -44,7 +54,7 @@ interface GroupedCard {
 	type: string;
 	rarity: string;
 	characterId: string;
-	description: string;
+	descriptionSegments: Segment[];
 }
 
 const groupedCurrentDeck = computed<GroupedCard[]>(() => {
@@ -57,6 +67,24 @@ const groupedCurrentDeck = computed<GroupedCard[]>(() => {
 			const entry = map.get(key);
 			if (entry) entry.count++;
 		} else {
+			const varData = varDataMap.value.get(card.id);
+			const vars: Record<string, { base: number; upgrade?: number }> = {};
+			if (varData) {
+				for (const v of varData.vars) {
+					vars[v.name] = {
+						base: v.base_value,
+						upgrade: varData.upgrades[v.name],
+					};
+				}
+			}
+
+			const rawDesc = cardDescription(card.id);
+			const segments = renderSegments(rawDesc, {
+				vars,
+				upgradeLevel: lvl,
+				cardType: meta?.type,
+			});
+
 			map.set(key, {
 				id: card.id,
 				name: cardName(card.id),
@@ -66,7 +94,7 @@ const groupedCurrentDeck = computed<GroupedCard[]>(() => {
 				type: meta?.type ?? "Attack",
 				rarity: meta?.rarity ?? "Common",
 				characterId: meta?.character_id ?? "colorless",
-				description: cleanCardDescription(cardDescription(card.id)),
+				descriptionSegments: segments,
 			});
 		}
 	}
@@ -117,7 +145,7 @@ const groupedCurrentRelics = computed(() => {
 					:character-id="group.characterId"
 					:upgraded="group.upgraded"
 					:count="group.count > 1 ? group.count : undefined"
-					:description="group.description"
+					:description-segments="group.descriptionSegments"
 				/>
 			</div>
 		</div>

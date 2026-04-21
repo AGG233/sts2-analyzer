@@ -1,27 +1,70 @@
-import type { CardMetadataRaw } from "~/types/card-metadata";
+import { eq } from "drizzle-orm";
+import * as schema from "~/db/schema";
+import type { DrizzleDB } from "~/lib/db.client";
+import type { CardMetadataEntry } from "~/types/card-metadata";
 
-let metadataCache: CardMetadataRaw | null = null;
-
-async function loadMetadata(): Promise<CardMetadataRaw> {
-	if (metadataCache) return metadataCache;
-	const res = await fetch(`${import.meta.env.BASE_URL}card-metadata-v0.15.json`);
-	metadataCache = (await res.json()) as CardMetadataRaw;
-	return metadataCache;
-}
+const metadataCache = new Map<string, CardMetadataEntry>();
+let allMetadataCache: Record<string, CardMetadataEntry> | null = null;
 
 export async function getCardMetadata(
+	db: DrizzleDB,
 	cardId: string,
-): Promise<CardMetadataRaw["cards"][string] | undefined> {
+): Promise<CardMetadataEntry | undefined> {
 	const bare = cardId.replace("CARD.", "");
-	const data = await loadMetadata();
-	return data.cards[bare];
+	if (metadataCache.has(bare)) return metadataCache.get(bare);
+
+	const results = await db
+		.select()
+		.from(schema.cardMetadata)
+		.where(eq(schema.cardMetadata.cardId, bare))
+		.limit(1);
+
+	const row = results[0];
+	if (!row) return undefined;
+
+	const entry: CardMetadataEntry = {
+		cost: row.cost,
+		type: row.type,
+		rarity: row.rarity,
+		target: row.target,
+		tags: JSON.parse(row.tagsJson) as string[],
+		character_id: row.characterId || undefined,
+		is_starter: row.isStarter === 1 ? true : undefined,
+	};
+	metadataCache.set(bare, entry);
+	return entry;
 }
 
-export async function getAllCardMetadata(): Promise<CardMetadataRaw> {
-	return loadMetadata();
+export async function getAllCardMetadata(
+	db: DrizzleDB,
+): Promise<Record<string, CardMetadataEntry>> {
+	if (allMetadataCache) return allMetadataCache;
+
+	const results = await db.select().from(schema.cardMetadata);
+	const map: Record<string, CardMetadataEntry> = {};
+
+	for (const row of results) {
+		map[row.cardId] = {
+			cost: row.cost,
+			type: row.type,
+			rarity: row.rarity,
+			target: row.target,
+			tags: JSON.parse(row.tagsJson) as string[],
+			character_id: row.characterId || undefined,
+			is_starter: row.isStarter === 1 ? true : undefined,
+		};
+		metadataCache.set(row.cardId, map[row.cardId]);
+	}
+
+	allMetadataCache = map;
+	return map;
 }
 
-// 类型配置：图标字符 + 颜色
+export function clearMetadataCache(): void {
+	metadataCache.clear();
+	allMetadataCache = null;
+}
+
 export const CARD_TYPE_CONFIG: Record<
 	string,
 	{ icon: string; color: string; label: string }
@@ -34,7 +77,6 @@ export const CARD_TYPE_CONFIG: Record<
 	Quest: { icon: "❓", color: "#2ecc71", label: "Quest" },
 };
 
-// 稀有度边框颜色
 export const RARITY_CONFIG: Record<string, { color: string; label: string }> = {
 	Basic: { color: "#bdc3c7", label: "Basic" },
 	Common: { color: "#95a5a6", label: "Common" },
@@ -48,7 +90,6 @@ export const RARITY_CONFIG: Record<string, { color: string; label: string }> = {
 	Quest: { color: "#27ae60", label: "Quest" },
 };
 
-// 角色边框颜色
 export const CHARACTER_FRAME_COLORS: Record<string, string> = {
 	ironclad: "#e74c3c",
 	silent: "#2ecc71",
