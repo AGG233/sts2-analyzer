@@ -172,7 +172,7 @@ function classifyPlaceholder(inner: string): PlaceholderKind {
 	}
 
 	// 方法调用: VarName:method(rest)
-	const methodRegex = /^([\w]+):(\w[\w()]*)\(([^)]*)\)$/;
+	const methodRegex = /^(\w+?):(\w[\w()]*?)\(([^)]*?)\)$/;
 	const methodMatch = methodRegex.exec(inner);
 	if (methodMatch) {
 		return {
@@ -317,7 +317,7 @@ function parseBBCodeTag(
 	pos: number,
 	ctx: RenderContext,
 ): { segments: Segment[]; consumed: number } | undefined {
-	const openRegex = /^\[(\w+)(?:\s+[^\]]*)?\]/;
+	const openRegex = /^\[(\w+)(?:\s+[^\]]*?)?\]/;
 	const openMatch = openRegex.exec(template.slice(pos));
 	if (!openMatch) return undefined;
 
