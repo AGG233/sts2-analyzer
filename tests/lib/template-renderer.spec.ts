@@ -310,6 +310,65 @@ describe("renderSegments", () => {
 				value: "wavy",
 			});
 		});
+
+		it("[b] 标签产生粗体段", () => {
+			const result = renderSegments("Deal [b]damage[/b]", makeCtx());
+			expect(result).toContainEqual(
+				expect.objectContaining({
+					type: "bold",
+					children: [{ type: "text", value: "damage" }],
+				}),
+			);
+		});
+
+		it("BBCode 标签带属性只解析标签名", () => {
+			const result = renderSegments("[gold size=12]Block[/gold]", makeCtx());
+			expect(result).toContainEqual(
+				expect.objectContaining({ type: "color", tag: "gold" }),
+			);
+		});
+	});
+
+	describe("choose 选择", () => {
+		it("根据 cardType 选择对应分支", () => {
+			const result = renderSegments(
+				"{Damage:choose(Attack|Skill):{Damage:diff()} dmg|{Damage:diff()} blk}",
+				{ ...makeCtx(), cardType: "Skill" },
+			);
+			expect(result).toContainEqual({
+				type: "variable",
+				name: "Damage",
+				value: 8,
+				upgraded: false,
+			});
+			expect(
+				result.some((s) => s.type === "text" && s.value.includes("blk")),
+			).toBe(true);
+		});
+
+		it("无 cardType 时默认选第一个分支", () => {
+			const result = renderSegments(
+				"{Damage:choose(Attack|Skill):{Damage:diff()} dmg|{Damage:diff()} blk}",
+				makeCtx(),
+			);
+			expect(
+				result.some((s) => s.type === "text" && s.value.includes("dmg")),
+			).toBe(true);
+		});
+	});
+
+	describe("未知占位符", () => {
+		it("无法识别的占位符返回问号", () => {
+			const result = renderSegments("{unknownPattern!!!}", makeCtx());
+			expect(result).toContainEqual({ type: "text", value: "?" });
+		});
+	});
+
+	describe("未识别 BBCode 标签", () => {
+		it("未识别标签只保留内部文本", () => {
+			const result = renderSegments("[unknown]kept[/unknown]", makeCtx());
+			expect(result).toContainEqual({ type: "text", value: "kept" });
+		});
 	});
 
 	describe("完整卡牌描述", () => {
