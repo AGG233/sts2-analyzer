@@ -128,19 +128,11 @@ function getUpgradeDeltaPrefix(
 	return prefix;
 }
 
-function findCardIndex(
+function findBestMatchIndex(
 	deck: SimDeckCard[],
 	id: string,
-	floorAdded?: number,
-	preferHighestUpgrade: boolean = false,
+	preferHighestUpgrade: boolean,
 ): number {
-	if (floorAdded != null) {
-		const exactIndex = deck.findIndex(
-			(card) => card.id === id && card.floorAdded === floorAdded,
-		);
-		if (exactIndex !== -1) return exactIndex;
-	}
-
 	let bestIndex = -1;
 	for (let i = 0; i < deck.length; i++) {
 		const card = deck[i];
@@ -157,8 +149,22 @@ function findCardIndex(
 			bestIndex = i;
 		}
 	}
-
 	return bestIndex;
+}
+
+function findCardIndex(
+	deck: SimDeckCard[],
+	id: string,
+	floorAdded?: number,
+	preferHighestUpgrade = false,
+): number {
+	if (floorAdded != null) {
+		const exactIndex = deck.findIndex(
+			(card) => card.id === id && card.floorAdded === floorAdded,
+		);
+		if (exactIndex !== -1) return exactIndex;
+	}
+	return findBestMatchIndex(deck, id, preferHighestUpgrade);
 }
 
 function removeCardById(deck: SimDeckCard[], id: string, floor?: number): void {
@@ -192,11 +198,12 @@ function adjustUpgradeLevel(
 	let best: SimDeckCard | undefined;
 	for (const c of deck) {
 		if (c.id !== cardId) continue;
-		if (!best) {
-			best = c;
-		} else if (delta > 0 && c.upgradeLevel < best.upgradeLevel) {
-			best = c;
-		} else if (delta < 0 && c.upgradeLevel > best.upgradeLevel) {
+		if (
+			!best ||
+			(delta > 0
+				? c.upgradeLevel < best.upgradeLevel
+				: c.upgradeLevel > best.upgradeLevel)
+		) {
 			best = c;
 		}
 	}

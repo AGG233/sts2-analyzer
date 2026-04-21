@@ -89,11 +89,22 @@ export function potionKey(id: string): string {
 	return `${id.replace("POTION.", "")}.title`;
 }
 
+// 从嵌套对象中按点分路径取值，如 getNestedValue(obj, "game.cards.bash.description")
+function getNestedValue(obj: unknown, path: string): unknown {
+	const keys = path.split(".");
+	let current = obj;
+	for (const key of keys) {
+		if (current == null || typeof current !== "object") return undefined;
+		current = (current as Record<string, unknown>)[key];
+	}
+	return current;
+}
+
 const modelIdPrefixRegex = /^(ENCOUNTER|EVENT|ANCIENT)\./;
 
 // Composable for component use
 export function useGameI18n() {
-	const { t, te } = useI18n();
+	const { t, te, locale, fallbackLocale } = useI18n();
 
 	// Resolve a model_id (ENCOUNTER.X, EVENT.X, ANCIENT.X, etc.) to a translated name
 	// Searches encounters → events → ancients in order
@@ -109,8 +120,22 @@ export function useGameI18n() {
 
 	function cardDescription(id: string): string {
 		const bare = id.replace("CARD.", "");
+		const i18n = useNuxtApp().$i18n;
+		const messages = i18n.messages.value;
+		const msgs = messages as Record<string, Record<string, unknown>>;
+		const resolvedLocale = locale.value as string;
+		const fallback = (
+			typeof fallbackLocale.value === "string"
+				? fallbackLocale.value
+				: Array.isArray(fallbackLocale.value)
+					? fallbackLocale.value[0]
+					: "en"
+		) as string;
 		const path = `game.cards.${bare}.description`;
-		return t(path, "");
+		const raw =
+			getNestedValue(msgs[resolvedLocale], path) ??
+			getNestedValue(msgs[fallback], path);
+		return typeof raw === "string" ? raw : "";
 	}
 
 	return {

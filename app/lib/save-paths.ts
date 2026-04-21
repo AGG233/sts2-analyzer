@@ -14,11 +14,11 @@ export function detectPlatform(): Platform {
 export function getSavePathHint(platform: Platform): string {
 	switch (platform) {
 		case "windows":
-			return "%APPDATA%\\SlayTheSpire2\\steam\\<SteamID>\\profile1\\saves\\history\\";
+			return String.raw`%APPDATA%\SlayTheSpire2\steam`;
 		case "macos":
-			return "~/Library/Application Support/SlayTheSpire2/steam/<SteamID>/profile1/saves/history/";
+			return "~/Library/Application Support/SlayTheSpire2/steam";
 		case "linux":
-			return "~/.local/share/SlayTheSpire2/steam/<SteamID>/profile1/saves/history/";
+			return "~/.local/share/SlayTheSpire2/steam";
 		default:
 			return "";
 	}

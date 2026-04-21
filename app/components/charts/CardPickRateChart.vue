@@ -255,7 +255,7 @@ async function updateChartData() {
 	}
 }
 
-updateChartData();
+await updateChartData();
 </script>
 
 <template>
