@@ -456,4 +456,73 @@ describe("db.client", () => {
 			await expect(db.initDB()).rejects.toThrow("syntax error");
 		});
 	});
+
+	describe("scheduleSave error handling", () => {
+		it("保存失败时记录错误到控制台", async () => {
+			const db = await importDB();
+
+			// Reset exec to default success behavior
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				return [];
+			});
+
+			await db.initDB();
+
+			mockExport.mockImplementationOnce(() => {
+				throw new Error("Export failed");
+			});
+
+			const consoleSpy = vi
+				.spyOn(console, "error")
+				.mockImplementation(() => {});
+
+			db.scheduleSave(100);
+			vi.advanceTimersByTime(100);
+			await vi.runAllTimersAsync();
+
+			expect(consoleSpy).toHaveBeenCalledWith(
+				expect.stringContaining("Failed to save DB"),
+				expect.any(Error),
+			);
+
+			consoleSpy.mockRestore();
+		});
+	});
+
+	describe("flush handler error", () => {
+		it("页面退出时 flush 失败记录错误", async () => {
+			const db = await importDB();
+
+			// Reset exec to default success behavior
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				return [];
+			});
+
+			await db.initDB();
+
+			mockExport.mockImplementationOnce(() => {
+				throw new Error("Flush failed");
+			});
+
+			const consoleSpy = vi
+				.spyOn(console, "error")
+				.mockImplementation(() => {});
+
+			window.dispatchEvent(new Event("beforeunload"));
+			await vi.runAllTimersAsync();
+
+			expect(consoleSpy).toHaveBeenCalledWith(
+				expect.stringContaining("Failed to flush DB before page exit"),
+				expect.any(Error),
+			);
+
+			consoleSpy.mockRestore();
+		});
+	});
 });

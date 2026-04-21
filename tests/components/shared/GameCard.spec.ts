@@ -68,4 +68,9 @@ describe("GameCard", () => {
 		const img = wrapper.find(".card-portrait");
 		expect(img.attributes("src")).toContain("strike");
 	});
+
+	it("uses default filter for unknown rarity", () => {
+		const wrapper = mountCard({ rarity: "Unknown" });
+		expect(wrapper.find(".card-banner").exists()).toBe(true);
+	});
 });
