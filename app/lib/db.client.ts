@@ -19,6 +19,9 @@ type SqlJsDatabase = Database;
 // SQL.js singleton promise
 let sqlDbPromise: Promise<SqlJsDatabase | null> | null = null;
 
+// 整体初始化 Promise（防止并发重复执行迁移和种子数据）
+let initPromise: Promise<DrizzleDB> | null = null;
+
 // Drizzle ORM instance (proxy wrapper around sql.js)
 let dbInstance: DrizzleDB | null = null;
 let flushHandlersRegistered = false;
@@ -47,86 +50,100 @@ const migrations = Object.entries(migrationModules)
 export async function initDB(): Promise<DrizzleDB> {
 	if (dbInstance) return dbInstance;
 
-	if (!sqlDbPromise) {
-		sqlDbPromise = (async () => {
-			try {
-				const SQL = await initSqlJs({
-					locateFile: () =>
-						new URL("sql-wasm.wasm", globalThis.location?.href ?? "/").href,
-				});
+	if (!initPromise) {
+		initPromise = (async () => {
+			if (!sqlDbPromise) {
+				sqlDbPromise = (async () => {
+					try {
+						const SQL = await initSqlJs({
+							locateFile: () =>
+								new URL("sql-wasm.wasm", globalThis.location?.href ?? "/").href,
+						});
 
-				// Try to load persisted database from IndexedDB
-				const savedBuffer = await loadSqliteDB();
-				if (savedBuffer) {
-					return new SQL.Database(savedBuffer);
-				}
-				return new SQL.Database();
-			} catch (error) {
-				console.error("Failed to initialize SQL.js:", error);
-				return null;
+						// Try to load persisted database from IndexedDB
+						const savedBuffer = await loadSqliteDB();
+						if (savedBuffer) {
+							return new SQL.Database(savedBuffer);
+						}
+						return new SQL.Database();
+					} catch (error) {
+						console.error("Failed to initialize SQL.js:", error);
+						return null;
+					}
+				})();
 			}
+
+			const sqlDb = await sqlDbPromise;
+			if (!sqlDb) {
+				initPromise = null;
+				throw new Error("Failed to initialize SQL.js");
+			}
+
+			// Run pending migrations
+			const versionResult = sqlDb.exec("PRAGMA user_version");
+			const userVersion = getNumericCell(versionResult);
+
+			for (let i = userVersion; i < migrations.length; i++) {
+				runMigration(sqlDb, migrations[i] as string);
+			}
+			sqlDb.run(`PRAGMA user_version = ${migrations.length}`);
+
+			// Seed initial version and card pools if not already present
+			await seedInitialData(sqlDb);
+
+			// Create drizzle instance with proxy callbacks
+			// Drizzle's sqlite-proxy accesses rows by column INDEX (row[0], row[1]),
+			// so we must return sql.js values (arrays) directly, not objects.
+			const db = drizzle(
+				async (
+					sqlQuery: string,
+					params: SqlJsParams,
+					method: string,
+				): Promise<QueryResult> => {
+					try {
+						if (method === "run") {
+							sqlDb.run(sqlQuery, params);
+							return { rows: [] };
+						}
+						const result = sqlDb.exec(sqlQuery, params);
+						return { rows: getExecRows(result) };
+					} catch (error) {
+						console.error(
+							"SQL error:",
+							error,
+							"SQL:",
+							sqlQuery,
+							"Params:",
+							params,
+						);
+						throw error;
+					}
+				},
+				async (queries: BatchQuery[]): Promise<BatchResult> => {
+					const results = [];
+					for (const { sql, params, method } of queries) {
+						const result = await (async () => {
+							if (method === "run") {
+								sqlDb.run(sql, params);
+								return { rows: [] };
+							}
+							const result = sqlDb.exec(sql, params);
+							return { rows: getExecRows(result) };
+						})();
+						results.push(result);
+					}
+					return results;
+				},
+				{ schema },
+			);
+
+			dbInstance = db as DrizzleDB;
+			registerFlushHandlers();
+			return dbInstance as DrizzleDB;
 		})();
 	}
 
-	const sqlDb = await sqlDbPromise;
-	if (!sqlDb) {
-		throw new Error("Failed to initialize SQL.js");
-	}
-
-	// Run pending migrations
-	const versionResult = sqlDb.exec("PRAGMA user_version");
-	const userVersion = getNumericCell(versionResult);
-
-	for (let i = userVersion; i < migrations.length; i++) {
-		runMigration(sqlDb, migrations[i] as string);
-	}
-	sqlDb.run(`PRAGMA user_version = ${migrations.length}`);
-
-	// Seed initial version and card pools if not already present
-	await seedInitialData(sqlDb);
-
-	// Create drizzle instance with proxy callbacks
-	// Drizzle's sqlite-proxy accesses rows by column INDEX (row[0], row[1]),
-	// so we must return sql.js values (arrays) directly, not objects.
-	const db = drizzle(
-		async (
-			sqlQuery: string,
-			params: SqlJsParams,
-			method: string,
-		): Promise<QueryResult> => {
-			try {
-				if (method === "run") {
-					sqlDb.run(sqlQuery, params);
-					return { rows: [] };
-				}
-				const result = sqlDb.exec(sqlQuery, params);
-				return { rows: getExecRows(result) };
-			} catch (error) {
-				console.error("SQL error:", error, "SQL:", sqlQuery, "Params:", params);
-				throw error;
-			}
-		},
-		async (queries: BatchQuery[]): Promise<BatchResult> => {
-			const results = [];
-			for (const { sql, params, method } of queries) {
-				const result = await (async () => {
-					if (method === "run") {
-						sqlDb.run(sql, params);
-						return { rows: [] };
-					}
-					const result = sqlDb.exec(sql, params);
-					return { rows: getExecRows(result) };
-				})();
-				results.push(result);
-			}
-			return results;
-		},
-		{ schema },
-	);
-
-	dbInstance = db as DrizzleDB;
-	registerFlushHandlers();
-	return db;
+	return initPromise;
 }
 
 // Get current DB instance
@@ -187,6 +204,7 @@ export function closeDB(): void {
 	}
 	dbInstance = null;
 	sqlDbPromise = null;
+	initPromise = null;
 }
 
 function registerFlushHandlers(): void {
