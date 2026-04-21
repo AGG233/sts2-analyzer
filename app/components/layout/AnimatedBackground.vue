@@ -44,7 +44,7 @@ const loadSpineBackground = async () => {
 	containerRef.value.appendChild(canvas);
 
 	// Spine asset paths
-	const spineBasePath = "/spine/mainmenu";
+	const spineBasePath = `${import.meta.env.BASE_URL}spine/mainmenu`;
 	const layers = [
 		{ dir: "bottom", name: "main_menu_bottom", scale: 0.66 },
 		{ dir: "top", name: "main_menu_top", scale: 0.66 },

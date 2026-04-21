@@ -51,7 +51,7 @@ export async function initDB(): Promise<DrizzleDB> {
 		sqlDbPromise = (async () => {
 			try {
 				const SQL = await initSqlJs({
-					locateFile: () => "/sql-wasm.wasm",
+					locateFile: () => `${import.meta.env.BASE_URL}sql-wasm.wasm`,
 				});
 
 				// Try to load persisted database from IndexedDB
@@ -254,7 +254,7 @@ async function seedInitialData(sqlDb: {
 	try {
 		// In client context, try to fetch from public folder
 		if (typeof window !== "undefined") {
-			const response = await fetch("/card-pools-v0.15.json");
+			const response = await fetch(`${import.meta.env.BASE_URL}card-pools-v0.15.json`);
 			if (response.ok) {
 				const data = (await response.json()) as {
 					version: string;

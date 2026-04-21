@@ -4,7 +4,7 @@ let metadataCache: CardMetadataRaw | null = null;
 
 async function loadMetadata(): Promise<CardMetadataRaw> {
 	if (metadataCache) return metadataCache;
-	const res = await fetch("/card-metadata-v0.15.json");
+	const res = await fetch(`${import.meta.env.BASE_URL}card-metadata-v0.15.json`);
 	metadataCache = (await res.json()) as CardMetadataRaw;
 	return metadataCache;
 }
