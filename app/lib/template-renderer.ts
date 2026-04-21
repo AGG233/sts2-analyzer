@@ -15,6 +15,16 @@ export interface RenderContext {
 	cardType?: string;
 }
 
+function isWordChar(ch: string): boolean {
+	const code = ch.codePointAt(0) ?? 0;
+	return (
+		(code >= 97 && code <= 122) || // a-z
+		(code >= 65 && code <= 90) || // A-Z
+		(code >= 48 && code <= 57) || // 0-9
+		ch === "_"
+	);
+}
+
 function resolveVar(
 	ctx: RenderContext,
 	name: string,
@@ -172,18 +182,49 @@ function classifyPlaceholder(inner: string): PlaceholderKind {
 	}
 
 	// 方法调用: VarName:method(rest)
-	const methodRegex = /^(\w+?):(\w[\w()]*?)\(([^)]*?)\)$/;
-	const methodMatch = methodRegex.exec(inner);
-	if (methodMatch) {
-		return {
-			kind: "methodCall",
-			varName: methodMatch[1],
-			method: `${methodMatch[2]}(${methodMatch[3]})`,
-		};
+	const colonIdx = inner.indexOf(":");
+	if (colonIdx > 0) {
+		const varName = inner.slice(0, colonIdx);
+		const afterColon = inner.slice(colonIdx + 1);
+		const openParen = afterColon.indexOf("(");
+		const closeParen = afterColon.lastIndexOf(")");
+		if (
+			openParen > 0 &&
+			closeParen === afterColon.length - 1 &&
+			openParen < closeParen
+		) {
+			const methodName = afterColon.slice(0, openParen);
+			const rest = afterColon.slice(openParen + 1, closeParen);
+			let valid = true;
+			for (const c of varName) {
+				if (!isWordChar(c)) {
+					valid = false;
+					break;
+				}
+			}
+			for (const c of methodName) {
+				if (!isWordChar(c) && c !== "(" && c !== ")") {
+					valid = false;
+					break;
+				}
+			}
+			if (
+				valid &&
+				varName.length > 0 &&
+				methodName.length > 0 &&
+				isWordChar(methodName[0] as string)
+			) {
+				return {
+					kind: "methodCall",
+					varName,
+					method: `${methodName}(${rest})`,
+				};
+			}
+		}
 	}
 
 	// VarName:plural:singular|plural（参数包含管道符，不被上面的 () 正则捕获）
-	const pluralRegex = /^([\w]+):plural:(.+)$/;
+	const pluralRegex = /^(\w+):plural:(.+)$/;
 	const pluralMatch = pluralRegex.exec(inner);
 	if (pluralMatch) {
 		return {
@@ -216,7 +257,7 @@ function classifyPlaceholder(inner: string): PlaceholderKind {
 		};
 	}
 
-	const condRegex = /^([\w][\w.]*):cond:(.+)$/;
+	const condRegex = /^(\w[\w.]*):cond:(.+)$/;
 	const condMatch = condRegex.exec(inner);
 	if (condMatch) {
 		return { kind: "cond", varName: condMatch[1], condition: condMatch[2] };
@@ -317,12 +358,24 @@ function parseBBCodeTag(
 	pos: number,
 	ctx: RenderContext,
 ): { segments: Segment[]; consumed: number } | undefined {
-	const openRegex = /^\[(\w+)(?:\s+[^\]]*?)?\]/;
-	const openMatch = openRegex.exec(template.slice(pos));
-	if (!openMatch) return undefined;
+	if (template[pos] !== "[") return undefined;
 
-	const tagName = openMatch[1];
-	const tagEnd = pos + openMatch[0].length;
+	// Parse tag name: word chars after [
+	let i = pos + 1;
+	let tagName = "";
+	while (i < template.length && isWordChar(template[i] as string)) {
+		tagName += template[i];
+		i++;
+	}
+	if (tagName.length === 0) return undefined;
+
+	// Skip optional attributes until ]
+	while (i < template.length && template[i] !== "]") {
+		i++;
+	}
+	if (i >= template.length || template[i] !== "]") return undefined;
+
+	const tagEnd = i + 1;
 	const closingTag = `[/${tagName}]`;
 	const closeIdx = template.indexOf(closingTag, tagEnd);
 	if (closeIdx < 0) return undefined;
