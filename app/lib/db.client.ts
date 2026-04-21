@@ -234,32 +234,39 @@ async function seedInitialData(sqlDb: {
 	run: (sql: string, params?: SqlJsParams) => Database;
 	prepare: (sql: string) => Statement;
 }): Promise<void> {
-	// Check which tables already have data
-	const gameVersionsResult = sqlDb.exec(
-		"SELECT COUNT(*) as count FROM game_versions;",
-	);
-	const hasGameVersions = getNumericCell(gameVersionsResult) > 0;
-
-	const cardPoolsResult = sqlDb.exec(
-		"SELECT COUNT(*) as count FROM card_pools;",
-	);
-	const hasCardPools = getNumericCell(cardPoolsResult) > 0;
-
-	const cardMetadataResult = sqlDb.exec(
-		"SELECT COUNT(*) as count FROM card_metadata;",
-	);
-	const hasCardMetadata = getNumericCell(cardMetadataResult) > 0;
-
-	const cardVarsResult = sqlDb.exec("SELECT COUNT(*) as count FROM card_vars;");
-	const hasCardVars = getNumericCell(cardVarsResult) > 0;
-
-	if (hasGameVersions && hasCardPools && hasCardMetadata && hasCardVars) {
-		return;
-	}
+	let hasGameVersions = false;
+	let hasCardPools = false;
+	let hasCardMetadata = false;
+	let hasCardVars = false;
 
 	try {
-		if (typeof window !== "undefined") {
-			const baseURL = import.meta.env.BASE_URL;
+		// Check which tables already have data
+		const gameVersionsResult = sqlDb.exec(
+			"SELECT COUNT(*) as count FROM game_versions;",
+		);
+		hasGameVersions = getNumericCell(gameVersionsResult) > 0;
+
+		const cardPoolsResult = sqlDb.exec(
+			"SELECT COUNT(*) as count FROM card_pools;",
+		);
+		hasCardPools = getNumericCell(cardPoolsResult) > 0;
+
+		const cardMetadataResult = sqlDb.exec(
+			"SELECT COUNT(*) as count FROM card_metadata;",
+		);
+		hasCardMetadata = getNumericCell(cardMetadataResult) > 0;
+
+		const cardVarsResult = sqlDb.exec(
+			"SELECT COUNT(*) as count FROM card_vars;",
+		);
+		hasCardVars = getNumericCell(cardVarsResult) > 0;
+
+		if (hasGameVersions && hasCardPools && hasCardMetadata && hasCardVars) {
+			return;
+		}
+
+		if (typeof globalThis.window !== "undefined") {
+			const baseURL = new URL(".", globalThis.location?.href ?? "/").href;
 
 			if (!hasGameVersions || !hasCardPools) {
 				const poolResponse = await fetch(`${baseURL}card-pools-v0.15.json`);
@@ -404,10 +411,11 @@ async function seedInitialData(sqlDb: {
 
 			return;
 		}
-	} catch (error) {
-		console.warn("Failed to seed data from fetch:", error);
+	} catch (seedError) {
+		console.warn("seedInitialData failed:", seedError);
 	}
 
+	// 回退：如果没有从 JSON 成功 seed，插入最小版本记录
 	if (!hasGameVersions) {
 		sqlDb.run(
 			"INSERT INTO game_versions (version, display_name, notes) VALUES (?, ?, ?)",

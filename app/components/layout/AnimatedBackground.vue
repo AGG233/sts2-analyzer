@@ -41,10 +41,18 @@ const loadSpineBackground = async () => {
 	canvas.style.width = "100%";
 	canvas.style.height = "100%";
 	canvas.style.pointerEvents = "none";
+	if (!containerRef.value) {
+		app.destroy(true);
+		app = null;
+		return;
+	}
 	containerRef.value.appendChild(canvas);
 
 	// Spine asset paths
-	const spineBasePath = `${import.meta.env.BASE_URL}spine/mainmenu`;
+	const spineBasePath = new URL(
+		"spine/mainmenu",
+		globalThis.location?.href ?? "/",
+	).href;
 	const layers = [
 		{ dir: "bottom", name: "main_menu_bottom", scale: 0.66 },
 		{ dir: "top", name: "main_menu_top", scale: 0.66 },
@@ -179,10 +187,13 @@ const loadSpineBackground = async () => {
 };
 
 onMounted(async () => {
-	// 确保 DOM 已经完全加载
 	await new Promise((resolve) => setTimeout(resolve, 0));
 	if (containerRef.value) {
-		loadSpineBackground();
+		try {
+			await loadSpineBackground();
+		} catch (error) {
+			console.warn("Failed to load animated background:", error);
+		}
 	}
 });
 
