@@ -315,6 +315,102 @@ describe("db.client", () => {
 				globalThis.fetch = originalFetch;
 			}
 		});
+
+		it("所有表已有数据时跳过 seed", async () => {
+			const db = await importDB();
+			const fetchSpy = vi.fn();
+			const originalFetch = globalThis.fetch;
+			globalThis.fetch = fetchSpy as unknown as typeof fetch;
+
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				if (sql.includes("COUNT(*)")) {
+					return [{ values: [[1]] }];
+				}
+				return [];
+			});
+
+			try {
+				await db.initDB();
+				expect(fetchSpy).not.toHaveBeenCalled();
+			} finally {
+				globalThis.fetch = originalFetch;
+			}
+		});
+
+		it("seed 包含遗物变量数据", async () => {
+			const db = await importDB();
+
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				if (sql.includes("COUNT(*)")) {
+					return [{ values: [[0]] }];
+				}
+				return [];
+			});
+
+			const originalFetch = globalThis.fetch;
+			globalThis.fetch = vi.fn().mockImplementation((url: string) => {
+				if (url.includes("card-pools")) {
+					return Promise.resolve({
+						ok: true,
+						json: () =>
+							Promise.resolve({
+								version: "0.15",
+								display_name: "EA 0.15",
+								card_pools: [],
+							}),
+					});
+				}
+				if (url.includes("card-metadata")) {
+					return Promise.resolve({
+						ok: true,
+						json: () => Promise.resolve({ version: "0.15", cards: {} }),
+					});
+				}
+				if (url.includes("card-vars")) {
+					return Promise.resolve({
+						ok: true,
+						json: () =>
+							Promise.resolve({
+								version: "0.15",
+								cards: {},
+								relics: {
+									burning_blood: {
+										vars: [
+											{
+												name: "Heal",
+												type: "int",
+												base_value: 6,
+											},
+										],
+										upgrades: {},
+									},
+								},
+							}),
+					});
+				}
+				return Promise.resolve({ ok: false, status: 404 });
+			}) as unknown as typeof fetch;
+
+			const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
+			try {
+				await db.initDB();
+				expect(mockPrepare).toHaveBeenCalled();
+				// The relic should have been inserted
+				expect(consoleSpy).toHaveBeenCalledWith(
+					expect.stringContaining("relic vars"),
+				);
+			} finally {
+				globalThis.fetch = originalFetch;
+				consoleSpy.mockRestore();
+			}
+		});
 	});
 
 	describe("runMigration", () => {
