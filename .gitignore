@@ -27,6 +27,8 @@ logs
 .claude/
 .playwright-mcp/
 .worktrees/
+.superpowers/
+.codex
 
 # IDE configuration (exclude SonarQube-specific settings, keep extensions)
 .vscode/settings.json
