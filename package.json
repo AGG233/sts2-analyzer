@@ -18,7 +18,8 @@
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage",
     "db:generate": "drizzle-kit generate",
-    "bundle:check": "node scripts/check-bundle.mjs"
+    "bundle:check": "node scripts/check-bundle.mjs",
+    "assets:download": "bash scripts/download-game-assets.sh"
   },
   "dependencies": {
     "@esotericsoftware/spine-core": "^4.2.110",

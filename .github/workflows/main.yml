@@ -34,6 +34,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      contents: read
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -47,6 +48,15 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Download game resources
+        env:
+          GH_TOKEN: ${{ secrets.ASSETS_REPO_TOKEN }}
+        run: |
+          tmpdir=$(mktemp -d)
+          gh repo clone AGG233/sts2-analyzer-assets "$tmpdir" -- --depth 1 --quiet
+          cp -r "$tmpdir/cards" public/
+          cp -r "$tmpdir/spine" public/
+          rm -rf "$tmpdir"
       - run: pnpm run generate
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
