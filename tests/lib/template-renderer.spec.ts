@@ -60,6 +60,42 @@ describe("renderSegments", () => {
 		});
 	});
 
+	describe("inverseDiff() 变量解析", () => {
+		it("基础等级显示 0", () => {
+			const result = renderSegments(
+				"Gain {Damage:inverseDiff()} strength.",
+				makeCtx(),
+			);
+			expect(result).toContainEqual({
+				type: "variable",
+				name: "Damage",
+				value: 0,
+				upgraded: false,
+			});
+		});
+
+		it("升级后显示负的升级增量", () => {
+			const result = renderSegments(
+				"Gain {Damage:inverseDiff()} strength.",
+				makeCtx({ upgradeLevel: 1 }),
+			);
+			expect(result).toContainEqual({
+				type: "variable",
+				name: "Damage",
+				value: -2,
+				upgraded: true,
+			});
+		});
+
+		it("未知变量显示问号", () => {
+			const result = renderSegments(
+				"Gain {Unknown:inverseDiff()} strength.",
+				makeCtx(),
+			);
+			expect(result).toContainEqual({ type: "text", value: "?" });
+		});
+	});
+
 	describe("裸变量", () => {
 		it("解析裸变量数值", () => {
 			const result = renderSegments("Lose {HpLoss} HP.", {
@@ -149,6 +185,14 @@ describe("renderSegments", () => {
 				{ ...makeCtx(), vars: { Cards: { base: 3 } } },
 			);
 			expect(result).toContainEqual({ type: "text", value: "cards" });
+		});
+
+		it("空复数分支时返回空数组", () => {
+			const result = renderSegments(
+				"{Cards:plural:card|}",
+				{ ...makeCtx(), vars: { Cards: { base: 3 } } },
+			);
+			expect(result).toEqual([]);
 		});
 	});
 
@@ -360,6 +404,16 @@ describe("renderSegments", () => {
 	describe("未知占位符", () => {
 		it("无法识别的占位符返回问号", () => {
 			const result = renderSegments("{unknownPattern!!!}", makeCtx());
+			expect(result).toContainEqual({ type: "text", value: "?" });
+		});
+
+		it("非法变量名占位符返回问号", () => {
+			const result = renderSegments("{@#$:diff()}", makeCtx());
+			expect(result).toContainEqual({ type: "text", value: "?" });
+		});
+
+		it("非法方法名占位符返回问号", () => {
+			const result = renderSegments("{Damage:!!!()}", makeCtx());
 			expect(result).toContainEqual({ type: "text", value: "?" });
 		});
 	});

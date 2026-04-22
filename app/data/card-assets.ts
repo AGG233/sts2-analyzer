@@ -1,4 +1,5 @@
-const BASE = `${import.meta.env.BASE_URL}cards`;
+// Vite dev 的 BASE_URL 包含 _nuxt/ 后缀，但 public/ 文件通过 app baseURL 根路径提供
+const BASE = `${import.meta.env.BASE_URL.replace(/\/_nuxt\/$/, "/")}cards`;
 
 export function getPortraitPath(
 	characterId: string,
