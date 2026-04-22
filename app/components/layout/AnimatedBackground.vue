@@ -41,10 +41,16 @@ const loadSpineBackground = async () => {
 	canvas.style.width = "100%";
 	canvas.style.height = "100%";
 	canvas.style.pointerEvents = "none";
+	if (!containerRef.value) {
+		app.destroy(true);
+		app = null;
+		return;
+	}
 	containerRef.value.appendChild(canvas);
 
-	// Spine asset paths
-	const spineBasePath = `${import.meta.env.BASE_URL}spine/mainmenu`;
+	// Vite dev 的 BASE_URL 包含 _nuxt/ 后缀，但 public/ 文件通过 app baseURL 根路径提供
+	const appBaseURL = import.meta.env.BASE_URL.replace(/\/_nuxt\/$/, "/");
+	const spineBasePath = `${appBaseURL}spine/mainmenu`;
 	const layers = [
 		{ dir: "bottom", name: "main_menu_bottom", scale: 0.66 },
 		{ dir: "top", name: "main_menu_top", scale: 0.66 },
@@ -61,10 +67,20 @@ const loadSpineBackground = async () => {
 	): Promise<Spine> => {
 		const basePath = `${spineBasePath}/${dir}`;
 
-		const [skelBuffer, atlasText] = await Promise.all([
-			fetch(`${basePath}/${name}.skel`).then((r) => r.arrayBuffer()),
-			fetch(`${basePath}/${name}.atlas`).then((r) => r.text()),
-		]);
+		const skelResponse = await fetch(`${basePath}/${name}.skel`);
+		const atlasResponse = await fetch(`${basePath}/${name}.atlas`);
+		if (!skelResponse.ok) {
+			throw new Error(
+				`Failed to load spine skeleton ${name}: ${skelResponse.status}`,
+			);
+		}
+		if (!atlasResponse.ok) {
+			throw new Error(
+				`Failed to load spine atlas ${name}: ${atlasResponse.status}`,
+			);
+		}
+		const skelBuffer = await skelResponse.arrayBuffer();
+		const atlasText = await atlasResponse.text();
 
 		// Parse atlas (constructor only takes one arg — texture binding done separately)
 		const atlas = new TextureAtlas(atlasText);
@@ -179,10 +195,13 @@ const loadSpineBackground = async () => {
 };
 
 onMounted(async () => {
-	// 确保 DOM 已经完全加载
 	await new Promise((resolve) => setTimeout(resolve, 0));
 	if (containerRef.value) {
-		loadSpineBackground();
+		try {
+			await loadSpineBackground();
+		} catch (error) {
+			console.warn("Failed to load animated background:", error);
+		}
 	}
 });
 

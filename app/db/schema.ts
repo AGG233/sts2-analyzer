@@ -9,6 +9,7 @@ import {
 export const gameVersions = sqliteTable("game_versions", {
 	version: text("version").primaryKey(),
 	displayName: text("display_name").notNull().default(""),
+	buildNumber: int("build_number").notNull().default(0),
 	addedAt: text("added_at").notNull().default("datetime('now')"),
 	notes: text("notes").notNull().default(""),
 });
@@ -74,6 +75,45 @@ export const runPlayers = sqliteTable(
 	(table) => ({
 		pk: primaryKey({
 			columns: [table.runSeed, table.playerIndex],
+		}),
+	}),
+);
+
+export const cardMetadata = sqliteTable(
+	"card_metadata",
+	{
+		cardId: text("card_id").notNull(),
+		gameVersion: text("game_version")
+			.notNull()
+			.references(() => gameVersions.version),
+		cost: int("cost").notNull(),
+		type: text("type").notNull(),
+		rarity: text("rarity").notNull(),
+		target: text("target").notNull(),
+		tagsJson: text("tags_json").notNull().default("[]"),
+		characterId: text("character_id").notNull().default(""),
+		isStarter: integer("is_starter").notNull().default(0),
+	},
+	(table) => ({
+		pk: primaryKey({
+			columns: [table.cardId, table.gameVersion],
+		}),
+	}),
+);
+
+export const cardVars = sqliteTable(
+	"card_vars",
+	{
+		entityId: text("entity_id").notNull(),
+		entityType: text("entity_type").notNull().default("card"),
+		gameVersion: text("game_version")
+			.notNull()
+			.references(() => gameVersions.version),
+		dataJson: text("data_json").notNull(),
+	},
+	(table) => ({
+		pk: primaryKey({
+			columns: [table.entityId, table.entityType, table.gameVersion],
 		}),
 	}),
 );

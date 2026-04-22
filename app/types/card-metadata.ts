@@ -7,8 +7,3 @@ export interface CardMetadataEntry {
 	character_id?: string;
 	is_starter?: boolean;
 }
-
-export interface CardMetadataRaw {
-	version: string;
-	cards: Record<string, CardMetadataEntry>;
-}

@@ -98,6 +98,59 @@ describe("db.client", () => {
 
 			expect(db.getDB()).toBeDefined();
 		});
+
+		it("Drizzle run 查询触发 sql.js run 路径", async () => {
+			const db = await importDB();
+			await db.initDB();
+			const drizzleDb = db.getDB() as unknown as {
+				run: (query: string) => Promise<unknown>;
+			};
+
+			await drizzleDb.run("SELECT 1");
+
+			expect(mockRun).toHaveBeenCalled();
+		});
+
+		it("Drizzle all 查询触发 exec 和 getExecRows", async () => {
+			const db = await importDB();
+			await db.initDB();
+			const drizzleDb = db.getDB() as unknown as {
+				all: (query: string) => Promise<unknown[]>;
+			};
+
+			mockExec.mockReturnValueOnce([{ values: [[1]] }]);
+			const result = await drizzleDb.all("SELECT 1");
+
+			expect(mockExec).toHaveBeenCalled();
+			expect(result).toEqual([[1]]);
+		});
+
+		it("Drizzle 查询错误被捕获并记录到控制台", async () => {
+			const db = await importDB();
+			await db.initDB();
+			const drizzleDb = db.getDB() as unknown as {
+				run: (query: string) => Promise<unknown>;
+			};
+
+			mockRun.mockImplementationOnce(() => {
+				throw new Error("SQL syntax error");
+			});
+			const consoleSpy = vi
+				.spyOn(console, "error")
+				.mockImplementation(() => {});
+
+			await expect(drizzleDb.run("INVALID")).rejects.toThrow();
+			expect(consoleSpy).toHaveBeenCalledWith(
+				expect.stringContaining("SQL error"),
+				expect.any(Error),
+				expect.stringContaining("SQL:"),
+				expect.anything(),
+				expect.stringContaining("Params:"),
+				expect.anything(),
+			);
+
+			consoleSpy.mockRestore();
+		});
 	});
 
 	describe("saveDB", () => {
@@ -195,6 +248,334 @@ describe("db.client", () => {
 			await vi.runAllTimersAsync();
 
 			expect(mockExport).not.toHaveBeenCalled();
+		});
+	});
+
+	describe("seedInitialData", () => {
+		it("从 JSON 文件 seed 初始数据", async () => {
+			const db = await importDB();
+
+			// Mock exec to return empty tables for counts and user_version 0
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				if (sql.includes("COUNT(*)")) {
+					return [{ values: [[0]] }];
+				}
+				return [];
+			});
+
+			// Mock fetch responses
+			const originalFetch = globalThis.fetch;
+			globalThis.fetch = vi.fn().mockImplementation((url: string) => {
+				if (url.includes("card-pools")) {
+					return Promise.resolve({
+						ok: true,
+						json: () =>
+							Promise.resolve({
+								version: "0.15",
+								display_name: "EA 0.15",
+								card_pools: [
+									{
+										card_id: "bash",
+										character_id: "ironclad",
+										is_starter: true,
+										game_version: "0.15",
+									},
+								],
+							}),
+					});
+				}
+				if (url.includes("card-metadata")) {
+					return Promise.resolve({
+						ok: true,
+						json: () =>
+							Promise.resolve({
+								version: "0.15",
+								cards: {
+									bash: {
+										cost: 2,
+										type: "Attack",
+										rarity: "Basic",
+										target: "enemy",
+										tags: ["strike"],
+									},
+								},
+							}),
+					});
+				}
+				if (url.includes("card-vars")) {
+					return Promise.resolve({
+						ok: true,
+						json: () =>
+							Promise.resolve({
+								version: "0.15",
+								cards: {
+									bash: {
+										vars: [{ name: "Damage", type: "int", base_value: 8 }],
+										upgrades: {},
+									},
+								},
+								relics: {},
+							}),
+					});
+				}
+				return Promise.resolve({ ok: false, status: 404 });
+			}) as unknown as typeof fetch;
+
+			const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
+			try {
+				await db.initDB();
+				expect(mockRun).toHaveBeenCalled();
+				expect(mockPrepare).toHaveBeenCalled();
+			} finally {
+				globalThis.fetch = originalFetch;
+				consoleSpy.mockRestore();
+			}
+		});
+
+		it("seed 失败时回退到插入最小版本记录", async () => {
+			const db = await importDB();
+
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				if (sql.includes("COUNT(*)")) {
+					return [{ values: [[0]] }];
+				}
+				return [];
+			});
+
+			// Make fetch fail
+			const originalFetch = globalThis.fetch;
+			globalThis.fetch = vi
+				.fn()
+				.mockRejectedValue(
+					new Error("Network error"),
+				) as unknown as typeof fetch;
+
+			try {
+				await db.initDB();
+				// Should have inserted fallback version
+				expect(mockRun).toHaveBeenCalledWith(
+					expect.stringContaining("INSERT INTO game_versions"),
+					expect.arrayContaining(["0.15"]),
+				);
+			} finally {
+				globalThis.fetch = originalFetch;
+			}
+		});
+
+		it("所有表已有数据时跳过 seed", async () => {
+			const db = await importDB();
+			const fetchSpy = vi.fn();
+			const originalFetch = globalThis.fetch;
+			globalThis.fetch = fetchSpy as unknown as typeof fetch;
+
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				if (sql.includes("COUNT(*)")) {
+					return [{ values: [[1]] }];
+				}
+				return [];
+			});
+
+			try {
+				await db.initDB();
+				expect(fetchSpy).not.toHaveBeenCalled();
+			} finally {
+				globalThis.fetch = originalFetch;
+			}
+		});
+
+		it("seed 包含遗物变量数据", async () => {
+			const db = await importDB();
+
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				if (sql.includes("COUNT(*)")) {
+					return [{ values: [[0]] }];
+				}
+				return [];
+			});
+
+			const originalFetch = globalThis.fetch;
+			globalThis.fetch = vi.fn().mockImplementation((url: string) => {
+				if (url.includes("card-pools")) {
+					return Promise.resolve({
+						ok: true,
+						json: () =>
+							Promise.resolve({
+								version: "0.15",
+								display_name: "EA 0.15",
+								card_pools: [],
+							}),
+					});
+				}
+				if (url.includes("card-metadata")) {
+					return Promise.resolve({
+						ok: true,
+						json: () => Promise.resolve({ version: "0.15", cards: {} }),
+					});
+				}
+				if (url.includes("card-vars")) {
+					return Promise.resolve({
+						ok: true,
+						json: () =>
+							Promise.resolve({
+								version: "0.15",
+								cards: {},
+								relics: {
+									burning_blood: {
+										vars: [
+											{
+												name: "Heal",
+												type: "int",
+												base_value: 6,
+											},
+										],
+										upgrades: {},
+									},
+								},
+							}),
+					});
+				}
+				return Promise.resolve({ ok: false, status: 404 });
+			}) as unknown as typeof fetch;
+
+			const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
+			try {
+				await db.initDB();
+				expect(mockPrepare).toHaveBeenCalled();
+				// The relic should have been inserted
+				expect(consoleSpy).toHaveBeenCalledWith(
+					expect.stringContaining("relic vars"),
+				);
+			} finally {
+				globalThis.fetch = originalFetch;
+				consoleSpy.mockRestore();
+			}
+		});
+	});
+
+	describe("runMigration", () => {
+		it("跳过已存在的列/表迁移错误", async () => {
+			const db = await importDB();
+
+			// First exec call for user_version succeeds, migration fails with CREATE TABLE error
+			let callCount = 0;
+			mockExec.mockImplementation((sql: string) => {
+				callCount++;
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				if (sql.toUpperCase().includes("CREATE TABLE")) {
+					throw new Error("table already exists");
+				}
+				return [];
+			});
+
+			const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+
+			try {
+				await db.initDB();
+				expect(consoleSpy).toHaveBeenCalledWith(
+					expect.stringContaining("Migration step skipped"),
+					expect.any(String),
+				);
+			} finally {
+				consoleSpy.mockRestore();
+			}
+		});
+
+		it("非幂等迁移错误仍然抛出", async () => {
+			const db = await importDB();
+
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				throw new Error("syntax error");
+			});
+
+			await expect(db.initDB()).rejects.toThrow("syntax error");
+		});
+	});
+
+	describe("scheduleSave error handling", () => {
+		it("保存失败时记录错误到控制台", async () => {
+			const db = await importDB();
+
+			// Reset exec to default success behavior
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				return [];
+			});
+
+			await db.initDB();
+
+			mockExport.mockImplementationOnce(() => {
+				throw new Error("Export failed");
+			});
+
+			const consoleSpy = vi
+				.spyOn(console, "error")
+				.mockImplementation(() => {});
+
+			db.scheduleSave(100);
+			vi.advanceTimersByTime(100);
+			await vi.runAllTimersAsync();
+
+			expect(consoleSpy).toHaveBeenCalledWith(
+				expect.stringContaining("Failed to save DB"),
+				expect.any(Error),
+			);
+
+			consoleSpy.mockRestore();
+		});
+	});
+
+	describe("flush handler error", () => {
+		it("页面退出时 flush 失败记录错误", async () => {
+			const db = await importDB();
+
+			// Reset exec to default success behavior
+			mockExec.mockImplementation((sql: string) => {
+				if (sql.includes("PRAGMA user_version")) {
+					return [{ values: [[0]] }];
+				}
+				return [];
+			});
+
+			await db.initDB();
+
+			mockExport.mockImplementationOnce(() => {
+				throw new Error("Flush failed");
+			});
+
+			const consoleSpy = vi
+				.spyOn(console, "error")
+				.mockImplementation(() => {});
+
+			window.dispatchEvent(new Event("beforeunload"));
+			await vi.runAllTimersAsync();
+
+			expect(consoleSpy).toHaveBeenCalledWith(
+				expect.stringContaining("Failed to flush DB before page exit"),
+				expect.any(Error),
+			);
+
+			consoleSpy.mockRestore();
 		});
 	});
 });

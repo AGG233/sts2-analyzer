@@ -1,10 +1,15 @@
-const BASE = `${import.meta.env.BASE_URL}cards`;
+// Vite dev 的 BASE_URL 包含 _nuxt/ 后缀，但 public/ 文件通过 app baseURL 根路径提供
+const BASE = `${import.meta.env.BASE_URL.replace(/\/_nuxt\/$/, "/")}cards`;
 
 export function getPortraitPath(
 	characterId: string,
 	cardBareId: string,
 ): string {
-	return `${BASE}/portraits/${characterId}/${cardBareId.toLowerCase()}.png`;
+	const bare = cardBareId.toLowerCase();
+	// 基础牌（Strike/Defend）按角色分不同文件名
+	const filename =
+		bare === "strike" || bare === "defend" ? `${bare}_${characterId}` : bare;
+	return `${BASE}/portraits/${characterId}/${filename}.png`;
 }
 
 export function getFramePath(type: string): string {

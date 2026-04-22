@@ -17,6 +17,9 @@ export default defineConfig({
 	resolve: {
 		alias: {
 			"~": fileURLToPath(new URL("./app", import.meta.url)),
+			"vue-i18n": fileURLToPath(
+				new URL("./tests/mocks/vue-i18n.ts", import.meta.url),
+			),
 		},
 	},
 });

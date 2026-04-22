@@ -37,6 +37,10 @@ logs
 # Agent/AI specific documentation (internal use only)
 CLAUDE.md
 docs/
+!docs/base-url-public-assets.md
+
+# Test coverage reports
+coverage/
 
 # Game source reference (contains potentially proprietary info)
 GAME_SOURCE.md
