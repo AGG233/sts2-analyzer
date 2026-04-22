@@ -188,10 +188,10 @@ describe("renderSegments", () => {
 		});
 
 		it("空复数分支时返回空数组", () => {
-			const result = renderSegments(
-				"{Cards:plural:card|}",
-				{ ...makeCtx(), vars: { Cards: { base: 3 } } },
-			);
+			const result = renderSegments("{Cards:plural:card|}", {
+				...makeCtx(),
+				vars: { Cards: { base: 3 } },
+			});
 			expect(result).toEqual([]);
 		});
 	});

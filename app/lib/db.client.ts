@@ -287,7 +287,12 @@ async function seedInitialData(sqlDb: {
 			return;
 		}
 
-		if (typeof globalThis.window !== "undefined") {
+		// jsdom 中 window 存在但 protocol 为 about:，fetch 无法解析纯路径 URL
+		const isRealBrowser =
+			typeof globalThis.window !== "undefined" &&
+			globalThis.location?.protocol?.startsWith("http");
+
+		if (isRealBrowser) {
 			const baseURL = getPublicBaseURL();
 
 			if (!hasGameVersions || !hasCardPools) {
