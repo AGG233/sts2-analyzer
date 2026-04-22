@@ -102,5 +102,12 @@ describe("card-vars", () => {
 
 			expect(db.select).toHaveBeenCalledOnce();
 		});
+
+		it("returns undefined when relic not found", async () => {
+			const db = createMockDb([]);
+			const result = await getRelicVarData(db, "RELIC.unknown");
+
+			expect(result).toBeUndefined();
+		});
 	});
 });

@@ -48,8 +48,9 @@ const loadSpineBackground = async () => {
 	}
 	containerRef.value.appendChild(canvas);
 
-	// Spine asset paths
-	const spineBasePath = `${import.meta.env.BASE_URL}spine/mainmenu`;
+	// Vite dev 的 BASE_URL 包含 _nuxt/ 后缀，但 public/ 文件通过 app baseURL 根路径提供
+	const appBaseURL = import.meta.env.BASE_URL.replace(/\/_nuxt\/$/, "/");
+	const spineBasePath = `${appBaseURL}spine/mainmenu`;
 	const layers = [
 		{ dir: "bottom", name: "main_menu_bottom", scale: 0.66 },
 		{ dir: "top", name: "main_menu_top", scale: 0.66 },

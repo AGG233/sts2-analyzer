@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed, onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import type { SimDeckCard } from "~/data/analytics";
 import { getCardMetadata } from "~/data/card-metadata";
 import { getCardVarData } from "~/data/card-vars";

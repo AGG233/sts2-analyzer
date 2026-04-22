@@ -4,6 +4,11 @@ import initSqlJs from "sql.js";
 import * as schema from "~/db/schema";
 import { loadSqliteDB, saveSqliteDB } from "~/lib/storage.client";
 
+// Vite dev 的 BASE_URL 包含 _nuxt/ 后缀（用于构建产物），但 public/ 文件通过 app baseURL 根路径提供
+function getPublicBaseURL(): string {
+	return import.meta.env.BASE_URL.replace(/\/_nuxt\/$/, "/");
+}
+
 // Types
 type QueryResult = { rows: unknown[] };
 type SqlJsQueryResult = { values: unknown[][] };
@@ -56,7 +61,7 @@ export async function initDB(): Promise<DrizzleDB> {
 				sqlDbPromise = (async () => {
 					try {
 						const SQL = await initSqlJs({
-							locateFile: () => `${import.meta.env.BASE_URL}sql-wasm.wasm`,
+							locateFile: () => `${getPublicBaseURL()}sql-wasm.wasm`,
 						});
 
 						// Try to load persisted database from IndexedDB
@@ -283,7 +288,7 @@ async function seedInitialData(sqlDb: {
 		}
 
 		if (typeof globalThis.window !== "undefined") {
-			const baseURL = import.meta.env.BASE_URL;
+			const baseURL = getPublicBaseURL();
 
 			if (!hasGameVersions || !hasCardPools) {
 				const poolResponse = await fetch(`${baseURL}card-pools-v0.15.json`);

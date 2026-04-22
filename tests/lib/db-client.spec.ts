@@ -98,6 +98,59 @@ describe("db.client", () => {
 
 			expect(db.getDB()).toBeDefined();
 		});
+
+		it("Drizzle run 查询触发 sql.js run 路径", async () => {
+			const db = await importDB();
+			await db.initDB();
+			const drizzleDb = db.getDB() as unknown as {
+				run: (query: string) => Promise<unknown>;
+			};
+
+			await drizzleDb.run("SELECT 1");
+
+			expect(mockRun).toHaveBeenCalled();
+		});
+
+		it("Drizzle all 查询触发 exec 和 getExecRows", async () => {
+			const db = await importDB();
+			await db.initDB();
+			const drizzleDb = db.getDB() as unknown as {
+				all: (query: string) => Promise<unknown[]>;
+			};
+
+			mockExec.mockReturnValueOnce([{ values: [[1]] }]);
+			const result = await drizzleDb.all("SELECT 1");
+
+			expect(mockExec).toHaveBeenCalled();
+			expect(result).toEqual([[1]]);
+		});
+
+		it("Drizzle 查询错误被捕获并记录到控制台", async () => {
+			const db = await importDB();
+			await db.initDB();
+			const drizzleDb = db.getDB() as unknown as {
+				run: (query: string) => Promise<unknown>;
+			};
+
+			mockRun.mockImplementationOnce(() => {
+				throw new Error("SQL syntax error");
+			});
+			const consoleSpy = vi
+				.spyOn(console, "error")
+				.mockImplementation(() => {});
+
+			await expect(drizzleDb.run("INVALID")).rejects.toThrow();
+			expect(consoleSpy).toHaveBeenCalledWith(
+				expect.stringContaining("SQL error"),
+				expect.any(Error),
+				expect.stringContaining("SQL:"),
+				expect.anything(),
+				expect.stringContaining("Params:"),
+				expect.anything(),
+			);
+
+			consoleSpy.mockRestore();
+		});
 	});
 
 	describe("saveDB", () => {
