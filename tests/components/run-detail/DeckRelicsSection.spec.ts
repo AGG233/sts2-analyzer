@@ -1,8 +1,8 @@
 import { mount } from "@vue/test-utils";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import DeckRelicsSection from "~/components/run-detail/DeckRelicsSection.vue";
-import GameCard from "~/components/shared/GameCard.vue";
 import AppTag from "~/components/shared/AppTag.vue";
+import GameCard from "~/components/shared/GameCard.vue";
 
 vi.mock("vue-i18n", () => ({
 	useI18n: () => ({ t: (key: string) => key }),
@@ -30,6 +30,14 @@ vi.mock("~/data/card-metadata", () => ({
 			character_id: "ironclad",
 		}),
 	),
+	CHARACTER_FRAME_COLORS: {
+		ironclad: "#e74c3c",
+		silent: "#2ecc71",
+		defect: "#3498db",
+		regent: "#e67e22",
+		necrobinder: "#e91e90",
+		colorless: "#95a5a6",
+	},
 }));
 
 vi.mock("~/data/card-vars", () => ({
@@ -62,9 +70,7 @@ describe("DeckRelicsSection", () => {
 					{ id: "CARD.bash", upgradeLevel: 0 },
 					{ id: "CARD.strike", upgradeLevel: 1 },
 				],
-				relics: [
-					{ id: "RELIC.burning_blood", floor_added_to_deck: 1 },
-				],
+				relics: [{ id: "RELIC.burning_blood", floor_added_to_deck: 1 }],
 				hoveredFloor: null,
 				...props,
 			},

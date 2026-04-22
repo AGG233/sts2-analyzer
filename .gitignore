@@ -38,6 +38,9 @@ logs
 CLAUDE.md
 docs/
 
+# Test coverage reports
+coverage/
+
 # Game source reference (contains potentially proprietary info)
 GAME_SOURCE.md
 
